@@ -1,14 +1,14 @@
 # Architecture — implemented foundation and future plan
 
-## Implemented in Phase 1
+## Implemented foundation and Phase 3A homepage
 
 Astro emits static HTML/CSS into `dist/`. No server adapter, database, CMS client, API endpoint, form processing, hosting connector, or deployment configuration is installed. Local builds do not read `WORDPRESS_URL` or contact WordPress.
 
 `astro.config.mjs` sets static output, trailing slashes, Romanian as the default locale, English as the secondary locale, and the official Tailwind Vite plugin. `tsconfig.json` extends `astro/tsconfigs/strict`. The separate `check` script uses `@astrojs/check`; `astro build` alone does not type-check.
 
-`BaseLayout.astro` owns the HTML language, metadata, global CSS, locally bundled font, and skip link. `PlaceholderHome.astro` shares the small temporary page between `src/pages/index.astro` and `src/pages/en/index.astro`. `LanguageSwitcher.astro` links these two existing home routes; future page-level language switching must use translated page identities, not always return users to the homepage.
+`BaseLayout.astro` owns the HTML language, metadata, global CSS, locally bundled font, and skip link. `HomePage.astro` now composes seven homepage sections for `src/pages/index.astro` and `src/pages/en/index.astro`; Phase 3A removes the placeholder component. `LanguageSwitcher.astro` links these two existing home routes; future page-level language switching must use translated page identities, not always return users to the homepage.
 
-`src/i18n/ui.ts` provides typed UI strings and home paths. Empty component/asset directories are retained with `.gitkeep`. `src/lib/wordpress/` is a documented boundary with no executable integration.
+`src/i18n/ui.ts` provides shared control strings and home paths; `src/i18n/home.ts` owns typed bilingual homepage copy and anchor navigation. `src/assets/home/renders.ts` separately maps render metadata and localized alt text. `src/components/home/` owns presentation. No CMS abstraction or new homepage browser script was introduced. `src/lib/wordpress/` remains an unimplemented boundary.
 
 ## Future data flow — not implemented
 
@@ -31,7 +31,7 @@ WordPress owns its PHP runtime and MySQL/MariaDB database. Astro needs only HTTP
 
 ## Proposed localized route map
 
-These are planning examples, not generated routes or approved editorial slugs. Romanian lives at the root; English uses `/en/`. Use stable page identities to map translated slugs, and keep UI translations separate from CMS copy. Both placeholder home routes exist now; every other route below is future work.
+These are planning examples, not generated routes or approved editorial slugs. Romanian lives at the root; English uses `/en/`. Use stable page identities to map translated slugs, and keep UI translations separate from CMS copy. Both home routes exist now; every other route below is future work.
 
 | Page identity | Romanian | English |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ These are planning examples, not generated routes or approved editorial slugs. R
 | Privacy | `/confidentialitate/` | `/en/privacy-policy/` |
 | Cookies | `/politica-cookies/` | `/en/cookie-policy/` |
 
-Select a WordPress multilingual approach before CMS integration. Core REST alone does not define translated-record relationships or language filters. Verify the selected solution's REST support; do not assume a `lang` query works. Avoid silently generating untranslated English pages. Later generate canonical URLs, reciprocal `hreflang`, `x-default`, sitemap entries, and missing-translation behavior from validated records. The local placeholder is intentionally `noindex, nofollow` and has no production canonical or sitemap.
+Select a WordPress multilingual approach before CMS integration. Core REST alone does not define translated-record relationships or language filters. Verify the selected solution's REST support; do not assume a `lang` query works. Avoid silently generating untranslated English pages. Later generate canonical URLs, reciprocal `hreflang`, `x-default`, sitemap entries, and missing-translation behavior from validated records. The local review homepage is intentionally `noindex, nofollow` and has no production canonical or sitemap.
 
 ## Proposed WordPress content model
 
@@ -93,3 +93,9 @@ Future animation modules should be page-scoped, progressively enhanced, and resp
 - [Astro i18n routing](https://docs.astro.build/en/guides/internationalization/)
 - [Custom content types in REST](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-rest-api-support-for-custom-content-types/)
 - [REST fields and registered meta](https://developer.wordpress.org/rest-api/extending-the-rest-api/modifying-responses/)
+
+## Phase 3A image and content boundaries
+
+The existing Astro `Image` component generates four WebP widths per image, with explicit dimensions, responsive `sizes` and full original aspect ratios. The hero is eager/high priority; other images are lazy. Five byte-identical JPEG source copies under `src/assets/home/` enable optimization while the supplied `public/renders/` originals stay untouched. Astro also copies all public originals into `dist/`, including unused images; browser pages request optimized derivatives. Publication asset cleanup remains a later decision.
+
+The only production routes remain `/` and `/en/`. Shared theme scripts, mobile navigation and development-only preview registration are preserved. Apartment categories have stable local IDs, without inventory or specifications. The contact CTA reaches an honest on-page information placeholder, without a form, submission or invented contact data. See [Phase 3A](HOMEPAGE.md).

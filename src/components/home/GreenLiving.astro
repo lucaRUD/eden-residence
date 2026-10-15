@@ -1,0 +1,26 @@
+---
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import RenderImage from './RenderImage.astro';
+import type { HomeCopy } from '../../i18n/home';
+import type { Locale } from '../../i18n/ui';
+interface Props { copy: HomeCopy['gardens']; locale: Locale }
+const { copy, locale } = Astro.props;
+---
+
+<Section id="gardens" width="wide" spacing="lg" aria-labelledby="gardens-heading">
+  <div class="home-gardens">
+    <SectionHeading id="gardens-heading" eyebrow={copy.eyebrow} title={copy.title} description={copy.description} class="home-gardens__heading" />
+    <figure class="home-gardens__primary min-w-0">
+      <RenderImage name="garden" locale={locale} sizes="(min-width: 1440px) 845px, (min-width: 768px) 60vw, 92vw" />
+      <figcaption class="home-caption">{copy.primaryCaption}</figcaption>
+    </figure>
+    <div class="home-gardens__secondary min-w-0">
+      <figure>
+        <RenderImage name="walkway" locale={locale} sizes="(min-width: 1440px) 465px, (min-width: 768px) 34vw, 92vw" />
+        <figcaption class="home-caption">{copy.secondaryCaption}</figcaption>
+      </figure>
+      <p class="mt-6 max-w-reading text-body text-muted">{copy.detail}</p>
+    </div>
+  </div>
+</Section>

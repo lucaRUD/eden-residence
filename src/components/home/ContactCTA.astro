@@ -1,0 +1,18 @@
+---
+import CTASection from '../ui/CTASection.astro';
+import Section from '../ui/Section.astro';
+import type { HomeCopy } from '../../i18n/home';
+interface Props { copy: HomeCopy['contact'] }
+const { copy } = Astro.props;
+---
+
+<CTASection id="contact" title={copy.title} eyebrow={copy.eyebrow} description={copy.description} action={{ label: copy.action, href: '#contact-information' }} />
+<Section id="contact-information" tone="muted" spacing="sm" aria-labelledby="contact-information-heading" tabindex="-1">
+  <div class="grid items-start gap-6 lg:grid-cols-2 lg:gap-16">
+    <h3 id="contact-information-heading" class="text-h4 text-heading">{copy.informationTitle}</h3>
+    <div>
+      <p class="max-w-reading text-body text-muted">{copy.information}</p>
+      <a href="#apartments" class="home-text-link mt-4">{copy.returnAction}<span aria-hidden="true">↑</span></a>
+    </div>
+  </div>
+</Section>

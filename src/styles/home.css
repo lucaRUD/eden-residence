@@ -1,0 +1,65 @@
+/* Homepage composition only. Colors, type, controls and spacing use shared tokens. */
+.home-hero__grid {
+  display: grid;
+  align-items: center;
+  gap: var(--spacing-section-sm);
+}
+
+.home-hero__heading { max-width: 12ch; }
+.home-hero__copy { min-width: 0; }
+
+.home-caption {
+  margin-top: calc(var(--spacing) * 3);
+  color: var(--context-muted);
+  font-size: var(--text-small);
+  line-height: var(--text-small--line-height);
+}
+
+.home-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--spacing) * 4);
+  min-height: var(--spacing-control);
+  max-width: 100%;
+  color: var(--section-heading);
+  font-size: var(--text-button);
+  line-height: var(--text-button--line-height);
+  font-weight: var(--font-weight-control);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+}
+
+.home-text-link:hover { text-decoration-thickness: 2px; }
+.home-text-link span { flex-shrink: 0; }
+
+.home-gardens { display: grid; gap: calc(var(--spacing) * 10); }
+.home-apartments { border-block: 1px solid var(--context-border); }
+.home-apartment { padding-block: var(--spacing-section-sm); }
+.home-apartment + .home-apartment { border-top: 1px solid var(--context-border); }
+.home-apartment__number {
+  font-size: var(--text-hero);
+  line-height: var(--text-hero--line-height);
+  letter-spacing: var(--text-hero--letter-spacing);
+  color: var(--context-accent);
+}
+.home-apartment + .home-apartment .home-apartment__number { color: var(--section-heading); }
+
+@media (min-width: 48rem) {
+  .home-gardens { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); align-items: start; }
+  .home-gardens__heading { grid-column: 1; }
+  .home-gardens__primary { grid-column: 1; }
+  .home-gardens__secondary { grid-column: 2; grid-row: 1 / 3; align-self: end; padding-bottom: var(--spacing-section-sm); }
+  .home-apartment:first-child { padding-right: var(--spacing-section-sm); }
+  .home-apartment + .home-apartment { border-top: 0; border-left: 1px solid var(--context-border); padding-left: var(--spacing-section-sm); }
+}
+
+@media (min-width: 64rem) {
+  .home-hero__grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr); gap: calc(var(--spacing) * 10); }
+  .home-hero__heading { font-size: var(--text-h1); line-height: var(--text-h1--line-height); }
+  .home-hero__copy { padding-block: calc(var(--spacing) * 8); }
+}
+
+@media (min-width: 80rem) {
+  .home-hero__heading { font-size: var(--text-hero); line-height: var(--text-hero--line-height); }
+}

@@ -75,3 +75,11 @@ The final direct dependency versions are Astro 7.3.8, Tailwind CSS 4.3.3, `@tail
 - Verification servers were stopped after use. Production WordPress, its database, hosting, and cPanel were not modified; the application contains no CMS integration or live CMS request.
 
 Phase 1 stops here. Await the owner's next instructions before final design or CMS integration.
+
+## Phase 3A — authorized homepage implementation
+
+The owner subsequently authorized Phases 2, 2.1, 2.2 and 3A. The historical milestones above are retained as planning context. The current bilingual homepage now uses the existing shared design system, branded themes and supplied architectural renders. No other production page, CMS connection, form processing, dependency or deployment was introduced.
+
+Verification on 2026-10-15: Astro check passed over 35 files with no errors, warnings or hints; production build passed with two HTML pages and 20 responsive WebP derivatives. Chrome checked both languages/themes at 320/375/768/1024/1440px, keyboard/touch navigation, theme persistence, all homepage anchors, image loading, semantic smoke checks and reduced motion. Sampled text contrast was at least 5.02:1. The design-system route returns 200 in development and 404 in production preview. See [the complete Phase 3A review record](HOMEPAGE.md) for files, assets, screenshots, actual checks and limitations.
+
+Phase 3A stops at owner review. Factual apartment data, approved contact details, publication assets, final copy approval and technical substantiation remain pending; subsequent pages, CMS work and launch require a later task.

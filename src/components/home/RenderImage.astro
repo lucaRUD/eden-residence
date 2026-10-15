@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import { homeRenders, type HomeRenderName } from '../../assets/home/renders';
+import type { Locale } from '../../i18n/ui';
+
+interface Props {
+  name: HomeRenderName;
+  locale: Locale;
+  sizes: string;
+  priority?: boolean;
+  class?: string;
+}
+const { name, locale, sizes, priority = false, class: className } = Astro.props;
+const asset = homeRenders[name];
+const widths = [480, 768, 1120, asset.image.width].filter((width) => width <= asset.image.width);
+---
+
+<Image
+  src={asset.image}
+  alt={asset.alt[locale]}
+  widths={widths}
+  sizes={sizes}
+  format="webp"
+  quality={85}
+  loading={priority ? 'eager' : 'lazy'}
+  fetchpriority={priority ? 'high' : 'auto'}
+  decoding="async"
+  class:list={['block h-auto w-full', className]}
+/>

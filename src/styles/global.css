@@ -253,6 +253,21 @@
   .section--surface { background: var(--theme-surface); }
   .section--muted { background: var(--theme-surface-muted); }
   .section--cream { background: var(--theme-background); }
+  /* Deliberate warm-light editorial region in either theme; not a theme switch. */
+  .section--contrast {
+    color-scheme: light;
+    --section-heading: var(--color-brand-green);
+    --section-ink: var(--color-brand-green);
+    --context-muted: var(--color-green-muted);
+    --context-accent: var(--color-brand-copper);
+    --context-border: var(--color-border);
+    --action-primary: var(--color-brand-green);
+    --action-primary-ink: var(--color-brand-cream);
+    --action-primary-hover: var(--color-green-hover);
+    --focus-color: var(--color-brand-green);
+    --focus-halo: var(--color-brand-cream);
+    background: var(--color-brand-cream);
+  }
   .section--brand {
     --section-heading: var(--theme-strong-ink);
     --section-ink: var(--theme-strong-ink);
@@ -352,7 +367,7 @@
   .card__title a { text-decoration: underline; text-underline-offset: 0.2em; }
 
   .site-header { background: var(--theme-surface); color: var(--section-ink); border-bottom: 1px solid var(--context-border); }
-  .brand-wordmark { color: var(--section-heading); font-size: var(--text-h4); font-weight: var(--font-weight-heading); line-height: 1.2; text-decoration: none; }
+  .brand-wordmark { display: inline-flex; align-items: center; min-height: var(--spacing-control); color: var(--section-heading); font-size: var(--text-h4); font-weight: var(--font-weight-heading); line-height: 1.2; text-decoration: none; }
   .navigation-link { display: inline-flex; min-height: var(--spacing-control); align-items: center; padding-block: calc(var(--spacing) * 2); font-size: var(--text-navigation); font-weight: var(--font-weight-control); text-underline-offset: 0.3em; }
   .navigation-link:hover, .navigation-link[aria-current] { text-decoration: underline; }
   .site-footer { background: var(--theme-surface-muted); border-top: 1px solid var(--context-border); color: var(--section-ink); }

@@ -16,7 +16,7 @@ npm.cmd run dev
 
 - Romanian: <http://localhost:4321/design-system/>
 - English: <http://localhost:4321/design-system/?lang=en>
-- Existing placeholders: <http://localhost:4321/> and <http://localhost:4321/en/>
+- Homepages: <http://localhost:4321/> and <http://localhost:4321/en/>
 
 Use Astro's printed port if 4321 is occupied. Stop with Ctrl+C.
 
@@ -101,7 +101,7 @@ All components accept caller-supplied text or typed locale dictionaries. Brand n
 | Component / path | Important props / behavior |
 | --- | --- |
 | `ui/Container.astro` | `width: content \| wide \| narrow \| reading`; standard div attributes and `class`; default slot |
-| `ui/Section.astro` | `tone: default \| surface \| muted \| cream \| brand`; `spacing: sm \| default \| lg`; `width`; section attributes, IDs, ARIA labels; wraps one Container |
+| `ui/Section.astro` | `tone: default \| surface \| muted \| cream \| brand \| contrast`; `spacing: sm \| default \| lg`; `width`; section attributes, IDs, ARIA labels; wraps one Container |
 | `ui/Button.astro` | `variant: primary \| secondary \| outline`; `size: sm \| md \| lg`; `href`, `type`, `disabled`, `fullWidth`, `class`, IDs, labels, controls/expanded, link target/rel/download, name/value; text via slot |
 | `ui/SectionHeading.astro` | required `title`; optional `eyebrow`, `description`, `id`, `as: h1–h4`, `size: hero \| h1–h4`, `align`, `class`; optional slot |
 | `layout/Header.astro` | required `locale`, `items`, `homeHref`; optional `languageLinks`, `navigationId`, `brandLabel`; responsive navigation and localized theme toggle |
@@ -308,4 +308,12 @@ Runtime: Node 24.22.0 and npm 11.19.1. No packages were installed, upgraded, or 
 5. Screen-reader and assistive-technology review, Safari/Firefox and physical mobile device testing were not performed. Headless Chrome smoke checks do not establish full WCAG compliance.
 6. No final homepage, CMS connection, forms, deployment, production WordPress changes, or additional animation/3D libraries are part of Phase 2.
 
-Stop after Phase 2.2 for owner review before any homepage implementation.
+Phase 2.2 ended at owner review. Phase 3A was subsequently authorized; its additions are recorded below.
+
+## Phase 3A additions
+
+The fixed brand palette, shared typography and theme-selection scripts are unchanged. `Section` now accepts `tone="contrast"`: a deliberate cream region in both themes, with green text/actions/focus, green-muted supporting text, copper accents and the existing light border. It is used for the apartment section to interrupt the dark green page rhythm. `tone="cream"` retains its previous theme-following behavior. Contrast uses semantic context roles rather than new HEX values. Primary/outline buttons and text links inherit those roles; nested self-contained cards continue to select their own theme surfaces.
+
+`brand-wordmark` now has a 44px minimum clickable height, preserving its typography. The homepage adds a 44px-minimum underlined text-link style, full-aspect image figures and asymmetrical composition in `src/styles/home.css`; it does not replace shared primitives. The two apartment numerals use existing copper/green roles for visual distinction. No additional font, raw color, motion effect or browser dependency was introduced.
+
+See [the Phase 3A record](HOMEPAGE.md) for composition, exact assets, verification, screenshots and remaining factual content. Historical Phase 2 scope statements above describe those phases, not the current homepage status.

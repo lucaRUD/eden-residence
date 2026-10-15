@@ -4,7 +4,7 @@
 
 Premium residential real estate presentation website in Romania, with Romanian as the primary language and English as the secondary language. The approved direction emphasizes modern architecture, energy efficiency, sustainability, and premium living. These are editorial themes, not verified technical claims or certifications.
 
-Phase 1 initializes the local development foundation only. The homepage is a temporary bilingual placeholder. Final visual design, real property content, CMS integration, forms, and deployment need subsequent approval.
+Phases 1?2.2 established the local Astro foundation, shared design system and branded themes. Phase 3A now provides the bilingual homepage for local review using supplied architectural renders. Verified property data, final copy approval, CMS integration, forms and deployment remain deferred.
 
 ## Existing infrastructure — supplied by the owner
 
@@ -40,7 +40,7 @@ Do not reinstall, migrate, modify, or deploy to this infrastructure in Phase 1. 
 | Contact | Approved contact/company information, location, secure contact form, reusable inquiry modal |
 | Supporting content | FAQ, partners, Terms and Conditions, privacy/GDPR information, cookie policy, company identification |
 
-Each content page needs Romanian and English versions with localized URLs. Only the two placeholder home routes exist in Phase 1.
+Each content page needs Romanian and English versions with localized URLs. Only the two homepage routes exist as of Phase 3A; dedicated pages remain future work.
 
 ## Ownership of content and presentation
 
@@ -52,7 +52,7 @@ Never invent measurements, prices, apartment availability, payment terms, compan
 
 Brand: Eden Residence. Primary font: Quicksand. References: RAL 9001 cream, RAL 6005 dark green, RAL 5026 blue, RAL 7016 anthracite, RAL 2013 copper, RAL 1032 yellow. These are supplied references; no authoritative digital palette is established.
 
-The intended aesthetic is natural, elegant, minimal, architectural, spacious, image-led, and mobile-first, with restrained interactions. Architectural renders and the concept board are still pending.
+The intended aesthetic is natural, elegant, minimal, architectural, spacious, image-led, and mobile-first, with restrained interactions. The concept board and 19 architectural renders have now been supplied and inspected. Five renders are used in Phase 3A; watermarks remain intact. The digital palette remains provisional.
 
 `https://nord-one.ro/` is inspiration only. Its content, visual composition, branding, code, and assets must not be copied. The reference could not be retrieved during initialization; no design conclusions were drawn from it.
 

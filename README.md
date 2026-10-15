@@ -1,6 +1,6 @@
 # Eden Residence
 
-Local Phase 1 foundation for the Romanian/English real estate presentation website: Astro static generation, strict TypeScript, Tailwind CSS v4, and locally bundled Quicksand. WordPress integration and the final design are planned, not implemented.
+Local Eden Residence presentation website: Astro static generation, strict TypeScript, Tailwind CSS v4, and locally bundled Quicksand. Phase 3A adds the bilingual homepage using supplied architectural renders and existing branded themes. WordPress, inquiry processing and deployment remain deferred.
 
 ## Requirements
 
@@ -30,9 +30,9 @@ npm.cmd run preview
 
 ## Environment and production
 
-`.env.example` reserves `WORDPRESS_URL=https://edenresidence.ro` for future build-time content access. A real `.env` file is unnecessary in Phase 1: neither development nor builds contact WordPress. Never put secrets in `PUBLIC_` variables, Git, or static output.
+`.env.example` reserves `WORDPRESS_URL=https://edenresidence.ro` for future build-time content access. A real `.env` file is unnecessary: neither development nor builds contact WordPress. Never put secrets in `PUBLIC_` variables, Git, or static output.
 
-The live WordPress installation remains untouched. No cPanel changes, CMS configuration, plugins, hosting integration, source remote, or deployment are included. The placeholder carries `noindex, nofollow`; a future launch must replace placeholder content and review metadata before removing it.
+The live WordPress installation remains untouched. No cPanel changes, CMS configuration, plugins, hosting integration, source remote, or deployment are included. Both homepages retain `noindex, nofollow` for local review; approved factual/contact content and a production SEO review are required before launch.
 
 ## Project map
 
@@ -41,13 +41,15 @@ The live WordPress installation remains untouched. No cPanel changes, CMS config
 | `src/pages/` | Romanian routes at root; English routes under `en/` |
 | `src/layouts/` | Shared HTML document and metadata |
 | `src/components/layout/` | Shared navigation and layout elements |
-| `src/components/ui/` | Reserved reusable UI primitives |
-| `src/components/home/` | Temporary homepage; future home sections |
+| `src/components/ui/` | Shared theme-aware UI primitives |
+| `src/components/home/` | Homepage composition and seven presentation sections |
 | `src/components/apartments/` | Reserved approved apartment components |
 | `src/styles/global.css` | Tailwind import, provisional tokens, base styles |
-| `src/i18n/` | Typed interface translations and route mappings |
+| `src/i18n/` | Typed interface translations, homepage copy and route mappings |
+| `src/assets/home/` | Five exact render source copies, metadata and localized alt text |
+| `src/styles/home.css` | Homepage composition using shared design tokens |
 | `src/lib/wordpress/` | Reserved CMS boundary; no integration |
-| `public/images/`, `public/fonts/` | Reserved asset locations |
+| `public/renders/`, `public/brand/`, `public/fonts/` | Supplied originals, concept board and font license |
 
 Quicksand is imported from `@fontsource-variable/quicksand` and bundled by Astro, so the browser does not request Google Fonts. Empty directories have `.gitkeep` files so Git retains the intended structure.
 
@@ -63,7 +65,7 @@ Start `npm.cmd run dev`, then open <http://localhost:4321/design-system/> for Ro
 
 The page demonstrates tokens, typography, buttons/states, cards, spacing, responsive grids, navigation, footer, and CTA components. It uses demonstration content, not apartment information. See [the design-system guide](docs/DESIGN_SYSTEM.md) for component props, usage, and verification details.
 
-The review route is injected only during `astro dev`. It has `noindex, nofollow` and is absent from production builds and `npm.cmd run preview`. Making it deployable would require an explicitly approved code change. The RO/EN homepages remain placeholders.
+The review route is injected only during `astro dev`. It has `noindex, nofollow` and is absent from production builds and `npm.cmd run preview`. Making it deployable would require an explicitly approved code change. The RO/EN homepages now use the Phase 3A composition.
 
 ## Documentation
 
@@ -79,3 +81,9 @@ The review route is injected only during `astro dev`. It has `noindex, nofollow`
 - [Astro TypeScript](https://docs.astro.build/en/guides/typescript/)
 - [Tailwind v4 with Astro](https://tailwindcss.com/docs/installation/framework-guides/astro)
 - [Astro internationalization](https://docs.astro.build/en/guides/internationalization/)
+
+## Phase 3A homepage review
+
+Open `/` or `/en/` using the dev server's printed URL. Navigation and CTAs use working homepage anchors. Apartment specifications and contact details remain explicitly pending; no inquiry form is simulated.
+
+The supplied originals actually live in `public/renders/`. Five byte-identical copies in `src/assets/home/` let Astro generate responsive WebP derivatives without modifying originals or cropping watermarks. See [the Phase 3A review record](docs/HOMEPAGE.md) for assets, changed files, screenshots, verification and pending decisions.

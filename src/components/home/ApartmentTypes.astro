@@ -1,0 +1,28 @@
+---
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import type { HomeCopy } from '../../i18n/home';
+interface Props { copy: HomeCopy['apartments'] }
+const { copy } = Astro.props;
+---
+
+<Section id="apartments" width="wide" tone="contrast" aria-labelledby="apartments-heading">
+  <div class="grid gap-6 lg:grid-cols-2 lg:gap-16">
+    <SectionHeading id="apartments-heading" eyebrow={copy.eyebrow} title={copy.title} />
+    <p class="max-w-reading text-lead text-muted lg:self-end">{copy.description}</p>
+  </div>
+  <div class="home-apartments mt-12 grid md:grid-cols-2">
+    {copy.categories.map((category) => (
+      <article id={category.id} class="home-apartment" aria-labelledby={`${category.id}-heading`}>
+        <div class="flex items-baseline gap-5" aria-hidden="true">
+          <span class="home-apartment__number">{category.rooms}</span>
+          <span class="eyebrow">{category.label}</span>
+        </div>
+        <h3 id={`${category.id}-heading`} class="mt-6 text-h3 text-heading">{category.title}</h3>
+        <p class="mt-4 max-w-reading text-body text-muted">{category.description}</p>
+        <a href="#contact-information" class="home-text-link mt-6">{category.action}<span aria-hidden="true">↗</span></a>
+      </article>
+    ))}
+  </div>
+  <p class="mt-8 max-w-reading text-body text-muted">{copy.note}</p>
+</Section>
