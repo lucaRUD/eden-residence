@@ -1,0 +1,19 @@
+{
+  "reduced": {
+    "state": "reduced",
+    "chunk": false,
+    "styles": 0
+  },
+  "failed": {
+    "state": "fallback",
+    "visible": true
+  },
+  "noJS": {
+    "nav": true,
+    "background": "rgb(35, 66, 53)",
+    "logoDark": "block",
+    "overflow": false,
+    "visible": true
+  },
+  "errors": []
+}

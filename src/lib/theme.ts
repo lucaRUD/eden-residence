@@ -12,7 +12,13 @@ function applyTheme() {
   root.dataset.themePreference = preference ?? 'system';
   root.style.colorScheme = theme;
   document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((button) => {
-    button.setAttribute('aria-pressed', String(theme === 'dark'));
+    if (button.hasAttribute('data-theme-action')) {
+      const label = (theme === 'dark' ? button.dataset.lightLabel : button.dataset.darkLabel) ?? '';
+      button.setAttribute('aria-label', label);
+      button.title = label;
+    } else {
+      button.setAttribute('aria-pressed', String(theme === 'dark'));
+    }
     button.hidden = false;
   });
   document.dispatchEvent(new CustomEvent('eden:theme-change', { detail: { theme, preference: preference ?? 'system' } }));

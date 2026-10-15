@@ -1,19 +1,21 @@
 ---
 import Section from '../ui/Section.astro';
-import SectionHeading from '../ui/SectionHeading.astro';
 import type { HomeCopy } from '../../i18n/home';
 interface Props { copy: HomeCopy['vision'] }
 const { copy } = Astro.props;
 ---
 
-<Section id="vision" width="wide" tone="surface" aria-labelledby="vision-heading">
-  <SectionHeading id="vision-heading" eyebrow={copy.eyebrow} title={copy.title} />
-  <ol class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+<Section id="vision" width="wide" tone="surface" class="home-vision" aria-labelledby="vision-heading">
+  <div class="home-vision__heading">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h2 id="vision-heading" class="home-statement">{copy.title}</h2>
+  </div>
+  <ol class="home-benefits">
     {copy.features.map((feature, index) => (
-      <li class="border-t border-divider pt-6">
-        <p class="text-label text-accent" aria-hidden="true">{String(index + 1).padStart(2, '0')}</p>
-        <h3 class="mt-6 text-h4 text-heading">{feature.title}</h3>
-        <p class="mt-4 max-w-reading text-body text-muted">{feature.description}</p>
+      <li class="home-benefit">
+        <span class="home-benefit__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <h3>{feature.title}</h3>
+        <p class="text-body text-muted">{feature.description}</p>
       </li>
     ))}
   </ol>

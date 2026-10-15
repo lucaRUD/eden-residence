@@ -69,8 +69,9 @@
   --container-wide: 88rem;
   --container-narrow: 48rem;
   --container-reading: 42rem;
-  --radius-control: 0.25rem;
-  --radius-card: 0.5rem;
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+  --radius-image: clamp(0.5rem, 1.2vw, 1rem);
   --shadow-card: 0 0.5rem 2rem rgb(35 66 53 / 0.06);
   --shadow-raised: 0 0.75rem 2.5rem rgb(35 66 53 / 0.1);
   --ease-brand: cubic-bezier(0.2, 0.65, 0.3, 1);

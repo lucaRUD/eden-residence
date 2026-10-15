@@ -1,0 +1,990 @@
+{
+  "hero": {
+    "frames": [
+      {
+        "t": 40.8,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "loading"
+      },
+      {
+        "t": 90.7,
+        "h": {
+          "opacity": 0.1845,
+          "y": "matrix(1, 0, 0, 1, 0, 19.5727)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 124.1,
+        "h": {
+          "opacity": 0.2177,
+          "y": "matrix(1, 0, 0, 1, 0, 18.7757)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 157.5,
+        "h": {
+          "opacity": 0.335,
+          "y": "matrix(1, 0, 0, 1, 0, 15.9603)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 190.7,
+        "h": {
+          "opacity": 0.437,
+          "y": "matrix(1, 0, 0, 1, 0, 13.5114)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 224.1,
+        "h": {
+          "opacity": 0.5281,
+          "y": "matrix(1, 0, 0, 1, 0, 11.3268)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.0731,
+          "y": "matrix(1, 0, 0, 1, 0, 14.8298)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 257.4,
+        "h": {
+          "opacity": 0.611,
+          "y": "matrix(1, 0, 0, 1, 0, 9.3364)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.2255,
+          "y": "matrix(1, 0, 0, 1, 0, 12.3914)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 290.8,
+        "h": {
+          "opacity": 0.6836,
+          "y": "matrix(1, 0, 0, 1, 0, 7.594)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.3602,
+          "y": "matrix(1, 0, 0, 1, 0, 10.2362)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 324.1,
+        "h": {
+          "opacity": 0.7431,
+          "y": "matrix(1, 0, 0, 1, 0, 6.1659)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.4718,
+          "y": "matrix(1, 0, 0, 1, 0, 8.4507)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0,
+          "y": "matrix(1, 0, 0, 1, 0, 16)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 357.4,
+        "h": {
+          "opacity": 0.7991,
+          "y": "matrix(1, 0, 0, 1, 0, 4.8225)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.5781,
+          "y": "matrix(1, 0, 0, 1, 0, 6.75)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.0536,
+          "y": "matrix(1, 0, 0, 1, 0, 15.143)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 390.7,
+        "h": {
+          "opacity": 0.8438,
+          "y": "matrix(1, 0, 0, 1, 0, 3.7492)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.6643,
+          "y": "matrix(1, 0, 0, 1, 0, 5.3712)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.2167,
+          "y": "matrix(1, 0, 0, 1, 0, 12.533)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 424,
+        "h": {
+          "opacity": 0.8803,
+          "y": "matrix(1, 0, 0, 1, 0, 2.8733)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.7358,
+          "y": "matrix(1, 0, 0, 1, 0, 4.2272)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.3558,
+          "y": "matrix(1, 0, 0, 1, 0, 10.3065)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 457.4,
+        "h": {
+          "opacity": 0.9123,
+          "y": "matrix(1, 0, 0, 1, 0, 2.1047)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.7998,
+          "y": "matrix(1, 0, 0, 1, 0, 3.2032)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.4845,
+          "y": "matrix(1, 0, 0, 1, 0, 8.248)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 490.8,
+        "h": {
+          "opacity": 0.9374,
+          "y": "matrix(1, 0, 0, 1, 0, 1.5033)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.8511,
+          "y": "matrix(1, 0, 0, 1, 0, 2.382)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.5918,
+          "y": "matrix(1, 0, 0, 1, 0, 6.5315)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 524.1,
+        "h": {
+          "opacity": 0.9571,
+          "y": "matrix(1, 0, 0, 1, 0, 1.029)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.8928,
+          "y": "matrix(1, 0, 0, 1, 0, 1.7148)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.683,
+          "y": "matrix(1, 0, 0, 1, 0, 5.0714)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 557.5,
+        "h": {
+          "opacity": 0.9726,
+          "y": "matrix(1, 0, 0, 1, 0, 0.6573)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.9268,
+          "y": "matrix(1, 0, 0, 1, 0, 1.1714)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.7617,
+          "y": "matrix(1, 0, 0, 1, 0, 3.8132)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 590.8,
+        "h": {
+          "opacity": 0.9836,
+          "y": "matrix(1, 0, 0, 1, 0, 0.3946)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.952,
+          "y": "matrix(1, 0, 0, 1, 0, 0.7674)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.8244,
+          "y": "matrix(1, 0, 0, 1, 0, 2.8099)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 624.1,
+        "h": {
+          "opacity": 0.9911,
+          "y": "matrix(1, 0, 0, 1, 0, 0.2133)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.9707,
+          "y": "matrix(1, 0, 0, 1, 0, 0.469)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.875,
+          "y": "matrix(1, 0, 0, 1, 0, 2)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 657.4,
+        "h": {
+          "opacity": 0.996,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0957)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.9841,
+          "y": "matrix(1, 0, 0, 1, 0, 0.255)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.9159,
+          "y": "matrix(1, 0, 0, 1, 0, 1.3461)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 690.7,
+        "h": {
+          "opacity": 0.9986,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0332)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.9924,
+          "y": "matrix(1, 0, 0, 1, 0, 0.1217)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.9459,
+          "y": "matrix(1, 0, 0, 1, 0, 0.8654)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 724.1,
+        "h": {
+          "opacity": 0.9997,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0064)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.9972,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0455)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.9678,
+          "y": "matrix(1, 0, 0, 1, 0, 0.5154)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 757.4,
+        "h": {
+          "opacity": 1,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0001)",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 0.9994,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0098)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.9832,
+          "y": "matrix(1, 0, 0, 1, 0, 0.2696)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 790.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0004)",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.9924,
+          "y": "matrix(1, 0, 0, 1, 0, 0.1211)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 824,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.9975,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0406)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 857.4,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 0.9996,
+          "y": "matrix(1, 0, 0, 1, 0, 0.0066)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 890.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "matrix(1, 0, 0, 1, 0, 0)",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 924.2,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 957.4,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 990.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1024,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1057.3,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1090.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1124,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1157.5,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1190.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1224,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1258.1,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1290.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1324,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1357.4,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1390.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1424.1,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1457.4,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1490.8,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1524,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1557.4,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1590.7,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      },
+      {
+        "t": 1624,
+        "h": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 76
+        },
+        "d": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 253
+        },
+        "a": {
+          "opacity": 1,
+          "y": "none",
+          "offset": 333
+        },
+        "imageOpacity": "1",
+        "motion": "active"
+      }
+    ],
+    "shifts": [
+      {
+        "value": 0.0018124098184056634,
+        "recent": false,
+        "nodes": [
+          null,
+          "header-controls flex flex-wrap items-center gap-3 lg:flex-nowrap",
+          "header-primary-navigation"
+        ]
+      }
+    ]
+  },
+  "project": {
+    "during": {
+      "opacity": 0.1447,
+      "transform": "matrix(1, 0, 0, 1, 0, 20.5271)",
+      "offset": 1075
+    },
+    "after": {
+      "opacity": 1,
+      "transform": "none",
+      "offset": 1075
+    }
+  },
+  "errors": []
+}

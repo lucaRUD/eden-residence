@@ -1,6 +1,5 @@
 ---
 import Section from '../ui/Section.astro';
-import SectionHeading from '../ui/SectionHeading.astro';
 import RenderImage from './RenderImage.astro';
 import type { HomeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
@@ -8,25 +7,27 @@ interface Props { copy: HomeCopy['passive']; locale: Locale }
 const { copy, locale } = Astro.props;
 ---
 
-<Section id="passive-concept" width="wide" tone="surface" aria-labelledby="passive-heading">
-  <div class="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
-    <div class="lg:col-span-6">
-      <SectionHeading id="passive-heading" eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
-      <figure class="mt-10">
-        <RenderImage name="concept" locale={locale} sizes="(min-width: 1440px) 620px, (min-width: 1024px) 44vw, 92vw" />
-        <figcaption class="home-caption">{copy.imageCaption}</figcaption>
-      </figure>
+<Section id="passive-concept" width="wide" tone="brand" class="home-passive" aria-labelledby="passive-heading">
+  <div class="home-passive__heading">
+    <div>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 id="passive-heading" class="home-display">{copy.title}</h2>
     </div>
-    <div class="lg:col-span-5 lg:col-start-8 lg:pt-12">
-      <dl class="home-principles">
-        {copy.principles.map((principle) => (
-          <div class="border-t border-divider py-6">
-            <dt class="text-h4 font-heading text-heading">{principle.title}</dt>
-            <dd class="mt-4 text-body text-muted">{principle.description}</dd>
-          </div>
-        ))}
-      </dl>
-      <p class="mt-6 border-l-2 border-divider pl-6 text-body text-muted">{copy.note}</p>
-    </div>
+    <p class="text-body text-muted">{copy.description}</p>
   </div>
+  <div class="home-passive__body">
+    <figure>
+      <RenderImage name="concept" locale={locale} sizes="(min-width: 1440px) 750px, (min-width: 768px) 54vw, 90vw" />
+      <figcaption class="home-caption">{copy.imageCaption}</figcaption>
+    </figure>
+    <dl class="home-principles">
+      {copy.principles.map((principle) => (
+        <div class="border-t border-divider py-6">
+          <dt class="text-h4 font-heading text-heading">{principle.title}</dt>
+          <dd class="mt-4 text-body text-muted">{principle.description}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+  <p class="home-passive__note text-body text-muted">{copy.note}</p>
 </Section>

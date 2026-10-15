@@ -1,0 +1,140 @@
+[
+  {
+    "width": 1440,
+    "height": 9744,
+    "sections": [
+      {
+        "id": "hero",
+        "height": 914.78125,
+        "padding": "0px"
+      },
+      {
+        "id": "project",
+        "height": 1549.8125,
+        "padding": "72px 100.8px"
+      },
+      {
+        "id": "vision",
+        "height": 999.609375,
+        "padding": "112px"
+      },
+      {
+        "id": "gardens",
+        "height": 1779.546875,
+        "padding": "100.8px"
+      },
+      {
+        "id": "apartments",
+        "height": 1346.140625,
+        "padding": "112px"
+      },
+      {
+        "id": "passive-concept",
+        "height": 1203.859375,
+        "padding": "112px"
+      },
+      {
+        "id": "contact",
+        "height": 1345.453125,
+        "padding": "100.8px 0px"
+      },
+      {
+        "id": "contact-information",
+        "height": 272,
+        "padding": "64px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 7784,
+    "sections": [
+      {
+        "id": "hero",
+        "height": 632.03125,
+        "padding": "0px"
+      },
+      {
+        "id": "project",
+        "height": 905.5,
+        "padding": "48px 56px"
+      },
+      {
+        "id": "vision",
+        "height": 997.078125,
+        "padding": "64px"
+      },
+      {
+        "id": "gardens",
+        "height": 1019.140625,
+        "padding": "56px"
+      },
+      {
+        "id": "apartments",
+        "height": 1434.53125,
+        "padding": "64px"
+      },
+      {
+        "id": "passive-concept",
+        "height": 1320.34375,
+        "padding": "64px"
+      },
+      {
+        "id": "contact",
+        "height": 711.4375,
+        "padding": "56px 0px"
+      },
+      {
+        "id": "contact-information",
+        "height": 303,
+        "padding": "40px"
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 10948,
+    "sections": [
+      {
+        "id": "hero",
+        "height": 1201.9375,
+        "padding": "0px"
+      },
+      {
+        "id": "project",
+        "height": 1854.484375,
+        "padding": "80px 112px"
+      },
+      {
+        "id": "vision",
+        "height": 1012.1875,
+        "padding": "112px"
+      },
+      {
+        "id": "gardens",
+        "height": 2077.484375,
+        "padding": "112px"
+      },
+      {
+        "id": "apartments",
+        "height": 1358.546875,
+        "padding": "112px"
+      },
+      {
+        "id": "passive-concept",
+        "height": 1203.671875,
+        "padding": "112px"
+      },
+      {
+        "id": "contact",
+        "height": 1634.8125,
+        "padding": "112px 0px"
+      },
+      {
+        "id": "contact-information",
+        "height": 272,
+        "padding": "64px"
+      }
+    ]
+  }
+]

@@ -1,54 +1,72 @@
-# Phase 3A — homepage review
+# Homepage implementation and review
 
-Implemented locally on 2026-10-15 with Node 24.22.0 / npm 11.19.1. Romanian remains `/`; English remains `/en/`. No additional production page, CMS connection, form processor, dependency, deployment or commit was introduced.
+Current work is Phase 3D.1: tighter chapter rhythm, chapter-specific motion and an immersive apartment-category showcase. See [current findings, verification and screenshots](PHASE_3D1.md). Visual approval is pending; Phase 3D was not visually approved. The [Phase 3D implementation](PHASE_3D.md), [Phase 3C.2 composition](PHASE_3C2.md), [Phase 3C image investigation](PHASE_3C.md) and Phase 3B record below are historical. The architectural hero, contrasting panel, passive chapter and closing direction are retained.
 
-## Review locally
+## Phase 3B record
 
-```powershell
-npm.cmd run dev
-```
+Implemented locally on 2026-10-15. Astro, TypeScript, Tailwind, Quicksand, the RO/EN content model and theme preference mechanism are preserved. No dependencies, CMS integration, contact processing, additional production routes, deployment or commit were introduced.
 
-Use the printed port, normally:
+## Local review
 
-- Romanian: <http://localhost:4321/>
-- English: <http://localhost:4321/en/>
-- Development design system: <http://localhost:4321/design-system/>
+Run `npm.cmd run dev` from the project root, then open the printed URL (normally <http://localhost:4321/> or <http://localhost:4321/en/>). The temporary QA servers/browser are stopped after verification. Both pages retain local-review `noindex, nofollow`. The design-system preview remains development-only.
 
-Temporary QA servers and the isolated headless browser are stopped after verification. Start the dev command above for review. Both homepages retain `noindex, nofollow`; launch SEO is deferred. The design-system route remains registered only for `astro dev`.
+## Findings before implementation
 
-## Sections and imagery
+Phase 3A gave the image only about 57% of the desktop hero width. Its repeated contained columns, small apartment numerals and similar section spacing made architecture secondary to copy. Mobile placed the headline/actions before the main image. Phase 3B changes the composition of each chapter rather than only recoloring the old layout.
 
-All filenames below start with `eden-residence-`. The supplied originals actually live in `public/renders/`, rather than `public/images/renders/` named in the brief and render README. All 19 were inspected in a contact sheet; the manifest was read before selection.
+All 19 supplied renders were reviewed again. They live in `public/renders/`; `public/images/renders/` is absent. The requested `references/nord-one/` folder is also absent, and the live Nord One site returned HTTP 403 during the reference attempt. No unavailable screenshot was claimed as inspected. The owner's stated reference qualities guided an independent Eden composition.
 
-| Section / anchor | Treatment | Render filename suffix |
+## Main visual changes
+
+- Full-width street-corner hero: at the tested 1440?1000 viewport, the image is 810px tall. A solid theme-aware headline panel occupies the roadway below the building; no text sits directly over busy photography or the credit.
+- Mobile uses a closer garden-side exterior with right/bottom 4:3 framing. This retains the building and SKY Block mark. Tablet uses the full street view with a two-column text/action area below it; the overlay starts only at 1280px, after visual inspection caught the tablet panel covering the building.
+- The project statement precedes an almost full-width aerial view, followed by an oversized introductory sentence and a quieter reading column.
+- Benefits are numbered editorial rows with large titles and separators.
+- Gardens have a full-width courtyard image and a substantial sunset companion image, with brief copy between the visual moments.
+- Apartment categories are large, offset paper/forest panels with oversized 02/03 numerals. There are no unit photographs, measurements, plans or availability claims.
+- The passive-concept chapter uses the existing navy reference, cream text and a clearly captioned landscape sketch. The general-principles caveat remains visible.
+- The conclusion uses a large cream typographic spread, a real inquiry anchor and a full-width street-side brand render.
+- The homepage masthead uses the shared Header's optional `appearance="editorial"`: quieter language selection, a control divider and unchanged accessible menu behavior. Its default appearance remains available to the design-system page.
+
+## Render selection
+
+Every filename below begins with `eden-residence-`. Originals and watermarks are unchanged.
+
+| Placement | JPEG filename suffix | Treatment |
 | --- | --- | --- |
-| Hero | Editorial text/image split, one H1, two anchor CTAs | `exterior-street-corner.jpeg` |
-| Project / `#project` | Large aerial overview beside introduction | `aerial-building-overview.jpeg` |
-| Why / `#vision` | Three numbered themes with rules and open spacing | None |
-| Green living / `#gardens` | Large courtyard and smaller walkway in an asymmetrical composition | `landscaped-courtyard.jpeg`, `garden-family-walkway.jpeg` |
-| Apartments / `#apartments` | Two-room and three-room typographic previews with distinct copper/green numerals | None; no invented interiors or plans |
-| Passive concept / `#passive-concept` | General principles beside an explicitly captioned landscape study | `landscape-concept-sketch.jpeg` |
-| Final CTA / `#contact` | Shared branded CTA, leading to honest contact information placeholder | None |
+| Desktop/tablet hero | `exterior-street-corner.jpeg` | Full 16:9 frame; panel overlays road at wide desktop |
+| Mobile hero | `garden-building-family.jpeg` | Native picture source; right/bottom crop retains building and credit |
+| Project overview | `aerial-garden-water-feature.jpeg` | Full original frame, almost page-wide |
+| Primary garden | `landscaped-courtyard.jpeg` | Full-width original frame |
+| Supporting garden | `garden-sunset-walkway.jpeg` | Full original frame, asymmetric reading row |
+| Passive chapter | `landscape-concept-sketch.jpeg` | Landscape study, not an energy-system diagram |
+| Closing chapter | `exterior-brand-sign.jpeg` | Full-width original frame |
 
-The landscape sketch illustrates the outdoor concept, not a technical passive-building diagram. Contact/category actions reach `#contact-information`, which clearly explains that contact details and inquiry handling are pending. No data is collected or submitted. The introduction links to the meaningful `#vision` section; navigation and footer use existing section anchors. Language links use the existing localized home routes.
+Four new byte-identical source copies enable Astro optimization. Together with retained Phase 3A sources there are nine JPEGs under `src/assets/home/`, seven currently imported. Original source hashes match `public/renders/`. Astro emits 28 WebP derivatives, four widths per selected source, at the existing quality of 85. Browser picture selection requests one hero view, not both. Six images appear on each page: one responsive hero and five later images.
 
-## Composition and implementation
+The hero is eager/high priority; all five later images remain lazy. All have explicit dimensions, localized alt text and responsive sizes/srcsets. Only the mobile hero is cropped; other images retain their complete frames. The hero's shared alt describes architecture appropriately across both views.
 
-Quicksand, the existing fixed brand colors and light/dark preference architecture are preserved. Image frames retain their entire original aspect ratio: no stretch, overlay text, cropped credit, rounded image-card treatment, slider or image repetition. Desktop split layouts become a linear mobile reading order. Gardens use unequal image widths and a staggered secondary image; feature themes use typography and rules instead of generic cards.
+## Image-loading investigation
 
-The shared `Section` adds a deliberate `contrast` tone: cream background with green foregrounds/actions/focus in either theme. Apartments use this role to create a warm pause in dark mode. Existing `cream` behavior is unchanged. Other sections use existing theme background/surface/brand roles. No new raw colors were added. The shared wordmark's clickable area now has the existing 44px minimum control height.
+The existing Phase 3A light screenshot saved in the repository contains all five selected images. Before editing, live light/dark pages also loaded all five after normal scrolling, with HTTP 200, nonzero decoded dimensions, opacity 1 and visible display rules. No theme-specific image hiding, missing URL, network failure or JavaScript exception was found.
 
-`src/i18n/home.ts` centralizes typed RO/EN copy, apartment categories and section navigation. `src/assets/home/renders.ts` separately defines image imports and localized alt text. `HomePage.astro` composes presentation sections and the existing Header, Footer, Button, Container, Section, SectionHeading and CTASection. Content can later be supplied from validated CMS data without mixing fetch logic into those sections. No CMS abstraction was built.
+On the initial cold light viewport, three later images were still deferred by native lazy loading. This is consistent with a full-page screenshot taken before visiting/decoding below-fold images; it does not prove the cause of a different screenshot that was not available here. There was no confirmed frontend image defect to fix by forcing eager loading or changing theme visibility.
 
-Five JPEGs were copied byte-for-byte into `src/assets/home/` to use the installed Astro image pipeline, following [Astro's local image guidance](https://docs.astro.build/en/guides/images/#src-vs-public). SHA-256 comparisons confirmed each source copy matches its supplied public original. Originals and visible SKY Block marks remain intact. Astro generates 20 WebP derivatives at quality 85: 480, 768, 1120 and original width (1475 or 1600px). The hero uses eager/high-priority loading; four later images use lazy loading. Images include dimensions, localized alt text and responsive `sizes`/`srcset`.
+For Phase 3B, screenshots were captured from the production build with cache disabled. Each page was scrolled to every image, each `img.decode()` was awaited, the page returned to the top, and two animation frames passed before capture. Lazy attributes were not changed. Cold-load checks covered both languages, themes and desktop/mobile viewports. All six displayed images decoded in every case; all 28 generated WebP URLs separately returned HTTP 200 with nonempty image content. No network or runtime errors occurred.
 
-General insulation, thermal-bridge and heat-recovery copy was checked against the [Passive House Institute's principles](https://passivehouse.com/en/home/building-certification/). It is not evidence of Eden Residence specifications, energy performance or certification; the on-page caveat states this in both languages.
+## Content and component boundaries
 
-## Files created
+`src/i18n/home.ts` is unchanged: existing content types, translations, categories and navigation destinations remain intact. Asset imports/alt text stay separate in `src/assets/home/renders.ts`. Presentation stays in the existing homepage components; no alternate theme component tree or image theme-switching script was added.
 
-- `src/i18n/home.ts`
-- `src/assets/home/renders.ts` and the five exact JPEG copies listed in the section table
+Composition tokens are scoped to `.home-page` in `src/styles/home.css`: fluid display/statement scales, chapter spacing, grid gap and paper surface. Shared global brand tokens are unchanged. The passive section locally maps the existing strong-surface role to navy; paired text/focus roles remain supplied by the shared brand context. Apartment and contact sections use existing contrast/brand contexts.
+
+All actions go to real homepage sections or the existing localized routes. Contact/category actions still reach the honest `#contact-information` placeholder, which cannot collect/send inquiries. No future page is presented as implemented.
+
+## Files modified
+
 - `src/styles/home.css`
+- `src/assets/home/renders.ts`
+- `src/components/layout/Header.astro`
 - `src/components/home/HomePage.astro`
 - `src/components/home/Hero.astro`
 - `src/components/home/ProjectIntro.astro`
@@ -58,52 +76,45 @@ General insulation, thermal-bridge and heat-recovery copy was checked against th
 - `src/components/home/PassiveConcept.astro`
 - `src/components/home/ContactCTA.astro`
 - `src/components/home/RenderImage.astro`
-- This review record and four screenshot artifacts under `docs/previews/phase-3a/`
+- `README.md`, `docs/HOMEPAGE.md`, `docs/DESIGN_SYSTEM.md`, `docs/ARCHITECTURE.md`, `docs/IMPLEMENTATION_PLAN.md`
 
-## Files modified or removed
-
-- `src/pages/index.astro`, `src/pages/en/index.astro`: render the shared homepage.
-- `src/components/ui/Section.astro`, `src/styles/global.css`: semantic contrast tone and wordmark target height.
-- `src/i18n/ui.ts`: remove obsolete coming-soon copy; retain shared control strings/home paths.
-- `src/layouts/BaseLayout.astro`: clarify the existing local-review robots comment; metadata behavior unchanged.
-- `README.md`, `docs/PROJECT_BRIEF.md`, `docs/ARCHITECTURE.md`, `docs/DESIGN_SYSTEM.md`, `docs/IMPLEMENTATION_PLAN.md`: current status, boundaries and review records.
-- Removed `src/components/home/PlaceholderHome.astro`, which the new homepage replaces.
-
-`public/renders/` was already present and untracked before this phase; none of its files were changed. Package manifests, lockfile, Astro config, theme scripts, development-preview implementation and WordPress boundary were not modified.
+Added four JPEG source copies (aerial garden, garden-side building, sunset walkway and brand sign) and the four screenshots below. No files were deleted. Routes, shared global tokens, homepage copy, theme scripts, dependencies, Astro configuration and WordPress boundary remain unchanged.
 
 ## Executed verification
 
 - `npm.cmd run check`: passed, 35 files, zero errors/warnings/hints.
-- `npm.cmd run build`: passed; exactly two static HTML pages and 20 optimized WebP variants.
-- Chrome on development and final production preview: RO/EN × light/dark × 320/375/768/1024/1440 CSS-pixel viewport widths. No horizontal overflow, overflowing visible page elements, distorted images, missing fragment destinations or undersized tested header/button controls. Expanded navigation also passed at 320px. Body text remains 16px.
-- Rendered text sampling: 67 samples per language/theme at desktop width, minimum 5.02:1 in all four combinations, no sampled pair below 4.5:1. Solid backgrounds were calculated from computed colors; there is no text over imagery. This is a targeted contrast check, not a full accessibility audit.
-- Keyboard: Enter/Space open the mobile menu, Tab reaches the first link, Escape closes and returns focus, collapsed links leave tab order, and Space toggles the mobile theme. Visible 2px focus outlines verified on hero buttons, apartment links and final CTA in both themes, including green focus on the cream section in dark mode.
-- Touch emulation opens mobile navigation. RO→EN→RO switching preserves the manual theme; both themes persist after reload. OS light/dark selection works without saved preference; manual preference overrides the opposite OS scheme.
-- Early body/render observations retained the selected light/dark theme against the opposite OS setting. Without JavaScript, the OS dark background and visible navigation remain usable. This does not replace filmstrip testing on a throttled physical device.
-- Activated every homepage fragment link in both languages, including category and contact CTAs, skip link, header and footer. All reached existing targets. Both language routes returned HTTP 200.
-- All five selected image URLs loaded successfully with HTTP 200 and nonzero natural dimensions in both languages. Confirmed hero priority and the four later images' lazy attributes, nonempty alt text, one H1, unique IDs, resolved section labels and local-review robots metadata.
-- Reduced-motion mode sets button transition durations to zero. No runtime JavaScript exceptions occurred in exercised flows.
-- Development `/design-system/` and `?lang=en` returned 200; production variants returned 404. No design-system HTML was emitted.
-- Source image hashes match the supplied originals. `git diff --check` passed.
+- `npm.cmd run build`: passed, two static HTML pages and 28 optimized WebP variants.
+- Development and production Chrome: RO/EN ? light/dark ? 320/375/768/1024/1440px. No horizontal overflow, overflowing visible elements, missing fragment targets, incorrectly hidden images or undersized tested header/button targets. Body text remains 16px.
+- Mobile menu was closed after initialization at 320/375/768px; visible at desktop. Expanded controls fit at 320px. Enter/Space, Tab, Escape/focus return, collapsed tab order, touch opening and the mobile theme button passed.
+- RO?EN?RO switching preserves manual theme; refresh persistence, OS light/dark defaults and manual precedence passed. Without JavaScript, navigation remains visible and CSS follows the OS dark scheme.
+- All homepage fragment links were activated in both languages. Language routes return 200; no dedicated-page links or fake form submission were added.
+- Sampled text contrast: 67 samples per language/theme at desktop width; minimum 5.02:1 in all combinations. Focus outlines were checked on hero actions, both apartment panels and final CTA in both themes; skip link moves keyboard focus to main.
+- Cold image/network tests: eight language/theme/viewport combinations. Six images decoded in every case, no failed image responses or runtime exceptions; all 28 generated variants additionally return HTTP 200.
+- Image boxes stayed within 0.063px of their initial position/height through loading/scrolling (subpixel rounding). Observed layout-shift totals ranged from 0 to 0.0183 in these runs; remaining shifts involved text/control layout. This is local instrumentation, not a formal Core Web Vitals result.
+- Reduced-motion button durations remain zero. No scroll animation, parallax or reveal effect was introduced.
+- Development design-system preview returns 200; production `/design-system/` and `?lang=en` return 404. Output contains only RO/EN homepage HTML.
+- All nine source JPEG hashes match originals. `git diff --check` passed.
 
-## Screenshots
+## Final screenshots
 
-Full-page Romanian screenshots captured from the production build at desktop (1440px viewport) and mobile (375px viewport). Chromium may omit the scrollbar gutter from the encoded screenshot width. Desktop/mobile light and dark views were inspected; an additional English 1024px capture was inspected during QA.
+Full-page production captures, inspected for composition, imagery, text hierarchy, mobile framing, watermarks and section rhythm:
 
-- [Desktop light](previews/phase-3a/desktop-light.png)
-- [Desktop dark](previews/phase-3a/desktop-dark.png)
-- [Mobile light](previews/phase-3a/mobile-light.png)
-- [Mobile dark](previews/phase-3a/mobile-dark.png)
+- [Desktop light ? 1440px](previews/phase-3b/desktop-light.png)
+- [Desktop dark ? 1440px](previews/phase-3b/desktop-dark.png)
+- [Mobile light ? 375px](previews/phase-3b/mobile-light.png)
+- [Mobile dark ? 375px](previews/phase-3b/mobile-dark.png)
 
-## Remaining approval and limitations
+Phase 3A comparison captures remain under [previews/phase-3a/](previews/phase-3a/). English and tablet views were also inspected during QA.
 
-- The composition, provisional digital colors, RO/EN editorial copy and translations await owner approval.
-- Two-room/three-room previews are categories only. Verified areas, plans, layouts, floors, pricing, inventory and availability are not supplied or represented.
-- Contact/company information and a real inquiry channel remain pending. The visible destination is intentionally informational; it cannot send a request.
-- Building technologies, energy figures and certification remain unverified. No first-in-Romania claim is made.
-- Original renders retain watermarks. Confirm publication rights and obtain approved final assets before launch; image colors/content were not retouched.
-- Public originals, including unused renders, are still copied to build output. Homepage visitors load optimized variants, but the output directory contains those originals as well. A later approved publication cleanup can change storage without deleting the owner's assets now.
-- Screen readers, Safari/Firefox, physical mobile devices and formal Lighthouse/Core Web Vitals measurements were not tested. Chrome emulation and sampled contrast do not establish full WCAG compliance or real-device performance.
-- Dedicated project/apartment/passive/contact pages, WordPress, forms, launch metadata, hosting and deployment remain outside Phase 3A.
+## Remaining limitations and approval
 
-Stop after Phase 3A for owner review.
+- Visual direction, provisional palette and existing RO/EN copy still need owner approval.
+- Apartment data, plans, actual inventory, company/contact details and a real inquiry channel remain pending.
+- Building performance, technologies and certification are unverified; no new project-specific claims were introduced.
+- Render publication rights/final clean assets require owner confirmation. All supplied marks remain visible; no original was retouched.
+- Reference screenshots were unavailable and the live benchmark blocked access. No direct reference-layout comparison was possible.
+- Screen readers, Safari/Firefox, physical devices and formal Lighthouse/LCP testing were not performed. Native image resolution is at most 1600px wide; very dense/large displays may reveal source limitations.
+- Public originals are still copied to build output, including unused images; browser pages request optimized variants. Publication storage cleanup remains deferred.
+- WordPress, forms, other pages, launch metadata, hosting and deployment remain outside this phase.
+
+Stop after Phase 3B for owner review.

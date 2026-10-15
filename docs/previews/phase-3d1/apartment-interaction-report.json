@@ -1,0 +1,173 @@
+{
+  "results": [
+    {
+      "path": "/",
+      "mode": "light",
+      "hovered": [
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "focused": [
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "layoutStable": true
+    },
+    {
+      "path": "/",
+      "mode": "dark",
+      "hovered": [
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "focused": [
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "layoutStable": true
+    },
+    {
+      "path": "/en/",
+      "mode": "light",
+      "hovered": [
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "focused": [
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "layoutStable": true
+    },
+    {
+      "path": "/en/",
+      "mode": "dark",
+      "hovered": [
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "focused": [
+        {
+          "imageTransform": "none",
+          "imageFilter": "saturate(0.65)",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        },
+        {
+          "imageTransform": "matrix(1.025, 0, 0, 1.025, 0, 0)",
+          "imageFilter": "none",
+          "textFilter": "none",
+          "bodyOpacity": "1",
+          "links": 1
+        }
+      ],
+      "layoutStable": true
+    }
+  ],
+  "touchMedia": {
+    "hover": false,
+    "fine": false
+  },
+  "reduced": [
+    {
+      "imageTransform": "none",
+      "imageFilter": "none",
+      "textFilter": "none",
+      "bodyOpacity": "1",
+      "links": 1
+    },
+    {
+      "imageTransform": "none",
+      "imageFilter": "none",
+      "textFilter": "none",
+      "bodyOpacity": "1",
+      "links": 1
+    }
+  ],
+  "errors": []
+}

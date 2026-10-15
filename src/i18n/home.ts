@@ -8,11 +8,11 @@ interface ApartmentCopy extends FeatureCopy { id: 'two-room' | 'three-room'; roo
 export interface HomeCopy {
   meta: { title: string; description: string };
   navigation: readonly NavigationItem[];
-  hero: HeadingCopy & { primaryAction: string; secondaryAction: string; imageCaption: string };
+  hero: HeadingCopy & { primaryAction: string; secondaryAction: string };
   project: HeadingCopy & { body: string; action: string; imageCaption: string };
   vision: { eyebrow: string; title: string; features: readonly FeatureCopy[] };
   gardens: HeadingCopy & { primaryCaption: string; secondaryCaption: string; detail: string };
-  apartments: HeadingCopy & { categories: readonly ApartmentCopy[]; note: string };
+  apartments: HeadingCopy & { categories: readonly ApartmentCopy[]; note: string; imageNote: string };
   passive: HeadingCopy & { principles: readonly FeatureCopy[]; note: string; imageCaption: string };
   contact: HeadingCopy & { action: string; informationTitle: string; information: string; returnAction: string };
   footerNote: string;
@@ -25,9 +25,9 @@ export const homeCopy = {
     navigation: [{ label: 'Proiect', href: '#project' }, { label: 'Natură', href: '#gardens' }, { label: 'Apartamente', href: '#apartments' }, { label: 'Contact', href: '#contact' }],
     hero: {
       eyebrow: 'Arhitectură. Natură. Acasă.',
-      title: 'Acasă, în armonie cu natura.',
-      description: 'Descoperă Eden Residence — un proiect rezidențial în care arhitectura contemporană întâlnește spațiile verzi și confortul de zi cu zi.',
-      primaryAction: 'Descoperă proiectul', secondaryAction: 'Explorează apartamentele', imageCaption: 'Eden Residence · Perspectivă exterioară',
+      title: 'Acasă, în armonie\ncu natura.',
+      description: 'Arhitectură contemporană, spații verzi și o nouă perspectivă asupra locuirii.',
+      primaryAction: 'Descoperă proiectul', secondaryAction: 'Explorează apartamentele',
     },
     project: {
       eyebrow: '01 / Proiectul', title: 'Un proiect construit în jurul ideii de acasă.',
@@ -51,6 +51,7 @@ export const homeCopy = {
     },
     apartments: {
       eyebrow: '04 / Apartamente', title: 'Loc pentru felul tău de a trăi.',
+      imageNote: 'Imagini generale ale ansamblului, fără asociere cu un anumit tip de apartament.',
       description: 'Două categorii de explorat. Începutul unei alegeri personale, în jurul ideii tale de acasă.',
       categories: [
         { id: 'two-room', rooms: '02', label: 'Camere', title: 'Apartamente cu 2 camere', description: 'Un nou început. Un spațiu al tău, de imaginat în ritmul vieții de zi cu zi.', action: 'Informații despre 2 camere' },
@@ -81,9 +82,9 @@ export const homeCopy = {
     meta: { title: 'Eden Residence | A home in harmony with nature', description: 'Explore the contemporary architecture, gardens and residential concept of Eden Residence.' },
     navigation: [{ label: 'Project', href: '#project' }, { label: 'Gardens', href: '#gardens' }, { label: 'Apartments', href: '#apartments' }, { label: 'Contact', href: '#contact' }],
     hero: {
-      eyebrow: 'Architecture. Nature. Home.', title: 'A home in harmony with nature.',
-      description: 'Discover Eden Residence — a residential project where contemporary architecture meets green surroundings and everyday comfort.',
-      primaryAction: 'Discover the project', secondaryAction: 'Explore apartments', imageCaption: 'Eden Residence · Exterior perspective',
+      eyebrow: 'Architecture. Nature. Home.', title: 'A home in harmony\nwith nature.',
+      description: 'Contemporary architecture, green surroundings and a fresh perspective on home.',
+      primaryAction: 'Discover the project', secondaryAction: 'Explore apartments',
     },
     project: {
       eyebrow: '01 / The project', title: 'A project built around the idea of home.',
@@ -107,6 +108,7 @@ export const homeCopy = {
     },
     apartments: {
       eyebrow: '04 / Apartments', title: 'Room for your way of living.',
+      imageNote: 'General development imagery, not representations of a specific apartment type.',
       description: 'Two categories to explore. The beginning of a personal choice, shaped around your idea of home.',
       categories: [
         { id: 'two-room', rooms: '02', label: 'Rooms', title: 'Two-room apartments', description: 'A new beginning. A space of your own, imagined around the rhythm of everyday life.', action: 'Ask about two-room apartments' },

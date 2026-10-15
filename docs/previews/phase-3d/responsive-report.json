@@ -1,0 +1,2606 @@
+[
+  {
+    "path": "/",
+    "mode": "light",
+    "width": 320,
+    "lang": "ro",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema întunecată",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Închide meniul",
+        "x": 241,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Proiect",
+        "x": 20,
+        "y": 95.71875,
+        "w": 66.609375,
+        "h": 51
+      },
+      {
+        "text": "Natură",
+        "x": 20,
+        "y": 154.71875,
+        "w": 67.203125,
+        "h": 51
+      },
+      {
+        "text": "Apartamente",
+        "x": 20,
+        "y": 213.71875,
+        "w": 127.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema întunecată",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 175.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 305,
+      "h": 203.328125
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "light",
+    "width": 375,
+    "lang": "ro",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema întunecată",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Închide meniul",
+        "x": 296,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Proiect",
+        "x": 20,
+        "y": 95.71875,
+        "w": 66.609375,
+        "h": 51
+      },
+      {
+        "text": "Natură",
+        "x": 20,
+        "y": 154.71875,
+        "w": 67.203125,
+        "h": 51
+      },
+      {
+        "text": "Apartamente",
+        "x": 20,
+        "y": 213.71875,
+        "w": 127.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema întunecată",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 230.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 360,
+      "h": 240
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "light",
+    "width": 768,
+    "lang": "ro",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema întunecată",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 30.71875,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Închide meniul",
+        "x": 678.28125,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Proiect",
+        "x": 30.71875,
+        "y": 99.71875,
+        "w": 73.9375,
+        "h": 54.84375
+      },
+      {
+        "text": "Natură",
+        "x": 30.71875,
+        "y": 162.5625,
+        "w": 74.59375,
+        "h": 54.84375
+      },
+      {
+        "text": "Apartamente",
+        "x": 30.71875,
+        "y": 225.40625,
+        "w": 141.265625,
+        "h": 54.84375
+      },
+      {
+        "text": "Română",
+        "x": 30.71875,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 82.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema întunecată",
+        "x": 134.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 612.96875,
+        "y": 300.25,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_1H9jY9.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_FFAsr.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z22yw6z.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_oj7N1.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 753,
+      "h": 423.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "light",
+    "width": 1024,
+    "lang": "ro",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema întunecată",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 40.953125,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Proiect",
+        "x": 384.078125,
+        "y": 21.359375,
+        "w": 49.953125,
+        "h": 44
+      },
+      {
+        "text": "Natură",
+        "x": 456.546875,
+        "y": 21.359375,
+        "w": 50.40625,
+        "h": 44
+      },
+      {
+        "text": "Apartamente",
+        "x": 529.46875,
+        "y": 21.359375,
+        "w": 95.453125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 695.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 746.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema întunecată",
+        "x": 798.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 858.734375,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_Z1u8hLx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Z28vWWz.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z1W5yoa.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_2a5sVv.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1h53tA.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1009,
+      "h": 567.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "light",
+    "width": 1440,
+    "lang": "ro",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema întunecată",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 56.5,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Proiect",
+        "x": 582.921875,
+        "y": 21.359375,
+        "w": 49.953125,
+        "h": 44
+      },
+      {
+        "text": "Natură",
+        "x": 664.546875,
+        "y": 21.359375,
+        "w": 50.40625,
+        "h": 44
+      },
+      {
+        "text": "Apartamente",
+        "x": 746.625,
+        "y": 21.359375,
+        "w": 95.453125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 1095.640625,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 1147.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema întunecată",
+        "x": 1199.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 1259.1875,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_XjnLl.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_1kWEFx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_2hCYp3.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_21hP8l.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_1zjXs0.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1425,
+      "h": 801.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "dark",
+    "width": 320,
+    "lang": "ro",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema deschisă",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Închide meniul",
+        "x": 241,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Proiect",
+        "x": 20,
+        "y": 95.71875,
+        "w": 66.609375,
+        "h": 51
+      },
+      {
+        "text": "Natură",
+        "x": 20,
+        "y": 154.71875,
+        "w": 67.203125,
+        "h": 51
+      },
+      {
+        "text": "Apartamente",
+        "x": 20,
+        "y": 213.71875,
+        "w": 127.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema deschisă",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 175.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 305,
+      "h": 203.328125
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "dark",
+    "width": 375,
+    "lang": "ro",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema deschisă",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Închide meniul",
+        "x": 296,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Proiect",
+        "x": 20,
+        "y": 95.71875,
+        "w": 66.609375,
+        "h": 51
+      },
+      {
+        "text": "Natură",
+        "x": 20,
+        "y": 154.71875,
+        "w": 67.203125,
+        "h": 51
+      },
+      {
+        "text": "Apartamente",
+        "x": 20,
+        "y": 213.71875,
+        "w": 127.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema deschisă",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 230.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 360,
+      "h": 240
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "dark",
+    "width": 768,
+    "lang": "ro",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema deschisă",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 30.71875,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Închide meniul",
+        "x": 678.28125,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Proiect",
+        "x": 30.71875,
+        "y": 99.71875,
+        "w": 73.9375,
+        "h": 54.84375
+      },
+      {
+        "text": "Natură",
+        "x": 30.71875,
+        "y": 162.5625,
+        "w": 74.59375,
+        "h": 54.84375
+      },
+      {
+        "text": "Apartamente",
+        "x": 30.71875,
+        "y": 225.40625,
+        "w": 141.265625,
+        "h": 54.84375
+      },
+      {
+        "text": "Română",
+        "x": 30.71875,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 82.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema deschisă",
+        "x": 134.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 612.96875,
+        "y": 300.25,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_1H9jY9.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_FFAsr.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z22yw6z.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_oj7N1.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 753,
+      "h": 423.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "dark",
+    "width": 1024,
+    "lang": "ro",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema deschisă",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 40.953125,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Proiect",
+        "x": 384.078125,
+        "y": 21.359375,
+        "w": 49.953125,
+        "h": 44
+      },
+      {
+        "text": "Natură",
+        "x": 456.546875,
+        "y": 21.359375,
+        "w": 50.40625,
+        "h": 44
+      },
+      {
+        "text": "Apartamente",
+        "x": 529.46875,
+        "y": 21.359375,
+        "w": 95.453125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 695.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 746.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema deschisă",
+        "x": 798.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 858.734375,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_Z1u8hLx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Z28vWWz.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z1W5yoa.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_2a5sVv.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1h53tA.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1009,
+      "h": 567.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/",
+    "mode": "dark",
+    "width": 1440,
+    "lang": "ro",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Activează tema deschisă",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 56.5,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Proiect",
+        "x": 582.921875,
+        "y": 21.359375,
+        "w": 49.953125,
+        "h": 44
+      },
+      {
+        "text": "Natură",
+        "x": 664.546875,
+        "y": 21.359375,
+        "w": 50.40625,
+        "h": 44
+      },
+      {
+        "text": "Apartamente",
+        "x": 746.625,
+        "y": 21.359375,
+        "w": 95.453125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 1095.640625,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 1147.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Activează tema deschisă",
+        "x": 1199.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 1259.1875,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_XjnLl.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_1kWEFx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_2hCYp3.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_21hP8l.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_1zjXs0.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1425,
+      "h": 801.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "light",
+    "width": 320,
+    "lang": "en",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to dark theme",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Close menu",
+        "x": 241,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Project",
+        "x": 20,
+        "y": 95.71875,
+        "w": 67.484375,
+        "h": 51
+      },
+      {
+        "text": "Gardens",
+        "x": 20,
+        "y": 154.71875,
+        "w": 79.96875,
+        "h": 51
+      },
+      {
+        "text": "Apartments",
+        "x": 20,
+        "y": 213.71875,
+        "w": 113.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to dark theme",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 175.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 305,
+      "h": 203.328125
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "light",
+    "width": 375,
+    "lang": "en",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to dark theme",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Close menu",
+        "x": 296,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Project",
+        "x": 20,
+        "y": 95.71875,
+        "w": 67.484375,
+        "h": 51
+      },
+      {
+        "text": "Gardens",
+        "x": 20,
+        "y": 154.71875,
+        "w": 79.96875,
+        "h": 51
+      },
+      {
+        "text": "Apartments",
+        "x": 20,
+        "y": 213.71875,
+        "w": 113.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to dark theme",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 230.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 360,
+      "h": 240
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "light",
+    "width": 768,
+    "lang": "en",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to dark theme",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 30.71875,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Close menu",
+        "x": 678.28125,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Project",
+        "x": 30.71875,
+        "y": 99.71875,
+        "w": 74.90625,
+        "h": 54.84375
+      },
+      {
+        "text": "Gardens",
+        "x": 30.71875,
+        "y": 162.5625,
+        "w": 88.765625,
+        "h": 54.84375
+      },
+      {
+        "text": "Apartments",
+        "x": 30.71875,
+        "y": 225.40625,
+        "w": 125.71875,
+        "h": 54.84375
+      },
+      {
+        "text": "Română",
+        "x": 30.71875,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 82.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to dark theme",
+        "x": 134.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 612.96875,
+        "y": 300.25,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_1H9jY9.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_FFAsr.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z22yw6z.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_oj7N1.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 753,
+      "h": 423.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "light",
+    "width": 1024,
+    "lang": "en",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to dark theme",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 40.953125,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Project",
+        "x": 384.203125,
+        "y": 21.359375,
+        "w": 50.625,
+        "h": 44
+      },
+      {
+        "text": "Gardens",
+        "x": 457.34375,
+        "y": 21.359375,
+        "w": 59.984375,
+        "h": 44
+      },
+      {
+        "text": "Apartments",
+        "x": 539.84375,
+        "y": 21.359375,
+        "w": 84.953125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 695.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 746.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to dark theme",
+        "x": 798.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 858.734375,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_Z1u8hLx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Z28vWWz.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z1W5yoa.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_2a5sVv.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1h53tA.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1009,
+      "h": 567.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "light",
+    "width": 1440,
+    "lang": "en",
+    "theme": "light",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to dark theme",
+    "icons": [
+      "moon"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 56.5,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Project",
+        "x": 583.046875,
+        "y": 21.359375,
+        "w": 50.625,
+        "h": 44
+      },
+      {
+        "text": "Gardens",
+        "x": 665.34375,
+        "y": 21.359375,
+        "w": 59.984375,
+        "h": 44
+      },
+      {
+        "text": "Apartments",
+        "x": 757,
+        "y": 21.359375,
+        "w": 84.953125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 1095.640625,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 1147.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to dark theme",
+        "x": 1199.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 1259.1875,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_XjnLl.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_1kWEFx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_2hCYp3.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_21hP8l.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_1zjXs0.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1425,
+      "h": 801.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(35, 66, 53)",
+    "projectBg": "rgb(229, 225, 212)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "dark",
+    "width": 320,
+    "lang": "en",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to light theme",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Close menu",
+        "x": 241,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Project",
+        "x": 20,
+        "y": 95.71875,
+        "w": 67.484375,
+        "h": 51
+      },
+      {
+        "text": "Gardens",
+        "x": 20,
+        "y": 154.71875,
+        "w": 79.96875,
+        "h": 51
+      },
+      {
+        "text": "Apartments",
+        "x": 20,
+        "y": 213.71875,
+        "w": 113.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to light theme",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 175.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 305,
+      "h": 203.328125
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "dark",
+    "width": 375,
+    "lang": "en",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to light theme",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 20,
+        "y": 16,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Close menu",
+        "x": 296,
+        "y": 17.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Project",
+        "x": 20,
+        "y": 95.71875,
+        "w": 67.484375,
+        "h": 51
+      },
+      {
+        "text": "Gardens",
+        "x": 20,
+        "y": 154.71875,
+        "w": 79.96875,
+        "h": 51
+      },
+      {
+        "text": "Apartments",
+        "x": 20,
+        "y": 213.71875,
+        "w": 113.265625,
+        "h": 51
+      },
+      {
+        "text": "Română",
+        "x": 20,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 71.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to light theme",
+        "x": 123.546875,
+        "y": 284.71875,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 230.6875,
+        "y": 284.71875,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 79.71875,
+      "w": 360,
+      "h": 240
+    },
+    "fit": "cover",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "dark",
+    "width": 768,
+    "lang": "en",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to light theme",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 30.71875,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Close menu",
+        "x": 678.28125,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Project",
+        "x": 30.71875,
+        "y": 99.71875,
+        "w": 74.90625,
+        "h": 54.84375
+      },
+      {
+        "text": "Gardens",
+        "x": 30.71875,
+        "y": 162.5625,
+        "w": 88.765625,
+        "h": 54.84375
+      },
+      {
+        "text": "Apartments",
+        "x": 30.71875,
+        "y": 225.40625,
+        "w": 125.71875,
+        "h": 54.84375
+      },
+      {
+        "text": "Română",
+        "x": 30.71875,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 82.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to light theme",
+        "x": 134.265625,
+        "y": 300.25,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 612.96875,
+        "y": 300.25,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_1H9jY9.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_FFAsr.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z22yw6z.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_oj7N1.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 753,
+      "h": 423.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 59,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "dark",
+    "width": 1024,
+    "lang": "en",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to light theme",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 40.953125,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Project",
+        "x": 384.203125,
+        "y": 21.359375,
+        "w": 50.625,
+        "h": 44
+      },
+      {
+        "text": "Gardens",
+        "x": 457.34375,
+        "y": 21.359375,
+        "w": 59.984375,
+        "h": 44
+      },
+      {
+        "text": "Apartments",
+        "x": 539.84375,
+        "y": 21.359375,
+        "w": 84.953125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 695.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 746.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to light theme",
+        "x": 798.734375,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 858.734375,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_Z1u8hLx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Z28vWWz.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_Z1W5yoa.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_2a5sVv.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1h53tA.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1009,
+      "h": 567.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  },
+  {
+    "path": "/en/",
+    "mode": "dark",
+    "width": 1440,
+    "lang": "en",
+    "theme": "dark",
+    "collapsed": true,
+    "undersized": [],
+    "overflowMenu": false,
+    "overflow": false,
+    "label": "Switch to light theme",
+    "icons": [
+      "sun"
+    ],
+    "center": 0,
+    "targets": [
+      {
+        "text": "Eden Residence",
+        "x": 56.5,
+        "y": 20,
+        "w": 88,
+        "h": 46.71875
+      },
+      {
+        "text": "Project",
+        "x": 583.046875,
+        "y": 21.359375,
+        "w": 50.625,
+        "h": 44
+      },
+      {
+        "text": "Gardens",
+        "x": 665.34375,
+        "y": 21.359375,
+        "w": 59.984375,
+        "h": 44
+      },
+      {
+        "text": "Apartments",
+        "x": 757,
+        "y": 21.359375,
+        "w": 84.953125,
+        "h": 44
+      },
+      {
+        "text": "Română",
+        "x": 1095.640625,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "English",
+        "x": 1147.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Switch to light theme",
+        "x": 1199.1875,
+        "y": 21.359375,
+        "w": 44,
+        "h": 44
+      },
+      {
+        "text": "Contact↗",
+        "x": 1259.1875,
+        "y": 21.359375,
+        "w": 109.3125,
+        "h": 44
+      }
+    ],
+    "images": [
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_XjnLl.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_1kWEFx.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_2hCYp3.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_21hP8l.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+        "status": 200,
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_1zjXs0.webp",
+        "status": 200,
+        "loaded": true
+      }
+    ],
+    "hero": {
+      "x": 0,
+      "y": 87.71875,
+      "w": 1425,
+      "h": 801.5625
+    },
+    "fit": "contain",
+    "position": "100% 100%",
+    "caption": false,
+    "descriptionInside": true,
+    "h1s": 1,
+    "panelBg": "rgb(229, 225, 212)",
+    "projectBg": "rgb(35, 66, 53)",
+    "links": true,
+    "contrast": {
+      "count": 64,
+      "minimum": 5.02,
+      "failures": []
+    },
+    "shift": 0
+  }
+]

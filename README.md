@@ -1,6 +1,6 @@
 # Eden Residence
 
-Local Eden Residence presentation website: Astro static generation, strict TypeScript, Tailwind CSS v4, and locally bundled Quicksand. Phase 3A adds the bilingual homepage using supplied architectural renders and existing branded themes. WordPress, inquiry processing and deployment remain deferred.
+Local Eden Residence presentation website: Astro static generation, strict TypeScript, Tailwind CSS v4, and locally bundled Quicksand. Phase 3D.1 refines chapter spacing and motion and adds an image-led apartment-category showcase. See [current review, browser verification and screenshots](docs/PHASE_3D1.md). WordPress, inquiry processing and deployment remain deferred.
 
 ## Requirements
 
@@ -82,8 +82,10 @@ The review route is injected only during `astro dev`. It has `noindex, nofollow`
 - [Tailwind v4 with Astro](https://tailwindcss.com/docs/installation/framework-guides/astro)
 - [Astro internationalization](https://docs.astro.build/en/guides/internationalization/)
 
-## Phase 3A homepage review
+## Phase 3C homepage review
 
 Open `/` or `/en/` using the dev server's printed URL. Navigation and CTAs use working homepage anchors. Apartment specifications and contact details remain explicitly pending; no inquiry form is simulated.
 
-The supplied originals actually live in `public/renders/`. Five byte-identical copies in `src/assets/home/` let Astro generate responsive WebP derivatives without modifying originals or cropping watermarks. See [the Phase 3A review record](docs/HOMEPAGE.md) for assets, changed files, screenshots, verification and pending decisions.
+The supplied originals actually live in `public/renders/`. Nine byte-identical source copies remain in `src/assets/home/`; seven selected renders generate 28 responsive WebP variants. The mobile hero is art-directed to retain the building and credit. Originals and watermarks remain unchanged. See [the Phase 3B review record](docs/HOMEPAGE.md) for assets, changed files, screenshots, verification and pending decisions.
+
+Phase 3B is not visually approved. See [Phase 3C](docs/PHASE_3C.md) for the image investigation, softer radii/framing, actual-viewport image proofs, full-page/hero screenshots and local capture helper. New scroll/entrance animations and GSAP remain deferred to Phase 3D.

@@ -2,6 +2,7 @@
 import Container from '../ui/Container.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import ThemeToggle from '../ui/ThemeToggle.astro';
+import Button from '../ui/Button.astro';
 import { navigationCopy } from '../../i18n/navigation';
 import type { Locale } from '../../i18n/ui';
 import type { LanguageLink, NavigationItem } from '../../lib/navigation';
@@ -13,16 +14,25 @@ interface Props {
   languageLinks?: readonly LanguageLink[];
   navigationId?: string;
   brandLabel?: string;
+  appearance?: 'default' | 'editorial';
+  contactAction?: { label: string; href: string };
 }
 
-const { locale, items, homeHref, languageLinks, navigationId = 'primary-navigation', brandLabel = 'Eden Residence' } = Astro.props;
+const { locale, items, homeHref, languageLinks, navigationId = 'primary-navigation', brandLabel = 'Eden Residence', appearance = 'default', contactAction } = Astro.props;
 const copy = navigationCopy[locale];
+const editorial = appearance === 'editorial';
+const navigationItems = contactAction ? items.filter((item) => item.href !== contactAction.href) : items;
 ---
 
-<header class="site-header">
+<header class:list={['site-header', { 'site-header--editorial': appearance === 'editorial' }]}>
   <Container width="wide">
     <eden-navigation class="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-5 lg:flex-nowrap">
-      <a href={homeHref} class="brand-wordmark">{brandLabel}</a>
+      <a href={homeHref} class="brand-wordmark" aria-label={brandLabel}>
+        {editorial ? <svg class="header-logo" viewBox="250 480 1064 565" width="88" height="47" aria-hidden="true">
+          <image class="header-logo__light" href="/brand/logo-Eden-residence-light.png" width="1563" height="1563" />
+          <image class="header-logo__dark" href="/brand/logo-Eden-residence-dark.png" width="1563" height="1563" />
+        </svg> : brandLabel}
+      </a>
       <button
         type="button"
         data-menu-toggle
@@ -31,22 +41,25 @@ const copy = navigationCopy[locale];
         aria-label={copy.open}
         aria-expanded="true"
         aria-controls={navigationId}
-        class="button button--outline button--sm lg:hidden"
+        class:list={['lg:hidden', editorial ? 'header-menu-toggle' : 'button button--outline button--sm']}
         hidden
       >
-        <span class="sr-only sm:not-sr-only">{copy.menu}</span>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" /></svg>
+        <span class:list={['sr-only', { 'sm:not-sr-only': !editorial }]}>{copy.menu}</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path data-menu-icon="open" d="M3 8h18M3 16h18" /><path data-menu-icon="close" d="m5 5 14 14M5 19 19 5" style="display:none" /></svg>
       </button>
       <div id={navigationId} data-navigation-panel class="w-full lg:w-auto">
-        <div class="flex flex-col gap-6 border-t border-divider pt-5 lg:flex-row lg:items-center lg:border-0 lg:pt-0">
-          <nav aria-label={copy.primary}>
+        <div class="header-navigation-layout flex flex-col gap-6 border-t border-divider pt-5 lg:flex-row lg:items-center lg:border-0 lg:pt-0">
+          <nav aria-label={copy.primary} class="header-primary-navigation">
             <ul class="flex flex-col gap-x-7 gap-y-1 lg:flex-row lg:flex-wrap">
-              {items.map((item) => <li><a href={item.href} aria-current={item.current ? 'page' : undefined} class="navigation-link text-heading">{item.label}</a></li>)}
+              {navigationItems.map((item) => <li><a href={item.href} aria-current={item.current ? 'page' : undefined} class="navigation-link text-heading">{item.label}</a></li>)}
             </ul>
           </nav>
-          <div class="flex flex-wrap items-center gap-3 lg:flex-nowrap">
-            <LanguageSwitcher locale={locale} links={languageLinks} />
-            <ThemeToggle locale={locale} />
+          <div class="header-controls flex flex-wrap items-center gap-3 lg:flex-nowrap">
+            <div class="header-utilities flex flex-wrap items-center gap-3 lg:flex-nowrap">
+              <LanguageSwitcher locale={locale} links={languageLinks} appearance={editorial ? 'inline' : 'default'} />
+              <ThemeToggle locale={locale} appearance={editorial ? 'icon' : 'default'} />
+            </div>
+            {contactAction && <Button href={contactAction.href} size="sm" class="header-contact">{contactAction.label}<span aria-hidden="true">↗</span></Button>}
           </div>
         </div>
       </div>
@@ -57,6 +70,7 @@ const copy = navigationCopy[locale];
 <script>
   class EdenNavigation extends HTMLElement {
     private controller?: AbortController;
+    private menuAnimation?: Animation;
 
     connectedCallback() {
       if (this.controller) return;
@@ -68,21 +82,32 @@ const copy = navigationCopy[locale];
       const { signal } = this.controller;
       const breakpoint = getComputedStyle(document.documentElement).getPropertyValue('--breakpoint-lg').trim();
       const desktop = window.matchMedia(`(min-width: ${breakpoint})`);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       let expanded = false;
 
       const sync = () => {
         const visible = desktop.matches || expanded;
+        const wasHidden = panel.hidden;
         const hidesFocusedLink = !visible && panel.contains(document.activeElement);
+        this.menuAnimation?.cancel();
         panel.hidden = !visible;
+        if (visible && wasHidden && !desktop.matches && !reducedMotion.matches) {
+          this.menuAnimation = panel.animate([{ opacity: 0, transform: 'translateY(-8px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 180, easing: 'cubic-bezier(0.2, 0.65, 0.3, 1)' });
+        }
         button.setAttribute('aria-expanded', String(visible));
         button.setAttribute('aria-label', (visible ? button.dataset.closeLabel : button.dataset.openLabel) ?? '');
+        this.querySelectorAll<SVGElement>('[data-menu-icon]').forEach((icon) => {
+          icon.style.display = icon.dataset.menuIcon === (visible ? 'close' : 'open') ? '' : 'none';
+        });
         if (hidesFocusedLink) button.focus();
+        if (wasHidden !== panel.hidden) document.dispatchEvent(new Event('eden:navigation-change'));
       };
 
       button.hidden = false;
       sync();
       button.addEventListener('click', () => { expanded = !expanded; sync(); }, { signal });
       desktop.addEventListener('change', () => { expanded = false; sync(); }, { signal });
+      reducedMotion.addEventListener('change', () => this.menuAnimation?.cancel(), { signal });
       this.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && expanded && !desktop.matches) {
           expanded = false;
@@ -106,6 +131,7 @@ const copy = navigationCopy[locale];
 
     disconnectedCallback() {
       this.controller?.abort();
+      this.menuAnimation?.cancel();
       this.controller = undefined;
     }
   }

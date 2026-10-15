@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { homeRenders, type HomeRenderName } from '../../assets/home/renders';
 import type { Locale } from '../../i18n/ui';
 
@@ -8,22 +8,32 @@ interface Props {
   locale: Locale;
   sizes: string;
   priority?: boolean;
+  mobileName?: HomeRenderName;
   class?: string;
 }
-const { name, locale, sizes, priority = false, class: className } = Astro.props;
+const { name, locale, sizes, priority = false, mobileName, class: className } = Astro.props;
 const asset = homeRenders[name];
 const widths = [480, 768, 1120, asset.image.width].filter((width) => width <= asset.image.width);
+const mobile = mobileName ? homeRenders[mobileName] : undefined;
+const mobileImages = mobile ? await Promise.all(
+  [480, 768, 1120, mobile.image.width].filter((width) => width <= mobile.image.width).map(async (width) => ({
+    width, image: await getImage({ src: mobile.image, width, format: 'webp', quality: 85 }),
+  })),
+) : [];
 ---
 
-<Image
-  src={asset.image}
-  alt={asset.alt[locale]}
-  widths={widths}
-  sizes={sizes}
-  format="webp"
-  quality={85}
-  loading={priority ? 'eager' : 'lazy'}
-  fetchpriority={priority ? 'high' : 'auto'}
-  decoding="async"
-  class:list={['block h-auto w-full', className]}
-/>
+<picture class="home-render" data-render={name}>
+  {mobile && <source media="(width < 48rem)" srcset={mobileImages.map(({ width, image }) => `${image.src} ${width}w`).join(', ')} sizes={sizes} width={mobile.image.width} height={mobile.image.height} />}
+  <Image
+    src={asset.image}
+    alt={asset.alt[locale]}
+    widths={widths}
+    sizes={sizes}
+    format="webp"
+    quality={85}
+    loading={priority ? 'eager' : 'lazy'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    decoding="async"
+    class:list={['block h-auto w-full', className]}
+  />
+</picture>

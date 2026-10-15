@@ -18,15 +18,25 @@ const copy = homeCopy[locale];
 ---
 
 <BaseLayout locale={locale} title={copy.meta.title} description={copy.meta.description}>
-  <Header locale={locale} items={copy.navigation} homeHref={homePaths[locale]} />
-  <main id="main-content" tabindex="-1">
+  <Header locale={locale} items={copy.navigation} homeHref={homePaths[locale]} appearance="editorial" contactAction={copy.navigation.find((item) => item.href === '#contact')} />
+  <main id="main-content" class="home-page" data-home-motion tabindex="-1">
     <Hero locale={locale} copy={copy.hero} />
     <ProjectIntro locale={locale} copy={copy.project} />
     <Vision copy={copy.vision} />
     <GreenLiving locale={locale} copy={copy.gardens} />
-    <ApartmentTypes copy={copy.apartments} />
+    <ApartmentTypes locale={locale} copy={copy.apartments} />
     <PassiveConcept locale={locale} copy={copy.passive} />
-    <ContactCTA copy={copy.contact} />
+    <ContactCTA locale={locale} copy={copy.contact} />
   </main>
   <Footer locale={locale} items={copy.navigation} homeHref={homePaths[locale]} note={copy.footerNote} />
 </BaseLayout>
+
+<script>
+  import { mountHomeMotion, unmountHomeMotion } from '../../lib/motion/home';
+
+  mountHomeMotion();
+  document.addEventListener('astro:page-load', mountHomeMotion);
+  document.addEventListener('astro:before-swap', unmountHomeMotion);
+  window.addEventListener('pagehide', unmountHomeMotion);
+  window.addEventListener('pageshow', mountHomeMotion);
+</script>

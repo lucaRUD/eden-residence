@@ -1,5 +1,4 @@
 ---
-import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import RenderImage from './RenderImage.astro';
 import type { HomeCopy } from '../../i18n/home';
@@ -8,22 +7,19 @@ interface Props { copy: HomeCopy['hero']; locale: Locale }
 const { copy, locale } = Astro.props;
 ---
 
-<section aria-labelledby="home-heading" class="home-hero py-section-sm">
-  <Container width="wide">
-    <div class="home-hero__grid">
-      <div class="home-hero__copy">
-        <p class="eyebrow mb-6">{copy.eyebrow}</p>
-        <h1 id="home-heading" class="home-hero__heading text-hero text-heading">{copy.title}</h1>
-        <p class="mt-8 max-w-reading text-body text-muted">{copy.description}</p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <Button href="#project">{copy.primaryAction}</Button>
-          <Button href="#apartments" variant="outline">{copy.secondaryAction}</Button>
-        </div>
-      </div>
-      <figure class="min-w-0">
-        <RenderImage name="hero" locale={locale} priority sizes="(min-width: 1440px) 790px, (min-width: 1024px) 57vw, 92vw" />
-        <figcaption class="home-caption">{copy.imageCaption}</figcaption>
-      </figure>
+<section aria-labelledby="home-heading" class="home-hero">
+  <div class="home-hero__stage">
+    <div class="home-hero__visual">
+      <RenderImage name="hero" mobileName="heroMobile" locale={locale} priority sizes="100vw" />
     </div>
-  </Container>
+    <div class="home-hero__panel">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1 id="home-heading" class="home-hero__heading">{copy.title}</h1>
+      <p class="home-hero__description text-body">{copy.description}</p>
+      <div class="home-hero__actions">
+        <Button href="#project">{copy.primaryAction}<span aria-hidden="true">↗</span></Button>
+        <a href="#apartments" class="home-text-link">{copy.secondaryAction}<span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </div>
 </section>

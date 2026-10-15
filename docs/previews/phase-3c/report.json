@@ -1,0 +1,3682 @@
+{
+  "reports": [
+    {
+      "url": "http://127.0.0.1:4322/",
+      "width": 1440,
+      "theme": "light",
+      "maxImageBoxShift": 0.03125,
+      "images": [
+        {
+          "name": "hero",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_XjnLl.webp",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 810,
+          "loading": "eager",
+          "rect": {
+            "x": 0,
+            "y": 85,
+            "width": 1440,
+            "height": 810,
+            "pageTop": 85
+          },
+          "fit": "contain",
+          "position": "100% 100%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__visual",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__stage",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-hero",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "project",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_1kWEFx.webp",
+          "complete": true,
+          "naturalWidth": 1382,
+          "naturalHeight": 777,
+          "loading": "lazy",
+          "rect": {
+            "x": 48,
+            "y": 122.359375,
+            "width": 1344,
+            "height": 756,
+            "pageTop": 1371.359375
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-project__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-project home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "garden",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_2hCYp3.webp",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 810,
+          "loading": "lazy",
+          "rect": {
+            "x": 24,
+            "y": 108.015625,
+            "width": 1392,
+            "height": 783,
+            "pageTop": 3958.015625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-gardens__primary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "walkway",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_21hP8l.webp",
+          "complete": true,
+          "naturalWidth": 770,
+          "naturalHeight": 433,
+          "loading": "lazy",
+          "rect": {
+            "x": 595.46875,
+            "y": 280.40625,
+            "width": 780.53125,
+            "height": 439.046875,
+            "pageTop": 4807.40625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-gardens__secondary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide home-gardens__afterword",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "concept",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+          "complete": true,
+          "naturalWidth": 749,
+          "naturalHeight": 458,
+          "loading": "lazy",
+          "rect": {
+            "x": 64,
+            "y": 280.234375,
+            "width": 720.609375,
+            "height": 440.046875,
+            "pageTop": 7232.234375
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-passive__body",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--brand py-section home-passive",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "closing",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_1zjXs0.webp",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 810,
+          "loading": "lazy",
+          "rect": {
+            "x": 48,
+            "y": 121.5625,
+            "width": 1344,
+            "height": 756,
+            "pageTop": 8481.5625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-contact__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--contrast home-contact",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:4322/",
+      "width": 1440,
+      "theme": "dark",
+      "maxImageBoxShift": 0.03125,
+      "images": [
+        {
+          "name": "hero",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-exterior-street-corner.COFjF4b4_XjnLl.webp",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 810,
+          "loading": "eager",
+          "rect": {
+            "x": 0,
+            "y": 85,
+            "width": 1440,
+            "height": 810,
+            "pageTop": 85
+          },
+          "fit": "contain",
+          "position": "100% 100%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__visual",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__stage",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-hero",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "project",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_1kWEFx.webp",
+          "complete": true,
+          "naturalWidth": 1382,
+          "naturalHeight": 777,
+          "loading": "lazy",
+          "rect": {
+            "x": 48,
+            "y": 122.359375,
+            "width": 1344,
+            "height": 756,
+            "pageTop": 1371.359375
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-project__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-project home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "garden",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_2hCYp3.webp",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 810,
+          "loading": "lazy",
+          "rect": {
+            "x": 24,
+            "y": 108.015625,
+            "width": 1392,
+            "height": 783,
+            "pageTop": 3958.015625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-gardens__primary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "walkway",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_21hP8l.webp",
+          "complete": true,
+          "naturalWidth": 770,
+          "naturalHeight": 433,
+          "loading": "lazy",
+          "rect": {
+            "x": 595.46875,
+            "y": 280.40625,
+            "width": 780.53125,
+            "height": 439.046875,
+            "pageTop": 4807.40625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-gardens__secondary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide home-gardens__afterword",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "concept",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z18lj3b.webp",
+          "complete": true,
+          "naturalWidth": 749,
+          "naturalHeight": 458,
+          "loading": "lazy",
+          "rect": {
+            "x": 64,
+            "y": 280.234375,
+            "width": 720.609375,
+            "height": 440.046875,
+            "pageTop": 7232.234375
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-passive__body",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--brand py-section home-passive",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "closing",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_1zjXs0.webp",
+          "complete": true,
+          "naturalWidth": 1440,
+          "naturalHeight": 810,
+          "loading": "lazy",
+          "rect": {
+            "x": 48,
+            "y": 121.5625,
+            "width": 1344,
+            "height": 756,
+            "pageTop": 8481.5625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-contact__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--contrast home-contact",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:4322/",
+      "width": 375,
+      "theme": "light",
+      "maxImageBoxShift": 0.0625,
+      "images": [
+        {
+          "name": "hero",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+          "complete": true,
+          "naturalWidth": 375,
+          "naturalHeight": 210,
+          "loading": "eager",
+          "rect": {
+            "x": 0,
+            "y": 77,
+            "width": 375,
+            "height": 250,
+            "pageTop": 77
+          },
+          "fit": "cover",
+          "position": "100% 100%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__visual",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__stage",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-hero",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "project",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+          "complete": true,
+          "naturalWidth": 360,
+          "naturalHeight": 202,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 312.0625,
+            "width": 335,
+            "height": 188.4375,
+            "pageTop": 1142.0625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-project__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-project home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "garden",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+          "complete": true,
+          "naturalWidth": 375,
+          "naturalHeight": 210,
+          "loading": "lazy",
+          "rect": {
+            "x": 10,
+            "y": 306.390625,
+            "width": 355,
+            "height": 199.6875,
+            "pageTop": 3031.390625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-gardens__primary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "walkway",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+          "complete": true,
+          "naturalWidth": 352,
+          "naturalHeight": 198,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 311.53125,
+            "width": 335,
+            "height": 188.4375,
+            "pageTop": 3522.53125
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-gardens__secondary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide home-gardens__afterword",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "concept",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+          "complete": true,
+          "naturalWidth": 337,
+          "naturalHeight": 206,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 303.453125,
+            "width": 335,
+            "height": 204.484375,
+            "pageTop": 5653.453125
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-passive__body",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--brand py-section home-passive",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "closing",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+          "complete": true,
+          "naturalWidth": 375,
+          "naturalHeight": 210,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 311.765625,
+            "width": 335,
+            "height": 188.4375,
+            "pageTop": 7020.765625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-contact__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--contrast home-contact",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:4322/",
+      "width": 375,
+      "theme": "dark",
+      "maxImageBoxShift": 0.0625,
+      "images": [
+        {
+          "name": "hero",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-garden-building-family.BYVvRk4X_ZnGu2K.webp",
+          "complete": true,
+          "naturalWidth": 375,
+          "naturalHeight": 210,
+          "loading": "eager",
+          "rect": {
+            "x": 0,
+            "y": 77,
+            "width": 375,
+            "height": 250,
+            "pageTop": 77
+          },
+          "fit": "cover",
+          "position": "100% 100%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__visual",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-hero__stage",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-hero",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "project",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-aerial-garden-water-feature.DDXZz0Qf_Y7fHD.webp",
+          "complete": true,
+          "naturalWidth": 360,
+          "naturalHeight": 202,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 312.0625,
+            "width": 335,
+            "height": 188.4375,
+            "pageTop": 1142.0625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-project__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-project home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "garden",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscaped-courtyard.BcBRgWH4_stfcA.webp",
+          "complete": true,
+          "naturalWidth": 375,
+          "naturalHeight": 210,
+          "loading": "lazy",
+          "rect": {
+            "x": 10,
+            "y": 306.390625,
+            "width": 355,
+            "height": 199.6875,
+            "pageTop": 3031.390625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "home-gardens__primary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "walkway",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-garden-sunset-walkway.DTbtfhTy_Z9pxL6.webp",
+          "complete": true,
+          "naturalWidth": 352,
+          "naturalHeight": 198,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 311.53125,
+            "width": 335,
+            "height": 188.4375,
+            "pageTop": 3522.53125
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-gardens__secondary",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide home-gardens__afterword",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "home-gardens home-chapter",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "concept",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-landscape-concept-sketch.yRuSzEkp_Z1B2qGb.webp",
+          "complete": true,
+          "naturalWidth": 337,
+          "naturalHeight": 206,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 303.453125,
+            "width": 335,
+            "height": 204.484375,
+            "pageTop": 5653.453125
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "FIGURE",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-passive__body",
+              "display": "grid",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "mx-auto w-full px-gutter max-w-wide",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--brand py-section home-passive",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        },
+        {
+          "name": "closing",
+          "url": "http://127.0.0.1:4322/_astro/eden-residence-exterior-brand-sign.CPtR-_77_Z1mj46J.webp",
+          "complete": true,
+          "naturalWidth": 375,
+          "naturalHeight": 210,
+          "loading": "lazy",
+          "rect": {
+            "x": 20,
+            "y": 311.765625,
+            "width": 335,
+            "height": 188.4375,
+            "pageTop": 7020.765625
+          },
+          "fit": "fill",
+          "position": "50% 50%",
+          "ancestors": [
+            {
+              "tag": "IMG",
+              "className": "block h-auto w-full",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "clip",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "PICTURE",
+              "className": "home-render",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "hidden",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "DIV",
+              "className": "home-contact__image",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "SECTION",
+              "className": "section section--contrast home-contact",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "MAIN",
+              "className": "home-page",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "BODY",
+              "className": "min-h-screen bg-background font-sans text-ink antialiased",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            },
+            {
+              "tag": "HTML",
+              "className": "",
+              "display": "block",
+              "opacity": "1",
+              "visibility": "visible",
+              "overflow": "visible",
+              "clip": "auto",
+              "clipPath": "none",
+              "filter": "none",
+              "transform": "none",
+              "contentVisibility": "visible"
+            }
+          ],
+          "hits": [
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            },
+            {
+              "onImage": true,
+              "top": "IMG.block h-auto w-full"
+            }
+          ],
+          "status": 200
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "exceptions": []
+}

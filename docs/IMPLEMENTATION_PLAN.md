@@ -83,3 +83,23 @@ The owner subsequently authorized Phases 2, 2.1, 2.2 and 3A. The historical mile
 Verification on 2026-10-15: Astro check passed over 35 files with no errors, warnings or hints; production build passed with two HTML pages and 20 responsive WebP derivatives. Chrome checked both languages/themes at 320/375/768/1024/1440px, keyboard/touch navigation, theme persistence, all homepage anchors, image loading, semantic smoke checks and reduced motion. Sampled text contrast was at least 5.02:1. The design-system route returns 200 in development and 404 in production preview. See [the complete Phase 3A review record](HOMEPAGE.md) for files, assets, screenshots, actual checks and limitations.
 
 Phase 3A stops at owner review. Factual apartment data, approved contact details, publication assets, final copy approval and technical substantiation remain pending; subsequent pages, CMS work and launch require a later task.
+
+## Phase 3B ? authorized architectural homepage redesign
+
+The owner requested a substantial visual redesign while preserving the existing Astro/content/theme architecture. Phase 3B changes all seven section compositions, adds native mobile hero art direction and an optional editorial Header appearance, and investigates the reported light-mode image issue. No broken theme-specific image path was reproduced; cold below-fold lazy loading was observed. Final captures wait for normal scroll-triggered loading and image decoding.
+
+Verification: Astro check passed over 35 files with zero diagnostics; production build passed with two pages and 28 optimized image variants. Chrome covered both languages/themes at 320?1440px, cold image loading at desktop/mobile, keyboard/touch controls, route/anchor behavior, focus, sampled contrast and local layout-shift instrumentation. Four full-page production screenshots are recorded in [HOMEPAGE.md](HOMEPAGE.md). No commit, WordPress work, dependency, additional page or deployment was introduced. Stop for owner visual review.
+
+## Phase 3C: image investigation and polish, pending visual approval
+
+Actual viewport screenshots and ancestor/hit-test inspection confirmed that all six images visibly paint in both themes before styling changed. The origin of the earlier blank screenshot areas was not reproduced. A local capture helper now checks decoded geometry, visibility, browser responses and image-box stability before full-page capture; separate viewport/pixel evidence accompanies the screenshots. Image lazy loading remains native.
+
+Refinements preserve the Phase 3B editorial structure: softer shared radii, fewer outer rules, balanced image spacing and a less cropped 3:2 mobile hero. Astro checks, build, RO/EN, both themes, 320-1440px, keyboard/touch, reduced motion and no-JavaScript image behavior passed. See [the Phase 3C record](PHASE_3C.md) for exact scope, files, tests and limitations. No animation, dependency, CMS work, page, commit or deployment was introduced. Stop for visual review; Phase 3D motion requires separate authorization.
+
+## Phase 3D: authorized homepage motion, pending review
+
+The owner subsequently authorized GSAP/ScrollTrigger, restrained homepage entrances, native/CSS interaction details and the supplied navbar logos. These are implemented without changing the Phase 3C.2 composition. Motion, reduced-motion/no-JavaScript/blocked-chunk fallbacks, keyboard/touch, both themes/languages and responsive behavior were checked in Chrome. Astro check and production build passed. Exact timings, files, screenshots and remaining limitations are in [PHASE_3D.md](PHASE_3D.md). Stop for review; CMS, additional pages and deployment remain deferred.
+
+## Phase 3D.1: refinement following visual review
+
+Phase 3D was not visually approved. The owner requested less repetitive motion, tighter spacing and image-led apartment-category panels. Current work preserves the hero/brand direction, sections, semantic themes, bilingual routes and CMS boundary. Eight distinct chapter treatments replace the 17 uniform rises; imagery stays opaque. Apartment panels use supplied development imagery and native full-panel links with CSS pointer/focus emphasis. See [PHASE_3D1.md](PHASE_3D1.md) for exact scope, measurements, tests and captures. Stop for review; no additional page, dependency, WordPress change, commit or deployment is included.

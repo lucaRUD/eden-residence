@@ -85,7 +85,7 @@ The static frontend will require an approved server endpoint or form service. Se
 
 Prefer generated HTML and minimal vanilla scripts, responsive optimized images with dimensions/alt text, and lazy loading below the fold. Review future media hosting and image optimization separately. Fontsource bundles Quicksand assets locally, including Latin Extended for Romanian diacritics, with font-display swap. No external font service is requested by the page.
 
-Future animation modules should be page-scoped, progressively enhanced, and respect reduced motion; future 3D should load only when needed with a static alternative. Neither GSAP nor Three.js is installed. Full keyboard, responsive, contrast, and screen-reader review belongs to the actual design phase; initialization checks do not establish accessibility compliance.
+Homepage animation is now implemented in Phase 3D: page-scoped, progressively enhanced GSAP/ScrollTrigger with a static baseline and reduced-motion handling. Three.js is not installed; any future 3D must load only when needed with a static alternative. Full keyboard, responsive, contrast, and screen-reader review belongs to the actual design phase; initialization checks do not establish accessibility compliance.
 
 ## References
 
@@ -99,3 +99,17 @@ Future animation modules should be page-scoped, progressively enhanced, and resp
 The existing Astro `Image` component generates four WebP widths per image, with explicit dimensions, responsive `sizes` and full original aspect ratios. The hero is eager/high priority; other images are lazy. Five byte-identical JPEG source copies under `src/assets/home/` enable optimization while the supplied `public/renders/` originals stay untouched. Astro also copies all public originals into `dist/`, including unused images; browser pages request optimized derivatives. Publication asset cleanup remains a later decision.
 
 The only production routes remain `/` and `/en/`. Shared theme scripts, mobile navigation and development-only preview registration are preserved. Apartment categories have stable local IDs, without inventory or specifications. The contact CTA reaches an honest on-page information placeholder, without a form, submission or invented contact data. See [Phase 3A](HOMEPAGE.md).
+
+## Phase 3B composition and art direction
+
+The same bilingual homepage content object and theme preference scripts remain authoritative. Existing section components now render distinct editorial compositions. `Header` has an optional editorial appearance; no navigation controller was replaced. `RenderImage` supports an optional mobile source through native `picture`/`source`, generated with Astro `getImage`. Only one hero source is requested for the current breakpoint. Six image elements use seven selected sources; the build produces 28 WebP variants. Four additional byte-identical source copies were added; previous sources remain intact.
+
+Homepage-only display/spacing tokens and semantic surface mappings live in `src/styles/home.css`. The main image is full-width, garden imagery is panoramic, apartment panels use existing paired contrast/brand contexts and the passive section reuses brand blue through its strong-surface role. No new browser script, CMS abstraction or dependency was introduced. See [the current homepage record](HOMEPAGE.md).
+
+## Phase 3D motion boundary
+
+`HomePage.astro` alone imports the small `src/lib/motion/home.ts` loader. It loads `home-animations.ts` and GSAP/ScrollTrigger dynamically only when motion is allowed. Generation checks guard asynchronous imports; one mounted root prevents duplicate initialization. A WeakMap retains visited elements across disposal/remount of the same document, including back/forward restoration. AbortController, GSAP context reversion and canceled refresh frames clean up on Astro swaps, pagehide and preference changes; pageshow remounts safely. The project currently uses regular static-page navigation, not Astro ClientRouter.
+
+There is no baseline hiding CSS, pinning, parallax, smooth-scroll replacement or framework hydration. Phase 3D originally created 17 uniform reveals; Phase 3D.1 now uses eight chapter-specific treatments, each once. Fonts, image loads and navigation layout changes request coalesced position refreshes. Static image dimensions and existing native lazy loading remain authoritative. Both routes share this implementation. Shared Header's native menu entrance is independent of GSAP, so a failed animation chunk cannot break navigation. See [the current Phase 3D.1 record](PHASE_3D1.md).
+
+The apartment showcase uses the existing typed copy model plus a localized general-imagery note. It contains two real anchors to the existing contact-information section; there are still no apartment-detail routes or inventory. Two additional exact source copies use the existing RenderImage/Astro pipeline. Nine selected sources generate 36 responsive WebP variants; eight image elements appear per page. Hover styling affects imagery only and does not change panel layout or require JavaScript.

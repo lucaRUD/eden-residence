@@ -1,0 +1,295 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "count": 8,
+      "observed": [
+        {
+          "name": "mx-auto w-full px-gutter max-w-wide home-project__heading",
+          "styles": [
+            {
+              "name": "home-display",
+              "opacity": "1",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-render",
+          "styles": [
+            {
+              "name": "home-render",
+              "opacity": "",
+              "transform": "",
+              "clipPath": "inset(0% 0% 0% 0.0009%)"
+            }
+          ]
+        },
+        {
+          "name": "home-benefits",
+          "styles": [
+            {
+              "name": "home-benefit__number",
+              "opacity": "0.9999",
+              "transform": "",
+              "clipPath": ""
+            },
+            {
+              "name": "H3",
+              "opacity": "0.999",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-render",
+          "styles": [
+            {
+              "name": "home-render",
+              "opacity": "",
+              "transform": "",
+              "clipPath": "inset(0% 0% 0% 0.0001%)"
+            }
+          ]
+        },
+        {
+          "name": "home-gardens__copy",
+          "styles": [
+            {
+              "name": "text-lead text-heading",
+              "opacity": "0.9999",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-apartments",
+          "styles": [
+            {
+              "name": "home-apartment__identity",
+              "opacity": "0.9999",
+              "transform": "translate3d(0px, 0.006px, 0px)",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-principles",
+          "styles": [
+            {
+              "name": "text-h4 font-heading text-heading",
+              "opacity": "1",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-contact__heading",
+          "styles": [
+            {
+              "name": "home-contact__heading",
+              "opacity": "0.9999",
+              "transform": "translate3d(0px, 0.0046px, 0px)",
+              "clipPath": ""
+            }
+          ]
+        }
+      ],
+      "shifts": [
+        {
+          "name": "mx-auto w-full px-gutter max-w-wide home-project__heading",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-render",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-benefits",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-render",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-gardens__copy",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-apartments",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-principles",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-contact__heading",
+          "top": 0,
+          "height": 0
+        }
+      ],
+      "imageOpacityAlwaysOne": true,
+      "textOpacityMinimum": 0.85,
+      "clean": true
+    },
+    {
+      "width": 375,
+      "count": 8,
+      "observed": [
+        {
+          "name": "mx-auto w-full px-gutter max-w-wide home-project__heading",
+          "styles": [
+            {
+              "name": "home-display",
+              "opacity": "1",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-render",
+          "styles": [
+            {
+              "name": "home-render",
+              "opacity": "",
+              "transform": "",
+              "clipPath": "inset(0% 0% 0% 0.0008%)"
+            }
+          ]
+        },
+        {
+          "name": "home-benefits",
+          "styles": [
+            {
+              "name": "home-benefit__number",
+              "opacity": "0.9999",
+              "transform": "",
+              "clipPath": ""
+            },
+            {
+              "name": "H3",
+              "opacity": "0.999",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-render",
+          "styles": [
+            {
+              "name": "home-render",
+              "opacity": "",
+              "transform": "",
+              "clipPath": "inset(0% 0% 0% 0.0009%)"
+            }
+          ]
+        },
+        {
+          "name": "home-gardens__copy",
+          "styles": [
+            {
+              "name": "text-lead text-heading",
+              "opacity": "0.9998",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-apartments",
+          "styles": [
+            {
+              "name": "home-apartment__identity",
+              "opacity": "0.9997",
+              "transform": "translate3d(0px, 0.0138px, 0px)",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-principles",
+          "styles": [
+            {
+              "name": "text-h4 font-heading text-heading",
+              "opacity": "1",
+              "transform": "",
+              "clipPath": ""
+            }
+          ]
+        },
+        {
+          "name": "home-contact__heading",
+          "styles": [
+            {
+              "name": "home-contact__heading",
+              "opacity": "0.9998",
+              "transform": "translate3d(0px, 0.0111px, 0px)",
+              "clipPath": ""
+            }
+          ]
+        }
+      ],
+      "shifts": [
+        {
+          "name": "mx-auto w-full px-gutter max-w-wide home-project__heading",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-render",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-benefits",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-render",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-gardens__copy",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-apartments",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-principles",
+          "top": 0,
+          "height": 0
+        },
+        {
+          "name": "home-contact__heading",
+          "top": 0,
+          "height": 0
+        }
+      ],
+      "imageOpacityAlwaysOne": true,
+      "textOpacityMinimum": 0.85,
+      "clean": true
+    }
+  ],
+  "errors": []
+}

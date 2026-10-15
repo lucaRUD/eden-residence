@@ -5,15 +5,16 @@ import type { LanguageLink } from '../../lib/navigation';
 interface Props {
   locale: Locale;
   links?: readonly LanguageLink[];
+  appearance?: 'default' | 'inline';
 }
 
-const { locale, links = [
+const { locale, appearance = 'default', links = [
   { locale: 'ro', label: 'Română', href: homePaths.ro },
   { locale: 'en', label: 'English', href: homePaths.en },
 ] } = Astro.props;
 ---
 
-<nav aria-label={ui[locale].languageNavigation}>
+<nav aria-label={ui[locale].languageNavigation} class:list={{ 'language-switcher--inline': appearance === 'inline' }}>
   <ul class="flex flex-wrap gap-2">
     {links.map((language) => (
       <li>
@@ -21,15 +22,24 @@ const { locale, links = [
           href={language.href}
           lang={language.locale}
           hreflang={language.locale}
+          aria-label={language.label}
           aria-current={locale === language.locale ? 'page' : undefined}
           class:list={[
             'inline-flex min-h-control items-center rounded-control px-3 py-2 text-navigation font-control underline-offset-4 hover:underline',
             locale === language.locale ? 'bg-action text-action-ink' : 'text-heading',
           ]}
         >
-          {language.label}
+          {appearance === 'inline' ? language.locale.toUpperCase() : language.label}
         </a>
       </li>
     ))}
   </ul>
 </nav>
+
+<style>
+  .language-switcher--inline ul { gap: 0; align-items: center; flex-wrap: nowrap; }
+  .language-switcher--inline li { display: flex; align-items: center; }
+  .language-switcher--inline li + li::before { content: '/'; color: var(--context-muted); font-size: var(--text-small); }
+  .language-switcher--inline a { justify-content: center; min-width: var(--spacing-control); padding-inline: calc(var(--spacing) * 2); border-radius: 0; background: transparent; color: var(--section-heading); }
+  .language-switcher--inline a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; }
+</style>

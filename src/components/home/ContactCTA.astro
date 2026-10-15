@@ -1,15 +1,30 @@
 ---
-import CTASection from '../ui/CTASection.astro';
 import Section from '../ui/Section.astro';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import RenderImage from './RenderImage.astro';
 import type { HomeCopy } from '../../i18n/home';
-interface Props { copy: HomeCopy['contact'] }
-const { copy } = Astro.props;
+import type { Locale } from '../../i18n/ui';
+interface Props { copy: HomeCopy['contact']; locale: Locale }
+const { copy, locale } = Astro.props;
 ---
 
-<CTASection id="contact" title={copy.title} eyebrow={copy.eyebrow} description={copy.description} action={{ label: copy.action, href: '#contact-information' }} />
+<section id="contact" class="section section--contrast home-contact" aria-labelledby="contact-heading">
+  <Container width="wide">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h2 id="contact-heading" class="home-contact__heading">{copy.title}</h2>
+    <div class="home-contact__action">
+      <p class="text-body text-muted">{copy.description}</p>
+      <Button href="#contact-information" size="lg">{copy.action}<span aria-hidden="true">↗</span></Button>
+    </div>
+  </Container>
+  <div class="home-contact__image">
+    <RenderImage name="closing" locale={locale} sizes="100vw" />
+  </div>
+</section>
 <Section id="contact-information" tone="muted" spacing="sm" aria-labelledby="contact-information-heading" tabindex="-1">
   <div class="grid items-start gap-6 lg:grid-cols-2 lg:gap-16">
-    <h3 id="contact-information-heading" class="text-h4 text-heading">{copy.informationTitle}</h3>
+    <h2 id="contact-information-heading" class="text-h4 text-heading">{copy.informationTitle}</h2>
     <div>
       <p class="max-w-reading text-body text-muted">{copy.information}</p>
       <a href="#apartments" class="home-text-link mt-4">{copy.returnAction}<span aria-hidden="true">↑</span></a>

@@ -1,5 +1,7 @@
 # Eden Residence — design system (Phase 2.2)
 
+Current homepage conventions are recorded in [Phase 3D.1](#phase-3d1-chapter-rhythm-and-apartment-panels). The Phase 3C.2 hero composition and supplied navbar logos remain. Earlier phase records below are historical.
+
 ## Status and reference
 
 Phase 2 components, Phase 2.1 branded themes and Phase 2.2 refinements implemented for local review on 2026-10-15. The supplied [concept board](../public/brand/concept-board.png) was inspected directly. It uses Quicksand and cream, deep green, navy, anthracite, copper, and yellow, with timber and brick references. These informed restrained surfaces, clear typography, modest radii, and minimal decoration. No imagery, measurements, apartment inventory, legal copy, or factual marketing claims were invented.
@@ -85,7 +87,8 @@ Body weight: 500 (`font-body`); heading/control weights: 600 (`font-heading`, `f
 | `min-h-control` | 2.75rem (44px at the default root size) |
 | Container widths | content 72rem; wide 88rem; narrow 48rem; reading 42rem |
 | Breakpoints | existing sm 40rem, md 48rem, lg 64rem, xl 80rem |
-| `rounded-control`, `rounded-card` | 0.25rem / 0.5rem |
+| `rounded-control`, `rounded-card` | 0.5rem / 0.75rem (Phase 3C refinement) |
+| `--radius-image` | `clamp(0.5rem, 1.2vw, 1rem)` for selected photographs |
 | `shadow-card` | subtle 0.5rem/2rem green-tinted shadow, 6% opacity |
 | `shadow-raised` | 0.75rem/2.5rem green-tinted shadow, 10% opacity |
 | `--duration-fast`, `--duration-normal` | 160ms / 240ms |
@@ -317,3 +320,70 @@ The fixed brand palette, shared typography and theme-selection scripts are uncha
 `brand-wordmark` now has a 44px minimum clickable height, preserving its typography. The homepage adds a 44px-minimum underlined text-link style, full-aspect image figures and asymmetrical composition in `src/styles/home.css`; it does not replace shared primitives. The two apartment numerals use existing copper/green roles for visual distinction. No additional font, raw color, motion effect or browser dependency was introduced.
 
 See [the Phase 3A record](HOMEPAGE.md) for composition, exact assets, verification, screenshots and remaining factual content. Historical Phase 2 scope statements above describe those phases, not the current homepage status.
+
+## Phase 3B homepage art direction
+
+Shared global tokens and theme selection are unchanged. Homepage-only tokens in `src/styles/home.css` provide `--home-display` (2.75?6rem), `--home-statement` (2?4rem), chapter spacing, grid gap and a paper surface mapped to existing canvas. The closing heading uses a larger fluid scale capped at 9rem; body text remains 1rem. These are presentation choices scoped to the homepage, not replacements for shared heading tokens.
+
+Header adds optional `appearance: default | editorial`; the default design-system presentation and vanilla navigation behavior remain intact. The editorial masthead uses theme background, underlined current-language text and a desktop control separator. The apartment panels pair existing contrast/brand contexts. The passive chapter locally maps `--theme-strong-surface` to existing brand blue, retaining paired cream text/focus roles. No new HEX value, font, dependency or animation was added.
+
+Mobile hero source selection follows the existing md (48rem) breakpoint, with 4:3 right/bottom framing retaining the credit. From md, the full street image uses 16:9. The text/action panel stays below the image through tablet widths and overlays the roadway only at xl (80rem). See [Phase 3B](HOMEPAGE.md) for actual visual checks and screenshots.
+
+## Phase 3C visual refinements
+
+Shared radii are now 8px for controls and 12px for cards/panels. The image token ranges from 8px to 16px; selected photographs use it, while the landscape study and chapter boundaries retain square geometry. No brand color, type scale, theme mapping or shadow was changed. The design-system preview inherits revised shared radii.
+
+Homepage framing uses `--hero-image-aspect`, `--hero-image-fit` and `--hero-image-position` in one place. Mobile framing is now 3:2 with right/bottom alignment; md and above remain full 16:9. Explicit positioning within the aspect frame reserves image geometry. `data-render` is a diagnostic label, not a script-dependent visibility mechanism.
+
+Selected photographs and the benefits surface have gentler corners/insets; apartment panels retain their editorial scale with modest rounding. Outer annotation/benefit borders were removed, preserving internal rules and the technical caveat. No new entrance/scroll animation, parallax, GSAP or dependency was added. Existing functional transitions remain reduced-motion aware. See [Phase 3C](PHASE_3C.md) for visible browser-pixel evidence and exact checks.
+
+## Phase 3C.2 navbar and hero
+
+The core palette, semantic theme mappings, global typography and shared radii are unchanged. No logo asset was found; the editorial Header uses a temporary two-line Quicksand text wordmark, not a new official logo.
+
+- Header's optional `contactAction: { label, href }` promotes that destination into one shared Button and removes its duplicate from the central navigation. The homepage supplies the existing localized Contact item. Desktop uses equal outer grid columns around centered navigation; utilities and the contact action share the right column. Below lg, a non-modal expanding panel contains the navigation, language/theme controls and contact action. Existing Escape, outside-click, link activation, resize reset and focus-return behavior is retained. With JavaScript the panel starts closed; without it, navigation is available and inactive controls stay hidden.
+- `LanguageSwitcher` adds `appearance: default | inline`. Inline displays RO / EN, underlines the current language and retains full localized accessible names and the existing `lang`, `hreflang`, destinations and `aria-current`. Targets remain at least 44px. Default appearance remains available to the development design-system page.
+- `ThemeToggle` adds `appearance: default | icon`. Icon appearance is a momentary action button: moon means switch to dark, sun means switch to light. Its localized accessible name/title describes that next action; it does not use `aria-pressed`. Default appearance retains its stable name and dark-mode pressed state. All instances use the existing shared controller, storage key, system fallback and synchronous head initialization.
+- Hero panel context maps background to `--theme-primary`, foreground/heading/focus to `--theme-primary-ink`, and primary-button background/ink to the reversed pair. Hover uses existing `--theme-secondary-hover`; the focus halo uses panel background. This produces a forest panel in light mode and cream panel in dark mode without additional colors or alternate stylesheets.
+- Hero wording is retained, with localized newline breaks rendered through `white-space: pre-line`, balanced wrapping and fluid sizing. Supporting text is 16px and now inside the panel. The visible hero caption and its obsolete content field are removed; meaningful image alt text remains.
+- Below xl, the panel joins directly beneath the image with no overlap of the credit. At xl it overlaps 19rem of roadway and remains in grid flow, extending below the image. Framing remains mobile 3:2, right/bottom, and full 16:9 from md. Image sources, dimensions, loading priority and watermarks are unchanged.
+- Project introduction retains its existing aerial image, content and layout. Its opening spacing is now `clamp(3rem, 5vw, 5rem)`. The contrasting hero panel and asymmetrical chapter heading establish separation without extra dividers, shadows or green surface variants.
+
+See [Phase 3C.2](PHASE_3C2.md) for the exact file list, browser checks and screenshots. The design-system preview remains development-only and its default shared-component variants were regression checked in both languages.
+
+## Phase 3D motion and supplied logos
+
+GSAP 3.15.0 and its bundled ScrollTrigger plugin now enhance the homepage only. `src/lib/motion/home.ts` owns preference/lifecycle handling and dynamically imports `home-animations.ts` only for visitors without reduced motion. Shared components do not import GSAP. The development design-system route does not request this runtime.
+
+Animations are selective compositions configured in one module, using 16px mobile / 24px desktop translation, `power2.out`, opacity, and cleared inline styles on completion. The hero timeline lasts 0.83s; section reveals take 0.65s, with apartment panels at 0.75s. Scroll reveals start at `top 86%`, once per element. No content is hidden by initial CSS, and pending reveals remain visible until their actual entrance starts. Focus, anchor arrival, reduced-motion changes and cleanup restore affected content immediately. See [the exact timing and behavior record](PHASE_3D.md).
+
+Simple pointer interactions use CSS: a 2px CTA-arrow translation with the existing fast duration, and the existing raised shadow on apartment hover/focus-within. These effects are limited to fine, hover-capable pointers without reduced motion. They do not compete with GSAP transforms. Mobile navigation has a native 180ms opacity/8px entrance; close/Escape hides immediately and returns focus as before. Reduced motion skips/cancels that entrance. Theme color transitions are unchanged.
+
+The editorial navbar now uses the supplied `public/brand/logo-Eden-residence-light.png` and `logo-Eden-residence-dark.png`. Both originals are opaque, 1563px square with large empty margins. An SVG viewport frames the complete artwork without changing its proportions or editing the files. Light uses darken blending to integrate its white backdrop into cream while retaining the green mark; dark uses the supplied cream-on-green asset directly. CSS theme and OS fallback selection work without JavaScript. The link retains the full brand accessible name; the SVG is decorative. The default Header still accepts caller-supplied brand text.
+
+Palette, typography, layout, content, render framing and watermarks are unchanged. Parallax was considered and omitted to avoid cropping or shifting image credits. Motion is progressive enhancement, not a prerequisite for content or navigation.
+
+## Phase 3D.1 chapter rhythm and apartment panels
+
+Global palette, typography, themes and shared primitives remain unchanged. Homepage-scoped composition tokens now use:
+
+| Role | Current value |
+| --- | --- |
+| Chapter spacing | `clamp(2.75rem, 5vw, 4.5rem)` |
+| Composition gap | `clamp(1.5rem, 3vw, 2.5rem)` |
+| Editorial display | `clamp(2.5rem, 1.1rem + 4.8vw, 5.5rem)` |
+| Editorial statement | `clamp(1.75rem, 1.15rem + 2.2vw, 3.1rem)` |
+| Project supporting statement | `clamp(1.5rem, 1.2rem + 1.4vw, 2.5rem)` |
+| Hero-to-project space | `clamp(2.25rem, 3.5vw, 3.5rem)` |
+
+Homepage Section padding uses the chapter token; the shared Section component is unchanged. Supporting body copy remains 16px. Internal gaps, numbered-row padding and closing-heading scale were tightened selectively. The hero composition/dimensions were preserved; garden afterword text now aligns with the top of its companion image.
+
+ApartmentTypes now requires `locale` alongside its existing copy. `HomeCopy.apartments.imageNote` explains in both languages that photography shows the general development, not a particular apartment type. Existing category content and the real destination remain; no floor plans, unit images, dimensions or availability were invented.
+
+Each article contains one full-panel anchor, a real render, room-count/title identity, always-visible description and CTA. The native link is named by its H3, with the imagery note and action as its description. Two panels align at desktop and stack on mobile. Image frames are 6:5 from md and 4:3 below md, right/bottom aligned to preserve credits. Number sizes range from 3.5rem to 7rem. Footer surfaces retain existing paper/forest contexts; there is no text over busy photography.
+
+For a fine hover pointer without reduced motion, the active image scales to 1.025 over 480ms, anchored at bottom right, while inactive imagery uses saturation 0.65. Text and image credits remain sharp; no blur is used. Keyboard focus receives equivalent emphasis and the visible focus ring. Panel geometry never changes. Touch and reduced-motion layouts keep static images and complete labels/actions. Underline/focus affordances remain without animation.
+
+Motion now has eight chapter treatments at `top 92%`: heading opacity, a 3% leading-edge image reveal, short benefit-label and technical-label sequences, a garden lead emphasis, a small apartment-identity stagger and an 8px closing-heading settle. Most copy and imagery remain still. Photography never fades; the small clip leaves the bottom-right credit visible. Body paragraphs are not faded. Hero text stays at least 85% opaque and settles in 0.6s. Existing preference, fallback, focus, anchor and lifecycle cleanup remain; clip-path styles are also reverted/cleared.
+
+See [Phase 3D.1](PHASE_3D1.md) for source files, actual measurements, screenshots and browser checks. The supplied light/dark navbar logos were retained and verified, with no new mark or altered source files.
