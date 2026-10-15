@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+/* Working digital approximations ONLY; none are official RAL conversions. */
+@theme {
+  --color-brand-cream: #f7f3e8;
+  --color-brand-green: #173f35;
+  --color-brand-blue: #24394e;
+  --color-brand-anthracite: #30363b;
+  --color-brand-copper: #975d43;
+  --color-brand-yellow: #c6a13b;
+
+  --font-sans: 'Quicksand Variable', 'Quicksand', system-ui, sans-serif;
+  --spacing: 0.25rem;
+  --container-content: 72rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand-green);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--color-brand-green);
+    color: var(--color-brand-cream);
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 50;
+    transform: translateY(calc(-100% - 2rem));
+    border-radius: 0.25rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-brand-green);
+    color: var(--color-brand-cream);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+}

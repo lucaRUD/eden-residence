@@ -1,0 +1,30 @@
+---
+import '@fontsource-variable/quicksand';
+import '../styles/global.css';
+import { ui, type Locale } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <!-- Local placeholder only; remove after production content and SEO review. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="data:," />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-brand-cream font-sans text-brand-anthracite antialiased">
+    <a class="skip-link" href="#main-content">{ui[locale].skipLink}</a>
+    <slot />
+  </body>
+</html>
