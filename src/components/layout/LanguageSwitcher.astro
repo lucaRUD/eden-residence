@@ -1,29 +1,30 @@
 ---
 import { homePaths, ui, type Locale } from '../../i18n/ui';
+import type { LanguageLink } from '../../lib/navigation';
 
 interface Props {
   locale: Locale;
+  links?: readonly LanguageLink[];
 }
 
-const { locale } = Astro.props;
-const languages = [
-  { locale: 'ro', label: 'Română' },
-  { locale: 'en', label: 'English' },
-] as const;
+const { locale, links = [
+  { locale: 'ro', label: 'Română', href: homePaths.ro },
+  { locale: 'en', label: 'English', href: homePaths.en },
+] } = Astro.props;
 ---
 
 <nav aria-label={ui[locale].languageNavigation}>
   <ul class="flex flex-wrap gap-2">
-    {languages.map((language) => (
+    {links.map((language) => (
       <li>
         <a
-          href={homePaths[language.locale]}
+          href={language.href}
           lang={language.locale}
           hreflang={language.locale}
           aria-current={locale === language.locale ? 'page' : undefined}
           class:list={[
-            'inline-flex min-h-11 items-center rounded-sm px-3 py-2 text-sm underline-offset-4 hover:underline',
-            locale === language.locale ? 'bg-brand-green text-brand-cream' : 'text-brand-green',
+            'inline-flex min-h-control items-center rounded-control px-3 py-2 text-navigation font-control underline-offset-4 hover:underline',
+            locale === language.locale ? 'bg-action text-action-ink' : 'text-heading',
           ]}
         >
           {language.label}

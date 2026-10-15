@@ -4,7 +4,7 @@ Local Phase 1 foundation for the Romanian/English real estate presentation websi
 
 ## Requirements
 
-- Node.js 22.19.0 or newer supported even-numbered release. Astro declares a lower minimum, but its installed indirect dependency `undici@8` requires 22.19.0. This machine currently has 22.18.0; see the compatibility note below.
+- Node.js 22.19.0 or newer supported even-numbered release. Phase 2 was verified with Node 24.22.0 and npm 11.19.1.
 - npm and Git.
 
 Run commands from the project root. Windows PowerShell examples use `npm.cmd` because execution policy can block `npm.ps1`. In other shells, use `npm` instead. No global installation or execution-policy change is needed.
@@ -55,7 +55,15 @@ The font's distribution license is retained at `public/fonts/OFL-Quicksand.txt`.
 
 ## Local compatibility note
 
-Initialization used system Node 22.18.0 and npm 10.9.3. Dependency installation reported an engine warning for `undici@8.12.1` (through Astro's `unifont` dependency), which requires Node 22.19.0 or newer. The executed Astro check and build passed on 22.18.0, but that does not establish dependency support. Use a supported Node 22.19+ release for subsequent development and CI. No system Node update, dependency override, or version downgrade was performed.
+Phase 1 used Node 22.18.0 and reported an engine warning for an indirect dependency requiring 22.19.0. The owner subsequently updated Node; Phase 2 uses Node 24.22.0 and npm 11.19.1, satisfying that requirement. The minimum in `package.json` remains 22.19.0. No dependencies were reinstalled or changed in Phase 2.
+
+## Phase 2 design-system review
+
+Start `npm.cmd run dev`, then open <http://localhost:4321/design-system/> for Romanian or <http://localhost:4321/design-system/?lang=en> for English. The supplied concept board informs a provisional palette; all digital colors and component styling still await design approval.
+
+The page demonstrates tokens, typography, buttons/states, cards, spacing, responsive grids, navigation, footer, and CTA components. It uses demonstration content, not apartment information. See [the design-system guide](docs/DESIGN_SYSTEM.md) for component props, usage, and verification details.
+
+The review route is injected only during `astro dev`. It has `noindex, nofollow` and is absent from production builds and `npm.cmd run preview`. Making it deployable would require an explicitly approved code change. The RO/EN homepages remain placeholders.
 
 ## Documentation
 

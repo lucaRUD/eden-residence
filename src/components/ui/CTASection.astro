@@ -1,0 +1,28 @@
+---
+import Section from './Section.astro';
+import SectionHeading from './SectionHeading.astro';
+import Button from './Button.astro';
+
+interface Action { label: string; href: string }
+interface Props {
+  id: string;
+  title: string;
+  description?: string;
+  eyebrow?: string;
+  action: Action;
+  secondaryAction?: Action;
+  tone?: 'brand' | 'cream';
+}
+
+const { id, title, description, eyebrow, action, secondaryAction, tone = 'brand' } = Astro.props;
+---
+
+<Section id={id} tone={tone} aria-labelledby={`${id}-heading`}>
+  <div class="grid items-center gap-10 lg:grid-cols-2">
+    <SectionHeading id={`${id}-heading`} title={title} description={description} eyebrow={eyebrow} />
+    <div class="flex flex-wrap items-center gap-4 lg:justify-end">
+      <Button href={action.href}>{action.label}</Button>
+      {secondaryAction && <Button href={secondaryAction.href} variant="outline">{secondaryAction.label}</Button>}
+    </div>
+  </div>
+</Section>

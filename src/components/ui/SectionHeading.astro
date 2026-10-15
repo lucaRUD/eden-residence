@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  as?: 'h1' | 'h2' | 'h3' | 'h4';
+  size?: 'hero' | 'h1' | 'h2' | 'h3' | 'h4';
+  align?: 'left' | 'center';
+  id?: string;
+  class?: string;
+}
+
+const { title, eyebrow, description, as: Heading = 'h2', size = Heading, align = 'left', id, class: className } = Astro.props;
+const sizes = { hero: 'text-hero', h1: 'text-h1', h2: 'text-h2', h3: 'text-h3', h4: 'text-h4' };
+---
+
+<div class:list={['max-w-reading', { 'mx-auto text-center': align === 'center' }, className]}>
+  {eyebrow && <p class="eyebrow mb-4">{eyebrow}</p>}
+  <Heading id={id} class:list={['section-heading font-heading', sizes[size]]}>{title}</Heading>
+  {description && <p class="mt-6 text-lead text-muted">{description}</p>}
+  <slot />
+</div>

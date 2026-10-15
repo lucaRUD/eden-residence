@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  fullWidth?: boolean;
+  class?: string;
+  id?: string;
+  name?: string;
+  value?: string;
+  title?: string;
+  target?: HTMLAttributes<'a'>['target'];
+  rel?: string;
+  download?: HTMLAttributes<'a'>['download'];
+  'aria-label'?: string;
+  'aria-controls'?: string;
+  'aria-expanded'?: boolean;
+}
+
+const { href, variant = 'primary', size = 'md', type = 'button', disabled = false, fullWidth = false, class: className, target, rel, download, name, value, ...attributes } = Astro.props;
+const classes = ['button', `button--${variant}`, `button--${size}`, { 'w-full': fullWidth }, className];
+---
+
+{href !== undefined ? (
+  <a
+    {...attributes}
+    href={disabled ? undefined : href}
+    role={disabled ? 'link' : undefined}
+    aria-disabled={disabled ? 'true' : undefined}
+    tabindex={disabled ? -1 : undefined}
+    target={disabled ? undefined : target}
+    rel={target === '_blank' ? (rel ?? 'noopener noreferrer') : rel}
+    download={disabled ? undefined : download}
+    class:list={classes}
+  ><slot /></a>
+) : (
+  <button {...attributes} type={type} disabled={disabled} name={name} value={value} class:list={classes}><slot /></button>
+)}

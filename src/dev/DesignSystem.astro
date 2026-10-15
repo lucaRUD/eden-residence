@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import CTASection from '../components/ui/CTASection.astro';
+import ThemeToggle from '../components/ui/ThemeToggle.astro';
+import { themeCopy } from '../i18n/theme';
+import { homePaths, type Locale } from '../i18n/ui';
+import { brandSwatches, previewCopy } from './content';
+
+const locale: Locale = Astro.url.searchParams.get('lang') === 'en' ? 'en' : 'ro';
+const copy = previewCopy[locale];
+const themes = themeCopy[locale];
+const themeSwatches = [
+  { token: '--theme-background', label: themes.background },
+  { token: '--theme-surface', label: themes.surface },
+  { token: '--theme-surface-muted', label: themes.mutedSurface },
+  { token: '--theme-elevated', label: themes.elevatedSurface },
+  { token: '--theme-text', label: themes.text },
+  { token: '--theme-muted', label: themes.mutedText },
+  { token: '--theme-primary', label: themes.primary },
+];
+const anchors = ['#palette', '#typography', '#components', '#spacing'];
+const items = copy.navigation.map((label, index) => ({ label, href: anchors[index]! }));
+const languageLinks = [
+  { locale: 'ro' as const, label: 'Română', href: '/design-system/' },
+  { locale: 'en' as const, label: 'English', href: '/design-system/?lang=en' },
+];
+const types = [
+  { label: 'Hero', className: 'text-hero' },
+  { label: 'H1', className: 'text-h1' },
+  { label: 'H2', className: 'text-h2' },
+  { label: 'H3', className: 'text-h3' },
+  { label: 'H4', className: 'text-h4' },
+];
+const variants = ['primary', 'secondary', 'outline'] as const;
+const spaces = ['sm', 'default', 'lg'] as const;
+---
+
+<BaseLayout locale={locale} title={copy.title} description={copy.description}>
+  <Header locale={locale} items={items} homeHref={homePaths[locale]} languageLinks={languageLinks} />
+  <main id="main-content" tabindex="-1">
+    <Section id="top" tone="cream" spacing="lg" aria-labelledby="preview-heading">
+      <div class="grid items-start gap-12 lg:grid-cols-3">
+        <div class="lg:col-span-2">
+          <SectionHeading as="h1" size="hero" id="preview-heading" title={copy.hero} eyebrow={copy.eyebrow} description={copy.intro} />
+          <p class="mt-10 max-w-reading border-l-2 border-accent pl-5 text-small">{copy.notice}</p>
+        </div>
+        <aside aria-labelledby="board-heading" class="border-t border-accent pt-6">
+          <h2 id="board-heading" class="mb-4 text-h4 text-heading">{copy.board}</h2>
+          <a href="/brand/concept-board.png"><img src="/brand/concept-board.png" alt={copy.boardAlt} width="1563" height="1563" class="w-full rounded-card border border-divider" loading="lazy" /></a>
+          <p class="mt-4 max-w-reading text-body">{copy.boardNote}</p>
+        </aside>
+      </div>
+    </Section>
+
+    <Section id="themes" tone="muted" spacing="sm" aria-labelledby="themes-heading">
+      <div class="flex flex-wrap items-start justify-between gap-8">
+        <SectionHeading id="themes-heading" title={themes.review} description={themes.description} />
+        <ThemeToggle locale={locale} />
+      </div>
+      <p class="mt-6 text-small">{themes.current}: <strong data-theme-name data-light-name={themes.lightName} data-dark-name={themes.darkName}></strong></p>
+      <div class="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+        {themeSwatches.map((swatch) => <figure>
+          <div class="h-20 rounded-card border border-divider" style={`background: var(${swatch.token})`} aria-hidden="true"></div>
+          <figcaption class="mt-3 text-small"><span class="block font-heading">{swatch.label}</span><code data-color-token={swatch.token} class="break-all">{swatch.token}</code></figcaption>
+        </figure>)}
+      </div>
+    </Section>
+
+    <Section id="palette" tone="surface" aria-labelledby="palette-heading">
+      <SectionHeading id="palette-heading" title={copy.palette} description={copy.paletteText} eyebrow={`01 / ${copy.navigation[0]}`} />
+      <div class="mt-12 grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+        {brandSwatches.map((swatch, index) => (
+          <figure>
+            <div class="h-32 rounded-card border border-divider" style={`background-color: var(${swatch.token})`} aria-hidden="true"></div>
+            <figcaption class="mt-4 text-small">
+              <span class="block font-heading text-heading">{copy.colorNames[index]}</span>
+              <span class="block">{swatch.reference}</span>
+              <code data-color-token={swatch.token} class="mt-1 block break-all text-small">{swatch.token}</code>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <h3 class="mt-12 text-h4 text-heading">{copy.surfaces}</h3>
+      <div class="mt-6 grid gap-4 sm:grid-cols-3">
+        {['--theme-background', '--theme-surface', '--theme-surface-muted'].map((token, index) => (
+          <div class="rounded-card border border-divider p-6" style={`background-color: var(${token})`}>
+            <p class="font-heading text-heading">{copy.surfaceNames[index]}</p>
+            <code data-color-token={token} class="mt-2 block text-small">{token}</code>
+          </div>
+        ))}
+      </div>
+    </Section>
+
+    <Section id="typography" tone="muted" aria-labelledby="typography-heading">
+      <SectionHeading id="typography-heading" title={copy.type} description={copy.typeText} eyebrow="02 / Quicksand" />
+      <div class="mt-12 divide-y divide-divider">
+        {types.map((type) => (
+          <div class="grid gap-4 py-8 md:grid-cols-6">
+            <p class="text-small text-accent">{type.label}</p>
+            <p class:list={['font-heading text-heading md:col-span-5', type.className]}>{copy.typeSample}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 grid gap-10 lg:grid-cols-2">
+        <div class="max-w-reading space-y-6">
+          <h3 class="text-h4 text-heading">{copy.typographySample}</h3>
+          <p class="text-lead">{copy.typeSample}</p>
+          <p class="text-body">{copy.typeBody}</p>
+          <p class="text-small">{copy.typeSmall}</p>
+        </div>
+        <div class="space-y-6 border-t border-divider pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+          <p class="eyebrow">{copy.typeLabel}</p>
+          <p class="text-navigation font-control">{copy.typeNav}</p>
+          <p class="text-button font-control">{copy.buttonAction}</p>
+          <p class="text-small"><code>body 500 / heading 600 / control 600</code></p>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="components" aria-labelledby="buttons-heading">
+      <SectionHeading id="buttons-heading" title={copy.buttons} description={copy.buttonsText} eyebrow="03 / UI" />
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+        {variants.map((variant, index) => (
+          <div class="rounded-card border border-divider bg-panel p-6">
+            <h3 class="mb-6 text-h4 text-heading">{copy.variants[index]}</h3>
+            <div class="space-y-6">
+              {copy.states.map((state, stateIndex) => (
+                <div class:list={{ 'preview-hover': stateIndex === 1, 'preview-focus': stateIndex === 2 }}>
+                  <p class="mb-3 text-small">{state}</p>
+                  {stateIndex === 3 ? <Button variant={variant} disabled>{copy.buttonAction}</Button> : <Button href="#cards" variant={variant}>{copy.buttonAction}</Button>}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <h3 class="mt-12 text-h4 text-heading">{copy.sizes}</h3>
+      <div class="mt-6 flex flex-wrap items-center gap-4">
+        <Button size="sm" href="#cards">{copy.small}</Button>
+        <Button href="#cards">{copy.medium}</Button>
+        <Button size="lg" href="#cards">{copy.large}</Button>
+        <Button disabled>{copy.states[3]}</Button>
+        <Button href="#cards" disabled variant="outline">{copy.disabledLink}</Button>
+      </div>
+    </Section>
+
+    <Section id="cards" tone="surface" aria-labelledby="cards-heading">
+      <SectionHeading id="cards-heading" title={copy.cards} description={copy.cardsText} />
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Card title={copy.cardTitles[0]} description={copy.cardDescriptions[0]} eyebrow={copy.cardEyebrow} />
+        <Card title={copy.cardTitles[1]} description={copy.cardDescriptions[1]} raised>
+          <Button href="#typography" variant="outline">{copy.cardLink}</Button>
+        </Card>
+        <Card title={copy.cardTitles[2]} description={copy.cardDescriptions[2]}>
+          <p class="text-small text-accent">{copy.bilingual}</p>
+          <p lang={locale === 'ro' ? 'en' : 'ro'} class="mt-2">{locale === 'ro' ? 'Form, light, balance.' : 'Formă, lumină, echilibru.'}</p>
+        </Card>
+      </div>
+    </Section>
+
+    <Section id="spacing" tone="cream" aria-labelledby="spacing-heading">
+      <SectionHeading id="spacing-heading" title={copy.spacing} description={copy.spacingText} eyebrow="04 / Layout" />
+    </Section>
+    {spaces.map((space, index) => (
+      <Section spacing={space} tone={index === 1 ? 'muted' : 'surface'} aria-labelledby={`spacing-${space}`}>
+        <div class="border-l-2 border-accent pl-6">
+          <h3 id={`spacing-${space}`} class="text-h4 text-heading">{copy.spacingNames[index]}</h3>
+          <p class="mt-2 text-small"><code>Section spacing="{space}" / Container width="content"</code></p>
+        </div>
+      </Section>
+    ))}
+    <Section tone="muted" width="narrow" aria-labelledby="layout-heading">
+      <SectionHeading id="layout-heading" title={copy.layout} />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {copy.layoutItems.map((item, index) => <div class="rounded-card border border-divider bg-panel p-6"><p class="text-label text-accent">0{index + 1}</p><p class="mt-4">{item}</p></div>)}
+      </div>
+    </Section>
+
+    <CTASection id="cta" title={copy.cta} description={copy.ctaText} action={{ label: copy.ctaAction, href: '#components' }} secondaryAction={{ label: copy.ctaSecondary, href: '#palette' }} />
+  </main>
+  <Footer locale={locale} homeHref={homePaths[locale]} note={copy.footerNote} items={[{ label: copy.top, href: '#top' }, { label: copy.navigation[0], href: '#palette' }]} />
+</BaseLayout>
+
+<script>
+  const updatePreview = () => {
+    const styles = getComputedStyle(document.documentElement);
+    document.querySelectorAll<HTMLElement>('[data-color-token]').forEach((element) => {
+      const token = element.dataset.colorToken;
+      if (token) element.textContent = styles.getPropertyValue(token).trim();
+    });
+    document.querySelectorAll<HTMLElement>('[data-theme-name]').forEach((element) => {
+      element.textContent = (document.documentElement.dataset.theme === 'dark' ? element.dataset.darkName : element.dataset.lightName) ?? '';
+    });
+  };
+  document.addEventListener('eden:theme-change', updatePreview);
+  updatePreview();
+</script>
+
+<style>
+  .preview-hover :global(.button) {
+    background: var(--button-hover-bg);
+    color: var(--button-hover-ink);
+    border-color: var(--button-hover-border);
+  }
+  .preview-focus :global(.button) {
+    outline: var(--focus-width) solid var(--focus-color);
+    outline-offset: var(--focus-offset);
+    box-shadow: 0 0 0 var(--focus-offset) var(--focus-halo);
+  }
+</style>

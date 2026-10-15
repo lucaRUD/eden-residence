@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'article'> {
+  title: string;
+  eyebrow?: string;
+  description?: string;
+  href?: string;
+  headingLevel?: 'h2' | 'h3' | 'h4';
+  raised?: boolean;
+}
+
+const { title, eyebrow, description, href, headingLevel: Heading = 'h3', raised = false, class: className, ...attributes } = Astro.props;
+---
+
+<article {...attributes} class:list={['card flex h-full flex-col items-start', { 'card--raised': raised }, className]}>
+  {eyebrow && <p class="eyebrow mb-6">{eyebrow}</p>}
+  <Heading class="card__title text-h4">{href ? <a href={href}>{title}</a> : title}</Heading>
+  {description && <p class="mt-4 text-body text-muted">{description}</p>}
+  {Astro.slots.has('default') && <div class="mt-6 w-full"><slot /></div>}
+</article>

@@ -1,5 +1,6 @@
 ---
 import LanguageSwitcher from '../layout/LanguageSwitcher.astro';
+import ThemeToggle from '../ui/ThemeToggle.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { ui, type Locale } from '../../i18n/ui';
 
@@ -12,11 +13,12 @@ const copy = ui[locale];
 ---
 
 <BaseLayout locale={locale} title={copy.pageTitle} description={copy.description}>
-  <header class="mx-auto flex max-w-content justify-end px-6 pt-6 sm:px-10">
+  <header class="mx-auto flex max-w-content flex-wrap items-center justify-end gap-4 px-6 pt-6 sm:px-10">
     <LanguageSwitcher locale={locale} />
+    <ThemeToggle locale={locale} />
   </header>
   <main id="main-content" tabindex="-1" class="mx-auto max-w-content px-6 py-16 sm:px-10 sm:py-24">
-    <p class="text-sm font-semibold tracking-wide text-brand-green">Eden Residence</p>
+    <p class="text-sm font-semibold tracking-wide text-heading">Eden Residence</p>
     <h1 class="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">{copy.heading}</h1>
     <p class="mt-6 max-w-prose text-base leading-relaxed sm:text-lg">{copy.message}</p>
   </main>

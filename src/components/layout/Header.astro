@@ -1,0 +1,114 @@
+---
+import Container from '../ui/Container.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeToggle from '../ui/ThemeToggle.astro';
+import { navigationCopy } from '../../i18n/navigation';
+import type { Locale } from '../../i18n/ui';
+import type { LanguageLink, NavigationItem } from '../../lib/navigation';
+
+interface Props {
+  locale: Locale;
+  items: readonly NavigationItem[];
+  homeHref: string;
+  languageLinks?: readonly LanguageLink[];
+  navigationId?: string;
+  brandLabel?: string;
+}
+
+const { locale, items, homeHref, languageLinks, navigationId = 'primary-navigation', brandLabel = 'Eden Residence' } = Astro.props;
+const copy = navigationCopy[locale];
+---
+
+<header class="site-header">
+  <Container width="wide">
+    <eden-navigation class="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-5 lg:flex-nowrap">
+      <a href={homeHref} class="brand-wordmark">{brandLabel}</a>
+      <button
+        type="button"
+        data-menu-toggle
+        data-open-label={copy.open}
+        data-close-label={copy.close}
+        aria-label={copy.open}
+        aria-expanded="true"
+        aria-controls={navigationId}
+        class="button button--outline button--sm lg:hidden"
+        hidden
+      >
+        <span class="sr-only sm:not-sr-only">{copy.menu}</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" /></svg>
+      </button>
+      <div id={navigationId} data-navigation-panel class="w-full lg:w-auto">
+        <div class="flex flex-col gap-6 border-t border-divider pt-5 lg:flex-row lg:items-center lg:border-0 lg:pt-0">
+          <nav aria-label={copy.primary}>
+            <ul class="flex flex-col gap-x-7 gap-y-1 lg:flex-row lg:flex-wrap">
+              {items.map((item) => <li><a href={item.href} aria-current={item.current ? 'page' : undefined} class="navigation-link text-heading">{item.label}</a></li>)}
+            </ul>
+          </nav>
+          <div class="flex flex-wrap items-center gap-3 lg:flex-nowrap">
+            <LanguageSwitcher locale={locale} links={languageLinks} />
+            <ThemeToggle locale={locale} />
+          </div>
+        </div>
+      </div>
+    </eden-navigation>
+  </Container>
+</header>
+
+<script>
+  class EdenNavigation extends HTMLElement {
+    private controller?: AbortController;
+
+    connectedCallback() {
+      if (this.controller) return;
+      const button = this.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+      const panel = this.querySelector<HTMLElement>('[data-navigation-panel]');
+      if (!button || !panel) return;
+
+      this.controller = new AbortController();
+      const { signal } = this.controller;
+      const breakpoint = getComputedStyle(document.documentElement).getPropertyValue('--breakpoint-lg').trim();
+      const desktop = window.matchMedia(`(min-width: ${breakpoint})`);
+      let expanded = false;
+
+      const sync = () => {
+        const visible = desktop.matches || expanded;
+        const hidesFocusedLink = !visible && panel.contains(document.activeElement);
+        panel.hidden = !visible;
+        button.setAttribute('aria-expanded', String(visible));
+        button.setAttribute('aria-label', (visible ? button.dataset.closeLabel : button.dataset.openLabel) ?? '');
+        if (hidesFocusedLink) button.focus();
+      };
+
+      button.hidden = false;
+      sync();
+      button.addEventListener('click', () => { expanded = !expanded; sync(); }, { signal });
+      desktop.addEventListener('change', () => { expanded = false; sync(); }, { signal });
+      this.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && expanded && !desktop.matches) {
+          expanded = false;
+          sync();
+          button.focus();
+        }
+      }, { signal });
+      panel.addEventListener('click', (event) => {
+        if (event.target instanceof Element && event.target.closest('a') && !desktop.matches) {
+          expanded = false;
+          sync();
+        }
+      }, { signal });
+      document.addEventListener('click', (event) => {
+        if (expanded && event.target instanceof Node && !this.contains(event.target)) {
+          expanded = false;
+          sync();
+        }
+      }, { signal });
+    }
+
+    disconnectedCallback() {
+      this.controller?.abort();
+      this.controller = undefined;
+    }
+  }
+
+  if (!customElements.get('eden-navigation')) customElements.define('eden-navigation', EdenNavigation);
+</script>

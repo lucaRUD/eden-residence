@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Container from './Container.astro';
+
+interface Props extends HTMLAttributes<'section'> {
+  tone?: 'default' | 'surface' | 'muted' | 'cream' | 'brand';
+  spacing?: 'sm' | 'default' | 'lg';
+  width?: 'content' | 'wide' | 'narrow' | 'reading';
+}
+
+const { tone = 'default', spacing = 'default', width = 'content', class: className, ...attributes } = Astro.props;
+const spaces = { sm: 'py-section-sm', default: 'py-section', lg: 'py-section-lg' };
+---
+
+<section {...attributes} class:list={['section', `section--${tone}`, spaces[spacing], className]}>
+  <Container width={width}><slot /></Container>
+</section>

@@ -1,0 +1,30 @@
+---
+import Container from '../ui/Container.astro';
+import { navigationCopy } from '../../i18n/navigation';
+import type { Locale } from '../../i18n/ui';
+import type { NavigationItem } from '../../lib/navigation';
+
+interface Props {
+  locale: Locale;
+  items: readonly NavigationItem[];
+  homeHref: string;
+  note?: string;
+  brandLabel?: string;
+}
+
+const { locale, items, homeHref, note, brandLabel = 'Eden Residence' } = Astro.props;
+---
+
+<footer class="site-footer py-section-sm">
+  <Container width="wide" class="flex flex-col justify-between gap-8 md:flex-row md:items-start">
+    <div class="max-w-reading">
+      <a href={homeHref} class="brand-wordmark">{brandLabel}</a>
+      {note && <p class="mt-4 max-w-reading text-body text-muted">{note}</p>}
+    </div>
+    <nav aria-label={navigationCopy[locale].footer}>
+      <ul class="flex flex-wrap gap-x-8 gap-y-2">
+        {items.map((item) => <li><a href={item.href} class="navigation-link">{item.label}</a></li>)}
+      </ul>
+    </nav>
+  </Container>
+</footer>
