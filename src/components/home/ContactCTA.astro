@@ -10,17 +10,20 @@ const { copy, locale } = Astro.props;
 ---
 
 <section id="contact" class="section section--contrast home-contact" aria-labelledby="contact-heading">
-  <Container width="wide">
-    <p class="eyebrow">{copy.eyebrow}</p>
-    <h2 id="contact-heading" class="home-contact__heading">{copy.title}</h2>
-    <div class="home-contact__action">
-      <p class="text-body text-muted">{copy.description}</p>
-      <Button href="#contact-information" size="lg">{copy.action}<span aria-hidden="true">↗</span></Button>
+  <Container width="wide" class="home-contact__composition">
+    <div>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 id="contact-heading" class="home-contact__heading">{copy.title}</h2>
+      <div class="home-contact__rule" aria-hidden="true"></div>
+      <div class="home-contact__action">
+        <p class="text-body text-muted">{copy.description}</p>
+        <Button href="#contact-information" size="lg">{copy.action}<span aria-hidden="true">↗</span></Button>
+      </div>
+    </div>
+    <div class="home-contact__image">
+      <RenderImage name="closing" locale={locale} sizes="(min-width: 1440px) 610px, (min-width: 768px) 44vw, 92vw" />
     </div>
   </Container>
-  <div class="home-contact__image">
-    <RenderImage name="closing" locale={locale} sizes="100vw" />
-  </div>
 </section>
 <Section id="contact-information" tone="muted" spacing="sm" aria-labelledby="contact-information-heading" tabindex="-1">
   <div class="grid items-start gap-6 lg:grid-cols-2 lg:gap-16">

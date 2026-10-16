@@ -3,6 +3,12 @@ dist/
 # generated types
 .astro/
 
+# generated visual QA (prefer temporary directories outside this repository)
+/docs/previews/
+/docs/screenshots/
+/docs/videos/
+/screenshots/
+
 # dependencies
 node_modules/
 

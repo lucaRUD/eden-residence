@@ -4,11 +4,11 @@ import Header from '../layout/Header.astro';
 import Footer from '../layout/Footer.astro';
 import Hero from './Hero.astro';
 import ProjectIntro from './ProjectIntro.astro';
-import Vision from './Vision.astro';
 import GreenLiving from './GreenLiving.astro';
 import ApartmentTypes from './ApartmentTypes.astro';
 import PassiveConcept from './PassiveConcept.astro';
 import ContactCTA from './ContactCTA.astro';
+import EdenJourney from './EdenJourney.astro';
 import { homeCopy } from '../../i18n/home';
 import { homePaths, type Locale } from '../../i18n/ui';
 import '../../styles/home.css';
@@ -21,12 +21,12 @@ const copy = homeCopy[locale];
   <Header locale={locale} items={copy.navigation} homeHref={homePaths[locale]} appearance="editorial" contactAction={copy.navigation.find((item) => item.href === '#contact')} />
   <main id="main-content" class="home-page" data-home-motion tabindex="-1">
     <Hero locale={locale} copy={copy.hero} />
-    <ProjectIntro locale={locale} copy={copy.project} />
-    <Vision copy={copy.vision} />
-    <GreenLiving locale={locale} copy={copy.gardens} />
-    <ApartmentTypes locale={locale} copy={copy.apartments} />
     <PassiveConcept locale={locale} copy={copy.passive} />
+    <ProjectIntro locale={locale} copy={copy.project} />
+    <ApartmentTypes locale={locale} copy={copy.apartments} />
+    <GreenLiving locale={locale} copy={copy.gardens} />
     <ContactCTA locale={locale} copy={copy.contact} />
+    <EdenJourney />
   </main>
   <Footer locale={locale} items={copy.navigation} homeHref={homePaths[locale]} note={copy.footerNote} />
 </BaseLayout>

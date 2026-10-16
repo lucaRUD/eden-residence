@@ -10,10 +10,9 @@ export interface HomeCopy {
   navigation: readonly NavigationItem[];
   hero: HeadingCopy & { primaryAction: string; secondaryAction: string };
   project: HeadingCopy & { body: string; action: string; imageCaption: string };
-  vision: { eyebrow: string; title: string; features: readonly FeatureCopy[] };
   gardens: HeadingCopy & { primaryCaption: string; secondaryCaption: string; detail: string };
   apartments: HeadingCopy & { categories: readonly ApartmentCopy[]; note: string; imageNote: string };
-  passive: HeadingCopy & { principles: readonly FeatureCopy[]; note: string; imageCaption: string };
+  passive: HeadingCopy & { provisionalLabel: string; qualification: string; principles: readonly FeatureCopy[]; note: string; imageCaption: string; action: string; actionHref: string; pageStatus: string };
   contact: HeadingCopy & { action: string; informationTitle: string; information: string; returnAction: string };
   footerNote: string;
 }
@@ -22,7 +21,7 @@ export interface HomeCopy {
 export const homeCopy = {
   ro: {
     meta: { title: 'Eden Residence | Acasă, în armonie cu natura', description: 'Descoperă arhitectura contemporană, grădinile și conceptul rezidențial Eden Residence.' },
-    navigation: [{ label: 'Proiect', href: '#project' }, { label: 'Natură', href: '#gardens' }, { label: 'Apartamente', href: '#apartments' }, { label: 'Contact', href: '#contact' }],
+    navigation: [{ label: 'Proiect', href: '#project' }, { label: 'Apartamente', href: '#apartments' }, { label: 'Natură', href: '#gardens' }, { label: 'Contact', href: '#contact' }],
     hero: {
       eyebrow: 'Arhitectură. Natură. Acasă.',
       title: 'Acasă, în armonie\ncu natura.',
@@ -30,27 +29,19 @@ export const homeCopy = {
       primaryAction: 'Descoperă proiectul', secondaryAction: 'Explorează apartamentele',
     },
     project: {
-      eyebrow: '01 / Proiectul', title: 'Un proiect construit în jurul ideii de acasă.',
+      eyebrow: '02 / Proiectul', title: 'Un proiect construit în jurul ideii de acasă.',
       description: 'O arhitectură cu linii clare, texturi calde și un dialog firesc cu spațiul verde.',
       body: 'În imaginile de prezentare, texturile de cărămidă și accentele cu aspect de lemn se întâlnesc cu balcoane deschise și grădini amenajate. O viziune despre locuire în care clădirile și spațiile dintre ele sunt gândite împreună.',
-      action: 'Descoperă viziunea', imageCaption: 'Ansamblul, privit în contextul său',
-    },
-    vision: {
-      eyebrow: '02 / Viziunea', title: 'Un echilibru care se simte în fiecare detaliu.',
-      features: [
-        { title: 'Arhitectură contemporană', description: 'Volume bine definite, ritmuri ale fațadelor și texturi calde conturează identitatea vizuală a proiectului.' },
-        { title: 'Spațiu pentru natură', description: 'Grădinile, aleile și zonele de ședere din randări aduc viața în aer liber în centrul conceptului.' },
-        { title: 'Confort gândit responsabil', description: 'Relația dintre arhitectură, confort și utilizarea atentă a energiei este o temă de explorat în conceptul de locuire.' },
-      ],
+      action: 'Explorează grădinile', imageCaption: 'Ansamblul, privit în contextul său',
     },
     gardens: {
-      eyebrow: '03 / Viața în aer liber', title: 'Mai aproape de natură, în fiecare zi.',
+      eyebrow: '04 / Viața în aer liber', title: 'Mai aproape de natură, în fiecare zi.',
       description: 'Un alt ritm al zilei. O plimbare printre arbori, o pauză în grădină, un moment petrecut afară.',
       primaryCaption: 'Grădina ca spațiu de întâlnire', secondaryCaption: 'Aleile care leagă locuirea de peisaj',
       detail: 'Peisajul propus în randări îmbină vegetația, aleile și locurile de relaxare într-o continuare firească a arhitecturii.',
     },
     apartments: {
-      eyebrow: '04 / Apartamente', title: 'Loc pentru felul tău de a trăi.',
+      eyebrow: '03 / Apartamente', title: 'Loc pentru felul tău de a trăi.',
       imageNote: 'Imagini generale ale ansamblului, fără asociere cu un anumit tip de apartament.',
       description: 'Două categorii de explorat. Începutul unei alegeri personale, în jurul ideii tale de acasă.',
       categories: [
@@ -60,14 +51,20 @@ export const homeCopy = {
       note: 'Planurile, suprafețele și disponibilitatea vor fi prezentate după confirmarea datelor proiectului.',
     },
     passive: {
-      eyebrow: '05 / Conceptul pasiv', title: 'Confortul începe cu o arhitectură gândită inteligent.',
-      description: 'Principiile clădirilor pasive privesc confortul interior și eficiența energetică ca părți ale aceluiași întreg.',
+      // TODO: Client verification before public launch
+      // Client-supplied positioning; national-first status and exact category are unverified.
+      eyebrow: '01 / Conceptul pasiv', title: 'Primul bloc pasiv din România.',
+      description: 'Un nou standard de confort, eficiență energetică și arhitectură orientată spre viitor.',
+      provisionalLabel: 'Mesaj propus · în curs de verificare',
+      qualification: 'Formulare de marketing furnizată de client. Statutul de „primul” și categoria exactă necesită verificare înainte de publicare.',
       principles: [
-        { title: 'O anvelopă bine gândită', description: 'Izolarea și atenția la punțile termice pot limita transferul de căldură între interior și exterior.' },
-        { title: 'Aer și confort interior', description: 'Ventilarea controlată, cu recuperare de căldură, este unul dintre principiile generale ale proiectării pasive.' },
+        { title: 'Confort termic', description: 'O anvelopă bine izolată și atenția la punțile termice pot susține un climat interior mai stabil.' },
+        { title: 'Eficiență energetică', description: 'Proiectarea pasivă urmărește limitarea necesarului de energie prin forma, orientarea și anvelopa clădirii.' },
+        { title: 'Calitatea aerului interior', description: 'Ventilarea controlată, cu recuperare de căldură, este unul dintre principiile generale ale proiectării pasive.' },
       ],
       note: 'Acestea sunt principii generale, nu specificații confirmate pentru Eden Residence. Performanța energetică și orice certificare necesită documentație verificată.',
-      imageCaption: 'Studiu de peisaj · Imagine de concept',
+      imageCaption: 'Vedere arhitecturală a ansamblului · nu este o ilustrare tehnică a performanței',
+      action: 'Explorează principiile', actionHref: '#passive-principles', pageStatus: 'Pagina dedicată conceptului pasiv este în pregătire.',
     },
     contact: {
       eyebrow: 'Următorul pas', title: 'Descoperă viitorul tău acasă.',
@@ -80,34 +77,26 @@ export const homeCopy = {
   },
   en: {
     meta: { title: 'Eden Residence | A home in harmony with nature', description: 'Explore the contemporary architecture, gardens and residential concept of Eden Residence.' },
-    navigation: [{ label: 'Project', href: '#project' }, { label: 'Gardens', href: '#gardens' }, { label: 'Apartments', href: '#apartments' }, { label: 'Contact', href: '#contact' }],
+    navigation: [{ label: 'Project', href: '#project' }, { label: 'Apartments', href: '#apartments' }, { label: 'Gardens', href: '#gardens' }, { label: 'Contact', href: '#contact' }],
     hero: {
       eyebrow: 'Architecture. Nature. Home.', title: 'A home in harmony\nwith nature.',
       description: 'Contemporary architecture, green surroundings and a fresh perspective on home.',
       primaryAction: 'Discover the project', secondaryAction: 'Explore apartments',
     },
     project: {
-      eyebrow: '01 / The project', title: 'A project built around the idea of home.',
+      eyebrow: '02 / The project', title: 'A project built around the idea of home.',
       description: 'Clear architectural lines, warm textures and a natural dialogue with the landscape.',
       body: 'In the architectural visualisations, brick textures and timber-like accents meet open balconies and landscaped gardens. A vision of living that considers buildings and the spaces between them together.',
-      action: 'Discover the vision', imageCaption: 'The development in its surroundings',
-    },
-    vision: {
-      eyebrow: '02 / The vision', title: 'A sense of balance in every detail.',
-      features: [
-        { title: 'Contemporary architecture', description: 'Defined volumes, a rhythm of façades and warm textures shape the visual identity of the project.' },
-        { title: 'Room for nature', description: 'The gardens, paths and seating areas shown in the renders place outdoor living at the heart of the concept.' },
-        { title: 'Thoughtful residential design', description: 'The relationship between architecture, comfort and careful energy use is a theme to explore within the residential concept.' },
-      ],
+      action: 'Explore the gardens', imageCaption: 'The development in its surroundings',
     },
     gardens: {
-      eyebrow: '03 / Outdoor living', title: 'Closer to nature, every day.',
+      eyebrow: '04 / Outdoor living', title: 'Closer to nature, every day.',
       description: 'A different rhythm to the day. A walk beneath the trees, a pause in the garden, a moment spent outdoors.',
       primaryCaption: 'The garden as a place to come together', secondaryCaption: 'Paths connecting home and landscape',
       detail: 'The landscape proposed in the renders brings planting, pathways and places to unwind into a natural continuation of the architecture.',
     },
     apartments: {
-      eyebrow: '04 / Apartments', title: 'Room for your way of living.',
+      eyebrow: '03 / Apartments', title: 'Room for your way of living.',
       imageNote: 'General development imagery, not representations of a specific apartment type.',
       description: 'Two categories to explore. The beginning of a personal choice, shaped around your idea of home.',
       categories: [
@@ -117,14 +106,20 @@ export const homeCopy = {
       note: 'Floor plans, areas and availability will be shared once the project information is confirmed.',
     },
     passive: {
-      eyebrow: '05 / The passive concept', title: 'Comfort begins with thoughtful architecture.',
-      description: 'Passive-building principles consider indoor comfort and energy efficiency as parts of the same whole.',
+      // TODO: Client verification before public launch
+      // Keep this provisional translation paired with the client-supplied Romanian claim.
+      eyebrow: '01 / The passive concept', title: "Romania's first passive residential building",
+      description: 'A new standard of comfort, energy efficiency and architecture looking towards the future.',
+      provisionalLabel: 'Proposed message · verification pending',
+      qualification: 'Client-supplied marketing wording. The national-first status and exact category require verification before publication.',
       principles: [
-        { title: 'A considered building envelope', description: 'Insulation and attention to thermal bridges can limit heat transfer between indoors and outdoors.' },
-        { title: 'Air and indoor comfort', description: 'Controlled ventilation with heat recovery is one of the general principles of passive design.' },
+        { title: 'Thermal comfort', description: 'A well-insulated envelope and attention to thermal bridges can support a more stable indoor climate.' },
+        { title: 'Energy efficiency', description: 'Passive design aims to limit energy demand through a building’s form, orientation and envelope.' },
+        { title: 'Indoor air quality', description: 'Controlled ventilation with heat recovery is one of the general principles of passive design.' },
       ],
       note: 'These are general principles, not confirmed Eden Residence specifications. Energy performance and any certification require verified documentation.',
-      imageCaption: 'Landscape study · Concept image',
+      imageCaption: 'Architectural development view · not a technical illustration of performance',
+      action: 'Explore the principles', actionHref: '#passive-principles', pageStatus: 'The dedicated passive-concept page is being prepared.',
     },
     contact: {
       eyebrow: 'Your next step', title: 'Discover your future home.',

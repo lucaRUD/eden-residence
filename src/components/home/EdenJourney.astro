@@ -1,0 +1,11 @@
+---
+const chapters = ['passive-concept', 'apartments', 'gardens'];
+---
+
+<svg id="eden-journey" class="home-journey" aria-hidden="true" focusable="false">
+  <defs data-journey-defs><path id="eden-journey-route" data-journey-route /></defs>
+  <g data-journey-sections></g>
+  <g>
+    {chapters.map(chapter => <circle class="home-journey__node" data-journey-node={chapter} />)}
+  </g>
+</svg>

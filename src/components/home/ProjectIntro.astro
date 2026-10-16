@@ -11,16 +11,14 @@ const { copy, locale } = Astro.props;
   <Container width="wide" class="home-project__heading">
     <p class="eyebrow">{copy.eyebrow}</p>
     <h2 id="project-heading" class="home-display">{copy.title}</h2>
+    <div class="home-project__reading">
+      <p class="text-lead text-heading">{copy.description}</p>
+      <p class="mt-4 text-body text-muted">{copy.body}</p>
+      <a href="#gardens" class="home-text-link mt-4">{copy.action}<span aria-hidden="true">↗</span></a>
+    </div>
   </Container>
   <figure class="home-project__image">
     <RenderImage name="project" locale={locale} sizes="96vw" />
     <figcaption class="home-caption">{copy.imageCaption}</figcaption>
   </figure>
-  <Container width="wide" class="home-project__reading">
-    <p class="text-lead text-heading">{copy.description}</p>
-    <div>
-      <p class="text-body text-muted">{copy.body}</p>
-      <a href="#vision" class="home-text-link mt-5">{copy.action}<span aria-hidden="true">↗</span></a>
-    </div>
-  </Container>
 </section>

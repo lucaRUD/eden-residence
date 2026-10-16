@@ -1,14 +1,14 @@
 # Architecture — implemented foundation and future plan
 
-## Implemented foundation and Phase 3A homepage
+## Implemented foundation and current homepage
 
 Astro emits static HTML/CSS into `dist/`. No server adapter, database, CMS client, API endpoint, form processing, hosting connector, or deployment configuration is installed. Local builds do not read `WORDPRESS_URL` or contact WordPress.
 
 `astro.config.mjs` sets static output, trailing slashes, Romanian as the default locale, English as the secondary locale, and the official Tailwind Vite plugin. `tsconfig.json` extends `astro/tsconfigs/strict`. The separate `check` script uses `@astrojs/check`; `astro build` alone does not type-check.
 
-`BaseLayout.astro` owns the HTML language, metadata, global CSS, locally bundled font, and skip link. `HomePage.astro` now composes seven homepage sections for `src/pages/index.astro` and `src/pages/en/index.astro`; Phase 3A removes the placeholder component. `LanguageSwitcher.astro` links these two existing home routes; future page-level language switching must use translated page identities, not always return users to the homepage.
+`BaseLayout.astro` owns the HTML language, metadata, global CSS, locally bundled font, and skip link. `HomePage.astro` composes six presentation chapters for `src/pages/index.astro` and `src/pages/en/index.astro`: Hero, PassiveConcept, ProjectIntro, ApartmentTypes, GreenLiving and ContactCTA. ContactCTA also includes the existing honest contact-status region. The removed Vision section's reusable draft copy is archived in `docs/CONTENT_ARCHIVE.md`. `LanguageSwitcher.astro` links the two existing home routes; future page-level language switching must use translated page identities, not always return users to the homepage.
 
-`src/i18n/ui.ts` provides shared control strings and home paths; `src/i18n/home.ts` owns typed bilingual homepage copy and anchor navigation. `src/assets/home/renders.ts` separately maps render metadata and localized alt text. `src/components/home/` owns presentation. No CMS abstraction or new homepage browser script was introduced. `src/lib/wordpress/` remains an unimplemented boundary.
+`src/i18n/ui.ts` provides shared control strings and home paths; `src/i18n/home.ts` owns typed bilingual homepage copy and anchor navigation. The passive claim, supporting wording, visible qualification and informational CTA live there together; both claim translations carry `TODO: Client verification before public launch`. Its CTA targets existing principles until a dedicated page is approved. `src/assets/home/renders.ts` maps render metadata and localized alt text. `src/components/home/` owns presentation. The homepage-only motion loader progressively imports GSAP/ScrollTrigger and reverts effects for reduced motion or disposal. No CMS abstraction is connected; `src/lib/wordpress/` remains an unimplemented boundary.
 
 ## Future data flow — not implemented
 
@@ -79,13 +79,13 @@ For Host.Age/cPanel, confirm static hosting/document-root behavior and a safe Wo
 
 ## Contact forms and inquiry modal — future
 
-The static frontend will require an approved server endpoint or form service. Server-side validation, request-size limits, spam/rate controls, safe mail handling, secret storage, failure/retry feedback, and approved privacy/retention terms belong there. Do not send email credentials to the browser or store personal inquiries in the public WordPress API. A modal must handle accessible naming, focus entry/return, keyboard dismissal, and background focus correctly. No form or modal is implemented in Phase 1.
+The static frontend will require an approved server endpoint or form service. Server-side validation, request-size limits, spam/rate controls, safe mail handling, secret storage, failure/retry feedback, and approved privacy/retention terms belong there. Do not send email credentials to the browser or store personal inquiries in the public WordPress API. A modal must handle accessible naming, focus entry/return, keyboard dismissal, and background focus correctly. No form or inquiry modal is implemented.
 
 ## Performance and accessibility boundaries
 
 Prefer generated HTML and minimal vanilla scripts, responsive optimized images with dimensions/alt text, and lazy loading below the fold. Review future media hosting and image optimization separately. Fontsource bundles Quicksand assets locally, including Latin Extended for Romanian diacritics, with font-display swap. No external font service is requested by the page.
 
-Homepage animation is now implemented in Phase 3D: page-scoped, progressively enhanced GSAP/ScrollTrigger with a static baseline and reduced-motion handling. Three.js is not installed; any future 3D must load only when needed with a static alternative. Full keyboard, responsive, contrast, and screen-reader review belongs to the actual design phase; initialization checks do not establish accessibility compliance.
+Homepage animation uses page-scoped, progressively enhanced GSAP/ScrollTrigger with a static baseline and reduced-motion handling. Three.js is not installed; any future 3D must load only when needed with a static alternative. Full keyboard, responsive, contrast, and screen-reader review belongs to the actual design phase; initialization checks do not establish accessibility compliance.
 
 ## References
 
@@ -94,22 +94,20 @@ Homepage animation is now implemented in Phase 3D: page-scoped, progressively en
 - [Custom content types in REST](https://developer.wordpress.org/rest-api/extending-the-rest-api/adding-rest-api-support-for-custom-content-types/)
 - [REST fields and registered meta](https://developer.wordpress.org/rest-api/extending-the-rest-api/modifying-responses/)
 
-## Phase 3A image and content boundaries
+## Image and content boundaries
 
-The existing Astro `Image` component generates four WebP widths per image, with explicit dimensions, responsive `sizes` and full original aspect ratios. The hero is eager/high priority; other images are lazy. Five byte-identical JPEG source copies under `src/assets/home/` enable optimization while the supplied `public/renders/` originals stay untouched. Astro also copies all public originals into `dist/`, including unused images; browser pages request optimized derivatives. Publication asset cleanup remains a later decision.
+`RenderImage.astro` uses Astro `Image`/`getImage` to generate four responsive WebP widths per selected source, with dimensions and localized alt text. The hero is eager/high priority; other views use native lazy loading. Native `picture`/`source` selects the mobile hero below md. Nine selected sources generate 36 variants; eight image elements appear per page.
 
-The only production routes remain `/` and `/en/`. Shared theme scripts, mobile navigation and development-only preview registration are preserved. Apartment categories have stable local IDs, without inventory or specifications. The contact CTA reaches an honest on-page information placeholder, without a form, submission or invented contact data. See [Phase 3A](HOMEPAGE.md).
+Originals live in `public/renders/`; exact optimization source copies and mappings live in `src/assets/home/`. Preserve originals, unused source copies and image watermarks. Astro also copies public originals into `dist/`; publication asset policy remains a separate decision. No generated review screenshot is a site asset.
 
-## Phase 3B composition and art direction
+Only `/` and `/en/` are production routes. The `src/dev/` integration registers `/design-system/` only during development. Homepage content is local and typed; apartment IDs are categories, not inventory. Links target existing homepage sections until real dedicated pages exist. The contact region explicitly explains that inquiries are not collected or sent. The national-first passive-building claim and its supporting copy remain client-supplied, provisional and unverified.
 
-The same bilingual homepage content object and theme preference scripts remain authoritative. Existing section components now render distinct editorial compositions. `Header` has an optional editorial appearance; no navigation controller was replaced. `RenderImage` supports an optional mobile source through native `picture`/`source`, generated with Astro `getImage`. Only one hero source is requested for the current breakpoint. Six image elements use seven selected sources; the build produces 28 WebP variants. Four additional byte-identical source copies were added; previous sources remain intact.
+## Homepage motion
 
-Homepage-only display/spacing tokens and semantic surface mappings live in `src/styles/home.css`. The main image is full-width, garden imagery is panoramic, apartment panels use existing paired contrast/brand contexts and the passive section reuses brand blue through its strong-surface role. No new browser script, CMS abstraction or dependency was introduced. See [the current homepage record](HOMEPAGE.md).
+`HomePage.astro` imports `src/lib/motion/home.ts`, which dynamically loads `home-animations.ts` and GSAP/ScrollTrigger only when motion is allowed. Generation checks guard asynchronous imports; one mounted root prevents duplicate initialization. A WeakMap retains visited elements across disposal/remount of the same document. AbortController, GSAP context reversion and canceled refresh frames clean up on Astro swaps, pagehide and preference changes; pageshow remounts safely. Navigation uses regular static pages, not Astro ClientRouter.
 
-## Phase 3D motion boundary
+Five chapter ScrollTriggers serve the existing passive, project, garden and closing treatments. Hero text has a short coordinated introduction. All explanations and photography start visible and remain opaque; there is no baseline hiding, pinning, parallax, smooth-scroll replacement or framework hydration. Reduced motion skips the runtime, and import failures leave the static presentation intact. Fonts, images and navigation layout changes request coalesced refreshes.
 
-`HomePage.astro` alone imports the small `src/lib/motion/home.ts` loader. It loads `home-animations.ts` and GSAP/ScrollTrigger dynamically only when motion is allowed. Generation checks guard asynchronous imports; one mounted root prevents duplicate initialization. A WeakMap retains visited elements across disposal/remount of the same document, including back/forward restoration. AbortController, GSAP context reversion and canceled refresh frames clean up on Astro swaps, pagehide and preference changes; pageshow remounts safely. The project currently uses regular static-page navigation, not Astro ClientRouter.
+`EdenJourney.astro` adds an inert, assistive-technology-hidden SVG. `src/lib/motion/eden-journey.ts` integrates through the same homepage lifecycle and adds one scrubbed ScrollTrigger between the passive, apartment and garden eyebrow anchors. Geometry comes from live section/content bounds; desktop changes sides only through measured empty heading padding, tablet stays in the left gutter and mobile uses a straight margin path. One route is clipped into section-colored layers, preserving the existing semantic accent roles. Scroll-to-distance checkpoints keep milestones aligned with their chapters. ResizeObserver and ScrollTrigger refreshes recalculate layout; theme events update colors. The absolute layer adds no page height and hides if gutters are too narrow. Disposal removes observers, listeners, generated layers and the trigger. Reduced motion, no JavaScript or a failed runtime leave the decorative layer hidden and content intact.
 
-There is no baseline hiding CSS, pinning, parallax, smooth-scroll replacement or framework hydration. Phase 3D originally created 17 uniform reveals; Phase 3D.1 now uses eight chapter-specific treatments, each once. Fonts, image loads and navigation layout changes request coalesced position refreshes. Static image dimensions and existing native lazy loading remain authoritative. Both routes share this implementation. Shared Header's native menu entrance is independent of GSAP, so a failed animation chunk cannot break navigation. See [the current Phase 3D.1 record](PHASE_3D1.md).
-
-The apartment showcase uses the existing typed copy model plus a localized general-imagery note. It contains two real anchors to the existing contact-information section; there are still no apartment-detail routes or inventory. Two additional exact source copies use the existing RenderImage/Astro pipeline. Nine selected sources generate 36 responsive WebP variants; eight image elements appear per page. Hover styling affects imagery only and does not change panel layout or require JavaScript.
+Apartment hover/focus styling affects imagery only, never panel geometry, and requires no JavaScript. The Header's native menu entrance and shared theme controller are independent of GSAP; a failed motion chunk cannot disable navigation or theme selection. Current composition and semantic conventions live in [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md).

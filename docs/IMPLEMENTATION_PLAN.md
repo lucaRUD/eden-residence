@@ -1,105 +1,39 @@
-# Incremental implementation plan
+# Implementation plan
 
-## Milestone 1 — approved local initialization
+## Current state
 
-Scope: minimal Astro project, strict TypeScript, Tailwind CSS v4 using `@tailwindcss/vite`, npm lockfile, Git, permanent rules, documentation, reserved CMS boundary, provisional tokens, locally bundled Quicksand, and Romanian/English placeholders.
+The Astro/TypeScript/Tailwind foundation, reusable design system, branded light/dark themes, RO/EN homepages, supplied logos/renders and progressive GSAP motion are implemented for local review. The homepage has six presentation chapters, one visibly provisional passive-building feature and two image-led apartment categories. WordPress, additional production pages, inquiry processing and deployment are not implemented.
 
-Verification: execute `npm.cmd run check`, `npm.cmd run build`, inspect generated locale pages and compiled Tailwind utilities, and serve representative pages locally. Record actual outcomes below. Do not infer a browser visual or accessibility audit from successful HTTP responses.
+`/design-system/` remains useful in development and excluded from production. Existing local-review pages retain `noindex, nofollow`. Visual approval, final copy and factual substantiation remain pending. See [Architecture](ARCHITECTURE.md), [Design system](DESIGN_SYSTEM.md) and [Project brief](PROJECT_BRIEF.md) for maintained context.
 
-Exit: report files, dependency versions, command results, launch instructions, and open issues. Stop and wait for further instructions. No subsequent milestone is authorized by completing this one.
+## Next frontend and content work
 
-## Milestone 2 — content and design decisions, after approval
+- Review the current design and approve the provisional digital palette and bilingual copy.
+- Verify the client-supplied national-first passive-building claim, exact category and supporting wording before public launch.
+- Obtain approved building specifications, apartment type/unit data, plans, PDFs, availability policy, contact/company details and legal content.
+- Confirm page priorities, localized slugs, missing-translation behavior, content ownership and apartment type versus individual-unit modeling.
+- Build further approved pages incrementally, preserving localization, themes, keyboard navigation and reduced motion. Do not fabricate project facts or imply working inquiry functionality.
 
-- Receive the concept board, logo, architectural renders, verified apartment data/floor plans, company/contact details, and approved copy.
-- Confirm page priorities, localized slugs, missing-translation behavior, apartment type versus individual unit model, and content ownership.
-- Establish the final digital palette and design tokens; review typography, mobile composition, and accessibility.
-- Review inspiration only for general direction; create an original design.
+Completion of one task does not authorize the next milestone.
 
-Exit: owner-approved content inventory, route map, content model, and visual direction before building final page layouts.
+## CMS integration — after approval
 
-## Milestone 3 — approved local frontend implementation
+Choose multilingual and editorial field tooling; define core-page/custom-post-type schemas and REST exposure in a local or staging WordPress environment. Add a typed build-time client under `src/lib/wordpress/` with response validation, pagination, media normalization, locale mapping and reliable failure handling. Integrate approved content incrementally and agree on authenticated draft previews if required. Do not alter production plugins without approval.
 
-Build reusable layout/UI elements and approved page sections incrementally: home/project, apartments/details, passive-building/benefits, then contact/supporting pages. Use supplied data or explicitly labeled local fixtures as agreed; never fabricate public claims. Add accessible galleries, PDF links, and inquiry modal behavior only as required. Keep legal content owner-supplied and review translations.
+Exit: editors can maintain agreed content; localized builds contain no leaked drafts/secrets; error and missing-translation behavior is verified. Detailed data and content-model plans remain in [Architecture](ARCHITECTURE.md).
 
-Exit: reviewed Romanian/English pages with semantic HTML, responsive behavior, keyboard/focus checks, reduced motion, accurate content, and passing checks/builds. Decide whether animations/3D justify additional libraries separately.
+## Forms and publication workflow — after approval
 
-## Milestone 4 — approved CMS implementation in a safe environment
+Select a secure server-side form solution compatible with final hosting. Confirm privacy/retention requirements, validation, abuse handling and accessible feedback, then test success/failure paths. Plan a protected CMS publish-event rebuild trigger, manual fallback, failure visibility and retention of the last good deployment.
 
-Choose multilingual and editorial field tooling; define core-page/custom-post-type schemas and REST exposure in a local or staging WordPress environment. Introduce a typed build-time client under `src/lib/wordpress/`, with response validation, pagination, media normalization, locale mapping, and reliable build failures. Integrate content incrementally. Agree on authenticated draft previews if required. Do not install or alter production plugins without explicit approval.
+Exit: form delivery and CMS rebuild behavior work in a safe environment; personal data and credentials stay out of static output.
 
-Exit: editors can maintain agreed content; published builds generate correct localized pages with no leaked drafts/secrets; error and missing-translation paths are verified.
+## Hosting and launch — after approval
 
-## Milestone 5 — approved forms and content publication workflow
+Confirm Host.Age static serving/document roots, SSL, backups, rollback, CMS placement and whether a separately approved CMS-subdomain migration is needed. Review the deployment plan before changing production. Complete canonical/hreflang/sitemap metadata, approved company/legal content and cookie/analytics decisions. Remove local-review noindex only when launch-ready.
 
-Select a secure server-side form solution compatible with final hosting, confirm privacy/retention requirements, add validation/abuse handling and accessible feedback, then test success/failure paths. Plan a protected CMS publish-event rebuild trigger, manual fallback, failure visibility, and retention of the last good deployment.
+Exit: approved deployment with broader browser, physical-device, accessibility, performance, content, form and editor-workflow verification.
 
-Exit: end-to-end form delivery and CMS rebuild behavior verified in a safe environment; no personal data or credentials in static output.
+## Routine development
 
-## Milestone 6 — approved hosting and launch
-
-Confirm Host.Age static serving/document roots, SSL, rollback, backups, CMS placement, and whether a separate `cms.edenresidence.ro` migration is needed. Prepare a reviewed deployment plan before changing production. Finish metadata/canonical/hreflang/sitemap setup, remove placeholder noindex only when launch-ready, verify approved company/legal information, and review any cookies/analytics choices.
-
-Exit: approved launch plus browser/mobile/accessibility/performance checks, working forms, editor workflow, backup/rollback instructions, and successful production verification.
-
-## Open decisions that do not block initialization
-
-- Architectural imagery, logo, concept board, final colors, and final design.
-- Actual project specifications, apartment type/unit inventory, price/availability policy, PDFs, approved company/contact/legal content.
-- WordPress multilingual solution, field UI, SEO tooling, and draft preview needs.
-- Final Host.Age hosting arrangement, CMS subdomain decision, secure form processor, and rebuild runner.
-- Cookie/analytics choices and owner-approved legal/privacy wording.
-
-## Phase 1 verification record
-
-Completed locally on 2026-10-15 using system Node 22.18.0 / npm 10.9.3:
-
-| Verification | Executed result |
-| --- | --- |
-| `npm.cmd run check` | Passed: 8 files, 0 errors, 0 warnings, 0 hints |
-| `npm.cmd run build` | Passed: static output with 2 pages (`/`, `/en/`) |
-| `npm.cmd run dev -- --host 127.0.0.1 --port 4321` | Started successfully; both locale routes returned HTTP 200; UTF-8 headings and HTML language verified |
-| Compiled CSS inspection | Confirmed brand background/text utilities, named content width, responsive heading utility, font-display swap, and Latin Extended font reference |
-| Generated HTML inspection | Confirmed localized headings/language and placeholder noindex metadata |
-| `npm.cmd run preview -- --host 127.0.0.1 --port 4321` | Started successfully; both pages, linked CSS, and bundled font license returned HTTP 200 |
-| Git / ignore configuration | Initialized branch `main`; verified generated output, dependencies, and real environment files are ignored while `.env.example` is included; no remote or commit created |
-
-The final direct dependency versions are Astro 7.3.8, Tailwind CSS 4.3.3, `@tailwindcss/vite` 4.3.3, `@astrojs/check` 0.9.10, TypeScript 6.0.3, and `@fontsource-variable/quicksand` 5.3.0. Exact resolved dependencies are recorded in `package-lock.json`.
-
-### Compatibility warning and verification limits
-
-- Installation warned that indirect dependency `undici@8.12.1`, used by Astro through `unifont`, requires Node >=22.19.0. The machine has 22.18.0. Although the checks, build, and local servers succeeded, dependency support on this older runtime is not established. The project declares Node >=22.19.0; use a supported even-numbered release for future development/CI. System Node was not modified; no dependency override or version downgrade was applied.
-- The sandbox initially prevented Astro from writing its user configuration under AppData. Checks/builds/servers were rerun successfully with the native permission approval. The initial sandboxed npm initialization stalled; the approved network-enabled retry completed.
-- HTTP verification decoded response bytes explicitly as UTF-8; Windows PowerShell's default decoding for a response without an HTTP charset initially misread Romanian text. Generated HTML declares UTF-8, and the corrected checks passed.
-- No browser visual, screen-reader, or full accessibility audit was available or performed. HTTP/CSS verification does not replace those checks. No automated unit-test suite was added for this minimal scaffold.
-- The inspiration site could not be retrieved. It does not block local initialization or authorize a design implementation.
-- Verification servers were stopped after use. Production WordPress, its database, hosting, and cPanel were not modified; the application contains no CMS integration or live CMS request.
-
-Phase 1 stops here. Await the owner's next instructions before final design or CMS integration.
-
-## Phase 3A — authorized homepage implementation
-
-The owner subsequently authorized Phases 2, 2.1, 2.2 and 3A. The historical milestones above are retained as planning context. The current bilingual homepage now uses the existing shared design system, branded themes and supplied architectural renders. No other production page, CMS connection, form processing, dependency or deployment was introduced.
-
-Verification on 2026-10-15: Astro check passed over 35 files with no errors, warnings or hints; production build passed with two HTML pages and 20 responsive WebP derivatives. Chrome checked both languages/themes at 320/375/768/1024/1440px, keyboard/touch navigation, theme persistence, all homepage anchors, image loading, semantic smoke checks and reduced motion. Sampled text contrast was at least 5.02:1. The design-system route returns 200 in development and 404 in production preview. See [the complete Phase 3A review record](HOMEPAGE.md) for files, assets, screenshots, actual checks and limitations.
-
-Phase 3A stops at owner review. Factual apartment data, approved contact details, publication assets, final copy approval and technical substantiation remain pending; subsequent pages, CMS work and launch require a later task.
-
-## Phase 3B ? authorized architectural homepage redesign
-
-The owner requested a substantial visual redesign while preserving the existing Astro/content/theme architecture. Phase 3B changes all seven section compositions, adds native mobile hero art direction and an optional editorial Header appearance, and investigates the reported light-mode image issue. No broken theme-specific image path was reproduced; cold below-fold lazy loading was observed. Final captures wait for normal scroll-triggered loading and image decoding.
-
-Verification: Astro check passed over 35 files with zero diagnostics; production build passed with two pages and 28 optimized image variants. Chrome covered both languages/themes at 320?1440px, cold image loading at desktop/mobile, keyboard/touch controls, route/anchor behavior, focus, sampled contrast and local layout-shift instrumentation. Four full-page production screenshots are recorded in [HOMEPAGE.md](HOMEPAGE.md). No commit, WordPress work, dependency, additional page or deployment was introduced. Stop for owner visual review.
-
-## Phase 3C: image investigation and polish, pending visual approval
-
-Actual viewport screenshots and ancestor/hit-test inspection confirmed that all six images visibly paint in both themes before styling changed. The origin of the earlier blank screenshot areas was not reproduced. A local capture helper now checks decoded geometry, visibility, browser responses and image-box stability before full-page capture; separate viewport/pixel evidence accompanies the screenshots. Image lazy loading remains native.
-
-Refinements preserve the Phase 3B editorial structure: softer shared radii, fewer outer rules, balanced image spacing and a less cropped 3:2 mobile hero. Astro checks, build, RO/EN, both themes, 320-1440px, keyboard/touch, reduced motion and no-JavaScript image behavior passed. See [the Phase 3C record](PHASE_3C.md) for exact scope, files, tests and limitations. No animation, dependency, CMS work, page, commit or deployment was introduced. Stop for visual review; Phase 3D motion requires separate authorization.
-
-## Phase 3D: authorized homepage motion, pending review
-
-The owner subsequently authorized GSAP/ScrollTrigger, restrained homepage entrances, native/CSS interaction details and the supplied navbar logos. These are implemented without changing the Phase 3C.2 composition. Motion, reduced-motion/no-JavaScript/blocked-chunk fallbacks, keyboard/touch, both themes/languages and responsive behavior were checked in Chrome. Astro check and production build passed. Exact timings, files, screenshots and remaining limitations are in [PHASE_3D.md](PHASE_3D.md). Stop for review; CMS, additional pages and deployment remain deferred.
-
-## Phase 3D.1: refinement following visual review
-
-Phase 3D was not visually approved. The owner requested less repetitive motion, tighter spacing and image-led apartment-category panels. Current work preserves the hero/brand direction, sections, semantic themes, bilingual routes and CMS boundary. Eight distinct chapter treatments replace the 17 uniform rises; imagery stays opaque. Apartment panels use supplied development imagery and native full-panel links with CSS pointer/focus emphasis. See [PHASE_3D1.md](PHASE_3D1.md) for exact scope, measurements, tests and captures. Stop for review; no additional page, dependency, WordPress change, commit or deployment is included.
+Follow [AGENTS.md](../AGENTS.md): inspect relevant files, make focused changes, run checks/builds after meaningful implementation work and target browser testing to changed interactions. Update essential docs when needed. Do not create routine phase reports, recordings or screenshot collections; requested diagnostic artifacts belong outside the repository.

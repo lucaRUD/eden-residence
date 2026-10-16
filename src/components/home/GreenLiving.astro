@@ -9,23 +9,25 @@ const { copy, locale } = Astro.props;
 
 <section id="gardens" class="home-gardens home-chapter" aria-labelledby="gardens-heading">
   <Container width="wide" class="home-gardens__heading">
-    <p class="eyebrow">{copy.eyebrow}</p>
+    <p class="eyebrow" data-journey-anchor>{copy.eyebrow}</p>
     <h2 id="gardens-heading" class="home-display">{copy.title}</h2>
   </Container>
-  <figure class="home-gardens__primary">
-    <RenderImage name="garden" locale={locale} sizes="100vw" />
-    <figcaption class="home-caption">{copy.primaryCaption}</figcaption>
-  </figure>
-  <Container width="wide" class="home-gardens__afterword">
-    <div class="home-gardens__copy">
-      <p class="text-lead text-heading">{copy.description}</p>
-      <p class="mt-5 text-body text-muted">{copy.detail}</p>
-    </div>
-    <div class="home-gardens__secondary">
-      <figure>
-        <RenderImage name="walkway" locale={locale} sizes="(min-width: 1440px) 770px, (min-width: 768px) 56vw, 94vw" />
-        <figcaption class="home-caption">{copy.secondaryCaption}</figcaption>
-      </figure>
+  <Container width="wide" class="home-gardens__composition">
+    <figure class="home-gardens__primary">
+      <RenderImage name="garden" locale={locale} sizes="(min-width: 1440px) 880px, (min-width: 768px) 62vw, 92vw" />
+      <figcaption class="home-caption">{copy.primaryCaption}</figcaption>
+    </figure>
+    <div class="home-gardens__aside">
+      <div class="home-gardens__copy">
+        <p class="text-lead text-heading">{copy.description}</p>
+        <p class="mt-4 text-body text-muted">{copy.detail}</p>
+      </div>
+      <div class="home-gardens__secondary">
+        <figure>
+          <RenderImage name="walkway" locale={locale} sizes="(min-width: 1440px) 420px, (min-width: 768px) 30vw, 82vw" />
+          <figcaption class="home-caption">{copy.secondaryCaption}</figcaption>
+        </figure>
+      </div>
     </div>
   </Container>
 </section>
