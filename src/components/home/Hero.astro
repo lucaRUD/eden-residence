@@ -1,6 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
 import RenderImage from './RenderImage.astro';
+import { heroScenes } from '../../assets/home/renders';
 import type { HomeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
 interface Props { copy: HomeCopy['hero']; locale: Locale }
@@ -10,15 +11,22 @@ const { copy, locale } = Astro.props;
 <section aria-labelledby="home-heading" class="home-hero">
   <div class="home-hero__stage">
     <div class="home-hero__visual">
-      <RenderImage name="hero" mobileName="heroMobile" locale={locale} priority sizes="100vw" />
+      <RenderImage name={heroScenes.arrival} mobileName={heroScenes.arrivalMobile} locale={locale} priority sizes="100vw" />
+      <div class="home-hero__discovery" aria-hidden="true">
+        <RenderImage name={heroScenes.discovery} locale={locale} sizes="100vw" />
+      </div>
     </div>
     <div class="home-hero__panel">
-      <p class="eyebrow">{copy.eyebrow}</p>
-      <h1 id="home-heading" class="home-hero__heading">{copy.title}</h1>
-      <p class="home-hero__description text-body">{copy.description}</p>
-      <div class="home-hero__actions">
-        <Button href="#project">{copy.primaryAction}<span aria-hidden="true">↗</span></Button>
-        <a href="#apartments" class="home-text-link">{copy.secondaryAction}<span aria-hidden="true">↓</span></a>
+      <div class="home-hero__intro">
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h1 id="home-heading" class="home-hero__heading">{copy.title}</h1>
+      </div>
+      <div class="home-hero__content">
+        <p class="home-hero__description text-body">{copy.description}</p>
+        <div class="home-hero__actions">
+          <Button href="#project">{copy.primaryAction}<span aria-hidden="true">↗</span></Button>
+          <a href="#apartments" class="home-text-link">{copy.secondaryAction}<span aria-hidden="true">↓</span></a>
+        </div>
       </div>
     </div>
   </div>

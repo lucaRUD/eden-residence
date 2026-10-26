@@ -1,0 +1,70 @@
+/* Cinematic scene styles. Floating navigation is isolated in navigation.css. */
+.cinema-prototype { --cinema-space: clamp(1.25rem, 3.3vw, 3rem); }
+.cinema-stage { position: relative; isolation: isolate; width: 100%; background: var(--color-brand-green); }
+.cinema-opening { position: relative; display: flex; flex-direction: column; min-height: max(36rem, 100svh); overflow-x: clip; }
+.cinema-window { position: absolute; inset: 0; overflow: hidden; }
+.cinema-camera { position: absolute; inset: 0; transform-origin: left top; }
+.cinema-camera picture { position: absolute; inset: 0; display: block; }
+.cinema-camera img, .cinema-camera video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--cinema-opening-x) top; }
+.cinema-camera video { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.cinema-camera video[data-ready] { opacity: 1; }
+.cinema-video-toggle { --focus-color: var(--color-brand-cream); --focus-halo: var(--color-brand-green); position: absolute; z-index: 4; right: var(--cinema-space); bottom: var(--cinema-space); display: inline-flex; align-items: center; min-height: var(--spacing-control); padding: .5rem; color: var(--color-brand-cream); font-size: var(--text-label); text-shadow: 0 1px 3px var(--color-brand-green); cursor: pointer; text-underline-offset: .2em; }
+.cinema-video-toggle[hidden] { display: none; }
+.cinema-video-toggle:hover { text-decoration: underline; }
+@media (max-width: 47.999rem) {
+  .cinema-camera video { object-position: 40% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cinema-camera video[data-ready] { opacity: 0; }
+  .cinema-video-toggle { display: none; }
+}
+
+/* Cream type sits directly over the foreground asphalt; no background layer. */
+.cinema-arrival { position: relative; z-index: 2; width: min(100%, 36rem); margin-top: 1.5rem; padding: 0 var(--cinema-space); color: var(--color-brand-cream); text-shadow: 0 1px 3px color-mix(in srgb, var(--color-brand-green) 90%, transparent); }
+.cinema-arrival-copy[data-title-state='complete'] { pointer-events: none; }
+.cinema-kicker { display: flex; align-items: baseline; gap: calc(var(--spacing) * 4); font-size: var(--text-label); font-weight: var(--font-weight-control); line-height: var(--text-label--line-height); letter-spacing: .08em; }
+.cinema-kicker > span { letter-spacing: 0; }
+.cinema-title { margin-top: calc(var(--spacing) * 3); color: inherit; font-size: clamp(1.75rem, 5.5vw, 2.75rem); line-height: 1.12; letter-spacing: -.04em; }
+.cinema-line { display: block; white-space: nowrap; }
+.cinema-introduction { max-width: 38ch; margin-top: calc(var(--spacing) * 4); font-size: var(--text-body); line-height: 1.65; }
+@media (max-width: 63.999rem), (max-height: 41.999rem) {
+  /* Reserve the reading area in normal flow: no portrait crop or collapse on fade. */
+  .cinema-opening { min-height: max(40rem, 100svh); }
+  .cinema-window { position: relative; inset: auto; flex: none; width: 100%; aspect-ratio: 16 / 9; margin-top: 5.5rem; }
+  .cinema-camera img, .cinema-camera video { object-position: center; }
+  .cinema-scroll { margin-top: auto; }
+}
+.cinema-chapter, .cinema-next {
+  --section-heading: var(--color-brand-cream); --section-ink: var(--color-brand-cream);
+  --context-accent: var(--color-warm-copper); --context-border: var(--color-forest-border);
+  --action-primary: var(--color-brand-cream); --action-primary-ink: var(--color-brand-green);
+  --action-primary-hover: var(--color-cream-hover);
+  --focus-color: var(--color-brand-cream); --focus-halo: var(--color-brand-green);
+  background: var(--color-brand-green); color: var(--color-brand-cream);
+}
+.cinema-chapter { position: relative; padding: clamp(3rem, 7vw, 7rem) var(--cinema-space); }
+.cinema-chapter__surface { display: none; }
+.cinema-reveal { position: relative; }
+.cinema-statement { margin-top: calc(var(--spacing) * 5); font-size: clamp(2.25rem, 5.5vw, 6rem); line-height: 1.12; letter-spacing: -.045em; }
+.cinema-statement > span { display: block; }
+.cinema-scroll { --focus-color: var(--color-brand-cream); --focus-halo: var(--color-brand-green); position: relative; z-index: 4; display: inline-flex; align-items: center; gap: calc(var(--spacing) * 2); width: fit-content; min-height: var(--spacing-control); margin: calc(var(--spacing) * 4) var(--cinema-space) var(--cinema-space); padding: calc(var(--spacing) * 2); color: var(--color-brand-cream); font-size: var(--text-label); letter-spacing: .08em; text-decoration: none; text-shadow: 0 1px 2px color-mix(in srgb, var(--color-brand-green) 80%, transparent); }
+.cinema-scroll__label { text-transform: uppercase; }
+.cinema-scroll:hover .cinema-scroll__label { text-decoration: underline; text-underline-offset: .2em; }
+.cinema-next { padding: clamp(3rem, 7vw, 7rem) var(--cinema-space); border-top: 1px solid var(--color-forest-border); }
+.cinema-next__spread { display: grid; gap: calc(var(--spacing) * 8); margin-top: calc(var(--spacing) * 7); }
+.cinema-next h2 { max-width: 15ch; font-size: clamp(2.75rem, 5.4vw, 5.5rem); line-height: 1.08; letter-spacing: -.045em; }
+.cinema-next__reading { max-width: 38ch; }
+.cinema-next__reading .button { margin-top: calc(var(--spacing) * 7); }
+@media (min-width: 48rem) {
+  .cinema-next__spread { grid-template-columns: 1.5fr 1fr; align-items: end; gap: var(--cinema-space); }
+}
+@media (min-width: 64rem) and (min-height: 42rem) {
+  /* The opening shot's lower-left asphalt is clear of the facade and right-hand car. */
+  .cinema-arrival { position: absolute; top: auto; bottom: clamp(5.5rem, 9svh, 7rem); left: var(--cinema-space); width: min(34rem, calc(100% - var(--cinema-space) * 2)); max-width: none; margin: 0; padding: 0; }
+  .cinema-title { font-size: clamp(2.25rem, 3.2vw, 3.25rem); }
+  .cinema-introduction { max-width: 38ch; }
+  .cinema-scroll { position: absolute; left: 50%; bottom: var(--cinema-space); margin: 0; transform: translateX(-50%); }
+  /* Only the chapter surface is masked; footage keeps its native composition. */
+  .cinema-prototype[data-cinema-mode='pinned'] .cinema-chapter { position: absolute; z-index: 3; inset: 0; display: flex; align-items: end; padding: 0 var(--cinema-space) clamp(4rem, 12svh, 8rem); background: transparent; pointer-events: none; }
+  .cinema-prototype[data-cinema-mode='pinned'] .cinema-chapter__surface { display: block; position: absolute; inset: 0; background: var(--color-brand-green); }
+}

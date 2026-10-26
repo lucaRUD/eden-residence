@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FloatingNavigation from '../cinematic-hero/FloatingNavigation.astro';
+import Button from '../../components/ui/Button.astro';
+import { homePaths, type Locale } from '../../i18n/ui';
+import { homeCopy } from '../../i18n/home';
+import poster from './eden-car-poster.jpg?url';
+import preview from './eden-car-preview.mp4?url';
+import './styles.css';
+
+const locale: Locale = Astro.url.searchParams.get('lang') === 'en' ? 'en' : 'ro';
+const copy = locale === 'ro' ? {
+  title: 'Eden Residence | Un alt ritm',
+  description: 'Un studiu cinematografic al arhitecturii Eden Residence.',
+  heading: 'Un alt ritm.',
+  scroll: 'Continuă povestea',
+  instruction: 'Derulează pentru a explora scena. Revino în sus pentru a o revedea în sens invers.',
+  alternative: 'Scenă arhitecturală Eden Residence, cu o mașină pe strada din fața clădirii.',
+  nextLabel: 'Mai departe', nextTitle: 'Loc pentru o nouă perspectivă.',
+  nextDescription: 'Povestea continuă cu arhitectura și spațiile verzi ale proiectului.',
+  returnAction: 'Descoperă Eden Residence', note: 'Vizualizare conceptuală · SKY Block',
+} : {
+  title: 'Eden Residence | A different rhythm',
+  description: 'A cinematic study of the architecture of Eden Residence.',
+  heading: 'A different rhythm.',
+  scroll: 'Continue the story',
+  instruction: 'Scroll to explore the scene. Scroll back up to see it in reverse.',
+  alternative: 'Eden Residence architectural scene with a car on the street in front of the building.',
+  nextLabel: 'Up next', nextTitle: 'Room for a new perspective.',
+  nextDescription: 'The story continues with the architecture and green spaces of the project.',
+  returnAction: 'Discover Eden Residence', note: 'Concept visualisation · SKY Block',
+};
+const navigation = homeCopy[locale].navigation.map(item => ({ ...item, href: `${homePaths[locale]}${item.href}` }));
+const languages = [
+  { locale: 'ro' as const, label: 'Română', href: '/dev/cinematic-car/' },
+  { locale: 'en' as const, label: 'English', href: '/dev/cinematic-car/?lang=en' },
+];
+---
+
+<BaseLayout locale={locale} title={copy.title} description={copy.description}>
+  <FloatingNavigation locale={locale} items={navigation} contactAction={navigation.find(item => item.href.endsWith('#contact'))} homeHref={homePaths[locale]} languageLinks={languages} />
+  <main id="main-content" class="car-experiment" data-car-root tabindex="-1">
+    <section class="car-scene" data-car-stage aria-labelledby="car-heading">
+      <div class="car-heading">
+        <p class="car-label">Eden Residence</p>
+        <h1 id="car-heading">{copy.heading}</h1>
+      </div>
+      <div class="car-media">
+        <img src={poster} width="1280" height="720" alt={copy.alternative} loading="eager" fetchpriority="high" />
+        <video data-car-video data-src={preview} poster={poster} width="1280" height="720" preload="none" muted playsinline disablepictureinpicture disableRemotePlayback aria-hidden="true" tabindex="-1"></video>
+      </div>
+      <div class="car-footer">
+        <a href="#car-next" class="car-continue">{copy.scroll}<span aria-hidden="true">↓</span></a>
+        <p class="car-label">{copy.note}</p>
+      </div>
+      <p class="sr-only" data-car-instruction hidden>{copy.instruction}</p>
+    </section>
+    <section id="car-next" class="car-next" aria-labelledby="car-next-heading" tabindex="-1">
+      <p class="car-label">{copy.nextLabel}</p>
+      <div class="car-next-spread">
+        <h2 id="car-next-heading">{copy.nextTitle}</h2>
+        <div>
+          <p>{copy.nextDescription}</p>
+          <Button href={homePaths[locale]} variant="outline">{copy.returnAction}<span aria-hidden="true">↗</span></Button>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  import './client';
+</script>

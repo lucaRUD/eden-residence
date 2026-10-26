@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createEdenJourney } from './eden-journey';
+import { createCinematicHero } from './cinematic-hero';
 
 /** Existing chapter treatments plus the independently scrubbed Eden Journey. */
 export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElement>) {
@@ -11,6 +12,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
   const pending = new Map<HTMLElement, ScrollTrigger>();
   let refreshFrame = 0;
   let stopJourney: (() => void) | undefined;
+  let stopHero: (() => void) | undefined;
 
   const finishWithin = (target: Element) => {
     for (const [element, animation] of active) {
@@ -35,6 +37,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
     controller.abort();
     cancelAnimationFrame(refreshFrame);
     stopJourney?.();
+    stopHero?.();
     context.revert();
     root.querySelectorAll('[data-current]').forEach(element => element.removeAttribute('data-current'));
     active.clear();
@@ -68,20 +71,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
 
   try {
     context.add(() => {
-      const hero = root.querySelector<HTMLElement>('.home-hero__panel');
-      if (hero && !seen.has(hero) && !hero.contains(document.activeElement) && document.activeElement !== root && !location.hash && scrollY < 24 && performance.now() < 1800) {
-        seen.add(hero);
-        const heading = hero.querySelector('h1');
-        const description = hero.querySelector('.home-hero__description');
-        const actions = hero.querySelector('.home-hero__actions');
-        if (heading && description && actions) {
-          const timeline = gsap.timeline({ defaults: { ease: 'power2.out', clearProps: 'transform' }, onComplete: () => active.delete(hero) });
-          active.set(hero, timeline);
-          timeline.fromTo(heading, { y: 10 }, { y: 0, duration: 0.6 }, 0)
-            .fromTo(description, { y: 4 }, { y: 0, duration: 0.5 }, 0.08)
-            .fromTo(actions, { x: -4 }, { x: 0, duration: 0.45 }, 0.16);
-        }
-      }
+      stopHero = createCinematicHero(root);
 
       const passive = root.querySelector<HTMLElement>('.home-passive');
       const principles = passive?.querySelectorAll<HTMLElement>('.home-principle');

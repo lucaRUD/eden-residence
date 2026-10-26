@@ -26,3 +26,8 @@ export const homeRenders = {
 } as const satisfies Record<string, RenderAsset>;
 
 export type HomeRenderName = keyof typeof homeRenders;
+
+// Hero storyboard references stay independent of the animation implementation.
+export const heroScenes = {
+  arrival: 'hero', arrivalMobile: 'heroMobile', discovery: 'project',
+} as const satisfies Record<string, HomeRenderName>;

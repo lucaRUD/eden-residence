@@ -1,0 +1,63 @@
+---
+import LanguageSwitcher from '../../components/layout/LanguageSwitcher.astro';
+import ThemeToggle from '../../components/ui/ThemeToggle.astro';
+import { navigationCopy } from '../../i18n/navigation';
+import type { Locale } from '../../i18n/ui';
+import type { LanguageLink, NavigationItem } from '../../lib/navigation';
+import './navigation.css';
+
+interface Props {
+  locale: Locale;
+  items: readonly NavigationItem[];
+  homeHref: string;
+  languageLinks: readonly LanguageLink[];
+  contactAction?: NavigationItem;
+}
+
+const { locale, items, homeHref, languageLinks, contactAction } = Astro.props;
+const copy = navigationCopy[locale];
+---
+
+<!-- Outside the pinned scene: viewport positioning never inherits its transform. -->
+<header class="cinema-nav-shell">
+  <eden-floating-navigation class="cinema-nav" data-navigation-label={copy.primary}>
+    <div class="cinema-nav-bar" data-nav-bar>
+      <button type="button" class="cinema-nav-trigger" data-nav-trigger data-open-label={copy.open} data-close-label={copy.close} aria-label={copy.open} aria-expanded="false" aria-controls="cinema-menu-panel" hidden>
+        <span class="cinema-nav-icon" aria-hidden="true"><span data-nav-stroke></span><span data-nav-stroke></span></span>
+        <span>{copy.menu}</span>
+      </button>
+      <a class="cinema-nav-brand" href={homeHref} aria-label="Eden Residence">
+        <svg class="cinema-nav-logo" viewBox="250 480 1064 565" width="80" height="43" aria-hidden="true">
+          <image href="/brand/logo-Eden-residence-green-nobg.png" width="1563" height="1563" />
+        </svg>
+      </a>
+      {contactAction && <a class="cinema-nav-contact" href={contactAction.href} aria-label={contactAction.label}>
+        <span class="cinema-nav-contact__label">{contactAction.label}</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M3 12h17m-6-6 6 6-6 6" /></svg>
+      </a>}
+    </div>
+    <div id="cinema-menu-panel" class="cinema-nav-panel" data-nav-panel hidden inert>
+      <div class="cinema-nav-content" data-nav-content>
+        <nav aria-label={copy.primary}>
+          <ul class="cinema-nav-links">
+            {items.map(item => <li data-nav-item><a href={item.href} aria-current={item.current ? 'page' : undefined}>{item.label}</a></li>)}
+          </ul>
+        </nav>
+        <div class="cinema-nav-utilities" data-nav-item>
+          <LanguageSwitcher locale={locale} links={languageLinks} appearance="inline" />
+          <ThemeToggle locale={locale} appearance="icon" />
+        </div>
+      </div>
+    </div>
+  </eden-floating-navigation>
+</header>
+<noscript>
+  <nav class="cinema-nav-fallback" aria-label={copy.primary}>
+    {items.map(item => <a href={item.href}>{item.label}</a>)}
+    <LanguageSwitcher locale={locale} links={languageLinks} appearance="inline" />
+  </nav>
+</noscript>
+
+<script>
+  import './navigation';
+</script>

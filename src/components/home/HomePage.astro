@@ -37,6 +37,7 @@ const copy = homeCopy[locale];
   mountHomeMotion();
   document.addEventListener('astro:page-load', mountHomeMotion);
   document.addEventListener('astro:before-swap', unmountHomeMotion);
-  window.addEventListener('pagehide', unmountHomeMotion);
+  // A cached document retains its pin spacing and scroll position while frozen.
+  window.addEventListener('pagehide', event => { if (!event.persisted) unmountHomeMotion(); });
   window.addEventListener('pageshow', mountHomeMotion);
 </script>

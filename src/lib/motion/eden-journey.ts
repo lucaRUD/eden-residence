@@ -168,7 +168,7 @@ export function createEdenJourney(root: HTMLElement) {
     disposed = true;
     cancelAnimationFrame(frame);
     observer.disconnect();
-    ScrollTrigger.removeEventListener('refreshInit', measure);
+    ScrollTrigger.removeEventListener('refresh', measure);
     document.removeEventListener('eden:theme-change', updateColors);
     trigger?.kill();
     timeline.kill();
@@ -183,7 +183,8 @@ export function createEdenJourney(root: HTMLElement) {
       trigger: first, start: 'center 65%', endTrigger: last, end: 'center 65%', animation: timeline, scrub: 0.35,
       onRefresh: self => { timeline.totalProgress(self.progress); paint(self.progress); },
     });
-    ScrollTrigger.addEventListener('refreshInit', measure);
+    // Pin spacing must settle before measuring downstream chapter geometry.
+    ScrollTrigger.addEventListener('refresh', measure);
     sections.forEach(section => observer.observe(section));
     observer.observe(root);
     document.addEventListener('eden:theme-change', updateColors);

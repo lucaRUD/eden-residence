@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FloatingNavigation from './FloatingNavigation.astro';
+import Button from '../../components/ui/Button.astro';
+import CanvasCursor from '../../components/ui/CanvasCursor.astro';
+import { homePaths, type Locale } from '../../i18n/ui';
+import { homeCopy } from '../../i18n/home';
+import Media from './Media.astro';
+import { cinemaCopy } from './content';
+import './styles.css';
+
+const locale: Locale = Astro.url.searchParams.get('lang') === 'en' ? 'en' : 'ro';
+const copy = cinemaCopy[locale];
+const languages = [
+  { locale: 'ro' as const, label: 'Română', href: '/dev/cinematic-hero/' },
+  { locale: 'en' as const, label: 'English', href: '/dev/cinematic-hero/?lang=en' },
+];
+const navigation = homeCopy[locale].navigation.map(item => ({ ...item, href: `${homePaths[locale]}${item.href}` }));
+const contactAction = navigation.find(item => item.href.endsWith('#contact'));
+---
+
+<BaseLayout locale={locale} title={copy.title} description={copy.description}>
+  <FloatingNavigation locale={locale} items={navigation} contactAction={contactAction} homeHref={homePaths[locale]} languageLinks={languages} />
+  <main id="main-content" class="cinema-prototype" data-cinema-root tabindex="-1">
+    <section class="cinema-scene" aria-labelledby="cinema-heading" data-cinema-scene>
+      <div class="cinema-stage" data-cinema-stage>
+        <div class="cinema-opening">
+          <Media locale={locale} />
+
+          <div class="cinema-arrival" data-cinema-arrival>
+            <div class="cinema-arrival-copy" data-cinema-title-sequence>
+              <div>
+                <p class="cinema-kicker">Eden Residence</p>
+                <h1 id="cinema-heading" class="cinema-title">
+                  {copy.arrival.map(line => <span class="cinema-line">{line}</span>)}
+                </h1>
+              </div>
+              <p class="cinema-introduction">{copy.introduction}</p>
+            </div>
+          </div>
+
+          <a class="cinema-scroll" href="#cinema-next">
+            <span class="cinema-scroll__label">{copy.scroll}</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          <button class="cinema-video-toggle" type="button" data-video-toggle data-pause-label={copy.pauseVideo} data-play-label={copy.playVideo} hidden>{copy.pauseVideo}</button>
+        </div>
+
+        <div class="cinema-chapter">
+          <div class="cinema-chapter__surface" data-cinema-wipe aria-hidden="true"></div>
+          <div class="cinema-reveal" data-cinema-reveal>
+            <p class="cinema-kicker"><span aria-hidden="true">02</span> {copy.perspective}</p>
+            <h2 class="cinema-statement">{copy.reveal.map(line => <span>{line}</span>)}</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cinema-next" class="cinema-next" aria-labelledby="cinema-next-heading">
+      <p class="cinema-kicker">03 / {copy.nextLabel}</p>
+      <div class="cinema-next__spread">
+        <h2 id="cinema-next-heading">{copy.nextTitle}</h2>
+        <div class="cinema-next__reading">
+          <p>{copy.nextDescription}</p>
+          <Button href={homePaths[locale]} variant="outline">{copy.returnAction}<span aria-hidden="true">↗</span></Button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <CanvasCursor />
+</BaseLayout>
+
+<script>
+  import { createHeroVideo } from './video';
+  import { createOpeningTitle } from './title';
+
+  let mounted: { root: HTMLElement; dispose: () => void } | undefined;
+
+  function unmount() { mounted?.dispose(); mounted = undefined; }
+  function mount() {
+    const root = document.querySelector<HTMLElement>('[data-cinema-root]');
+    if (root && mounted?.root === root) return;
+    unmount();
+    if (!root) return;
+    const controller = new AbortController();
+    const stopTitle = createOpeningTitle(root);
+    const stopVideo = createHeroVideo(root);
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    let stop: (() => void) | undefined;
+    let generation = 0;
+    async function sync() {
+      const current = ++generation;
+      stop?.(); stop = undefined;
+      root!.dataset.motion = 'static';
+      if (reduced.matches) return;
+      try {
+        const image = root!.querySelector('img');
+        await Promise.all([image?.decode(), document.fonts.ready]);
+        if (current !== generation || controller.signal.aborted) return;
+        const { createPrototypeMotion } = await import('./motion');
+        if (current !== generation || controller.signal.aborted || !root!.isConnected) return;
+        stop = createPrototypeMotion(root!);
+        root!.dataset.motion = 'active';
+      } catch {
+        // The render, both statements and native links remain visible on failure.
+        if (current === generation) root!.dataset.motion = 'static';
+      }
+    }
+    reduced.addEventListener('change', sync, { signal: controller.signal });
+    mounted = { root, dispose: () => {
+      ++generation; controller.abort(); stopTitle(); stopVideo(); stop?.(); delete root.dataset.motion;
+    } };
+    void sync();
+  }
+  mount();
+  document.addEventListener('astro:page-load', mount);
+  document.addEventListener('astro:before-swap', unmount);
+  window.addEventListener('pagehide', event => { if (!event.persisted) unmount(); });
+  window.addEventListener('pageshow', mount);
+</script>

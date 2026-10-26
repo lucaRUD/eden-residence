@@ -1,0 +1,19 @@
+---
+import RenderImage from '../../components/home/RenderImage.astro';
+import { getImage } from 'astro:assets';
+import { homeRenders } from '../../assets/home/renders';
+import { framing } from './framing';
+import type { Locale } from '../../i18n/ui';
+import video from '../eden-residence-hero-exteriors.mp4?url';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const poster = await getImage({ src: homeRenders[framing.render].image, width: 1280, format: 'webp', quality: 85 });
+---
+
+<!-- The render stays underneath the video, including when autoplay is unavailable. -->
+<div class="cinema-window" data-cinema-window style={`--cinema-opening-x: ${framing.opening.horizontalAlignment * 100}%`}>
+  <div class="cinema-camera" data-cinema-camera>
+    <RenderImage name={framing.render} locale={locale} priority sizes={`(max-aspect-ratio: ${framing.ratio}) ${framing.ratio * 100}svh, 100vw`} />
+    <video data-cinema-video data-src={video} poster={poster.src} width="1280" height="720" autoplay muted playsinline loop preload="none" disablepictureinpicture disableRemotePlayback aria-hidden="true" tabindex="-1"></video>
+  </div>
+</div>

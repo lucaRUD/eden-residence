@@ -1,0 +1,38 @@
+.car-experiment {
+  --car-gutter: clamp(1.25rem, 3.3vw, 3rem);
+  --section-heading: var(--color-brand-cream); --section-ink: var(--color-brand-cream);
+  --context-accent: var(--color-warm-copper); --context-border: var(--color-forest-border);
+  --action-primary: var(--color-brand-cream); --action-primary-ink: var(--color-brand-green);
+  --action-primary-hover: var(--color-cream-hover);
+  --focus-color: var(--color-brand-cream); --focus-halo: var(--color-brand-green);
+  color: var(--color-brand-cream); background: var(--color-brand-green);
+}
+.car-scene { position: relative; isolation: isolate; display: flex; flex-direction: column; padding-top: 6.5rem; background: #161e19; }
+.car-heading { padding: 0 var(--car-gutter) 1.5rem; }
+.car-label { font-size: var(--text-label); line-height: 1.5; letter-spacing: .08em; }
+.car-heading h1 { margin-top: .4rem; color: inherit; font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.15; letter-spacing: -.04em; }
+.car-media { position: relative; width: 100%; aspect-ratio: 16 / 9; }
+.car-media img, .car-media video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.car-media video { position: absolute; inset: 0; visibility: hidden; pointer-events: none; }
+.car-experiment[data-car-mode='scrub'] .car-media video { visibility: visible; }
+.car-footer { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 2rem; padding: 1rem var(--car-gutter); }
+.car-footer > p { font-size: .6875rem; }
+.car-continue { display: inline-flex; align-items: center; gap: 1rem; min-height: var(--spacing-control); font-size: var(--text-label); text-decoration: none; text-underline-offset: .25em; }
+.car-continue:hover { text-decoration: underline; }
+.car-next { position: relative; padding: clamp(3rem, 7vw, 7rem) var(--car-gutter); min-height: 65svh; border-top: 1px solid var(--color-forest-border); }
+.car-next-spread { display: grid; gap: 2rem; margin-top: 2rem; }
+.car-next h2 { max-width: 16ch; color: inherit; font-size: clamp(2.5rem, 5vw, 5rem); line-height: 1.1; letter-spacing: -.04em; }
+.car-next-spread > div { max-width: 38ch; line-height: 1.75; }
+.car-next .button { margin-top: 2rem; }
+@media (min-width: 64rem) and (min-height: 38rem) and (min-aspect-ratio: 4/3) {
+  /* Contain preserves the complete building, car trajectory and supplied credit. */
+  .car-scene { height: 100svh; padding-top: 0; }
+  .car-media { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; z-index: -1; }
+  .car-heading { padding-top: max(6rem, calc((100svh - 56.25vw) / 2 + 1.5rem)); text-shadow: 0 1px 4px #161e19, 0 1px 12px #161e19; }
+  .car-footer { margin-top: auto; text-shadow: 0 1px 4px #161e19, 0 1px 12px #161e19; }
+  .car-next-spread { grid-template-columns: 1.5fr 1fr; align-items: end; gap: 3rem; }
+}
+/* This also hides video immediately while the JS lifecycle removes its pin. */
+@media (prefers-reduced-motion: reduce) {
+  .car-experiment .car-media video { visibility: hidden; }
+}

@@ -8,6 +8,8 @@ export default function designSystemPreview(): AstroIntegration {
       'astro:config:setup': ({ command, injectRoute }) => {
         if (command === 'dev') {
           injectRoute({ pattern: '/design-system/', entrypoint: new URL('./DesignSystem.astro', import.meta.url), prerender: false });
+          injectRoute({ pattern: '/dev/cinematic-hero/', entrypoint: new URL('./cinematic-hero/Page.astro', import.meta.url), prerender: false });
+          injectRoute({ pattern: '/dev/cinematic-car/', entrypoint: new URL('./cinematic-car/Page.astro', import.meta.url), prerender: false });
         }
       },
     },
