@@ -1,0 +1,32 @@
+---
+import RenderImage from './RenderImage.astro';
+import type { HomeCopy } from '../../i18n/home';
+import type { Locale } from '../../i18n/ui';
+interface Props { locale: Locale; copy: HomeCopy['introduction']; heroCopy: HomeCopy['hero'] }
+const { locale, copy, heroCopy } = Astro.props;
+---
+
+<section id="introduction" class="section--contrast home-introduction" data-editorial-introduction aria-labelledby="introduction-heading" tabindex="-1">
+  <p class="eyebrow home-introduction__label">Eden Residence</p>
+  <div class="home-introduction__grid">
+    <div class="home-introduction__story">
+      <h2 id="introduction-heading" aria-label={copy.lines.join(' ')}>
+        {copy.lines.map(line => <span class="home-introduction__mask" aria-hidden="true"><span data-editorial-line>{line}</span></span>)}
+      </h2>
+      <div class="home-introduction__reading">
+        <p class="home-introduction__lead">{heroCopy.title.replace('\n', ' ')}</p>
+        <p>{heroCopy.description}</p>
+        <p>{copy.bridge}</p>
+        <div class="home-introduction__actions">
+          <a class="home-text-link" href="#project">{heroCopy.primaryAction}<span aria-hidden="true">↗</span></a>
+          <a class="home-text-link" href="#apartments">{heroCopy.secondaryAction}<span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+    <figure class="home-introduction__image">
+      <RenderImage name="heroMobile" locale={locale} sizes="(min-width: 1024px) 36vw, 92vw" />
+      <figcaption class="home-caption">{copy.imageCaption}</figcaption>
+    </figure>
+  </div>
+  <a class="home-introduction__next" href="#passive-concept">{copy.next}<span aria-hidden="true">↓</span></a>
+</section>

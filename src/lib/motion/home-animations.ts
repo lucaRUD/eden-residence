@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createEdenJourney } from './eden-journey';
-import { createCinematicHero } from './cinematic-hero';
+import { createEditorialIntroduction } from './editorial-introduction';
 
 /** Existing chapter treatments plus the independently scrubbed Eden Journey. */
 export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElement>) {
@@ -12,7 +12,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
   const pending = new Map<HTMLElement, ScrollTrigger>();
   let refreshFrame = 0;
   let stopJourney: (() => void) | undefined;
-  let stopHero: (() => void) | undefined;
+  let stopIntroduction: (() => void) | undefined;
 
   const finishWithin = (target: Element) => {
     for (const [element, animation] of active) {
@@ -37,7 +37,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
     controller.abort();
     cancelAnimationFrame(refreshFrame);
     stopJourney?.();
-    stopHero?.();
+    stopIntroduction?.();
     context.revert();
     root.querySelectorAll('[data-current]').forEach(element => element.removeAttribute('data-current'));
     active.clear();
@@ -71,7 +71,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
 
   try {
     context.add(() => {
-      stopHero = createCinematicHero(root);
+      stopIntroduction = createEditorialIntroduction(root);
 
       const passive = root.querySelector<HTMLElement>('.home-passive');
       const principles = passive?.querySelectorAll<HTMLElement>('.home-principle');

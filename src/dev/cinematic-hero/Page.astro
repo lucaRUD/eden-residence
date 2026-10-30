@@ -22,6 +22,16 @@ const contactAction = navigation.find(item => item.href.endsWith('#contact'));
 <BaseLayout locale={locale} title={copy.title} description={copy.description}>
   <FloatingNavigation locale={locale} items={navigation} contactAction={contactAction} homeHref={homePaths[locale]} languageLinks={languages} />
   <main id="main-content" class="cinema-prototype" data-cinema-root tabindex="-1">
+    <script is:inline>
+      // Bound the pre-module mask to 180ms; failed or slow JS leaves readable copy.
+      {
+        const root = document.currentScript.parentElement;
+        root.dataset.titleEntrance = 'primed';
+        window.setTimeout(() => {
+          if (root.dataset.titleEntrance === 'primed') delete root.dataset.titleEntrance;
+        }, 180);
+      }
+    </script>
     <section class="cinema-scene" aria-labelledby="cinema-heading" data-cinema-scene>
       <div class="cinema-stage" data-cinema-stage>
         <div class="cinema-opening">
@@ -32,7 +42,7 @@ const contactAction = navigation.find(item => item.href.endsWith('#contact'));
               <div>
                 <p class="cinema-kicker">Eden Residence</p>
                 <h1 id="cinema-heading" class="cinema-title">
-                  {copy.arrival.map(line => <span class="cinema-line">{line}</span>)}
+                  {copy.arrival.map(line => <span class="cinema-line-mask"><span class="cinema-line">{line}</span></span>)}
                 </h1>
               </div>
               <p class="cinema-introduction">{copy.introduction}</p>
@@ -83,8 +93,8 @@ const contactAction = navigation.find(item => item.href.endsWith('#contact'));
     unmount();
     if (!root) return;
     const controller = new AbortController();
-    const stopTitle = createOpeningTitle(root);
-    const stopVideo = createHeroVideo(root);
+    const title = createOpeningTitle(root);
+    const stopVideo = createHeroVideo(root, title.playbackReady);
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     let stop: (() => void) | undefined;
     let generation = 0;
@@ -108,7 +118,7 @@ const contactAction = navigation.find(item => item.href.endsWith('#contact'));
     }
     reduced.addEventListener('change', sync, { signal: controller.signal });
     mounted = { root, dispose: () => {
-      ++generation; controller.abort(); stopTitle(); stopVideo(); stop?.(); delete root.dataset.motion;
+      ++generation; controller.abort(); title.dispose(); stopVideo(); stop?.(); delete root.dataset.motion;
     } };
     void sync();
   }

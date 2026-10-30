@@ -9,6 +9,7 @@ export interface HomeCopy {
   meta: { title: string; description: string };
   navigation: readonly NavigationItem[];
   hero: HeadingCopy & { primaryAction: string; secondaryAction: string };
+  introduction: { lines: readonly string[]; bridge: string; imageCaption: string; next: string };
   project: HeadingCopy & { body: string; action: string; imageCaption: string };
   gardens: HeadingCopy & { primaryCaption: string; secondaryCaption: string; detail: string };
   apartments: HeadingCopy & { categories: readonly ApartmentCopy[]; note: string; imageNote: string };
@@ -27,6 +28,12 @@ export const homeCopy = {
       title: 'Acasă, în armonie\ncu natura.',
       description: 'Arhitectură contemporană, spații verzi și o nouă perspectivă asupra locuirii.',
       primaryAction: 'Descoperă proiectul', secondaryAction: 'Explorează apartamentele',
+    },
+    introduction: {
+      lines: ['UN ALT FEL', 'DE A LOCUI.'],
+      bridge: 'Povestea continuă cu ideea de confort și cu principiile generale ale proiectării pasive.',
+      imageCaption: 'Arhitectură și peisaj, în dialog.',
+      next: 'Descoperă conceptul pasiv',
     },
     project: {
       eyebrow: '02 / Proiectul', title: 'Un proiect construit în jurul ideii de acasă.',
@@ -82,6 +89,12 @@ export const homeCopy = {
       eyebrow: 'Architecture. Nature. Home.', title: 'A home in harmony\nwith nature.',
       description: 'Contemporary architecture, green surroundings and a fresh perspective on home.',
       primaryAction: 'Discover the project', secondaryAction: 'Explore apartments',
+    },
+    introduction: {
+      lines: ['ANOTHER WAY', 'TO LIVE.'],
+      bridge: 'The story continues with the idea of comfort and the general principles of passive design.',
+      imageCaption: 'Architecture in dialogue with the landscape.',
+      next: 'Discover the passive concept',
     },
     project: {
       eyebrow: '02 / The project', title: 'A project built around the idea of home.',

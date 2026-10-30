@@ -1,0 +1,50 @@
+/* One navigation surface; no rules target the cinematic scene or its timeline. */
+.cinema-nav-shell {
+  --nav-top: 20px;
+  --nav-bar-height: 46px;
+  --nav-radius: 23px;
+  position: fixed; z-index: 40; top: var(--nav-top); left: calc((100% - var(--nav-scrollbar, 0px)) / 2);
+  width: min(calc(100% - 2rem - var(--nav-scrollbar, 0px)), 512px); transform: translateX(-50%);
+}
+.cinema-nav, .cinema-nav-fallback {
+  --section-heading: var(--color-brand-green); --section-ink: var(--color-brand-green);
+  --context-muted: var(--color-green-muted); --theme-secondary: var(--color-cream-hover);
+  --focus-color: var(--color-brand-green); --focus-halo: var(--color-brand-cream);
+  --nav-accent: var(--color-brand-green);
+  color: var(--color-brand-green); background: color-mix(in srgb, var(--color-brand-cream) 83%, transparent);
+}
+.cinema-nav { box-sizing: border-box; display: flex; flex-direction: column; height: var(--nav-bar-height); max-height: calc(100dvh - var(--nav-top) * 2); overflow: hidden; border-radius: var(--nav-radius); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background-color var(--duration-fast) var(--ease-brand); }
+.cinema-nav-bar { box-sizing: border-box; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; flex: 0 0 var(--nav-bar-height); height: var(--nav-bar-height); padding-inline: calc(var(--spacing) * 2); }
+.cinema-nav-bar :is(a, button):focus-visible { outline-offset: -3px; box-shadow: none; border-radius: calc(var(--nav-radius) - 1px); }
+.cinema-nav-trigger { display: inline-flex; align-items: center; justify-self: start; gap: calc(var(--spacing) * 1.5); min-height: var(--spacing-control); font-size: 12px; font-weight: var(--font-weight-control); letter-spacing: .025em; text-transform: uppercase; cursor: pointer; }
+.cinema-nav-trigger:hover { text-decoration: underline; text-underline-offset: .3em; }
+.cinema-nav-icon { position: relative; display: block; width: 1rem; height: .75rem; color: var(--nav-accent); }
+.cinema-nav-icon > span { position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: currentColor; transform-origin: center; }
+.cinema-nav-icon > span:first-child { transform: translateY(-3px); }
+.cinema-nav-icon > span:last-child { transform: translateY(3px); }
+.cinema-nav-brand { grid-column: 2; display: flex; align-items: center; justify-content: center; min-height: var(--spacing-control); text-decoration: none; }
+.cinema-nav-logo { display: block; width: 60px; height: auto; aspect-ratio: 1064 / 565; border-radius: 2px; }
+/* The outlined pill is visually inset; its real link remains a 44px target. */
+.cinema-nav-contact { position: relative; isolation: isolate; grid-column: 3; justify-self: end; display: inline-flex; align-items: center; justify-content: center; gap: calc(var(--spacing) * 2); min-width: var(--spacing-control); min-height: var(--spacing-control); padding-inline: calc(var(--spacing) * 3); border-radius: calc(var(--nav-radius) - 1px); font-size: 12px; font-weight: var(--font-weight-control); letter-spacing: .025em; text-transform: uppercase; text-decoration: none; }
+.cinema-nav-contact::before { content: ''; position: absolute; z-index: -1; inset: 4px 0; border: 1px solid var(--nav-accent); border-radius: calc(var(--nav-radius) - 5px); pointer-events: none; }
+.cinema-nav-contact svg { color: var(--nav-accent); }
+.cinema-nav-contact:hover::before { background: var(--color-cream-hover); }
+.cinema-nav-contact__label { display: none; }
+.cinema-nav-panel { flex: 1 1 auto; min-height: 0; overflow: hidden; overscroll-behavior: contain; scrollbar-gutter: stable both-edges; scrollbar-width: thin; scrollbar-color: var(--color-green-muted) transparent; }
+.cinema-nav-panel[data-scrollable='true'] { overflow-y: auto; }
+.cinema-nav-content { display: flex; flex-direction: column; justify-content: center; gap: clamp(1.25rem, 3svh, 1.75rem); min-height: clamp(20rem, 46svh, 26rem); padding: clamp(1.25rem, 3svh, 1.75rem) 1rem; }
+.cinema-nav-content > nav { margin-block: auto; }
+.cinema-nav-links { display: grid; justify-items: center; gap: calc(var(--spacing) * 2); text-align: center; }
+.cinema-nav-links a { display: inline-flex; align-items: center; min-height: var(--spacing-control); padding-inline: calc(var(--spacing) * 2); color: inherit; font-size: clamp(1.25rem, 3.8vw, 1.4375rem); font-weight: var(--font-weight-body); line-height: 1.3; letter-spacing: -.025em; text-decoration: none; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+.cinema-nav-links a:hover, .cinema-nav-links a[aria-current] { text-decoration: underline; text-decoration-color: var(--color-brand-copper); }
+.cinema-nav-utilities { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: calc(var(--spacing) * 5); margin-top: auto; }
+.cinema-nav-utilities .theme-icon-toggle { border: 1px solid var(--color-green-muted); }
+.cinema-nav-fallback { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; margin-top: 6rem; padding: 1rem; }
+.cinema-nav-fallback > a { display: inline-flex; align-items: center; min-height: var(--spacing-control); }
+@media (min-width: 48rem) {
+  .cinema-nav-links a { font-size: clamp(1.375rem, 1.8vw, 1.6875rem); }
+  .cinema-nav-contact__label { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cinema-nav { transition: none; }
+}

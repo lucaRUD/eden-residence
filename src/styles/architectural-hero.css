@@ -1,0 +1,48 @@
+/* The photograph, lettering and foreground use one registered image space. */
+.story-hero {
+  --section-heading: var(--color-brand-green); --section-ink: var(--color-brand-green);
+  --focus-color: var(--color-brand-green); --focus-halo: var(--color-brand-cream);
+  color: var(--color-brand-green);
+}
+.story-hero { position: relative; isolation: isolate; container-type: size; height: 100svh; min-height: 40rem; overflow: clip; background: #8da4b7; }
+.story-world {
+  --story-offset: var(--story-final-offset);
+  --story-heading-y: var(--story-title-top);
+  position: absolute; left: 50%; bottom: 0;
+  width: max(100%, 156svh); aspect-ratio: var(--story-ratio);
+  /* Keep the final eyebrow below the 66px navbar, including its 5px entrance rise.
+     Shift the entire registered scene; the camera and scroll keep their own offsets. */
+  transform: translate(-50%, calc(max(var(--story-offset), 100% - var(--story-heading-y) - 100cqh + 5.5rem) + var(--story-camera-y, 0px) + var(--story-drift, 0px)));
+  container-type: inline-size;
+}
+.story-base, .story-foreground { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.story-base { z-index: 0; }
+.story-title { position: absolute; z-index: 1; top: var(--story-heading-y); left: 0; width: 100%; color: var(--color-brand-green); text-align: center; }
+.story-eyebrow { margin-bottom: 1.8cqw; font-size: clamp(.875rem, 1.15cqw, 1.25rem); font-weight: var(--font-weight-control); line-height: 1.5; letter-spacing: .15em; text-transform: uppercase; }
+.story-title h1 { margin: 0; color: inherit; font-size: 29cqw; font-weight: 600; line-height: .82; letter-spacing: -.065em; }
+.story-letters { display: inline-flex; padding-right: .065em; }
+.story-letters > span { display: inline-block; }
+[data-story-root][data-story-entrance='pending'] :is(.story-title, .story-scroll) { opacity: 0; }
+.story-foreground { z-index: 2; mask-image: var(--story-mask); -webkit-mask-image: var(--story-mask); mask-size: 100% 100%; -webkit-mask-size: 100% 100%; mask-repeat: no-repeat; pointer-events: none; }
+.story-melt { position: absolute; z-index: 3; inset: 0; background: linear-gradient(to bottom, transparent 8%, var(--color-brand-cream) 92%); opacity: var(--story-melt, 0); pointer-events: none; }
+.story-scroll { position: absolute; z-index: 4; left: 50%; bottom: 1.5rem; display: inline-flex; gap: 1rem; align-items: center; min-height: var(--spacing-control); transform: translateX(-50%); color: var(--color-brand-cream); font-size: var(--text-label); font-weight: var(--font-weight-control); letter-spacing: .07em; text-decoration: none; white-space: nowrap; text-shadow: 0 1px 3px var(--color-brand-green); opacity: var(--story-cue, 1); }
+.story-scroll:hover { text-decoration: underline; text-underline-offset: .3em; }
+.story-scroll:focus { opacity: 1; }
+.story-scroll[data-scroll-hidden] { visibility: hidden; pointer-events: none; }
+@media (max-width: 63.999rem) {
+  .story-hero { height: auto; min-height: 0; aspect-ratio: 7 / 8; }
+  .story-world { width: 152%; --story-offset: var(--story-final-offset-mobile); --story-heading-y: var(--story-title-top-mobile); }
+  .story-title h1 { font-size: 24cqw; }
+  .story-eyebrow { font-size: clamp(.75rem, 2.1cqw, .9375rem); letter-spacing: .1em; margin-bottom: 2cqw; }
+  .story-scroll { bottom: .75rem; font-size: .6875rem; }
+}
+@supports not (mask-image: url('')) {
+  .story-foreground { display: none; }
+  .story-world { --story-heading-y: 55%; }
+  .story-title h1 { font-size: 21cqw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-story-root][data-story-entrance='pending'] :is(.story-title, .story-scroll) { opacity: 1; }
+  .story-world { --story-drift: 0px !important; --story-camera-y: 0px !important; }
+  .story-melt { display: none; }
+}

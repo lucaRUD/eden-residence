@@ -31,7 +31,7 @@ export function mountHomeMotion() {
     }
     root.dataset.motion = 'loading';
     try {
-      // Reduced-motion visitors and unrelated pages do not download GSAP.
+      // Reduced motion skips the decorative chapter and journey runtime.
       const { createHomeAnimations } = await import('./home-animations');
       if (current !== generation || controller.signal.aborted || !root.isConnected) return;
       stop = createHomeAnimations(root, seen);

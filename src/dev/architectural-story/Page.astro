@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FloatingNavigation from '../cinematic-hero/FloatingNavigation.astro';
+import ArchitecturalHero from '../../components/home/ArchitecturalHero.astro';
+import { homePaths, type Locale } from '../../i18n/ui';
+import { homeCopy } from '../../i18n/home';
+import './styles.css';
+
+const locale: Locale = Astro.url.searchParams.get('lang') === 'en' ? 'en' : 'ro';
+const copy = homeCopy[locale];
+const languages = [
+  { locale: 'ro' as const, label: 'Română', href: '/dev/architectural-story/' },
+  { locale: 'en' as const, label: 'English', href: '/dev/architectural-story/?lang=en' },
+];
+const navigation = copy.navigation.map(item => ({ ...item, href: homePaths[locale] + item.href }));
+---
+
+<BaseLayout locale={locale} title={copy.meta.title} description={copy.meta.description}>
+  <FloatingNavigation locale={locale} items={navigation} contactAction={navigation.find(item => item.href.endsWith('#contact'))} homeHref={homePaths[locale]} languageLinks={languages} />
+  <main id="main-content" class="architectural-story" data-story-root tabindex="-1">
+    <ArchitecturalHero locale={locale} scrollTarget="#story-editorial" headingId="story-heading" />
+    <section class="story-editorial" id="story-editorial" aria-labelledby="story-editorial-heading" tabindex="-1">
+      <p class="story-label">Eden Residence</p>
+      <div class="story-editorial__spread">
+        <h2 id="story-editorial-heading">{copy.project.title}</h2>
+        <div class="story-editorial__reading">
+          <p>{copy.project.description}</p>
+          <p>{copy.project.body}</p>
+          <a class="story-link" href={`${homePaths[locale]}#project`}>{copy.hero.primaryAction}<span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <p class="story-editorial__note">{copy.hero.description}</p>
+    </section>
+  </main>
+</BaseLayout>

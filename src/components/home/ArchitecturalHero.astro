@@ -1,0 +1,81 @@
+---
+import { architecturalScene as scene } from '../../assets/home/architectural-scene';
+import { homeCopy } from '../../i18n/home';
+import type { Locale } from '../../i18n/ui';
+import '../../styles/architectural-hero.css';
+interface Props { locale: Locale; scrollTarget?: string; headingId?: string }
+const { locale, scrollTarget = '#introduction', headingId = 'home-heading' } = Astro.props;
+const copy = homeCopy[locale];
+const alt = scene.alt[locale];
+const scroll = locale === 'ro' ? 'Descoperă povestea' : 'Discover the story';
+const worldStyle = [
+  '--story-mask: url("' + scene.foreground.src + '")',
+  '--story-ratio: ' + scene.background.width + ' / ' + scene.background.height,
+  '--story-final-offset: ' + (1 - scene.framing.desktop.ground) * 100 + '%',
+  '--story-final-offset-mobile: ' + (1 - scene.framing.mobile.ground) * 100 + '%',
+  '--story-title-top: ' + scene.framing.desktop.heading * 100 + '%',
+  '--story-title-top-mobile: ' + scene.framing.mobile.heading * 100 + '%',
+].join(';');
+---
+
+    <section class="story-hero" aria-labelledby={headingId} data-story-hero>
+      <div class="story-world" data-story-world data-sky-y={scene.framing.openingSky * scene.background.height} data-canopy-y={scene.framing.canopy * scene.background.height} data-mask-src={scene.foreground.src} style={worldStyle}>
+        <img class="story-base" src={scene.background.src} width={scene.background.width} height={scene.background.height} alt={alt} loading="eager" fetchpriority="high" />
+        <div class="story-title" data-story-title>
+          <p class="story-eyebrow">{copy.hero.eyebrow}</p>
+          <h1 id={headingId} aria-label="Eden Residence">
+            <span class="story-letters" aria-hidden="true">{'EDEN'.split('').map(letter => <span data-story-letter>{letter}</span>)}</span>
+          </h1>
+        </div>
+        <!-- Both layers use the very same pixels and transform; only alpha differs. -->
+        <img class="story-foreground" src={scene.background.src} width={scene.background.width} height={scene.background.height} alt="" aria-hidden="true" />
+      </div>
+      <script is:inline>
+        // Establish the real photographic sky crop before the first paint.
+        // With JS disabled, or if the main module fails, use the final CSS composition.
+        (() => {
+          const root = document.currentScript.closest('[data-story-root]');
+          const hero = root.querySelector('[data-story-hero]');
+          const world = root.querySelector('[data-story-world]');
+          const image = world.querySelector('img');
+          if (matchMedia('(prefers-reduced-motion: reduce)').matches || location.hash || scrollY > 4) return;
+          const stage = hero.getBoundingClientRect();
+          const frame = world.getBoundingClientRect();
+          const scale = frame.width / Number(image.getAttribute('width'));
+          const skyHeight = Number(world.dataset.canopyY) - 80;
+          const visibleHeight = stage.height / scale;
+          if (visibleHeight >= skyHeight) return;
+          const skyY = Math.max(0, Math.min(Number(world.dataset.skyY), skyHeight - visibleHeight));
+          root.style.setProperty('--story-camera-y', `${stage.top - skyY * scale - frame.top}px`);
+          root.dataset.storyEntrance = 'pending';
+          root.dataset.storyCamera = 'primed';
+          window.setTimeout(() => {
+            if (root.dataset.storyCamera !== 'primed') return;
+            root.style.removeProperty('--story-camera-y');
+            delete root.dataset.storyEntrance;
+            delete root.dataset.storyCamera;
+          }, 1000);
+        })();
+      </script>
+      <div class="story-melt" aria-hidden="true"></div>
+      <a class="story-scroll" href={scrollTarget}>{scroll}<span aria-hidden="true">↓</span></a>
+    </section>
+
+
+<script>
+  import { createArchitecturalHero } from '../../lib/motion/architectural-hero';
+
+  let mounted: { root: HTMLElement; dispose: () => void } | undefined;
+  const unmount = () => { mounted?.dispose(); mounted = undefined; };
+  const mount = () => {
+    const root = document.querySelector<HTMLElement>('[data-story-root]');
+    if (mounted?.root === root) return;
+    unmount();
+    if (root) mounted = { root, dispose: createArchitecturalHero(root) };
+  };
+  mount();
+  document.addEventListener('astro:page-load', mount);
+  document.addEventListener('astro:before-swap', unmount);
+  window.addEventListener('pagehide', event => { if (!event.persisted) unmount(); });
+  window.addEventListener('pageshow', mount);
+</script>

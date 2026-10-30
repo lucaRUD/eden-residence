@@ -1,0 +1,20 @@
+/* The photograph, HTML lettering and masked photograph share one image space. */
+.architectural-story {
+  --section-heading: var(--color-brand-green);
+  --section-ink: var(--color-brand-green);
+  --focus-color: var(--color-brand-green);
+  --focus-halo: var(--color-brand-cream);
+  background: var(--color-brand-cream);
+  color: var(--color-brand-green);
+}
+.story-editorial { padding: clamp(4rem, 9vw, 9rem) var(--spacing-gutter) clamp(3rem, 6vw, 6rem); scroll-margin-top: 6rem; }
+.story-label { font-size: var(--text-label); font-weight: var(--font-weight-control); letter-spacing: .12em; text-transform: uppercase; }
+.story-editorial__spread { display: grid; gap: 2.5rem; max-width: var(--container-wide); margin: clamp(2rem, 5vw, 5rem) auto; }
+.story-editorial h2 { max-width: 15ch; font-size: clamp(2.5rem, 5.8vw, 6.5rem); line-height: 1.07; letter-spacing: -.045em; text-wrap: balance; }
+.story-editorial__reading { align-self: end; max-width: 40ch; font-size: var(--text-body); line-height: 1.8; }
+.story-editorial__reading p + p { margin-top: 1.5rem; }
+.story-link { display: inline-flex; align-items: center; gap: 2rem; min-height: var(--spacing-control); margin-top: 2rem; color: inherit; text-underline-offset: .35em; }
+.story-editorial__note { padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--color-brand-green) 25%, transparent); font-size: var(--text-small); }
+@media (min-width: 64rem) {
+  .story-editorial__spread { grid-template-columns: 1.5fr 1fr; gap: clamp(3rem, 8vw, 8rem); }
+}

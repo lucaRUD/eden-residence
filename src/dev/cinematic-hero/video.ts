@@ -1,5 +1,5 @@
 /** Muted looping ambience with a static baseline; independent of ScrollTrigger. */
-export function createHeroVideo(root: HTMLElement) {
+export function createHeroVideo(root: HTMLElement, openingReady: Promise<void>) {
   const video = root.querySelector<HTMLVideoElement>('[data-cinema-video]')!;
   const toggle = root.querySelector<HTMLButtonElement>('[data-video-toggle]')!;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -11,6 +11,7 @@ export function createHeroVideo(root: HTMLElement) {
   let frame = 0;
   let paint = 0;
   let watchdog = 0;
+  let openingReleased = false;
 
   const label = () => { toggle.textContent = (video.paused ? toggle.dataset.playLabel : toggle.dataset.pauseLabel) ?? ''; };
   const cancelReveal = () => {
@@ -26,7 +27,8 @@ export function createHeroVideo(root: HTMLElement) {
   const fallback = () => { failed = true; reset(); };
   const play = async () => {
     const current = generation;
-    if (reduced.matches || document.hidden || userPaused || failed || signal.aborted) return;
+    if (!openingReleased || reduced.matches || document.hidden || userPaused || failed || signal.aborted) return;
+    video.autoplay = true;
     if (!video.hasAttribute('data-ready') && !watchdog) watchdog = window.setTimeout(fallback, 12000);
     try { await video.play(); }
     catch (error) {
@@ -38,18 +40,20 @@ export function createHeroVideo(root: HTMLElement) {
     }
   };
   const sync = () => {
+    if (signal.aborted) return;
     if (reduced.matches) { reset(); return; }
     if (document.hidden) { cancelReveal(); video.pause(); return; }
     if (failed) return;
     if (!video.hasAttribute('src')) {
       video.muted = true; video.defaultMuted = true;
-      video.autoplay = !userPaused;
+      // Preload beneath the exact first-frame poster without advancing the montage.
+      video.autoplay = false;
       video.preload = 'auto'; video.src = video.dataset.src!; video.load();
     }
     if (userPaused) { toggle.hidden = false; label(); } else void play();
   };
   video.addEventListener('playing', () => {
-    if (reduced.matches || document.hidden || userPaused || signal.aborted) { video.pause(); return; }
+    if (!openingReleased || reduced.matches || document.hidden || userPaused || signal.aborted) { video.pause(); return; }
     cancelReveal();
     const current = generation;
     const reveal = () => {
@@ -64,13 +68,14 @@ export function createHeroVideo(root: HTMLElement) {
   video.addEventListener('error', fallback, { signal });
   toggle.addEventListener('click', () => {
     userPaused = !video.paused;
-    video.autoplay = !userPaused;
+    video.autoplay = openingReleased && !userPaused;
     if (userPaused) video.pause(); else void play();
     label();
   }, { signal });
   reduced.addEventListener('change', sync, { signal });
   document.addEventListener('visibilitychange', sync, { signal });
   window.addEventListener('pageshow', sync, { signal });
+  void openingReady.then(() => { openingReleased = true; sync(); });
   sync();
   return () => { controller.abort(); reset(); };
 }

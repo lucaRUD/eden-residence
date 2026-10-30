@@ -5,7 +5,7 @@
 .cinema-window { position: absolute; inset: 0; overflow: hidden; }
 .cinema-camera { position: absolute; inset: 0; transform-origin: left top; }
 .cinema-camera picture { position: absolute; inset: 0; display: block; }
-.cinema-camera img, .cinema-camera video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--cinema-opening-x) top; }
+.cinema-camera img, .cinema-camera video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--cinema-opening-x) var(--cinema-opening-y, 0%); }
 .cinema-camera video { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
 .cinema-camera video[data-ready] { opacity: 1; }
 .cinema-video-toggle { --focus-color: var(--color-brand-cream); --focus-halo: var(--color-brand-green); position: absolute; z-index: 4; right: var(--cinema-space); bottom: var(--cinema-space); display: inline-flex; align-items: center; min-height: var(--spacing-control); padding: .5rem; color: var(--color-brand-cream); font-size: var(--text-label); text-shadow: 0 1px 3px var(--color-brand-green); cursor: pointer; text-underline-offset: .2em; }
@@ -25,7 +25,9 @@
 .cinema-kicker { display: flex; align-items: baseline; gap: calc(var(--spacing) * 4); font-size: var(--text-label); font-weight: var(--font-weight-control); line-height: var(--text-label--line-height); letter-spacing: .08em; }
 .cinema-kicker > span { letter-spacing: 0; }
 .cinema-title { margin-top: calc(var(--spacing) * 3); color: inherit; font-size: clamp(1.75rem, 5.5vw, 2.75rem); line-height: 1.12; letter-spacing: -.04em; }
+.cinema-line-mask { display: block; overflow: hidden; padding-block: .12em; margin-block: -.12em; }
 .cinema-line { display: block; white-space: nowrap; }
+.cinema-prototype[data-title-entrance='primed'] :is(.cinema-line, .cinema-introduction) { opacity: 0; }
 .cinema-introduction { max-width: 38ch; margin-top: calc(var(--spacing) * 4); font-size: var(--text-body); line-height: 1.65; }
 @media (max-width: 63.999rem), (max-height: 41.999rem) {
   /* Reserve the reading area in normal flow: no portrait crop or collapse on fade. */
@@ -60,11 +62,18 @@
 }
 @media (min-width: 64rem) and (min-height: 42rem) {
   /* The opening shot's lower-left asphalt is clear of the facade and right-hand car. */
-  .cinema-arrival { position: absolute; top: auto; bottom: clamp(5.5rem, 9svh, 7rem); left: var(--cinema-space); width: min(34rem, calc(100% - var(--cinema-space) * 2)); max-width: none; margin: 0; padding: 0; }
-  .cinema-title { font-size: clamp(2.25rem, 3.2vw, 3.25rem); }
+  .cinema-arrival { position: absolute; top: auto; bottom: clamp(5.5rem, 9svh, 7rem); left: var(--cinema-space); width: min(38rem, calc(100% - var(--cinema-space) * 2)); max-width: none; margin: 0; padding: 0; }
+  .cinema-title { font-size: clamp(2.5rem, 3.8vw, 3.75rem); line-height: 1.08; }
   .cinema-introduction { max-width: 38ch; }
   .cinema-scroll { position: absolute; left: 50%; bottom: var(--cinema-space); margin: 0; transform: translateX(-50%); }
   /* Only the chapter surface is masked; footage keeps its native composition. */
   .cinema-prototype[data-cinema-mode='pinned'] .cinema-chapter { position: absolute; z-index: 3; inset: 0; display: flex; align-items: end; padding: 0 var(--cinema-space) clamp(4rem, 12svh, 8rem); background: transparent; pointer-events: none; }
   .cinema-prototype[data-cinema-mode='pinned'] .cinema-chapter__surface { display: block; position: absolute; inset: 0; background: var(--color-brand-green); }
+}
+@media (min-width: 64rem) and (min-height: 42rem) and (min-aspect-ratio: 16/9) {
+  /* Retain some foreground on wide screens without losing the opening roofline. */
+  .cinema-window { --cinema-opening-y: 35%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cinema-prototype[data-title-entrance='primed'] :is(.cinema-line, .cinema-introduction) { opacity: 1; }
 }
