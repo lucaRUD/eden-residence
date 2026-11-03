@@ -2,6 +2,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createEdenJourney } from './eden-journey';
 import { createEditorialIntroduction } from './editorial-introduction';
+import { createScrollDepthImages } from './scroll-depth-images';
+import { createSmoothScroll } from './smooth-scroll';
 
 /** Existing chapter treatments plus the independently scrubbed Eden Journey. */
 export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElement>) {
@@ -13,6 +15,8 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
   let refreshFrame = 0;
   let stopJourney: (() => void) | undefined;
   let stopIntroduction: (() => void) | undefined;
+  let stopDepth: (() => void) | undefined;
+  let stopSmoothScroll: (() => void) | undefined;
 
   const finishWithin = (target: Element) => {
     for (const [element, animation] of active) {
@@ -36,8 +40,10 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
   const dispose = () => {
     controller.abort();
     cancelAnimationFrame(refreshFrame);
+    stopSmoothScroll?.();
     stopJourney?.();
     stopIntroduction?.();
+    stopDepth?.();
     context.revert();
     root.querySelectorAll('[data-current]').forEach(element => element.removeAttribute('data-current'));
     active.clear();
@@ -120,6 +126,8 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
         timeline.fromTo(section.querySelector('.home-contact__rule'), { scaleX: 0.35 }, { scaleX: 1, duration: 0.85, clearProps: 'transform' });
       });
       stopJourney = createEdenJourney(root);
+      stopDepth = createScrollDepthImages(root);
+      stopSmoothScroll = createSmoothScroll();
     });
 
     root.addEventListener('focusin', (event) => {

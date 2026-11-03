@@ -12,6 +12,14 @@
     pointer-events: none; opacity: 0; contain: strict;
   }
   .eden-cursor-canvas[data-visible] { opacity: 1; }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    /* Native image cursor: the 8,8 hotspot is its center, with no follower lag.
+       Set only after a successful canvas frame; auto remains the image fallback. */
+    :global(html[data-eden-cursor='ready']),
+    :global(html[data-eden-cursor='ready'] *:not(input, textarea, select, option, [contenteditable], [contenteditable] *, :disabled, [aria-disabled='true'], [data-native-cursor], [data-native-cursor] *)) {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='4' fill='%23888888' stroke='%23ededed' stroke-width='.5'/%3E%3C/svg%3E") 8 8, auto !important;
+    }
+  }
   @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
     .eden-cursor-canvas { display: none; }
   }

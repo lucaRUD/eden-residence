@@ -1,0 +1,17 @@
+---
+import type { PassiveCopy } from '../../i18n/passive-building';
+interface Props { items: PassiveCopy['principles']['items'] }
+const { items } = Astro.props;
+---
+<ol class="passive-principles-list">
+  {items.map((item, index) => (
+    <li data-passive-principle>
+      <span class="passive-principle-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+      <div>
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+        <p class="passive-principle-detail">{item.detail}</p>
+      </div>
+    </li>
+  ))}
+</ol>

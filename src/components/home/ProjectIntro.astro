@@ -1,6 +1,7 @@
 ---
 import Container from '../ui/Container.astro';
-import RenderImage from './RenderImage.astro';
+import ScrollDepthImage from '../ui/ScrollDepthImage.astro';
+import { homeRenders } from '../../assets/home/renders';
 import type { HomeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
 interface Props { copy: HomeCopy['project']; locale: Locale }
@@ -18,7 +19,7 @@ const { copy, locale } = Astro.props;
     </div>
   </Container>
   <figure class="home-project__image">
-    <RenderImage name="project" locale={locale} sizes="96vw" />
+    <ScrollDepthImage src={homeRenders.project.image} alt={homeRenders.project.alt[locale]} renderName="project" sizes="96vw" />
     <figcaption class="home-caption">{copy.imageCaption}</figcaption>
   </figure>
 </section>

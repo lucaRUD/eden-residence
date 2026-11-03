@@ -1,0 +1,27 @@
+---
+import type { PassiveImage } from '../../assets/passive-building';
+import type { Locale } from '../../i18n/ui';
+interface Props { image: PassiveImage; locale: Locale; priority?: boolean; parallaxIntensity?: number }
+const { image, locale, priority = false, parallaxIntensity = .7 } = Astro.props;
+const intensity = Number.isFinite(parallaxIntensity) ? Math.min(1.25, Math.max(0, parallaxIntensity)) : .7;
+---
+<!-- The supplied interior uses the existing shared image-parallax controller. -->
+<div class="scroll-depth-image passive-original-image" data-scroll-depth data-depth-parallax={intensity} style={`--depth-ratio:${image.width / image.height};--depth-position:${image.position ?? 'right bottom'}`}>
+  <div class="scroll-depth-image__frame" data-depth-frame>
+    <div class="scroll-depth-image__inner" data-depth-inner>
+      <img src={image.src} width={image.width} height={image.height} alt={image.alt[locale]} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} decoding="async" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .passive-original-image { position: relative; width: 100%; min-width: 0; aspect-ratio: var(--depth-ratio); }
+  .scroll-depth-image__frame { position: absolute; inset: 0; overflow: hidden; border-radius: var(--radius-image); }
+  .scroll-depth-image__inner { position: absolute; left: 0; right: 0; top: calc((100% - var(--depth-content-height, 100%)) / 2); height: var(--depth-content-height, 100%); }
+  /* Clip the narrow white border embedded in the supplied render without editing it. */
+  img { position: absolute; inset: -3%; display: block; width: 106%; height: 106%; max-width: none; object-fit: cover; object-position: var(--depth-position); }
+  [data-depth-active] .scroll-depth-image__inner { will-change: transform; }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-depth-image__inner { top: 0 !important; height: 100% !important; transform: none !important; will-change: auto !important; }
+  }
+</style>

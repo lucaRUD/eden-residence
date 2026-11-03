@@ -1,6 +1,7 @@
 ---
 import Container from '../ui/Container.astro';
-import RenderImage from './RenderImage.astro';
+import ScrollDepthImage from '../ui/ScrollDepthImage.astro';
+import { homeRenders } from '../../assets/home/renders';
 import type { HomeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
 interface Props { copy: HomeCopy['gardens']; locale: Locale }
@@ -14,7 +15,7 @@ const { copy, locale } = Astro.props;
   </Container>
   <Container width="wide" class="home-gardens__composition">
     <figure class="home-gardens__primary">
-      <RenderImage name="garden" locale={locale} sizes="(min-width: 1440px) 880px, (min-width: 768px) 62vw, 92vw" />
+      <ScrollDepthImage src={homeRenders.garden.image} alt={homeRenders.garden.alt[locale]} renderName="garden" sizes="(min-width: 1440px) 880px, (min-width: 768px) 62vw, 92vw" />
       <figcaption class="home-caption">{copy.primaryCaption}</figcaption>
     </figure>
     <div class="home-gardens__aside">
@@ -24,7 +25,7 @@ const { copy, locale } = Astro.props;
       </div>
       <div class="home-gardens__secondary">
         <figure>
-          <RenderImage name="walkway" locale={locale} sizes="(min-width: 1440px) 420px, (min-width: 768px) 30vw, 82vw" />
+          <ScrollDepthImage src={homeRenders.walkway.image} alt={homeRenders.walkway.alt[locale]} renderName="walkway" sizes="(min-width: 1440px) 420px, (min-width: 768px) 30vw, 82vw" />
           <figcaption class="home-caption">{copy.secondaryCaption}</figcaption>
         </figure>
       </div>

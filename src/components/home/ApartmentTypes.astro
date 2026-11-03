@@ -1,6 +1,7 @@
 ---
 import Section from '../ui/Section.astro';
-import RenderImage from './RenderImage.astro';
+import ScrollDepthImage from '../ui/ScrollDepthImage.astro';
+import { homeRenders } from '../../assets/home/renders';
 import type { HomeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
 interface Props { copy: HomeCopy['apartments']; locale: Locale }
@@ -21,7 +22,8 @@ const { copy, locale } = Astro.props;
       <article id={category.id} class:list={['home-apartment', { 'section--brand': index === 1 }]} aria-labelledby={`${category.id}-heading`}>
         <a href="#contact-information" class="home-apartment__link" aria-labelledby={`${category.id}-heading`} aria-describedby={`apartment-imagery-note ${category.id}-action`}>
           <div class="home-apartment__visual">
-            <RenderImage name={index === 0 ? 'apartmentTwo' : 'apartmentThree'} locale={locale} sizes="(min-width: 1440px) 644px, (min-width: 768px) 46vw, 92vw" />
+            {index === 0 ? <ScrollDepthImage src={homeRenders.apartmentTwo.image} alt={homeRenders.apartmentTwo.alt[locale]} renderName="apartmentTwo" fill borderRadius="0" parallaxIntensity={.85} sizes="(min-width: 1440px) 644px, (min-width: 768px) 46vw, 92vw" /> :
+              <ScrollDepthImage src={homeRenders.apartmentThree.image} alt={homeRenders.apartmentThree.alt[locale]} renderName="apartmentThree" fill borderRadius="0" parallaxIntensity={.85} sizes="(min-width: 1440px) 644px, (min-width: 768px) 46vw, 92vw" />}
           </div>
           <div class="home-apartment__identity">
             <div class="home-apartment__count" aria-hidden="true">

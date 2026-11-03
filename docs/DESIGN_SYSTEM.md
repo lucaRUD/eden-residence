@@ -22,7 +22,7 @@ npm.cmd run dev
 
 Use Astro's printed port if 4321 is occupied. Stop with Ctrl+C.
 
-The review page is under `src/dev/`, outside `src/pages/`. The small local integration in `src/dev/preview-integration.ts` injects it only when Astro's command is `dev`. It is rendered on demand in development so the language query works. It is not registered during build, sync, or production preview. It also carries the existing layout's `noindex, nofollow` metadata. Production output should contain only the two existing homepage routes; `/design-system/` must return 404 from `npm.cmd run preview`. There is no environment flag that can accidentally publish it. Inclusion in a deployment requires an explicitly approved code change.
+The review page is under `src/dev/`, outside `src/pages/`. The small local integration in `src/dev/preview-integration.ts` injects it only when Astro's command is `dev`. It is rendered on demand in development so the language query works. It is not registered during build, sync, or production preview. It also carries the existing layout's `noindex, nofollow` metadata. Production output contains the translated homepage and passive-building story routes; `/design-system/` must return 404 from `npm.cmd run preview`. There is no environment flag that can accidentally publish it. Inclusion in a deployment requires an explicitly approved code change.
 
 The preview uses review-only bilingual copy, real button/link semantics, simulated hover/focus examples, cards, section spacing, responsive grids, and the shared header/footer/CTA. Simulated examples are labeled as such; real keyboard and pointer states remain available. Demonstration heading sizes are paragraphs so the document retains one H1 and meaningful section headings.
 
@@ -255,6 +255,12 @@ The editorial Header centers its main navigation between equal outer columns and
 `LanguageSwitcher` supports `appearance: default | inline`. Inline shows RO / EN while retaining full localized accessible names, translated destinations, current-language semantics and at least 44px targets. `ThemeToggle` supports `appearance: default | icon`; icon mode shows the next action (moon for dark, sun for light), with a localized name/title, rather than a pressed state.
 
 The official `public/brand/logo-Eden-residence-light.png` and `logo-Eden-residence-dark.png` originals have large opaque margins. A decorative SVG viewport frames their complete artwork without modifying the files or proportions. Light mode uses darken blending; dark mode uses the supplied cream-on-green artwork. Theme/OS fallback selection also works without JavaScript. The containing link retains the full accessible brand name.
+
+## Passive-building editorial chapters
+
+The passive story uses `src/styles/passive-building.css` and the shared Quicksand, theme, spacing and image tokens. Its cream/forest editorial rhythm follows the homepage without modifying it. Five principles form an ordered reading sequence, seasonal copy pairs with original Eden renders, and partners use ruled text rows. Typography moves within small masks; imagery uses the shared clipped parallax treatment. There are no feature-card grids.
+
+The original ventilation SVG uses four lettered, named and directed routes plus separately labeled heat-transfer arrows; color is an additional cue. Both wide and compact layouts have accessible descriptions and a complete static baseline. Its technical text colors exceed 4.5:1 against the warm drawing background. Only the desktop teaching figure sticks in normal document flow; other motion is restrained. Conceptual-diagram labeling is public, while source evidence and engineering confirmations stay in the internal content file.
 
 ## Review and unresolved decisions
 

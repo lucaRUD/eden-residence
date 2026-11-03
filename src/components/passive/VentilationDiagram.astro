@@ -1,0 +1,73 @@
+---
+import type { PassiveCopy } from '../../i18n/passive-building';
+interface Props { copy: PassiveCopy['ventilation']; idPrefix?: string }
+const { copy, idPrefix = 'ventilation' } = Astro.props;
+const flows = ['intake', 'supply', 'extract', 'exhaust'] as const;
+const layouts = [
+  {
+    name: 'wide', box: '0 0 920 500', core: { x: 350, y: 112, w: 220, h: 290 },
+    routes: ['M40 180 H460', 'M460 180 H880', 'M880 330 H460', 'M460 330 H40'],
+    labels: [[75, 156], [845, 156], [845, 366], [75, 366]],
+    outside: [90, 62], home: [830, 62], title: [460, 90], filter: [245, 148], filterBox: [235, 164, 20, 32],
+    heat: [310, 202], heatLabel: [460, 450],
+  },
+  {
+    name: 'compact', box: '0 0 420 430', core: { x: 135, y: 122, w: 150, h: 185 },
+    routes: [
+      'M28 100 H72 Q85 100 85 113 V167 Q85 180 98 180 H210',
+      'M210 180 H322 Q335 180 335 167 V113 Q335 100 348 100 H392',
+      'M392 355 H348 Q335 355 335 342 V263 Q335 250 322 250 H210',
+      'M210 250 H98 Q85 250 85 263 V342 Q85 355 72 355 H28',
+    ],
+    labels: [[30, 84], [390, 84], [390, 382], [30, 382]],
+    outside: [70, 52], home: [350, 52], title: [210, 105], filter: [43, 144], filterBox: [76, 143, 18, 18],
+    heat: [235, 196], heatLabel: [210, 410],
+  },
+] as const;
+---
+<figure class="passive-vent-figure" data-vent-figure aria-describedby={`${idPrefix}-caption`}>
+  {layouts.map(layout => (
+    <svg class={`passive-vent-svg passive-vent-svg--${layout.name}`} viewBox={layout.box} role="img" aria-labelledby={`${idPrefix}-title-${layout.name} ${idPrefix}-desc-${layout.name}`} data-vent-svg>
+      <title id={`${idPrefix}-title-${layout.name}`}>{copy.title}</title>
+      <desc id={`${idPrefix}-desc-${layout.name}`}>{copy.description}</desc>
+      <defs>
+        {flows.map(flow => (
+          <marker id={`${idPrefix}-arrow-${layout.name}-${flow}`} markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0 0 L7 3.5 L0 7Z" style={`fill:var(--air-${flow})`} />
+          </marker>
+        ))}
+        <marker id={`${idPrefix}-heat-arrow-${layout.name}`} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6Z" class="passive-heat-arrow" /></marker>
+      </defs>
+      <text class="passive-diagram-label" x={layout.outside[0]} y={layout.outside[1]}>{copy.outside}</text>
+      <text class="passive-diagram-label" x={layout.home[0]} y={layout.home[1]}>{copy.home}</text>
+      <text class="passive-diagram-label passive-diagram-label--core" x={layout.title[0]} y={layout.title[1]}>{copy.core}</text>
+      <rect class="passive-core-outline" x={layout.core.x} y={layout.core.y} width={layout.core.w} height={layout.core.h} rx="8" />
+      <rect class="passive-core-energy" data-heat-surface x={layout.core.x + 5} y={layout.core.y + 5} width={layout.core.w - 10} height={layout.core.h - 10} rx="5" />
+      {Array.from({ length: 6 }, (_, index) => (
+        <path class="passive-core-fin" d={`M${layout.core.x + 15 + index * (layout.core.w - 60) / 6} ${layout.core.y + 25} L${layout.core.x + 45 + index * (layout.core.w - 60) / 6} ${layout.core.y + layout.core.h - 25}`} />
+      ))}
+      <rect class="passive-filter" x={layout.filterBox[0]} y={layout.filterBox[1]} width={layout.filterBox[2]} height={layout.filterBox[3]} />
+      <text class="passive-diagram-filter" x={layout.filter[0]} y={layout.filter[1]}>{copy.filter}</text>
+      {flows.map((flow, index) => (
+        <g style={`--route-color:var(--air-${flow})`}>
+          <path class="passive-air-base" d={layout.routes[index]} marker-end={`url(#${idPrefix}-arrow-${layout.name}-${flow})`} />
+          <path class="passive-air-route" data-air-route={flow} d={layout.routes[index]} marker-end={`url(#${idPrefix}-arrow-${layout.name}-${flow})`} />
+          <text class="passive-air-letter" x={layout.labels[index][0]} y={layout.labels[index][1]}>{String.fromCharCode(65 + index)}</text>
+        </g>
+      ))}
+      {[-1, 0, 1].map(offset => (
+        <path class="passive-heat-transfer" data-heat-transfer d={`M${layout.core.x + layout.core.w / 2 + offset * 22} ${layout.heat[0]} V${layout.heat[1]}`} marker-end={`url(#${idPrefix}-heat-arrow-${layout.name})`} />
+      ))}
+      <text class="passive-diagram-energy" x={layout.heatLabel[0]} y={layout.heatLabel[1]}>{copy.energy}</text>
+    </svg>
+  ))}
+  <dl class="passive-air-legend">
+    {copy.flows.map((flow, index) => (
+      <div style={`--route-color:var(--air-${flows[index]})`}>
+        <dt><span aria-hidden="true">{String.fromCharCode(65 + index)}</span>{flow.name}</dt>
+        <dd>{flow.text}</dd>
+      </div>
+    ))}
+  </dl>
+  <figcaption id={`${idPrefix}-caption`} class="passive-caption">{copy.caption}</figcaption>
+</figure>

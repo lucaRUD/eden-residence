@@ -1,5 +1,6 @@
 import type { Locale } from './ui';
 import type { NavigationItem } from '../lib/navigation';
+import { passivePaths } from './passive-building';
 
 interface HeadingCopy { eyebrow: string; title: string; description: string }
 interface FeatureCopy { title: string; description: string }
@@ -22,7 +23,7 @@ export interface HomeCopy {
 export const homeCopy = {
   ro: {
     meta: { title: 'Eden Residence | Acasă, în armonie cu natura', description: 'Descoperă arhitectura contemporană, grădinile și conceptul rezidențial Eden Residence.' },
-    navigation: [{ label: 'Proiect', href: '#project' }, { label: 'Apartamente', href: '#apartments' }, { label: 'Natură', href: '#gardens' }, { label: 'Contact', href: '#contact' }],
+    navigation: [{ label: 'Proiect', href: '#project' }, { label: 'Bloc pasiv', href: passivePaths.ro }, { label: 'Apartamente', href: '#apartments' }, { label: 'Natură', href: '#gardens' }, { label: 'Contact', href: '#contact' }],
     hero: {
       eyebrow: 'Arhitectură. Natură. Acasă.',
       title: 'Acasă, în armonie\ncu natura.',
@@ -84,7 +85,7 @@ export const homeCopy = {
   },
   en: {
     meta: { title: 'Eden Residence | A home in harmony with nature', description: 'Explore the contemporary architecture, gardens and residential concept of Eden Residence.' },
-    navigation: [{ label: 'Project', href: '#project' }, { label: 'Apartments', href: '#apartments' }, { label: 'Gardens', href: '#gardens' }, { label: 'Contact', href: '#contact' }],
+    navigation: [{ label: 'Project', href: '#project' }, { label: 'Passive building', href: passivePaths.en }, { label: 'Apartments', href: '#apartments' }, { label: 'Gardens', href: '#gardens' }, { label: 'Contact', href: '#contact' }],
     hero: {
       eyebrow: 'Architecture. Nature. Home.', title: 'A home in harmony\nwith nature.',
       description: 'Contemporary architecture, green surroundings and a fresh perspective on home.',

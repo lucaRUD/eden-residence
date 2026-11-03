@@ -1,0 +1,24 @@
+---
+import ScrollDepthImage from '../ui/ScrollDepthImage.astro';
+import SceneImage from './SceneImage.astro';
+import type { PassiveCopy } from '../../i18n/passive-building';
+import type { Locale } from '../../i18n/ui';
+import type { PassiveImage } from '../../assets/passive-building';
+import type { ImageMetadata } from 'astro';
+interface Props { copy: PassiveCopy['comfort']['seasons'][number]; image: { image: ImageMetadata; alt: Record<Locale, string> } | PassiveImage; locale: Locale; reverse?: boolean; id: string }
+const { copy, image, locale, reverse = false, id } = Astro.props;
+---
+<article class:list={['passive-season', { 'passive-season--reverse': reverse }]} aria-labelledby={id}>
+  <figure>
+    {'image' in image
+      ? <ScrollDepthImage src={image.image} alt={image.alt[locale]} sizes="(min-width: 1440px) 760px, (min-width: 768px) 53vw, 92vw" parallaxIntensity={.7} />
+      : <SceneImage image={image} locale={locale} parallaxIntensity={.7} />}
+    {'image' in image && <figcaption class="passive-caption">{copy.caption}</figcaption>}
+  </figure>
+  <div class="passive-season-copy">
+    <p class="eyebrow">{copy.label}</p>
+    <div class="passive-title-mask"><h3 id={id}><span data-passive-type>{copy.title}</span></h3></div>
+    <p>{copy.text}</p>
+    <ul>{copy.points.map(point => <li>{point}</li>)}</ul>
+  </div>
+</article>

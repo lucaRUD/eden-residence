@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FloatingNavigation from '../layout/FloatingNavigation.astro';
+import Footer from '../layout/Footer.astro';
+import CanvasCursor from '../ui/CanvasCursor.astro';
+import ScrollDepthImage from '../ui/ScrollDepthImage.astro';
+import Button from '../ui/Button.astro';
+import ChapterHeading from './ChapterHeading.astro';
+import PrincipleList from './PrincipleList.astro';
+import VentilationDiagram from './VentilationDiagram.astro';
+import SeasonPanel from './SeasonPanel.astro';
+import { passiveCopy, passivePaths } from '../../i18n/passive-building';
+import { homePaths, type Locale } from '../../i18n/ui';
+import { passiveImages as images } from '../../assets/passive-building';
+import { passiveResearch } from '../../content/passive-building-sources';
+import '../../styles/passive-building.css';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = passiveCopy[locale], home = homePaths[locale];
+const chapters = ['philosophy', 'principles', 'ventilation', 'comfort', 'partners'];
+const navigation = chapters.map((chapter, index) => ({ label: copy.nav[index], href: `#${chapter}` }));
+const apartments = { label: copy.apartments, href: `${home}#apartments` };
+const languages = [{ locale: 'ro' as const, label: 'Română', href: passivePaths.ro }, { locale: 'en' as const, label: 'English', href: passivePaths.en }];
+---
+<BaseLayout locale={locale} title={copy.meta.title} description={copy.meta.description}>
+  <FloatingNavigation locale={locale} items={navigation} homeHref={home} languageLinks={languages} contactAction={apartments} />
+  <main id="main-content" class="passive-page" data-passive-story tabindex="-1">
+    <section id="philosophy" class="passive-hero passive-container" aria-labelledby="passive-heading">
+      <div class="passive-hero-copy">
+        <a class="passive-home-link" href={home}>{copy.home}<span aria-hidden="true">↗</span></a>
+        <p class="eyebrow">{copy.hero.eyebrow}</p>
+        <h1 id="passive-heading" aria-label={copy.hero.lines.join(' ')}>
+          {copy.hero.lines.map(line => <span class="passive-title-mask" aria-hidden="true"><span data-passive-hero-line>{line}</span></span>)}
+        </h1>
+        <p class="passive-hero-lead">{copy.hero.body}</p>
+        <p class="passive-hero-closing">{copy.hero.closing}</p>
+        <a class="passive-text-link" href="#principles">{copy.hero.action}<span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="passive-hero-image">
+        <ScrollDepthImage src={images.hero.image} alt={images.hero.alt[locale]} priority aspectRatio="5 / 4" parallaxIntensity={.65} sizes="(min-width: 1440px) 820px, (min-width: 1024px) 53vw, 92vw" />
+        <figcaption class="passive-caption">{copy.hero.caption}</figcaption>
+      </figure>
+      <ul class="passive-hero-notes">{copy.hero.notes.map(note => <li>{note}</li>)}</ul>
+    </section>
+
+    <section id="principles" class="passive-principles section--brand" aria-labelledby="principles-heading">
+      <div class="passive-container">
+        <ChapterHeading eyebrow={copy.principles.eyebrow} title={copy.principles.title} intro={copy.principles.intro} id="principles-heading" />
+        <div class="passive-principles-layout">
+          <figure class="passive-principles-image">
+            <ScrollDepthImage src={images.principles.image} alt={images.principles.alt[locale]} parallaxIntensity={.7} sizes="(min-width: 1440px) 680px, (min-width: 1024px) 45vw, 92vw" />
+            <div class="passive-principle-scale" aria-hidden="true">{copy.principles.items.map((_, index) => <span data-principle-tick>{String(index + 1).padStart(2, '0')}</span>)}</div>
+            <figcaption class="passive-caption">{copy.principles.caption}</figcaption>
+            <a class="passive-text-link passive-source-link" href={passiveResearch.sources.phi.url} target="_blank" rel="noopener noreferrer">{copy.principles.source}<span aria-hidden="true">↗</span></a>
+          </figure>
+          <PrincipleList items={copy.principles.items} />
+        </div>
+      </div>
+    </section>
+
+    <section id="ventilation" class="passive-ventilation section--contrast" aria-labelledby="ventilation-heading">
+      <div class="passive-container">
+        <ChapterHeading eyebrow={copy.ventilation.eyebrow} title={copy.ventilation.title} intro={copy.ventilation.intro} id="ventilation-heading" />
+        <div class="passive-vent-story" data-vent-story>
+          <VentilationDiagram copy={copy.ventilation} />
+          <ol class="passive-vent-steps">
+            {copy.ventilation.steps.map((step, index) => (
+              <li data-vent-step>
+                <span class="passive-vent-step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h3>{step.title}</h3><p>{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="comfort" class="passive-comfort passive-container" aria-labelledby="comfort-heading">
+      <ChapterHeading eyebrow={copy.comfort.eyebrow} title={copy.comfort.title} intro={copy.comfort.intro} id="comfort-heading" />
+      <SeasonPanel id="winter-heading" copy={copy.comfort.seasons[0]} image={images.winter} locale={locale} />
+      <SeasonPanel id="summer-heading" copy={copy.comfort.seasons[1]} image={images.summer} locale={locale} reverse />
+    </section>
+
+    <section id="partners" class="passive-partners" aria-labelledby="partners-heading">
+      <div class="passive-container">
+        <ChapterHeading eyebrow={copy.partners.eyebrow} title={copy.partners.title} intro={copy.partners.intro} id="partners-heading" />
+        <dl class="passive-partners-list">
+          {copy.partners.roles.map(partner => (
+            <div><dt>{partner.name}</dt><dd><span class="eyebrow">{partner.topic}</span><p>{partner.text}</p></dd></div>
+          ))}
+        </dl>
+        <a class="passive-text-link passive-source-link" href={passiveResearch.sources.alphaUpdates.url} target="_blank" rel="noopener noreferrer">{copy.partners.source}<span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="passive-final section--brand">
+        <div class="passive-container passive-final-layout">
+          <div>
+            <p class="eyebrow">{copy.cta.eyebrow}</p>
+            <div class="passive-title-mask"><h2><span data-passive-type>{copy.cta.title}</span></h2></div>
+            <p>{copy.cta.text}</p>
+            <Button href={apartments.href} size="lg">{copy.cta.action}<span aria-hidden="true">↗</span></Button>
+            <a class="passive-text-link" href={home}>{copy.cta.back}</a>
+          </div>
+          <figure>
+            <ScrollDepthImage src={images.closing.image} alt={images.closing.alt[locale]} parallaxIntensity={.6} sizes="(min-width: 1440px) 600px, (min-width: 768px) 43vw, 92vw" />
+            <figcaption class="passive-caption">{copy.cta.caption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} items={[{ label: copy.home, href: home }, ...navigation.slice(1, 4), apartments]} homeHref={home} note={copy.footer} />
+  <CanvasCursor />
+</BaseLayout>
+
+<script>
+  import { mountPassiveStory, unmountPassiveStory } from '../../lib/motion/passive-building';
+  mountPassiveStory();
+  document.addEventListener('astro:page-load', mountPassiveStory);
+  document.addEventListener('astro:before-swap', unmountPassiveStory);
+  window.addEventListener('pagehide', event => { if (!event.persisted) unmountPassiveStory(); });
+  window.addEventListener('pageshow', mountPassiveStory);
+</script>

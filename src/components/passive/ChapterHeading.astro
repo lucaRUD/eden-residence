@@ -1,0 +1,9 @@
+---
+interface Props { eyebrow: string; title: string; intro?: string; id: string; level?: 'h2' | 'h3' }
+const { eyebrow, title, intro, id, level: Tag = 'h2' } = Astro.props;
+---
+<header class="passive-chapter-heading">
+  <p class="eyebrow">{eyebrow}</p>
+  <div class="passive-title-mask"><Tag id={id}><span data-passive-type>{title}</span></Tag></div>
+  {intro && <p class="passive-intro">{intro}</p>}
+</header>
