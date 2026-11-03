@@ -1,0 +1,57 @@
+---
+import { interiorGalleryImages } from '../../assets/home/interiors';
+import { interiorGalleryCopy } from '../../i18n/interior-gallery';
+import type { Locale } from '../../i18n/ui';
+import '../../styles/interior-gallery.css';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = interiorGalleryCopy[locale];
+---
+
+<section id="interiors" class="interior-gallery" data-interior-gallery aria-labelledby="interiors-heading">
+  <div class="interior-gallery__stage" data-gallery-stage>
+    <header class="interior-gallery__intro" data-gallery-intro>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 id="interiors-heading" aria-label={copy.intro.lines.join(' ')}>
+        {copy.intro.lines.map(line => <span class="interior-gallery__line" aria-hidden="true">{line}</span>)}
+      </h2>
+      <p class="interior-gallery__intro-description">{copy.intro.description}</p>
+    </header>
+    <div class="interior-gallery__rooms">
+      {interiorGalleryImages.map((image, index) => (
+        <article class="interior-gallery__room" aria-labelledby={`interior-room-${index}-heading`}>
+          <div class="interior-gallery__frame" data-gallery-frame={index} style={`--gallery-photo-position:${image.position}`}>
+            <div class="interior-gallery__image" data-gallery-image>
+              <img src={image.src} width={image.width} height={image.height} alt={copy.rooms[index].alt} loading="lazy" decoding="async" draggable="false" />
+            </div>
+            {index === 0 && <div class="interior-gallery__shade" data-gallery-shade aria-hidden="true"></div>}
+          </div>
+          <div class="interior-gallery__copy" data-gallery-room-copy={index}>
+            <p class="eyebrow">{copy.rooms[index].label}</p>
+            <h3 id={`interior-room-${index}-heading`} aria-label={copy.rooms[index].lines.join(' ')}>
+              {copy.rooms[index].lines.map(line => <span class="interior-gallery__line" aria-hidden="true">{line}</span>)}
+            </h3>
+            <p class="interior-gallery__description">{copy.rooms[index].description}</p>
+            <p class="interior-gallery__caption">{copy.rooms[index].caption}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="interior-gallery__split" data-gallery-split>
+      <p class="eyebrow">{copy.rooms[0].caption}</p>
+      <h3 aria-label={copy.split.lines.join(' ')}>
+        {copy.split.lines.map(line => <span class="interior-gallery__line" aria-hidden="true">{line}</span>)}
+      </h3>
+      <p class="interior-gallery__description">{copy.split.description}</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { mountInteriorGallery, unmountInteriorGallery } from '../../lib/motion/interior-gallery';
+  mountInteriorGallery();
+  document.addEventListener('astro:page-load', mountInteriorGallery);
+  document.addEventListener('astro:before-swap', unmountInteriorGallery);
+  window.addEventListener('pagehide', event => { if (!event.persisted) unmountInteriorGallery(); });
+  window.addEventListener('pageshow', mountInteriorGallery);
+</script>
