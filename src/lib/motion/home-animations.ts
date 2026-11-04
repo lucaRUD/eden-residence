@@ -79,39 +79,6 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
     context.add(() => {
       stopIntroduction = createEditorialIntroduction(root);
 
-      const passive = root.querySelector<HTMLElement>('.home-passive');
-      const principles = passive?.querySelectorAll<HTMLElement>('.home-principle');
-      if (passive && principles?.length) {
-        ScrollTrigger.create({
-          trigger: passive.querySelector('.home-passive__body'), start: 'top 85%', once: true,
-          onEnter: () => {
-            if (seen.has(passive)) return;
-            seen.add(passive);
-            if (passive.contains(document.activeElement)) return;
-            context.add(() => {
-              const image = passive.querySelector('.home-render');
-              const heading = passive.querySelector('h2');
-              const timeline = gsap.timeline({ onComplete: () => active.delete(passive) });
-              active.set(passive, timeline);
-              // Leading-edge mask retains the architecture and bottom-right credit.
-              timeline.fromTo(image, { clipPath: 'inset(0% 0% 0% 4%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.95, ease: 'power2.inOut', clearProps: 'clipPath' }, 0)
-                .fromTo(heading, { x: -6 }, { x: 0, duration: 0.7, ease: 'power2.out', clearProps: 'transform' }, 0);
-            });
-          },
-        });
-        let current = -1;
-        ScrollTrigger.create({
-          trigger: passive.querySelector('.home-principles'), start: 'top 70%', end: 'bottom 40%',
-          onUpdate: (self) => {
-            const next = Math.min(principles.length - 1, Math.floor(self.progress * principles.length));
-            if (next === current) return;
-            current = next;
-            // A reading accent, never a tab: all three explanations stay visible.
-            principles.forEach((element, index) => element.toggleAttribute('data-current', index === current));
-          },
-        });
-      }
-
       enterOnce('.home-project__image .home-render', (timeline, image) => {
         timeline.fromTo(image, { clipPath: 'inset(0% 0% 0% 4%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.9, clearProps: 'clipPath' });
       });
