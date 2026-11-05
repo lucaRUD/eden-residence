@@ -13,6 +13,7 @@ const copy = interiorGalleryCopy[locale];
 <section id="interiors" class="interior-gallery" data-interior-gallery aria-labelledby="interiors-heading">
   <div class="interior-gallery__viewport" data-gallery-viewport aria-hidden="true"></div>
   <div class="interior-gallery__stage" data-gallery-stage>
+    <div class="interior-gallery__surface">
     <MaterialBackground settings={homeMaterials.interiors} variant="interiors" />
     <header class="interior-gallery__intro" data-gallery-intro>
       <p class="eyebrow">{copy.eyebrow}</p>
@@ -48,6 +49,7 @@ const copy = interiorGalleryCopy[locale];
         {copy.split.lines.map(line => <span class="interior-gallery__line" aria-hidden="true">{line}</span>)}
       </h3>
       <p class="interior-gallery__description">{copy.split.description}</p>
+    </div>
     </div>
   </div>
 </section>

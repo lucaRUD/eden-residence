@@ -15,6 +15,7 @@
   color: var(--section-ink);
 }
 .passive-editorial__stage { position: relative; padding: clamp(4rem, 8vw, 7rem) var(--ps-gutter); }
+.passive-editorial__surface { display: contents; }
 .passive-editorial__anchor { position: absolute; top: 6rem; left: var(--ps-gutter); width: 1px; height: 1px; pointer-events: none; }
 .passive-editorial__viewport { position: absolute; top: 0; left: 0; width: 1px; height: 100svh; visibility: hidden; pointer-events: none; }
 .passive-editorial .eyebrow { font-size: .6875rem; letter-spacing: .11em; line-height: 1.5; color: inherit; }
@@ -94,6 +95,11 @@
   position: absolute; z-index: 6; left: var(--ps-gutter); right: var(--ps-gutter); top: 56%; color: #faf7ee;
 }
 .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__closing h3 { font-size: clamp(3.8rem, 6.2vw, 7.6rem); margin-bottom: 2rem; }
+@media (max-width: 63.999rem), (orientation: portrait), (pointer: coarse) {
+  .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__stage { overflow: visible; }
+  .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__surface { display: block; position: relative; height: 100vh; height: 100dvh; overflow: clip; isolation: isolate; background: var(--color-brand-cream); }
+  .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__photo img { height: max(var(--ps-raster-height), 100dvh); width: calc(max(var(--ps-raster-height), 100dvh) * var(--ps-raster-ratio)); }
+}
 @media (max-width: 47.999rem), (orientation: portrait) {
   .passive-editorial { --ps-gutter: clamp(1.5rem, 5vw, 3rem); }
   .passive-editorial__photo img { object-position: var(--ps-portrait-position); }

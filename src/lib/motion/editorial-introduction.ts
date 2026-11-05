@@ -31,6 +31,7 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
   let trigger: ScrollTrigger | undefined;
   let width = 0, height = 0, measuredWidth = 0;
   let compact = false;
+  let fluid = false;
   let native: WindowRect;
   let bridge: WindowRect;
   let positions: WindowRect[];
@@ -85,9 +86,12 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
       replica.setAttribute('aria-hidden', 'true'); replica.inert = true;
       const replicaStage = document.createElement('div');
       replicaStage.className = 'passive-editorial__stage';
+      const replicaSurface = document.createElement('div');
+      replicaSurface.className = 'passive-editorial__surface';
       for (const selector of ['.passive-editorial__opening-photo', '.passive-editorial__eyebrow', '.passive-editorial__opening']) {
-        replicaStage.append(passive.querySelector(selector)!.cloneNode(true));
+        replicaSurface.append(passive.querySelector(selector)!.cloneNode(true));
       }
+      replicaStage.append(replicaSurface);
       sourceTimeline.totalTime(time, true);
       replica.append(replicaStage);
       replica.querySelectorAll('*').forEach(element => {
@@ -108,6 +112,7 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
         const retainHeight = !!height && Math.abs(width - measuredWidth) <= 1 && matchMedia('(pointer: coarse)').matches;
         if (!retainHeight) height = probe.getBoundingClientRect().height;
         measuredWidth = width; compact = width < 1024 || height > width;
+        fluid = matchMedia('(max-width: 63.999rem), (orientation: portrait), (pointer: coarse)').matches;
         root.style.setProperty('--opening-height', height + 'px');
         // The hero uses the initial visible viewport. The passive scene retains
         // its own approved small-viewport framing, including browser-chrome changes.
@@ -122,8 +127,9 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
         const properties = ['left', 'top', 'width', 'height', 'border-radius', 'transform', 'transform-origin', 'translate', 'rotate', 'scale'];
         const saved = properties.map(property => photograph.style.getPropertyValue(property));
         properties.forEach(property => photograph.style.removeProperty(property));
-        const box = photograph.getBoundingClientRect(), parent = replicaStage.getBoundingClientRect();
-        native = { x: box.left - parent.left, y: box.top - parent.top, width: box.width, height: box.height, radius: parseFloat(getComputedStyle(photograph).borderRadius) || 0 };
+        const box = photograph.getBoundingClientRect(), parent = (fluid ? replicaSurface : replicaStage).getBoundingClientRect();
+        const verticalUnit = fluid ? height / parent.height : 1;
+        native = { x: box.left - parent.left, y: (box.top - parent.top) * verticalUnit, width: box.width, height: box.height * verticalUnit, radius: parseFloat(getComputedStyle(photograph).borderRadius) || 0 };
         properties.forEach((property, index) => { if (saved[index]) photograph.style.setProperty(property, saved[index]); });
         heroCorner = { x: width * .07, y: height * (compact ? .13 : .14), scale: .22 };
         bridge = compact
@@ -145,14 +151,14 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
         }
       };
       const rect = (get: () => WindowRect) => ({
-        left: () => get().x, top: () => get().y, width: () => get().width,
-        height: () => get().height, borderRadius: () => get().radius,
+        left: () => get().x, top: () => fluid ? get().y / height * 100 + '%' : get().y + 'px', width: () => get().width,
+        height: () => fluid ? get().height / height * 100 + '%' : get().height + 'px', borderRadius: () => get().radius,
       });
       const full = () => ({ x: 0, y: 0, width, height, radius: 0 });
       measure();
       context.add(() => {
         const timeline = gsap.timeline({ defaults: { ease: 'power2.inOut', autoRound: false } });
-        timeline.set(hero, { x: 0, y: 0, scale: 1, borderRadius: 0, transformOrigin: '50% 50%', rotationY: 0, rotationZ: 0 }, 0)
+        timeline.set(hero, { x: 0, y: 0, yPercent: 0, scale: 1, borderRadius: 0, transformOrigin: '50% 50%', rotationY: 0, rotationZ: 0 }, 0)
           .set(title, { opacity: 1, y: 0 }, 0)
           .set(root, { '--story-cue': 1 }, 0)
           .set(copy, { opacity: 0, y: 16 }, 0)
@@ -169,7 +175,8 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
           }, 0);
         timeline.to(hero, {
           x: () => heroCorner.x - (1 - heroCorner.scale) * width / 2,
-          y: () => heroCorner.y - (1 - heroCorner.scale) * height / 2, scale: () => heroCorner.scale,
+          y: () => fluid ? 0 : heroCorner.y - (1 - heroCorner.scale) * height / 2,
+          yPercent: () => fluid ? (heroCorner.y / height - (1 - heroCorner.scale) / 2) * 100 : 0, scale: () => heroCorner.scale,
           borderRadius: () => 16 / heroCorner.scale, duration: .85,
         }, 1.15)
           .to(copy, { opacity: 1, y: 0, duration: .6 }, 1.6)
@@ -201,7 +208,8 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
         });
         timeline.to(copy, { opacity: 0, y: -20, duration: .4 }, 3.65 + EDITORIAL_EXTENSION)
           .to(intro.querySelector('.opening-story__grain'), { opacity: 0, duration: .5 }, 3.65 + EDITORIAL_EXTENSION)
-          .to(hero, { y: () => -height * (.6 + (1 - heroCorner.scale) / 2), opacity: 0, duration: .7 }, 3.65 + EDITORIAL_EXTENSION);
+          .to(hero, { y: () => fluid ? 0 : -height * (.6 + (1 - heroCorner.scale) / 2),
+            yPercent: () => fluid ? -100 * (.6 + (1 - heroCorner.scale) / 2) : 0, opacity: 0, duration: .7 }, 3.65 + EDITORIAL_EXTENSION);
         const center = () => ({ x: width * (compact ? .175 : .35), y: height * .32,
           width: width * (compact ? .65 : .3), height: height * .3, radius: 18 });
         timeline.fromTo(photograph, rect(() => bridge), { ...rect(center), duration: .65, immediateRender: false }, 3.95 + EDITORIAL_EXTENSION)

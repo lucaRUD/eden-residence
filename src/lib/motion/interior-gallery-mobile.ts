@@ -68,6 +68,7 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
       const rasterHeight = rasterWidth / ratio;
       frames[index].style.setProperty('--gallery-raster-width', String(rasterWidth) + 'px');
       frames[index].style.setProperty('--gallery-raster-height', String(rasterHeight) + 'px');
+      frames[index].style.setProperty('--gallery-raster-ratio', String(ratio));
       const focus = getComputedStyle(frames[index]).getPropertyValue('--gallery-photo-position').trim().split(/\s+/).map(value => parseFloat(value) / 100);
       return { width: rasterWidth, height: rasterHeight, focusX: focus[0], focusY: focus[1] };
     });
@@ -83,8 +84,9 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
   measure();
   const clip = (pose: Pose) => () => {
     const rect = poses[pose];
-    return 'inset(' + rect.y + 'px ' + (measuredWidth - rect.x - rect.width) + 'px '
-      + (stableHeight - rect.y - rect.height) + 'px ' + rect.x + 'px round ' + rect.radius + 'px)';
+    // Percentages follow the dynamic visual surface without changing the stable pin span.
+    return 'inset(' + rect.y / stableHeight * 100 + '% ' + (measuredWidth - rect.x - rect.width) + 'px '
+      + (stableHeight - rect.y - rect.height) / stableHeight * 100 + '% ' + rect.x + 'px round ' + rect.radius + 'px)';
   };
   const position = (pose: Pose, index: number) => {
     const value = () => {
@@ -96,7 +98,7 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
         y: rect.y + rect.height / 2 - stableHeight / 2 + (raster.height * scale - rect.height) * (.5 - raster.focusY),
       };
     };
-    return { x: () => value().x, y: () => value().y, scale: () => value().scale };
+    return { x: () => value().x, y: 0, yPercent: () => value().y / stableHeight * 100, scale: () => value().scale };
   };
   const forest = getComputedStyle(root).getPropertyValue('--color-brand-green').trim();
   const cream = getComputedStyle(root).getPropertyValue('--color-brand-cream').trim();
@@ -114,7 +116,7 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
     .set(inners[2], position('next', 2), 0)
     .set(images, { x: 0, y: 0, xPercent: -50, yPercent: -50 }, 0)
     .set([shade, endShade], { opacity: 0 }, 0)
-    .set(copies, { top: () => cardCopyTop, opacity: 0, color: forest, clipPath: 'inset(0%)', pointerEvents: 'none' }, 0)
+    .set(copies, { top: () => cardCopyTop / stableHeight * 100 + '%', opacity: 0, color: forest, clipPath: 'inset(0%)', pointerEvents: 'none' }, 0)
     .set(lines.flat(), { x: 0 }, 0)
     .set(details.flat(), { opacity: 1 }, 0)
     .to(intro, { opacity: 0, y: -16, duration: .5 }, .45)
@@ -122,7 +124,7 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
     .to(images[0], { yPercent: -52, duration: 1.2, ease: 'none' }, .45);
   move(0, 'small', 'full', .45, 1.2);
   timeline.to(shade, { opacity: 1, duration: .45 }, 1.1)
-    .set(copies[0], { top: () => fullCopyTop, color: cream }, 1.25)
+    .set(copies[0], { top: () => fullCopyTop / stableHeight * 100 + '%', color: cream }, 1.25)
     .set(details[0], { opacity: 0 }, 1.25)
     .to(copies[0], { opacity: 1, duration: .35 }, 1.3)
     .set(copies[0], { pointerEvents: 'auto' }, 1.3)
@@ -131,7 +133,7 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
   move(0, 'full', 'card', 2.25, 1.1);
   timeline.to(shade, { opacity: 0, duration: .45 }, 2.65)
     .to(images[0], { yPercent: -48, duration: 1.1, ease: 'none' }, 2.25)
-    .set(copies[0], { top: () => cardCopyTop, color: forest }, 3.2)
+    .set(copies[0], { top: () => cardCopyTop / stableHeight * 100 + '%', color: forest }, 3.2)
     .set(details[0], { opacity: 1 }, 3.2)
     .to(copies[0], { opacity: 1, duration: .3 }, 3.25)
     .set(copies[0], { pointerEvents: 'auto' }, 3.25)
@@ -159,7 +161,7 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
     .to(frames[1], { opacity: 0, duration: .35 }, 7.4);
   move(2, 'card', 'full', 7.5, 1.1);
   timeline.to(endShade, { opacity: 1, duration: .5 }, 7.95)
-    .set(copies[2], { top: () => fullCopyTop, color: cream }, 8.25)
+    .set(copies[2], { top: () => fullCopyTop / stableHeight * 100 + '%', color: cream }, 8.25)
     .set(details[2], { opacity: 0 }, 8.25)
     .to(copies[2], { opacity: 1, duration: .35 }, 8.3)
     .set(copies[2], { pointerEvents: 'auto' }, 8.3)

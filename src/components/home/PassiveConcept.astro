@@ -19,6 +19,7 @@ const photographs = [passiveStoryImages.architecture, passiveStoryImages.reveal]
   <span class="passive-editorial__anchor" data-journey-anchor aria-hidden="true"></span>
   <div class="passive-editorial__viewport" data-ps-viewport aria-hidden="true"></div>
   <div class="passive-editorial__stage" data-ps-stage>
+    <div class="passive-editorial__surface">
     <p class="eyebrow passive-editorial__eyebrow">{copy.eyebrow}</p>
     <div class="passive-editorial__opening-photo" data-ps-opening-photo style={`--ps-opening-position:${openingPhotograph.position};--ps-opening-portrait-position:${openingPhotograph.portraitPosition}`}>
       <div class="passive-editorial__opening-image" data-ps-opening-image>
@@ -78,6 +79,7 @@ const photographs = [passiveStoryImages.architecture, passiveStoryImages.reveal]
         {copy.closing.lines.map(line => <span class="passive-editorial__mask" aria-hidden="true"><span data-ps-closing-track>{line}</span></span>)}
       </h3>
       <Button href={copy.action.href} size="lg">{copy.action.label}<span aria-hidden="true">↗</span></Button>
+    </div>
     </div>
   </div>
 </section>

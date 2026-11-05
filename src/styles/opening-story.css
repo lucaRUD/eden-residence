@@ -1,4 +1,5 @@
 .opening-story { position: relative; }
+.opening-story__surface { display: contents; }
 .opening-story__viewport { position: absolute; top: 0; width: 1px; height: 100svh; height: 100dvh; visibility: hidden; pointer-events: none; }
 .opening-story__anchor { position: absolute; top: 0; width: 1px; height: 1px; pointer-events: none; }
 .opening-story__photographs { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); margin-block: 2.5rem; }
@@ -40,6 +41,11 @@
 .opening-passive.passive-editorial { position: absolute; inset: 0; z-index: 4; background: transparent; pointer-events: none; }
 .opening-passive .passive-editorial__stage { height: var(--opening-height) !important; overflow: visible !important; }
 
+/* The pin keeps its measured height; only its visual surface follows browser chrome. */
+@media (max-width: 63.999rem), (orientation: portrait), (pointer: coarse) {
+  [data-opening-mode='cinematic'] .opening-story__stage { overflow: visible; }
+  [data-opening-mode='cinematic'] .opening-story__surface { display: block; position: relative; height: 100vh; height: 100dvh; overflow: clip; isolation: isolate; background: var(--color-brand-cream); }
+}
 @media (max-width: 63.999rem), (orientation: portrait) {
   [data-opening-mode='cinematic'] .opening-story__copy { top: 39%; left: max(1.25rem, 6vw); right: max(1.25rem, 6vw); }
   [data-opening-mode='cinematic'] .home-introduction__grid { margin-top: .8rem; }

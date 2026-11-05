@@ -74,6 +74,7 @@ function createPassiveEditorial(root: HTMLElement): () => void {
       media.add({ compact: '(max-width: 47.999rem), (orientation: portrait)', motion: '(prefers-reduced-motion: no-preference)', all: '(min-width: 0px)' }, current => {
         if (!current.conditions?.motion) { restore(); return; }
         const compact = !!current.conditions.compact;
+        const fluid = matchMedia('(max-width: 63.999rem), (orientation: portrait), (pointer: coarse)').matches;
         root.dataset.psMode = 'cinematic';
         let layout: Layout;
         let cachedWidth = 0, stableHeight = 0;
@@ -93,6 +94,7 @@ function createPassiveEditorial(root: HTMLElement): () => void {
             const rasterWidth = Math.max(width, height * ratio), rasterHeight = rasterWidth / ratio;
             photo.style.setProperty('--ps-raster-width', `${rasterWidth}px`);
             photo.style.setProperty('--ps-raster-height', `${rasterHeight}px`);
+            photo.style.setProperty('--ps-raster-ratio', String(ratio));
             const focus = getComputedStyle(photo).getPropertyValue(compact ? '--ps-portrait-position' : '--ps-position').trim().split(/\s+/).map(value => parseFloat(value) / 100);
             return { width: rasterWidth, height: rasterHeight, focus: { x: focus[0], y: focus[1] } };
           }), poses: compact ? {
@@ -113,7 +115,9 @@ function createPassiveEditorial(root: HTMLElement): () => void {
         measure();
         const clip = (pose: Pose) => () => {
           const rect = layout.poses[pose];
-          return `inset(${rect.y}px ${layout.width - rect.x - rect.width}px ${layout.height - rect.y - rect.height}px ${rect.x}px round ${rect.radius}px)`;
+          const top = fluid ? rect.y / layout.height * 100 + '%' : rect.y + 'px';
+          const bottom = layout.height - rect.y - rect.height;
+          return `inset(${top} ${layout.width - rect.x - rect.width}px ${fluid ? bottom / layout.height * 100 + '%' : bottom + 'px'} ${rect.x}px round ${rect.radius}px)`;
         };
         const position = (pose: Pose, index: number) => {
           const value = () => {
@@ -122,7 +126,8 @@ function createPassiveEditorial(root: HTMLElement): () => void {
             return { x: rect.x + rect.width / 2 - layout.width / 2 + (raster.width * scale - rect.width) * (.5 - raster.focus.x),
               y: rect.y + rect.height / 2 - layout.height / 2 + (raster.height * scale - rect.height) * (.5 - raster.focus.y), scale };
           };
-          return { x: () => value().x, y: () => value().y, scale: () => value().scale };
+          return { x: () => value().x, y: () => fluid ? 0 : value().y,
+            yPercent: () => fluid ? value().y / layout.height * 100 : 0, scale: () => value().scale };
         };
         const timeline = gsap.timeline({ defaults: { ease: 'power2.inOut' } });
         timeline.set(eyebrow, { opacity: 1 }, 0)

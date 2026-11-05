@@ -30,8 +30,10 @@ const languages = [
     <div class="opening-story" data-opening-story>
       <div class="opening-story__viewport" data-opening-viewport aria-hidden="true"></div>
       <div class="opening-story__stage" data-opening-stage>
+        <div class="opening-story__surface">
         <ArchitecturalHero locale={locale} />
         <EditorialIntroduction locale={locale} copy={copy.introduction} heroCopy={copy.hero} />
+        </div>
       </div>
       <div class="opening-story__anchor" data-opening-anchor tabindex="-1" aria-labelledby="introduction-heading"></div>
     </div>
