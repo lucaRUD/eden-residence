@@ -2,6 +2,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface WindowRect { x: number; y: number; width: number; height: number; radius: number }
+const EDITORIAL_EXTENSION = 1.8;
+const STORY_DURATION = 6.8 + EDITORIAL_EXTENSION;
+const ACTIONS_TIME = 4.6;
 
 /** One reversible camera handoff. The existing passive timeline remains its own scene. */
 export function createEditorialIntroduction(root: HTMLElement): () => void {
@@ -17,8 +20,9 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
   const cue = hero.querySelector<HTMLElement>('.story-scroll')!;
   const copy = intro.querySelector<HTMLElement>('[data-opening-copy]')!;
   const actions = intro.querySelector<HTMLElement>('.home-introduction__actions')!;
+  const passages = [...intro.querySelectorAll<HTMLElement>('[data-opening-passage]')];
   const photos = [...intro.querySelectorAll<HTMLElement>('[data-opening-photo]')];
-  const styles = new Map([stage, hero, title, cue, copy, anchor, ...photos].map(e => [e, e.getAttribute('style')]));
+  const styles = new Map([stage, hero, title, cue, copy, anchor, ...passages, ...photos].map(e => [e, e.getAttribute('style')]));
   const oldId = intro.id;
   const context = gsap.context(() => {}, story);
   const controller = new AbortController();
@@ -31,7 +35,8 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
   let bridge: WindowRect;
   let positions: WindowRect[];
   let heroCorner: { x: number; y: number; scale: number };
-  const distance = () => Math.round(height * (compact ? 2.8 : 3.2));
+  // Keep the contraction and handoff at their approved speed; give the extra copy time to read.
+  const distance = () => Math.round(height * (compact ? 2.8 : 3.2) * STORY_DURATION / 6.8);
   const initialHash = location.hash;
   let hashRestored = false;
   const refresh = () => {
@@ -112,8 +117,9 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
         replica!.style.setProperty('--ps-stage-height', passiveHeight + 'px');
         replica!.style.setProperty('--opening-height', passiveHeight + 'px');
         replicaStage.style.width = width + 'px';
-        anchor.style.top = distance() * .45 + 'px';
-        const properties = ['left', 'top', 'width', 'height', 'border-radius'];
+        anchor.style.top = distance() * 2.5 / STORY_DURATION + 'px';
+        copy.style.setProperty('--opening-copy-height', Math.max(...passages.map(passage => passage.scrollHeight)) + 'px');
+        const properties = ['left', 'top', 'width', 'height', 'border-radius', 'transform', 'transform-origin', 'translate', 'rotate', 'scale'];
         const saved = properties.map(property => photograph.style.getPropertyValue(property));
         properties.forEach(property => photograph.style.removeProperty(property));
         const box = photograph.getBoundingClientRect(), parent = replicaStage.getBoundingClientRect();
@@ -146,44 +152,65 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
       measure();
       context.add(() => {
         const timeline = gsap.timeline({ defaults: { ease: 'power2.inOut', autoRound: false } });
-        timeline.set(hero, { x: 0, y: 0, scale: 1, borderRadius: 0 }, 0)
+        timeline.set(hero, { x: 0, y: 0, scale: 1, borderRadius: 0, transformOrigin: '50% 50%', rotationY: 0, rotationZ: 0 }, 0)
           .set(title, { opacity: 1, y: 0 }, 0)
           .set(root, { '--story-cue': 1 }, 0)
           .set(copy, { opacity: 0, y: 16 }, 0)
+          .set(passages.slice(1), { opacity: 0, y: 10, pointerEvents: 'none' }, 0)
+          .set(passages[0], { opacity: 1, y: 0, pointerEvents: 'auto' }, 0)
           .set([heading, label], { opacity: 0 }, 0)
-          .set(photograph, { ...rect(() => bridge), opacity: 0 }, 0)
+          .set(photograph, { ...rect(() => bridge), opacity: 0, transformPerspective: 900, rotationY: 0, rotationZ: 0 }, 0)
           .to(root, { '--story-cue': 0, duration: .2 }, 0)
           .set(cue, { visibility: 'hidden', pointerEvents: 'none' }, .2)
           .to(title, { opacity: 0, y: -16, duration: .6 }, 0)
           .to(hero, {
-            scale: .3, x: () => width * .35, y: () => height * .35,
+            scale: .3, x: 0, y: 0,
             borderRadius: 60, duration: 1.2,
           }, 0);
         timeline.to(hero, {
-          x: () => heroCorner.x, y: () => heroCorner.y, scale: () => heroCorner.scale,
+          x: () => heroCorner.x - (1 - heroCorner.scale) * width / 2,
+          y: () => heroCorner.y - (1 - heroCorner.scale) * height / 2, scale: () => heroCorner.scale,
           borderRadius: () => 16 / heroCorner.scale, duration: .85,
         }, 1.15)
           .to(copy, { opacity: 1, y: 0, duration: .6 }, 1.6)
           .to(photograph, { opacity: 1, duration: .45 }, 1.45);
+        // Complete passages follow one another, with no simultaneous text crossfade.
+        timeline.to(passages[0], { opacity: 0, y: -10, duration: .22 }, 2.65)
+          .set(passages[0], { pointerEvents: 'none' }, 2.65)
+          .fromTo(passages[1], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .3, immediateRender: false }, 2.95)
+          .set(passages[1], { pointerEvents: 'auto' }, 3.1)
+          .to(passages[1], { opacity: 0, y: -10, duration: .22 }, 3.85)
+          .set(passages[1], { pointerEvents: 'none' }, 3.85)
+          .fromTo(passages[2], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .3, immediateRender: false }, 4.15)
+          .set(passages[2], { pointerEvents: 'auto' }, 4.3)
+          .set(hero, { transformPerspective: () => Math.max(900, width * 1.6) }, 1.2)
+          .to(hero, { rotationY: -16, rotationZ: -5, duration: .75 }, 1.3)
+          .to(hero, { rotationY: 16, rotationZ: 7, duration: 3.15, ease: 'none' }, 2.05)
+          .to(photograph, { rotationY: -16, rotationZ: -4, duration: .8 }, 1.3)
+          .to(photograph, { rotationY: 16, rotationZ: 7, duration: 2.8, ease: 'none' }, 2.1)
+          .to(photograph, { rotationY: 0, rotationZ: 0, duration: .45 }, 4.9)
+          .set(photograph, { transformPerspective: 0 }, 5.36);
         photos.forEach((photo, index) => {
-          timeline.set(photo, { ...rect(() => positions[index]), opacity: 0, y: 18, scale: .94 }, 0)
+          timeline.set(photo, { ...rect(() => positions[index]), opacity: 0, y: 18, scale: .94,
+            transformPerspective: () => Math.max(700, width * .85), rotationY: 0, rotationZ: [-6, 5, -4][index] }, 0)
             .to(photo, { opacity: 1, y: 0, scale: 1, duration: .75 }, 1.3 + index * .1)
-            .to(photo, { y: index % 2 ? -18 : 22, duration: 1.5, ease: 'none' }, 2.05)
-            .to(photo.querySelector('img'), { yPercent: index % 2 ? -3 : 3, duration: 1.8, ease: 'none' }, 1.8)
-            .to(photo, { y: () => -height * .65, opacity: 0, duration: .65 }, 3.65 + index * .05);
+            .to(photo, { y: index % 2 ? -18 : 22, duration: 3.3, ease: 'none' }, 2.05)
+            .to(photo, { rotationY: index % 2 ? -360 : 360, rotationZ: [7, -7, 6][index], duration: 2.9 - index * .1, ease: 'none' }, 1.95 + index * .18)
+            .to(photo.querySelectorAll('img'), { yPercent: index % 2 ? -3 : 3, duration: 3.6, ease: 'none' }, 1.8)
+            .to(photo, { y: () => -height * .65, opacity: 0, duration: .65 }, 3.65 + EDITORIAL_EXTENSION + index * .05);
         });
-        timeline.to(copy, { opacity: 0, y: -20, duration: .4 }, 3.65)
-          .to(intro.querySelector('.opening-story__grain'), { opacity: 0, duration: .5 }, 3.65)
-          .to(hero, { y: () => -height * .6, opacity: 0, duration: .7 }, 3.65);
+        timeline.to(copy, { opacity: 0, y: -20, duration: .4 }, 3.65 + EDITORIAL_EXTENSION)
+          .to(intro.querySelector('.opening-story__grain'), { opacity: 0, duration: .5 }, 3.65 + EDITORIAL_EXTENSION)
+          .to(hero, { y: () => -height * (.6 + (1 - heroCorner.scale) / 2), opacity: 0, duration: .7 }, 3.65 + EDITORIAL_EXTENSION);
         const center = () => ({ x: width * (compact ? .175 : .35), y: height * .32,
           width: width * (compact ? .65 : .3), height: height * .3, radius: 18 });
-        timeline.fromTo(photograph, rect(() => bridge), { ...rect(center), duration: .65, immediateRender: false }, 3.95)
-          .fromTo(photograph, rect(center), { ...rect(full), duration: .9, immediateRender: false }, 4.6)
-          .fromTo(photograph, rect(full), { ...rect(() => native), duration: .6, immediateRender: false }, 5.65)
-          .fromTo(heading, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .4, immediateRender: false }, 6.2)
-          .to(label, { opacity: 1, duration: .3 }, 6.2)
+        timeline.fromTo(photograph, rect(() => bridge), { ...rect(center), duration: .65, immediateRender: false }, 3.95 + EDITORIAL_EXTENSION)
+          .fromTo(photograph, rect(center), { ...rect(full), duration: .9, immediateRender: false }, 4.6 + EDITORIAL_EXTENSION)
+          .fromTo(photograph, rect(full), { ...rect(() => native), duration: .6, immediateRender: false }, 5.65 + EDITORIAL_EXTENSION)
+          .fromTo(heading, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .4, immediateRender: false }, 6.2 + EDITORIAL_EXTENSION)
+          .to(label, { opacity: 1, duration: .3 }, 6.2 + EDITORIAL_EXTENSION)
           // A matched still frame makes release into the original scene invisible.
-          .to(label, { opacity: 1, duration: .2 }, 6.6);
+          .to(label, { opacity: 1, duration: .2 }, 6.6 + EDITORIAL_EXTENSION);
         trigger = ScrollTrigger.create({
           id: 'eden-opening-story', trigger: story, pin: stage, start: 'top top',
           end: () => '+=' + distance(),
@@ -191,7 +218,8 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
           invalidateOnRefresh: true, onRefreshInit: measure,
           onUpdate: self => {
             stage.style.visibility = self.progress >= 1 ? 'hidden' : 'visible';
-            actions.inert = self.progress < .25 || self.progress > .65;
+            const time = self.animation!.time();
+            actions.inert = (time < 4.15 || time > 5.85) && document.activeElement !== intro && !actions.contains(document.activeElement);
           },
         });
       });
@@ -204,6 +232,11 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
         // The existing Lenis anchor handler already placed this document marker.
         actions.inert = false;
         intro.focus({ preventScroll: true });
+      }, { signal: controller.signal });
+      actions.addEventListener('focusin', () => {
+        if (!trigger || (trigger.animation!.time() >= 4.15 && trigger.animation!.time() <= 5.85)) return;
+        trigger.scroll(trigger.start + (trigger.end - trigger.start) * ACTIONS_TIME / STORY_DURATION);
+        ScrollTrigger.update();
       }, { signal: controller.signal });
       void document.fonts.ready.then(refresh);
       refresh();

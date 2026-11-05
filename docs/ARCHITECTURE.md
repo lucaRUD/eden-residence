@@ -2,7 +2,7 @@
 
 ## Implemented foundation and current homepage
 
-Astro emits static HTML/CSS into `dist/`. No server adapter, database, CMS client, API endpoint, form processing, hosting connector, or deployment configuration is installed. Local builds do not read `WORDPRESS_URL` or contact WordPress.
+Astro emits static HTML/CSS into `dist/`. No server adapter, database, CMS client, API endpoint, form processing, or hosting connector is installed. `vercel.json` prepares a manually initiated review deployment using Node.js 24.x, `npm ci`, `npm run check && npm run build`, and the static `dist/` directory. No deployment has been performed by this preparation. Local builds do not read `WORDPRESS_URL` or contact WordPress; no environment variables are required for the review deployment. See the README for the manual private-GitHub/Vercel steps.
 
 `astro.config.mjs` sets static output, trailing slashes, Romanian as the default locale, English as the secondary locale, and the official Tailwind Vite plugin. `tsconfig.json` extends `astro/tsconfigs/strict`. The separate `check` script uses `@astrojs/check`; `astro build` alone does not type-check.
 

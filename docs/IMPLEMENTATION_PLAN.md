@@ -2,7 +2,7 @@
 
 ## Current state
 
-The Astro/TypeScript/Tailwind foundation, reusable design system, branded light/dark themes, RO/EN homepages, supplied logos/renders and progressive GSAP motion are implemented for local review. The homepage has six presentation chapters, one visibly provisional passive-building feature and two image-led apartment categories. WordPress, additional production pages, inquiry processing and deployment are not implemented.
+The Astro/TypeScript/Tailwind foundation, reusable design system, branded light/dark themes, RO/EN homepages, supplied logos/renders and progressive GSAP motion are implemented for review. The homepage, interior gallery and dedicated RO/EN passive-building pages are available. A static Vercel review deployment through a private GitHub repository is prepared; the owner must commit, push and deploy manually using the README steps. WordPress, inquiry processing and the final domain launch remain unimplemented.
 
 `/design-system/` remains useful in development and excluded from production. Existing local-review pages retain `noindex, nofollow`. Visual approval, final copy and factual substantiation remain pending. See [Architecture](ARCHITECTURE.md), [Design system](DESIGN_SYSTEM.md) and [Project brief](PROJECT_BRIEF.md) for maintained context.
 

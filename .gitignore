@@ -29,7 +29,13 @@ pnpm-debug.log*
 .npm-cache/
 .codex/
 .aws/
+.ssh/
+.vercel/
 *.local
+*.pem
+*.key
+*.p12
+*.pfx
 
 # macOS-specific files
 .DS_Store
