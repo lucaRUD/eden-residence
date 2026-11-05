@@ -40,6 +40,8 @@
 [data-opening-mode='cinematic'] .opening-story__grain { display: block; position: absolute; inset: 12% 2% 10% auto; width: 30%; opacity: .1; background: var(--opening-oak) 50% 50% / cover no-repeat; mask-image: linear-gradient(90deg, transparent, #000); pointer-events: none; }
 .opening-passive.passive-editorial { position: absolute; inset: 0; z-index: 4; background: transparent; pointer-events: none; }
 .opening-passive .passive-editorial__stage { height: var(--opening-height) !important; overflow: visible !important; }
+/* This transition replica overlays the hero before its photograph is revealed. */
+.opening-passive.passive-editorial[data-ps-mode='cinematic'] .passive-editorial__surface { background: transparent; }
 
 /* The pin keeps its measured height; only its visual surface follows browser chrome. */
 @media (max-width: 63.999rem), (orientation: portrait), (pointer: coarse) {
