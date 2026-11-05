@@ -1,6 +1,8 @@
 ---
 import Container from '../ui/Container.astro';
 import ScrollDepthImage from '../ui/ScrollDepthImage.astro';
+import MaterialBackground from '../ui/MaterialBackground.astro';
+import { homeMaterials } from '../../assets/home/materials';
 import { homeRenders } from '../../assets/home/renders';
 import type { HomeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
@@ -11,7 +13,10 @@ const { copy, locale } = Astro.props;
 <section id="project" class="home-project home-chapter" aria-labelledby="project-heading">
   <Container width="wide" class="home-project__heading">
     <p class="eyebrow">{copy.eyebrow}</p>
-    <h2 id="project-heading" class="home-display">{copy.title}</h2>
+    <div class="home-project__title">
+      <MaterialBackground settings={homeMaterials.project} variant="project" />
+      <h2 id="project-heading" class="home-display">{copy.title}</h2>
+    </div>
     <div class="home-project__reading">
       <p class="text-lead text-heading">{copy.description}</p>
       <p class="mt-4 text-body text-muted">{copy.body}</p>

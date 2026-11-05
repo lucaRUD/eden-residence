@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
+import PassivePrinciplesDiagram from './PassivePrinciplesDiagram.astro';
 import { passiveStoryImages } from '../../assets/home/passive-story';
 import { passiveStoryCopy } from '../../i18n/passive-story';
 import type { HomeCopy } from '../../i18n/home';
@@ -9,6 +10,7 @@ import '../../styles/passive-editorial.css';
 interface Props { copy: HomeCopy['passive']; locale: Locale }
 const { locale } = Astro.props;
 const copy = passiveStoryCopy[locale];
+const openingPhotograph = passiveStoryImages.opening;
 const photographs = [passiveStoryImages.architecture, passiveStoryImages.reveal];
 ---
 
@@ -18,9 +20,14 @@ const photographs = [passiveStoryImages.architecture, passiveStoryImages.reveal]
   <div class="passive-editorial__viewport" data-ps-viewport aria-hidden="true"></div>
   <div class="passive-editorial__stage" data-ps-stage>
     <p class="eyebrow passive-editorial__eyebrow">{copy.eyebrow}</p>
+    <div class="passive-editorial__opening-photo" data-ps-opening-photo style={`--ps-opening-position:${openingPhotograph.position};--ps-opening-portrait-position:${openingPhotograph.portraitPosition}`}>
+      <div class="passive-editorial__opening-image" data-ps-opening-image>
+        <Image src={openingPhotograph.image} alt={openingPhotograph.alt[locale]} widths={[480, 768, 1120, openingPhotograph.image.width]} sizes="(max-height: 640px) and (orientation: landscape) 200svh, (max-width: 767px) 80svh, (orientation: portrait) 80svh, 100vw" format="webp" quality={85} loading="lazy" decoding="async" draggable="false" />
+      </div>
+    </div>
     <div class="passive-editorial__opening" data-ps-opening>
       <h2 id="passive-heading" aria-label={copy.opening.text}>
-        {copy.opening.lines.map(line => <span class="passive-editorial__mask" aria-hidden="true"><span data-ps-opening-track>{line}</span></span>)}
+        {copy.opening.lines.map(line => <span class="passive-editorial__opening-line" aria-hidden="true"><span data-ps-opening-track>{line}</span></span>)}
       </h2>
       <p class="passive-editorial__intro" data-ps-intro>{copy.intro}</p>
     </div>
@@ -36,29 +43,26 @@ const photographs = [passiveStoryImages.architecture, passiveStoryImages.reveal]
         </div>
       </div>
     </div>
-    <div class="passive-editorial__canopy" data-ps-canopy aria-hidden="true" style={`--ps-canopy-image:url("${passiveStoryImages.canopy.image.src}");--ps-canopy-mask:url("${passiveStoryImages.canopy.mask.src}")`}></div>
     <div class="passive-editorial__principles-heading" data-ps-principles-heading>
-      <h3 aria-label={copy.principlesHeading.text}>
-        {copy.principlesHeading.lines.map(line => <span class="passive-editorial__mask" aria-hidden="true"><span data-ps-principles-track>{line}</span></span>)}
-      </h3>
+      <h3>{copy.principlesHeading.text}</h3>
     </div>
     <div class="passive-editorial__principles" data-ps-principles>
-      <svg class="passive-editorial__route" data-ps-svg aria-hidden="true" focusable="false">
-        <path class="passive-editorial__route-base" data-ps-route-base></path>
-        <path class="passive-editorial__route-draw" data-ps-route></path>
-        {copy.principles.map(() => <circle r="4" data-ps-route-node></circle>)}
-      </svg>
+      <div class="passive-editorial__illustration" data-pp-illustration>
+        <PassivePrinciplesDiagram locale={locale} />
+      </div>
       <ol id="passive-principles" tabindex="-1">
         {copy.principles.map((principle, index) => (
-          <li data-ps-principle>
-            <span class="passive-editorial__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-            <h4>{principle.label}</h4>
+          <li data-ps-principle data-principle={principle.id}>
+            <p class="passive-editorial__technical"><span aria-hidden="true">{String(index + 1).padStart(2, '0')} / </span>{principle.label}</p>
+            <h4 class="passive-editorial__principle-headline" aria-label={principle.headline}>
+              {principle.lines.map(line => <span class="passive-editorial__principle-mask" aria-hidden="true"><span data-pp-track>{line}</span></span>)}
+            </h4>
             <p class="passive-editorial__principle-description">{principle.description}</p>
           </li>
         ))}
       </ol>
-      <div class="passive-editorial__notes" aria-hidden="true">
-        {copy.principles.map(principle => <p data-ps-note>{principle.description}</p>)}
+      <div class="passive-editorial__progress" aria-hidden="true">
+        {copy.principles.map((_, index) => <span data-pp-step><span>{String(index + 1).padStart(2, '0')}</span><i><b data-pp-progress></b></i></span>)}
       </div>
     </div>
     <div class="passive-editorial__photo passive-editorial__photo--reveal" data-ps-photo="reveal" style={`--ps-position:${photographs[1].position};--ps-portrait-position:${photographs[1].portraitPosition}`}>

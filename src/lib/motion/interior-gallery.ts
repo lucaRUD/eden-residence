@@ -1,5 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { createMobileInteriorGallery } from './interior-gallery-mobile';
+import { scrollPacing } from './scroll-pacing';
 
 interface FrameRect { x: number; y: number; width: number; height: number; borderRadius: number }
 type Pose = 'small' | 'full' | 'split' | 'preview' | 'main' | 'thumbnail';
@@ -69,7 +71,12 @@ function createInteriorGallery(root: HTMLElement): () => void {
         desktop: '(min-width: 64rem) and (min-height: 44rem)',
         motion: '(prefers-reduced-motion: no-preference)',
       }, current => {
-        if (!current.conditions?.desktop || !current.conditions.motion) { restore(); return; }
+        if (!current.conditions?.motion) { restore(); return; }
+        if (!current.conditions.desktop) {
+          const stopMobile = createMobileInteriorGallery(root, scrollPacing.interiorGallery);
+          refresh();
+          return () => { stopMobile(); restore(); refresh(); };
+        }
         root.dataset.galleryMode = 'cinematic';
         let geometry: Geometry;
         const measure = () => {
@@ -143,7 +150,7 @@ function createInteriorGallery(root: HTMLElement): () => void {
           .to(inners[2], { yPercent: 1.5, duration: .95, ease: 'none' }, 6.45);
         ScrollTrigger.create({
           id: 'eden-interior-gallery', trigger: root, pin: stage,
-          start: 'top top', end: () => `+=${Math.round(innerHeight * 2.85)}`,
+          start: 'top top', end: () => `+=${Math.round(innerHeight * 2.85 * scrollPacing.interiorGallery)}`,
           animation: timeline, scrub: true, pinSpacing: true,
           refreshPriority: 1, invalidateOnRefresh: true, onRefreshInit: measure,
         });

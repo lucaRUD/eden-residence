@@ -1,0 +1,48 @@
+.opening-story { position: relative; }
+.opening-story__viewport { position: absolute; top: 0; width: 1px; height: 100svh; height: 100dvh; visibility: hidden; pointer-events: none; }
+.opening-story__anchor { position: absolute; top: 0; width: 1px; height: 1px; pointer-events: none; }
+.opening-story__photographs { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); margin-block: 2.5rem; }
+.opening-story__photograph { min-width: 0; overflow: clip; border-radius: 14px; aspect-ratio: 4 / 3; }
+.opening-story__photograph img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--opening-focus); }
+.opening-story__grain { display: none; }
+
+/* One pin, followed by the existing passive pin. Their active intervals never overlap. */
+[data-opening-mode='cinematic'] .opening-story { z-index: 3; isolation: isolate; }
+[data-opening-mode='cinematic'] .opening-story__stage { position: relative; height: var(--opening-height); overflow: clip; isolation: isolate; background: var(--color-brand-cream); }
+[data-opening-mode='cinematic'] .opening-story .story-hero { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; min-height: 0; aspect-ratio: auto; transform-origin: 0 0; will-change: transform; }
+[data-opening-mode='cinematic'] .opening-story .story-melt { display: none; }
+[data-opening-mode='cinematic'] #passive-concept { margin-top: calc(var(--opening-height) * -1); }
+[data-opening-mode='cinematic'] .home-introduction { position: absolute; inset: 0; z-index: auto; height: 100%; padding: 0; margin: 0; background: transparent; overflow: clip; }
+[data-opening-mode='cinematic'] .opening-story__copy { position: absolute; z-index: 5; top: 37%; left: 25%; right: 25%; text-align: center; }
+[data-opening-mode='cinematic'] .home-introduction__label { color: var(--color-brand-blue); font-size: .625rem; letter-spacing: .15em; }
+[data-opening-mode='cinematic'] .home-introduction__grid { display: block; margin: 1.25rem 0 0; }
+[data-opening-mode='cinematic'] .home-introduction h2 { font-size: clamp(3rem, 5.1vw, 6rem); line-height: 1.04; }
+[data-opening-mode='cinematic'] .home-introduction__mask { overflow: visible; padding: 0; margin: 0; }
+[data-opening-mode='cinematic'] .home-introduction__mask > span { white-space: normal; }
+[data-opening-mode='cinematic'] .home-introduction__reading { max-width: 43ch; margin: 1.4rem auto 0; font-size: .9375rem; line-height: 1.7; }
+[data-opening-mode='cinematic'] .home-introduction .opening-story__extended { display: none; }
+[data-opening-mode='cinematic'] .home-introduction__reading p + p { margin-top: 0; }
+[data-opening-mode='cinematic'] .home-introduction__actions { justify-content: center; gap: .25rem 1.5rem; margin-top: .7rem; }
+[data-opening-mode='cinematic'] .home-introduction__actions a { font-size: .75rem; }
+[data-opening-mode='cinematic'] .home-introduction__next { display: none; }
+[data-opening-mode='cinematic'] .opening-story__photographs { display: contents; }
+[data-opening-mode='cinematic'] .opening-story__photograph { position: absolute; z-index: 3; margin: 0; aspect-ratio: auto; contain: layout style; }
+[data-opening-mode='cinematic'] .opening-story__photograph img { position: absolute; inset: -6% 0; height: 112%; }
+[data-opening-mode='cinematic'] .opening-story__grain { display: block; position: absolute; inset: 12% 2% 10% auto; width: 30%; opacity: .1; background: var(--opening-oak) 50% 50% / cover no-repeat; mask-image: linear-gradient(90deg, transparent, #000); pointer-events: none; }
+.opening-passive.passive-editorial { position: absolute; inset: 0; z-index: 4; background: transparent; pointer-events: none; }
+.opening-passive .passive-editorial__stage { height: var(--opening-height) !important; overflow: visible !important; }
+
+@media (max-width: 63.999rem), (orientation: portrait) {
+  [data-opening-mode='cinematic'] .opening-story__copy { top: 39%; left: max(1.25rem, 6vw); right: max(1.25rem, 6vw); }
+  [data-opening-mode='cinematic'] .home-introduction__grid { margin-top: .8rem; }
+  [data-opening-mode='cinematic'] .home-introduction h2 { font-size: clamp(1.75rem, 8.4vw, 3rem); }
+  [data-opening-mode='cinematic'] .home-introduction__reading { max-width: 33ch; margin-top: 1rem; font-size: .8125rem; line-height: 1.6; }
+  [data-opening-mode='cinematic'] .home-introduction__actions { column-gap: 1rem; margin-top: .5rem; }
+  [data-opening-mode='cinematic'] .home-introduction__actions a { font-size: .6875rem; gap: .4rem; }
+  [data-opening-mode='cinematic'] :is(.opening-story__photograph--garden, .opening-story__photograph--bedroom) { display: none; }
+}
+@media (max-height: 35rem) and (orientation: landscape) {
+  [data-opening-mode='cinematic'] .opening-story__copy { top: 25%; left: 28%; right: 28%; }
+  [data-opening-mode='cinematic'] .home-introduction h2 { font-size: 2rem; }
+  [data-opening-mode='cinematic'] .home-introduction__reading { font-size: .75rem; }
+}

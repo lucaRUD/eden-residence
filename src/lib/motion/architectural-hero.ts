@@ -18,6 +18,7 @@ export function createArchitecturalHero(root: HTMLElement): () => void {
   let introFinished = false;
   let frame = 0;
   let readyTimer = 0;
+  let viewportWidth = innerWidth;
 
   const finishIntro = () => {
     if (introFinished) return;
@@ -53,7 +54,8 @@ export function createArchitecturalHero(root: HTMLElement): () => void {
       const titleAt = hold + descent + settle;
       intro = gsap.timeline({ paused: true, onComplete: finishIntro });
       intro.to(root, {
-        '--story-camera-y': '0px', duration: descent, ease: 'power2.inOut',
+        '--story-camera-y': root.style.getPropertyValue('--story-camera-y').trim().endsWith('%') ? '0%' : '0px',
+        duration: descent, ease: 'power2.inOut',
       }, hold);
       intro.fromTo(letters, {
         opacity: 0, yPercent: 22, filter: 'blur(3px)',
@@ -81,6 +83,8 @@ export function createArchitecturalHero(root: HTMLElement): () => void {
     frame = 0;
     if (signal.aborted || document.hidden) return;
     if (reduced.matches) { resetScroll(); return; }
+    // The homepage handoff owns the exit; the registered sky entrance stays independent.
+    if (root.dataset.openingMode === 'cinematic') return;
     const rect = hero.getBoundingClientRect();
     const progress = Math.min(1, Math.max(0, -rect.top / (rect.height * .8)));
     const eased = progress * progress * (3 - 2 * progress);
@@ -101,7 +105,13 @@ export function createArchitecturalHero(root: HTMLElement): () => void {
     if (!introFinished && Math.abs(scrollY - startScroll) > 4) finishIntro();
     schedule();
   };
-  const resize = () => { finishIntro(); schedule(); };
+  const resize = () => {
+    // The fluid mobile world follows browser chrome in CSS. Keep its camera
+    // running on height-only changes; a new width still settles the composition.
+    if (!unified || innerWidth >= 1024 || Math.abs(innerWidth - viewportWidth) > 1) finishIntro();
+    viewportWidth = innerWidth;
+    schedule();
+  };
   const preference = () => { if (reduced.matches) finishIntro(); schedule(); };
   const visibility = () => {
     if (document.hidden) {

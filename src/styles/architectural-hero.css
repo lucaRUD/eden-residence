@@ -35,6 +35,12 @@
   .story-title h1 { font-size: 24cqw; }
   .story-eyebrow { font-size: clamp(.75rem, 2.1cqw, .9375rem); letter-spacing: .1em; margin-bottom: 2cqw; }
   .story-scroll { bottom: .75rem; font-size: .6875rem; }
+  /* The homepage is an immersive viewport, not the prototype's 7:8 image panel.
+     Scale the one registered world; foreground and background keep identical pixels. */
+  .home-page--cinematic .story-hero { height: 100vh; height: 100dvh; min-height: 100svh; aspect-ratio: auto; }
+  .home-page--cinematic .story-world { width: max(152%, 108cqh); }
+  .home-page--cinematic .story-title h1 { font-size: min(24cqw, 36vw); }
+  .home-page--cinematic .story-hero .story-scroll { bottom: max(1rem, calc(env(safe-area-inset-bottom, 0px) + .5rem)); }
 }
 @supports not (mask-image: url('')) {
   .story-foreground { display: none; }

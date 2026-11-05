@@ -1,0 +1,190 @@
+---
+import type { Locale } from '../../i18n/ui';
+
+interface Props { locale: Locale; id?: string }
+const { locale, id = 'passive-principles-diagram' } = Astro.props;
+const label = locale === 'ro' ? {
+  title: 'Construcție pasivă — secțiune conceptuală',
+  description: 'O secțiune arhitecturală educativă: anvelopă izolată, ferestre, etanșeitate, circuite separate de aer proaspăt și aer folosit, schimb termic și continuitatea izolației la îmbinări. Nu reprezintă detaliile constructive sau instalațiile proiectului.',
+  concept: 'Secțiune conceptuală', fresh: 'Aer proaspăt', used: 'Aer folosit',
+} : {
+  title: 'Passive construction — conceptual section',
+  description: 'An educational architectural section: an insulated envelope, windows, airtightness, separate fresh and used air paths, heat exchange and continuous insulation at junctions. It does not represent the project’s construction details or mechanical installation.',
+  concept: 'Conceptual section', fresh: 'Fresh air', used: 'Used air',
+};
+const ref = (suffix: string) => `url(#${id}-${suffix})`;
+const floors = [0, 98, 196];
+---
+
+<svg class="passive-principles-diagram" data-pp-diagram viewBox="55 120 675 520" role="img" aria-labelledby={`${id}-title`} aria-describedby={`${id}-description`}>
+  <title id={`${id}-title`}>{label.title}</title>
+  <desc id={`${id}-description`}>{label.description}</desc>
+  <defs>
+    <pattern id={`${id}-material`} width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <path d="M0 0V7" stroke="#9e9b82" stroke-width=".7" opacity=".45" />
+    </pattern>
+    <pattern id={`${id}-masonry`} width="28" height="14" patternUnits="userSpaceOnUse">
+      <path d="M0 0H28M0 14V0M14 0V7M0 7H28M28 7V14" fill="none" stroke="#a8a28a" stroke-width=".65" opacity=".4" />
+    </pattern>
+    <pattern id={`${id}-paper`} width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M0 0H32M0 0V32" stroke="#d5d3c6" stroke-width=".4" opacity=".4" />
+      <circle cx="16" cy="16" r=".65" fill="#b7b8a4" opacity=".2" />
+    </pattern>
+    <linearGradient id={`${id}-wall`} x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#eeeee2" /><stop offset="1" stop-color="#d9dccd" />
+    </linearGradient>
+    <linearGradient id={`${id}-glass`} x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#dbe5dd" /><stop offset=".5" stop-color="#edf0df" /><stop offset="1" stop-color="#b9cbc1" />
+    </linearGradient>
+    <linearGradient id={`${id}-sunlight`} x1="1" y1="0" x2="0" y2="1">
+      <stop stop-color="#c8a76b" stop-opacity=".34" /><stop offset="1" stop-color="#e3c790" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id={`${id}-ambient`}>
+      <stop stop-color="#d7ddca" stop-opacity=".55" /><stop offset="1" stop-color="#e9e7dc" stop-opacity="0" />
+    </radialGradient>
+    <marker id={`${id}-fresh-arrow`} markerWidth="9" markerHeight="9" refX="7.1" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1.2 7 4.5 1 7.8" fill="none" stroke="#4f8589" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+    <marker id={`${id}-used-arrow`} markerWidth="9" markerHeight="9" refX="7.1" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1.2 7 4.5 1 7.8" fill="none" stroke="#b27c59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+
+  <!-- A single conceptual volume: section face, receding facade and cut material. -->
+  <g class="pp-drawing" aria-hidden="true">
+    <ellipse cx="380" cy="376" rx="345" ry="265" fill={ref('ambient')} />
+    <rect x="43" y="92" width="673" height="480" fill={ref('paper')} />
+    <path d="M89 559 519 559 681 452" class="pp-construction" />
+    <path d="M126 241 252 156M517 548 642 465M125 219H649M144 554V193M630 470V132" class="pp-construction" stroke-dasharray="3 7" />
+    <path d="M126 541 501 541 643 448 674 466 518 568 110 568Z" fill="#c1c6b5" opacity=".16" />
+    <path d="M149 530 500 530 620 450 620 465 500 545 149 545Z" fill="#b7bdac" />
+    <path d="M149 530H500V545H149Z" fill="#c9cbbc" />
+    <path d="M149 530H500V545H149Z" fill={ref('material')} />
+
+    <path d="M499 230 620 150V450L499 530Z" fill="#cdd1bf" class="pp-edge" />
+    <path d="M499 230 620 150V450L499 530Z" fill={ref('masonry')} />
+    <path d="M162 239H486V525H162Z" fill={ref('wall')} />
+    <path d="M162 239H318V525H162Z" fill="#f1eee3" />
+    {floors.map(y => (
+      <g>
+        <path d={`M162 ${323 + y}H487V${335 + y}H162Z`} fill="#d2d3c4" class="pp-fine" />
+        <path d={`M162 ${323 + y}H487V${335 + y}H162Z`} fill={ref('material')} />
+        <path d={`M500 ${328 + y} 620 ${248 + y}`} class="pp-fine" />
+      </g>
+    ))}
+    <path d="M317 241V323M317 337V421M317 435V522" stroke="#c3c6b5" stroke-width="8" />
+    <path d="M321 241V323M321 337V421M321 435V522" class="pp-fine" />
+    <path d="M144 232H162V530H144ZM486 232H504V530H486Z" fill="#ded7bb" />
+    <path d="M144 232H162V530H144ZM486 232H504V530H486Z" fill={ref('material')} />
+    <path d="M149 226 270 145H620L499 226Z" fill="#dfe0d0" class="pp-edge" />
+    <path d="M172 220 278 151H601L496 220Z" fill={ref('paper')} />
+    <path d="M149 226H499V241H149Z" fill="#c8c9b5" class="pp-fine" />
+    <path d="M149 226H499V241H149Z" fill={ref('material')} />
+    <path d="M499 226 620 145V160L499 241Z" fill="#b7beaa" class="pp-fine" />
+    <path d="M204 204H521M232 185H548M261 166H576M310 151 204 220M398 151 292 220M486 151 380 220M574 151 468 220" class="pp-roof-line" />
+
+    {floors.map(y => (
+      <g>
+        <path d={`M365 ${260 + y}H454V${309 + y}H365Z`} fill={ref('glass')} class="pp-window-frame" />
+        <path d={`M409.5 ${260 + y}V${309 + y}M365 ${284.5 + y}H454`} class="pp-glazing" />
+        <path d={`M526 ${253 + y} 590 ${211 + y}V${263 + y}L526 ${305 + y}Z`} fill={ref('glass')} class="pp-window-frame" />
+        <path d={`M558 ${232 + y}V${284 + y}M526 ${279 + y} 590 ${237 + y}`} class="pp-glazing" />
+        <path d={`M361 ${312 + y}H458M522 ${309 + y} 594 ${261 + y}`} class="pp-fine" />
+      </g>
+    ))}
+
+    <!-- Quiet interior marks give the sectional drawing a residential scale. -->
+    <g fill="none" stroke="#84927c" stroke-width="1" opacity=".55">
+      <path d="M181 316V299Q181 295 185 295H220Q224 295 224 299V316M178 316H227M186 316V320M219 316V320M185 301H220" />
+      <path d="M181 414H224M186 414V421M220 414V421M197 410V393M190 393H204M181 395H186V412M220 395H225V412" />
+      <path d="M181 510V497H225V510M185 497V489H222V497M181 510H226M186 510V519M221 510V519" />
+    </g>
+    <path d="M143 529H505M143 234V529M505 234V529" class="pp-edge" />
+
+    <!-- 01: continuous thermal envelope on the exposed sectional plane. -->
+    <path data-pp-envelope d="M151 537H498Q508 537 508 527V232Q508 220 496 220H150Q139 220 139 232V525Q139 537 151 537Z" fill="none" stroke="#bd9565" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- 02: the same glazing surfaces gain light, rather than changing building. -->
+    <g data-pp-windows fill="#dcc78b" fill-opacity=".4" stroke="#b59b61" stroke-width="2.3">
+      {floors.map(y => (
+        <g>
+          <path d={`M365 ${260 + y}H454V${309 + y}H365Z`} />
+          <path d={`M526 ${253 + y} 590 ${211 + y}V${263 + y}L526 ${305 + y}Z`} />
+        </g>
+      ))}
+    </g>
+    <g data-pp-sun>
+      <path d="M457 262 367 262 320 321H389ZM457 360 367 360 320 419H389ZM457 458 367 458 320 517H389Z" fill={ref('sunlight')} />
+      <g fill="none" stroke="#bfa16c" stroke-width="1.6" stroke-linecap="round">
+        <path data-pp-sun-ray d="M694 190 602 251" />
+        <path data-pp-sun-ray d="M703 214 611 275" />
+        <path data-pp-sun-ray d="M712 238 620 299" />
+      </g>
+    </g>
+
+    <!-- 03: an unbroken air-control line, distinct from the material insulation. -->
+    <path data-pp-airtight d="M157 237H489V521H157Z" fill="none" stroke="#527c66" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+    <g data-pp-seals fill="#f2eee1" stroke="#527c66" stroke-width="2">
+      <circle data-pp-detail cx="157" cy="237" r="5" /><circle data-pp-detail cx="489" cy="237" r="5" />
+      <circle data-pp-detail cx="157" cy="521" r="5" /><circle data-pp-detail cx="489" cy="521" r="5" />
+      <path d="M479 324H489V344M479 422H489V442" fill="none" stroke-width="3.5" />
+    </g>
+
+    <!-- 04: two separated circuits and a deliberately schematic exchange core. -->
+    <g data-pp-supply fill="none" stroke="#4f8589" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path data-pp-flow d="M82 377H268" marker-end={ref('fresh-arrow')} />
+      <path data-pp-flow d="M272 377H382V281H432" marker-end={ref('fresh-arrow')} />
+      <path data-pp-flow d="M382 377H432" marker-end={ref('fresh-arrow')} />
+      <path data-pp-flow d="M382 377V477H432" marker-end={ref('fresh-arrow')} />
+      <text x="82" y="360" class="pp-air-label" fill="#4f8589" stroke="none">{label.fresh}</text>
+    </g>
+    <g data-pp-extract fill="none" stroke="#b27c59" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path data-pp-flow d="M204 281H232V345H358V409H341" marker-end={ref('used-arrow')} />
+      <path data-pp-flow d="M204 379H232V345" marker-end={ref('used-arrow')} />
+      <path data-pp-flow d="M204 477H232V345" marker-end={ref('used-arrow')} />
+      <path data-pp-flow d="M337 409H82" marker-end={ref('used-arrow')} />
+      <text x="82" y="438" class="pp-air-label" fill="#b27c59" stroke="none">{label.used}</text>
+    </g>
+    <g data-pp-exchange>
+      <rect x="269" y="357" width="72" height="69" rx="5" fill="#ebe9dd" stroke="#57765d" stroke-width="1.5" />
+      <path d="M273 377H337" fill="none" stroke="#4f8589" stroke-width="3" marker-end={ref('fresh-arrow')} />
+      <path d="M337 409H273" fill="none" stroke="#b27c59" stroke-width="3" marker-end={ref('used-arrow')} />
+      <g stroke="#a59a70" stroke-width="1.4" opacity=".8">
+        <path d="M283 382V403M294 382V403M305 382V403M316 382V403M327 382V403" />
+      </g>
+      <path data-pp-heat d="M300 398 305 389 310 398M305 389V402" fill="none" stroke="#b48650" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- 05: junctions connect back to the envelope, not isolated warm spots. -->
+    <g data-pp-junctions fill="none" stroke="#b58c55" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M151 236H164V323H175M151 337H164V421H175M151 435H164V524H490V435H475M490 421V337H475M490 323V239H476" stroke-width="5" opacity=".8" />
+      <path d="M357 271V252H376M443 252H462V271M357 397V414H376M443 414H462V397M357 467V449H376M443 449H462V467" stroke-width="3.2" />
+      <circle data-pp-detail cx="489" cy="333" r="18" stroke-width="1.4" />
+      <circle data-pp-detail cx="489" cy="431" r="18" stroke-width="1.4" />
+      <path d="M507 333H557L580 350M507 431H557L580 414" stroke-width="1" opacity=".6" />
+    </g>
+    <path d="M151 577H620M151 572V582M620 572V582" class="pp-construction" />
+  </g>
+  <text x="380" y="615" text-anchor="middle" class="pp-concept-label">{label.concept}</text>
+</svg>
+
+<style>
+  .passive-principles-diagram { display: block; width: 100%; height: 100%; overflow: visible; }
+  .pp-drawing { shape-rendering: geometricPrecision; }
+  .pp-edge { stroke: #4d6651; stroke-width: 1.15; stroke-linejoin: round; }
+  .pp-fine { fill-rule: evenodd; stroke: #87947d; stroke-width: .75; stroke-linejoin: round; }
+  .pp-window-frame { stroke: #607761; stroke-width: 1.4; stroke-linejoin: round; }
+  .pp-glazing { fill: none; stroke: #94a78e; stroke-width: .8; }
+  .pp-roof-line { fill: none; stroke: #adb49d; stroke-width: .65; }
+  .pp-construction { fill: none; stroke: #a3ae96; stroke-width: .8; }
+  .pp-air-label { fill: var(--color-brand-green); font-family: inherit; font-size: 17px; font-weight: 500; letter-spacing: .03em; }
+  .pp-concept-label { fill: var(--color-brand-green); font-family: inherit; font-size: 13px; letter-spacing: .17em; }
+  @media (max-width: 47.999rem) {
+    .pp-concept-label { font-size: 20px; letter-spacing: .08em; }
+    .pp-air-label { font-size: 21px; }
+  }
+  @media (forced-colors: active) {
+    .pp-edge, .pp-fine, .pp-window-frame, .pp-glazing, .pp-roof-line, .pp-construction { stroke: CanvasText; }
+    .pp-concept-label { fill: CanvasText; }
+  }
+</style>

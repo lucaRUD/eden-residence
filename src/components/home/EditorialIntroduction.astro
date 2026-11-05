@@ -1,13 +1,17 @@
 ---
-import ScrollDepthImage from '../ui/ScrollDepthImage.astro';
-import { homeRenders } from '../../assets/home/renders';
+import { Image } from 'astro:assets';
+import { editorialPhotographs } from '../../assets/home/editorial-story';
+import { homeMaterials } from '../../assets/home/materials';
+import '../../styles/opening-story.css';
 import type { HomeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
 interface Props { locale: Locale; copy: HomeCopy['introduction']; heroCopy: HomeCopy['hero'] }
 const { locale, copy, heroCopy } = Astro.props;
 ---
 
-<section id="introduction" class="section--contrast home-introduction" data-editorial-introduction aria-labelledby="introduction-heading" tabindex="-1">
+<section id="introduction" class="section--contrast home-introduction" data-editorial-introduction aria-labelledby="introduction-heading" tabindex="-1" style={`--opening-oak:url("${homeMaterials.interiors.src}")`}>
+  <div class="opening-story__grain" aria-hidden="true"></div>
+  <div class="opening-story__copy" data-opening-copy>
   <p class="eyebrow home-introduction__label">Eden Residence</p>
   <div class="home-introduction__grid">
     <div class="home-introduction__story">
@@ -15,19 +19,25 @@ const { locale, copy, heroCopy } = Astro.props;
         {copy.lines.map(line => <span class="home-introduction__mask" aria-hidden="true"><span data-editorial-line>{line}</span></span>)}
       </h2>
       <div class="home-introduction__reading">
-        <p class="home-introduction__lead">{heroCopy.title.replace('\n', ' ')}</p>
+        <p class="home-introduction__lead opening-story__extended">{heroCopy.title.replace('\n', ' ')}</p>
         <p>{heroCopy.description}</p>
-        <p>{copy.bridge}</p>
+        <p class="opening-story__extended">{copy.bridge}</p>
         <div class="home-introduction__actions">
           <a class="home-text-link" href="#project">{heroCopy.primaryAction}<span aria-hidden="true">↗</span></a>
           <a class="home-text-link" href="#apartments">{heroCopy.secondaryAction}<span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>
-    <figure class="home-introduction__image">
-      <ScrollDepthImage src={homeRenders.heroMobile.image} alt={homeRenders.heroMobile.alt[locale]} renderName="heroMobile" borderRadius="0" sizes="(min-width: 1024px) 36vw, 92vw" />
-      <figcaption class="home-caption">{copy.imageCaption}</figcaption>
-    </figure>
+  </div>
+  </div>
+  <div class="opening-story__photographs">
+    {editorialPhotographs.map(photo => (
+      <figure class={`opening-story__photograph opening-story__photograph--${photo.id}`} data-opening-photo={photo.id} style={`--opening-focus:${photo.position}`}>
+        {typeof photo.src === 'string'
+          ? <img src={photo.src} width={photo.width} height={photo.height} alt={photo.alt[locale]} loading="lazy" decoding="async" />
+          : <Image src={photo.src} widths={[480, 768, 1120, photo.width]} sizes="(min-width:1024px) 30vw, 70vw" format="webp" quality={85} alt={photo.alt[locale]} loading="lazy" decoding="async" />}
+      </figure>
+    ))}
   </div>
   <a class="home-introduction__next" href="#passive-concept">{copy.next}<span aria-hidden="true">↓</span></a>
 </section>

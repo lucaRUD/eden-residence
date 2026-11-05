@@ -46,7 +46,10 @@ const worldStyle = [
           const visibleHeight = stage.height / scale;
           if (visibleHeight >= skyHeight) return;
           const skyY = Math.max(0, Math.min(Number(world.dataset.skyY), skyHeight - visibleHeight));
-          root.style.setProperty('--story-camera-y', `${stage.top - skyY * scale - frame.top}px`);
+          const camera = stage.top - skyY * scale - frame.top;
+          const fluidMobile = root.hasAttribute('data-home-motion') && matchMedia('(max-width: 63.999rem)').matches;
+          // A source-relative offset survives mobile browser-chrome height changes.
+          root.style.setProperty('--story-camera-y', fluidMobile ? `${camera / frame.height * 100}%` : `${camera}px`);
           root.dataset.storyEntrance = 'pending';
           root.dataset.storyCamera = 'primed';
           window.setTimeout(() => {

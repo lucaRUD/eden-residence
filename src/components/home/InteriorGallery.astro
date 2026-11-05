@@ -1,5 +1,7 @@
 ---
 import { interiorGalleryImages } from '../../assets/home/interiors';
+import { homeMaterials } from '../../assets/home/materials';
+import MaterialBackground from '../ui/MaterialBackground.astro';
 import { interiorGalleryCopy } from '../../i18n/interior-gallery';
 import type { Locale } from '../../i18n/ui';
 import '../../styles/interior-gallery.css';
@@ -9,7 +11,9 @@ const copy = interiorGalleryCopy[locale];
 ---
 
 <section id="interiors" class="interior-gallery" data-interior-gallery aria-labelledby="interiors-heading">
+  <div class="interior-gallery__viewport" data-gallery-viewport aria-hidden="true"></div>
   <div class="interior-gallery__stage" data-gallery-stage>
+    <MaterialBackground settings={homeMaterials.interiors} variant="interiors" />
     <header class="interior-gallery__intro" data-gallery-intro>
       <p class="eyebrow">{copy.eyebrow}</p>
       <h2 id="interiors-heading" aria-label={copy.intro.lines.join(' ')}>
@@ -25,6 +29,7 @@ const copy = interiorGalleryCopy[locale];
               <img src={image.src} width={image.width} height={image.height} alt={copy.rooms[index].alt} loading="lazy" decoding="async" draggable="false" />
             </div>
             {index === 0 && <div class="interior-gallery__shade" data-gallery-shade aria-hidden="true"></div>}
+            {index === 2 && <div class="interior-gallery__shade interior-gallery__shade--mobile" data-gallery-end-shade aria-hidden="true"></div>}
           </div>
           <div class="interior-gallery__copy" data-gallery-room-copy={index}>
             <p class="eyebrow">{copy.rooms[index].label}</p>
