@@ -54,7 +54,12 @@
 .interior-gallery[data-gallery-mode='cinematic'] .interior-gallery__caption { margin-top: 1.5rem; }
 
 /* The same mobile photographs expand, become editorial frames, then hand off. */
-.interior-gallery[data-gallery-mode='mobile'] { scroll-margin-top: 0; }
+.interior-gallery[data-gallery-mode='mobile'] {
+  scroll-margin-top: 0;
+  /* The next chapter starts at the photograph's live bottom edge, not the pin box. */
+  height: calc(var(--gallery-scroll-distance) + 100dvh);
+  overflow: clip;
+}
 .interior-gallery[data-gallery-mode='mobile'] .interior-gallery__stage { height: var(--gallery-mobile-height, 100svh); padding: 0; overflow: visible; isolation: isolate; }
 .interior-gallery[data-gallery-mode='mobile'] .interior-gallery__surface { display: block; position: relative; height: 100vh; height: 100dvh; overflow: clip; isolation: isolate; background: var(--color-brand-cream); }
 .interior-gallery[data-gallery-mode='mobile'] .interior-gallery__intro { position: absolute; z-index: 5; top: 21%; left: var(--gallery-gutter); right: var(--gallery-gutter); max-width: none; margin: 0; text-align: center; }

@@ -96,6 +96,11 @@
 }
 .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__closing h3 { font-size: clamp(3.8rem, 6.2vw, 7.6rem); margin-bottom: 2rem; }
 @media (max-width: 63.999rem), (orientation: portrait), (pointer: coarse) {
+  /* The pin distance stays stable; its flow footprint includes the live surface. */
+  [data-passive-editorial][data-ps-mode='cinematic'] {
+    height: calc(var(--ps-scroll-distance) + 100dvh);
+    overflow: clip;
+  }
   .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__stage { overflow: visible; }
   .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__surface { display: block; position: relative; height: 100vh; height: 100dvh; overflow: clip; isolation: isolate; background: var(--color-brand-cream); }
   .passive-editorial[data-ps-mode='cinematic'] .passive-editorial__photo img { height: max(var(--ps-raster-height), 100dvh); width: calc(max(var(--ps-raster-height), 100dvh) * var(--ps-raster-ratio)); }

@@ -18,10 +18,11 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
   const details = copies.map(copy => [...copy.querySelectorAll<HTMLElement>('.interior-gallery__description, .interior-gallery__caption')]);
   const shade = root.querySelector<HTMLElement>('[data-gallery-shade]')!;
   const endShade = root.querySelector<HTMLElement>('[data-gallery-end-shade]')!;
-  const extraStyles = new Map([...images, ...lines.flat(), ...details.flat(), endShade]
+  const extraStyles = new Map([root, ...images, ...lines.flat(), ...details.flat(), endShade]
     .map(element => [element, element.getAttribute('style')] as const));
   root.dataset.galleryMode = 'mobile';
   let stableHeight = 0, measuredWidth = 0;
+  let scrollDistance = 0;
   let visibleHeight = innerHeight;
   let poses: Record<Pose, Rect>;
   let rasters: Raster[];
@@ -43,7 +44,9 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
       measuredWidth = width;
     }
     const height = stableHeight;
-    stage.style.setProperty('--gallery-mobile-height', String(height) + 'px');
+    scrollDistance = Math.round(height * 2.7 * scrollDistanceMultiplier);
+    root.style.setProperty('--gallery-mobile-height', String(height) + 'px');
+    root.style.setProperty('--gallery-scroll-distance', String(scrollDistance) + 'px');
     const gutter = parseFloat(getComputedStyle(intro).right);
     const portrait = height > width;
     const thumbWidth = Math.min(92, width * .22);
@@ -168,7 +171,7 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
     .to(images[2], { yPercent: -48, duration: 1.7, ease: 'none' }, 7.5);
   trigger = ScrollTrigger.create({
     id: 'eden-interior-gallery', trigger: root, pin: stage, start: 'top top',
-    end: () => '+=' + Math.round(stableHeight * 2.7 * scrollDistanceMultiplier),
+    end: () => '+=' + scrollDistance,
     animation: timeline, scrub: true, pinSpacing: true, refreshPriority: 1,
     invalidateOnRefresh: true, onRefreshInit: measure,
   });

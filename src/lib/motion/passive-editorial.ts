@@ -77,6 +77,7 @@ function createPassiveEditorial(root: HTMLElement): () => void {
         const fluid = matchMedia('(max-width: 63.999rem), (orientation: portrait), (pointer: coarse)').matches;
         root.dataset.psMode = 'cinematic';
         let layout: Layout;
+        let scrollDistance = 0;
         let cachedWidth = 0, stableHeight = 0;
         const principleAnimation = createPassivePrinciples(principles);
         const measure = () => {
@@ -87,7 +88,9 @@ function createPassiveEditorial(root: HTMLElement): () => void {
             stableHeight = probe.getBoundingClientRect().height; cachedWidth = width;
           }
           const height = stableHeight;
+          scrollDistance = Math.round(height * (compact ? 2.65 : 3) * scrollPacing.passiveBuilding);
           root.style.setProperty('--ps-stage-height', `${height}px`);
+          root.style.setProperty('--ps-scroll-distance', `${scrollDistance}px`);
           const gutter = parseFloat(getComputedStyle(eyebrow).left);
           layout = { width, height, gutter, rasters: photos.map((photo, index) => {
             const ratio = Number(images[index].getAttribute('width')) / Number(images[index].getAttribute('height'));
@@ -182,7 +185,7 @@ function createPassiveEditorial(root: HTMLElement): () => void {
           .to(inners[1], { yPercent: 1.5, duration: 1.05, ease: 'none' }, 8.15);
         trigger = ScrollTrigger.create({
           id: 'eden-passive-editorial', trigger: root, pin: stage, start: 'top top',
-          end: () => `+=${Math.round(layout.height * (compact ? 2.65 : 3) * scrollPacing.passiveBuilding)}`,
+          end: () => `+=${scrollDistance}`,
           animation: timeline, scrub: true, pinSpacing: true, refreshPriority: 2,
           invalidateOnRefresh: true, onRefreshInit: measure,
           onUpdate: principleAnimation.paint, onRefresh: principleAnimation.paint,

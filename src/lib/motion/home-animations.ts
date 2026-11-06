@@ -37,6 +37,12 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
       if (!controller.signal.aborted) ScrollTrigger.refresh();
     });
   };
+  const refreshMobileViewport = () => {
+    if (!matchMedia('(max-width: 63.999rem), (orientation: portrait), (pointer: coarse)').matches) return;
+    // Browser chrome changes the flow after fluid stages. Use GSAP's debounced,
+    // scroll-idle refresh; keep each camera's cached height and pin distance.
+    ScrollTrigger.refresh(true);
+  };
   const dispose = () => {
     controller.abort();
     cancelAnimationFrame(refreshFrame);
@@ -105,6 +111,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
       if (target) finishWithin(target);
     }, { signal: controller.signal });
     document.addEventListener('eden:navigation-change', refresh, { signal: controller.signal });
+    window.addEventListener('resize', refreshMobileViewport, { passive: true, signal: controller.signal });
     root.querySelectorAll('img').forEach((image) => {
       if (!image.complete) image.addEventListener('load', refresh, { once: true, signal: controller.signal });
     });
