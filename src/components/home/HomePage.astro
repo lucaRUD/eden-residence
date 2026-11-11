@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FloatingNavigation from '../layout/FloatingNavigation.astro';
 import Footer from '../layout/Footer.astro';
 import ArchitecturalHero from './ArchitecturalHero.astro';
+import HomePreloader from './HomePreloader.astro';
+import HomePreloaderHead from './HomePreloaderHead.astro';
 import EditorialIntroduction from './EditorialIntroduction.astro';
 import CanvasCursor from '../ui/CanvasCursor.astro';
 import ProjectIntro from './ProjectIntro.astro';
@@ -25,6 +27,8 @@ const languages = [
 ---
 
 <BaseLayout locale={locale} title={copy.meta.title} description={copy.meta.description}>
+  <HomePreloaderHead slot="head" />
+  <HomePreloader locale={locale} />
   <FloatingNavigation locale={locale} items={copy.navigation} homeHref={homePaths[locale]} languageLinks={languages} contactAction={copy.navigation.find(item => item.href === '#contact')} />
   <main id="main-content" class="home-page home-page--cinematic" data-home-motion data-story-root tabindex="-1">
     <div class="opening-story" data-opening-story>

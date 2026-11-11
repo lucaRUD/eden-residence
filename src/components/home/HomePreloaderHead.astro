@@ -1,0 +1,29 @@
+---
+import { architecturalScene as scene, getArchitecturalBackground } from '../../assets/home/architectural-scene';
+import bootstrap from '../../lib/home-preloader-init.js?raw';
+const background = await getArchitecturalBackground();
+---
+
+<link rel="preload" as="image" href={background.src} fetchpriority="high" />
+<link rel="preload" as="image" href={scene.foreground.src} crossorigin="anonymous" fetchpriority="high" />
+<style is:inline>
+  html[data-home-preloader-page] { scrollbar-gutter: stable; }
+  [data-home-preloader] { display: none; }
+  html[data-home-loading] { background: #234235; }
+  html[data-home-loading='pending'] body > :not([data-home-preloader]) { visibility: hidden; }
+  /* Offscreen textures keep their normal treatment after critical media has arrived. */
+  html[data-home-loading='pending'] :is(.material-background__surface, .opening-story__grain) { background-image: none !important; }
+  html[data-home-loading] [data-home-preloader] {
+    display: grid; position: fixed; inset: 0; z-index: 10000; place-content: center;
+    justify-items: center; gap: 2.25rem; overflow: hidden; touch-action: none;
+    background: var(--color-brand-green, #234235); color: var(--color-brand-cream, #e5e1d4);
+    font-family: var(--font-sans, 'Quicksand Variable', sans-serif);
+  }
+  [data-home-preloader] svg { display: block; width: clamp(11rem, 24vw, 15rem); height: auto; }
+  [data-home-preloader] p { margin: 0; padding-inline: 1rem; font-size: .625rem; font-weight: 500; line-height: 1.6; letter-spacing: .18em; text-align: center; }
+  .home-preloader__line { position: relative; display: block; width: 4.5rem; height: 1px; overflow: hidden; background: rgb(229 225 212 / .22); }
+  .home-preloader__line::after { content: ''; position: absolute; inset: 0; background: currentColor; transform: scaleX(.35); animation: eden-loading-line 1.4s ease-in-out infinite alternate; }
+  @keyframes eden-loading-line { from { transform: translateX(-45%) scaleX(.35); } to { transform: translateX(45%) scaleX(.35); } }
+  @media (prefers-reduced-motion: reduce) { .home-preloader__line::after { animation: none; transform: scaleX(.5); } }
+</style>
+<script is:inline set:html={bootstrap} />

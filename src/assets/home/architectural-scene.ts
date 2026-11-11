@@ -1,5 +1,9 @@
 import background from './architectural/temporary-golden-hour.png';
 import foreground from './architectural/foreground-mask.png';
+import { getImage } from 'astro:assets';
+
+// Preserve the original and every source pixel's coordinates; serve a lighter full-resolution asset.
+export const getArchitecturalBackground = () => getImage({ src: background, format: 'webp', quality: 90 });
 
 // Replace this pair together. Both assets must describe the same full canvas.
 // Framing uses normalized source coordinates, independent of GSAP and pixel density.

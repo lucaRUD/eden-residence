@@ -1,11 +1,12 @@
 ---
-import { architecturalScene as scene } from '../../assets/home/architectural-scene';
+import { architecturalScene as scene, getArchitecturalBackground } from '../../assets/home/architectural-scene';
 import { homeCopy } from '../../i18n/home';
 import type { Locale } from '../../i18n/ui';
 import '../../styles/architectural-hero.css';
 interface Props { locale: Locale; scrollTarget?: string; headingId?: string }
 const { locale, scrollTarget = '#introduction', headingId = 'home-heading' } = Astro.props;
 const copy = homeCopy[locale];
+const background = await getArchitecturalBackground();
 const alt = scene.alt[locale];
 const scroll = locale === 'ro' ? 'Descoperă povestea' : 'Discover the story';
 const worldStyle = [
@@ -20,7 +21,7 @@ const worldStyle = [
 
     <section class="story-hero" aria-labelledby={headingId} data-story-hero>
       <div class="story-world" data-story-world data-sky-y={scene.framing.openingSky * scene.background.height} data-canopy-y={scene.framing.canopy * scene.background.height} data-mask-src={scene.foreground.src} style={worldStyle}>
-        <img class="story-base" src={scene.background.src} width={scene.background.width} height={scene.background.height} alt={alt} loading="eager" fetchpriority="high" />
+        <img class="story-base" src={background.src} width={scene.background.width} height={scene.background.height} alt={alt} loading="eager" fetchpriority="high" />
         <div class="story-title" data-story-title>
           <p class="story-eyebrow">{copy.hero.eyebrow}</p>
           <h1 id={headingId} aria-label="Eden Residence">
@@ -28,13 +29,16 @@ const worldStyle = [
           </h1>
         </div>
         <!-- Both layers use the very same pixels and transform; only alpha differs. -->
-        <img class="story-foreground" src={scene.background.src} width={scene.background.width} height={scene.background.height} alt="" aria-hidden="true" />
+        <img class="story-foreground" src={background.src} width={scene.background.width} height={scene.background.height} alt="" aria-hidden="true" />
+        <img data-story-mask-resource src={scene.foreground.src} width={scene.foreground.width} height={scene.foreground.height} alt="" aria-hidden="true" hidden loading="eager" crossorigin="anonymous" fetchpriority="high" />
       </div>
       <script is:inline>
         // Establish the real photographic sky crop before the first paint.
         // With JS disabled, or if the main module fails, use the final CSS composition.
         (() => {
           const root = document.currentScript.closest('[data-story-root]');
+          // Homepage startup primes the same camera after fonts and pin geometry settle.
+          if (root.hasAttribute('data-home-motion')) return;
           const hero = root.querySelector('[data-story-hero]');
           const world = root.querySelector('[data-story-world]');
           const image = world.querySelector('img');
@@ -74,7 +78,7 @@ const worldStyle = [
     const root = document.querySelector<HTMLElement>('[data-story-root]');
     if (mounted?.root === root) return;
     unmount();
-    if (root) mounted = { root, dispose: createArchitecturalHero(root) };
+    if (root && !root.hasAttribute('data-home-motion')) mounted = { root, dispose: createArchitecturalHero(root) };
   };
   mount();
   document.addEventListener('astro:page-load', mount);

@@ -53,12 +53,3 @@ const copy = interiorGalleryCopy[locale];
     </div>
   </div>
 </section>
-
-<script>
-  import { mountInteriorGallery, unmountInteriorGallery } from '../../lib/motion/interior-gallery';
-  mountInteriorGallery();
-  document.addEventListener('astro:page-load', mountInteriorGallery);
-  document.addEventListener('astro:before-swap', unmountInteriorGallery);
-  window.addEventListener('pagehide', event => { if (!event.persisted) unmountInteriorGallery(); });
-  window.addEventListener('pageshow', mountInteriorGallery);
-</script>

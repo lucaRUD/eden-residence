@@ -83,12 +83,3 @@ const photographs = [passiveStoryImages.architecture, passiveStoryImages.reveal]
     </div>
   </div>
 </section>
-
-<script>
-  import { mountPassiveEditorial, unmountPassiveEditorial } from '../../lib/motion/passive-editorial';
-  mountPassiveEditorial();
-  document.addEventListener('astro:page-load', mountPassiveEditorial);
-  document.addEventListener('astro:before-swap', unmountPassiveEditorial);
-  window.addEventListener('pagehide', event => { if (!event.persisted) unmountPassiveEditorial(); });
-  window.addEventListener('pageshow', mountPassiveEditorial);
-</script>

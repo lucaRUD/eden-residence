@@ -1,9 +1,26 @@
 import { gsap } from 'gsap';
 
 const LETTER_STAGGER = .075;
+interface EntranceOptions { assetsReady?: boolean; reveal?: Promise<void> }
+
+function primeHomeCamera(root: HTMLElement) {
+  const hero = root.querySelector<HTMLElement>('[data-story-hero]')!;
+  const world = root.querySelector<HTMLElement>('[data-story-world]')!;
+  const image = world.querySelector<HTMLImageElement>('img')!;
+  const stage = hero.getBoundingClientRect(), frame = world.getBoundingClientRect();
+  const scale = frame.width / Number(image.getAttribute('width'));
+  const skyHeight = Number(world.dataset.canopyY) - 80;
+  const visibleHeight = stage.height / scale;
+  if (visibleHeight >= skyHeight) return;
+  const skyY = Math.max(0, Math.min(Number(world.dataset.skyY), skyHeight - visibleHeight));
+  const camera = stage.top - skyY * scale - frame.top;
+  root.style.setProperty('--story-camera-y', innerWidth < 1024 ? `${camera / frame.height * 100}%` : `${camera}px`);
+  root.dataset.storyEntrance = 'pending';
+  root.dataset.storyCamera = 'primed';
+}
 
 /** Camera and scroll own different CSS variables on the shared photographic world. */
-export function createArchitecturalHero(root: HTMLElement): () => void {
+export function createArchitecturalHero(root: HTMLElement, options: EntranceOptions = {}): () => void {
   const hero = root.querySelector<HTMLElement>('[data-story-hero]')!;
   const image = root.querySelector<HTMLImageElement>('.story-base')!;
   const letters = [...root.querySelectorAll<HTMLElement>('[data-story-letter]')];
@@ -31,17 +48,19 @@ export function createArchitecturalHero(root: HTMLElement): () => void {
     delete root.dataset.storyCamera;
   };
   const start = async () => {
+    if (unified && options.reveal && !reduced.matches && !document.hidden && !location.hash && scrollY <= 4) primeHomeCamera(root);
     if (reduced.matches || document.hidden || root.dataset.storyCamera !== 'primed' || location.hash || scrollY > 4) {
       finishIntro(); return;
     }
     root.dataset.storyCamera = 'loading';
     // The sky hold starts when the photograph is decoded, never on a blank stage.
     // Failed/slow media returns to the accessible final composition.
-    readyTimer = window.setTimeout(finishIntro, 2500);
-    const mask = new Image();
-    mask.src = root.querySelector<HTMLElement>('[data-story-world]')!.dataset.maskSrc!;
     try {
-      await Promise.all([image.decode(), mask.decode()]);
+      if (!options.assetsReady) {
+        readyTimer = window.setTimeout(finishIntro, 2500);
+        const mask = root.querySelector<HTMLImageElement>('[data-story-mask-resource]')!;
+        await Promise.all([image.decode(), mask.decode()]);
+      }
       if (signal.aborted || introFinished) return;
       clearTimeout(readyTimer);
       if (reduced.matches || document.hidden || Math.abs(scrollY - startScroll) > 4) {
@@ -70,6 +89,8 @@ export function createArchitecturalHero(root: HTMLElement): () => void {
       intro.fromTo(cue, { opacity: 0, y: 8 }, {
         opacity: 1, y: 0, duration: .55, ease: 'power3.out', immediateRender: true,
       }, titleAt + .35);
+      await options.reveal;
+      if (signal.aborted || introFinished || !root.dataset.storyCamera || location.hash || scrollY > 4) { finishIntro(); return; }
       root.dataset.storyEntrance = 'running';
       root.dataset.storyCamera = 'running';
       intro.play();

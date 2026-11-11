@@ -4,6 +4,13 @@ import { createEdenJourney } from './eden-journey';
 import { createEditorialIntroduction } from './editorial-introduction';
 import { createScrollDepthImages } from './scroll-depth-images';
 import { createSmoothScroll } from './smooth-scroll';
+import { mountPassiveEditorial, unmountPassiveEditorial } from './passive-editorial';
+import { mountInteriorGallery, unmountInteriorGallery } from './interior-gallery';
+
+export { createArchitecturalHero } from './architectural-hero';
+export function measureHomeAnimations(restoreScroll?: () => void) {
+  ScrollTrigger.sort(); ScrollTrigger.refresh(); restoreScroll?.(); ScrollTrigger.update();
+}
 
 /** Existing chapter treatments plus the independently scrubbed Eden Journey. */
 export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElement>) {
@@ -51,6 +58,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
     stopIntroduction?.();
     stopDepth?.();
     context.revert();
+    unmountInteriorGallery(); unmountPassiveEditorial();
     root.querySelectorAll('[data-current]').forEach(element => element.removeAttribute('data-current'));
     active.clear();
     pending.clear();
@@ -82,6 +90,8 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
   };
 
   try {
+    // Establish dependent scenes synchronously before the opening replica and Lenis.
+    mountPassiveEditorial(); mountInteriorGallery();
     context.add(() => {
       stopIntroduction = createEditorialIntroduction(root);
 
