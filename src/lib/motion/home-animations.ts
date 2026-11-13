@@ -41,7 +41,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
     if (refreshFrame || controller.signal.aborted) return;
     refreshFrame = requestAnimationFrame(() => {
       refreshFrame = 0;
-      if (!controller.signal.aborted) ScrollTrigger.refresh();
+      if (!controller.signal.aborted) ScrollTrigger.refresh(true);
     });
   };
   const refreshMobileViewport = () => {

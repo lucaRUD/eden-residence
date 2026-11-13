@@ -37,7 +37,7 @@ function createInteriorGallery(root: HTMLElement): () => void {
     if (stopped || refreshFrame) return;
     refreshFrame = requestAnimationFrame(() => {
       refreshFrame = 0;
-      if (!stopped) ScrollTrigger.refresh();
+      if (!stopped) ScrollTrigger.refresh(true);
     });
   };
   const warmImages = () => images.forEach(image => { image.loading = 'eager'; });

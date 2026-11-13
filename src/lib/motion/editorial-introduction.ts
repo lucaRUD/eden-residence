@@ -45,7 +45,8 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
     refreshFrame = requestAnimationFrame(() => {
       refreshFrame = 0;
       if (stopped) return;
-      ScrollTrigger.refresh();
+      // Startup/deep-link measurement is synchronous; late fonts wait for scroll idle.
+      ScrollTrigger.refresh(root.dataset.motion === 'active');
       if (!hashRestored) {
         hashRestored = true;
         if (initialHash) {

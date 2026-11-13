@@ -1,6 +1,7 @@
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { createPassiveStepNavigation, type PassiveStepNavigation } from './passive-step-navigation';
 import 'lenis/dist/lenis.css';
 
 /** Shared opt-in window scrolling. No transformed page wrapper or second RAF. */
@@ -9,16 +10,19 @@ export function createSmoothScroll(): () => void {
   const { signal } = controller;
   const root = document.documentElement;
   const focusTargets = new Set<HTMLElement>();
+  let steps: PassiveStepNavigation | undefined;
   const lenis = new Lenis({
     duration: 1.40, lerp: 0, smoothWheel: true, syncTouch: false, autoRaf: false,
     // Handle anchors below so history, focus and the menu's closing lock agree.
     anchors: false, stopInertiaOnNavigate: true,
+    virtualScroll: data => steps?.input(data) ?? true,
     prevent: node => node.matches('[data-nav-panel], dialog, [aria-modal="true"], [data-scroll-native], textarea, select'),
   });
   let pending: { url: URL; target: HTMLElement } | undefined;
   let historyFrame = 0;
   let ticking = false;
   let changingHash = false;
+  const updateScroll = () => { steps?.onScroll(); ScrollTrigger.update(); };
   const locked = () => ['hidden', 'clip'].includes(root.style.overflowY || root.style.overflow);
   const tick = (seconds: number) => lenis.raf(seconds * 1000);
   const interrupt = () => {
@@ -71,14 +75,15 @@ export function createSmoothScroll(): () => void {
     });
   };
   const dispose = () => {
+    steps?.dispose(); steps = undefined;
     controller.abort(); observer.disconnect(); cancelAnimationFrame(historyFrame);
     pending = undefined; gsap.ticker.remove(tick);
     focusTargets.forEach(target => { if (target.getAttribute('tabindex') === '-1') target.removeAttribute('tabindex'); });
-    lenis.off('scroll', ScrollTrigger.update); lenis.destroy();
+    lenis.off('scroll', updateScroll); lenis.destroy();
     gsap.ticker.lagSmoothing(500, 33);
   };
   try {
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', updateScroll);
     gsap.ticker.lagSmoothing(0);
     observer.observe(root, { attributes: true, attributeFilter: ['style'] });
     document.addEventListener('visibilitychange', sync, { signal });
@@ -97,13 +102,14 @@ export function createSmoothScroll(): () => void {
       navigate();
     }, { signal });
     document.addEventListener('keydown', event => {
-      if (['Tab', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) interrupt();
+      if (!event.defaultPrevented && ['Tab', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) interrupt();
     }, { signal });
     document.addEventListener('focusin', interrupt, { signal });
     window.addEventListener('popstate', restoreHistory, { signal });
     window.addEventListener('hashchange', restoreHistory, { signal });
     window.addEventListener('pagehide', () => { interrupt(); }, { signal });
     sync();
+    steps = createPassiveStepNavigation(lenis);
     return dispose;
   } catch (error) { dispose(); throw error; }
 }

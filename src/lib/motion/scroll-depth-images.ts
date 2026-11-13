@@ -16,7 +16,7 @@ export function createScrollDepthImages(root: HTMLElement): () => void {
     if (disposed || refreshFrame) return;
     refreshFrame = requestAnimationFrame(() => {
       refreshFrame = 0;
-      if (!disposed) ScrollTrigger.refresh();
+      if (!disposed) ScrollTrigger.refresh(true);
     });
   };
 

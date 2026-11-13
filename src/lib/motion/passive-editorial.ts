@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createPassivePrinciples } from './passive-principles';
+import { labelPassiveCheckpoints } from './passive-checkpoints';
 import { scrollPacing } from './scroll-pacing';
 
 interface Rect { x: number; y: number; width: number; height: number; radius: number }
@@ -50,7 +51,7 @@ function createPassiveEditorial(root: HTMLElement): () => void {
   let trigger: ScrollTrigger | undefined;
   const refresh = () => {
     if (stopped || refreshFrame) return;
-    refreshFrame = requestAnimationFrame(() => { refreshFrame = 0; if (!stopped) ScrollTrigger.refresh(); });
+    refreshFrame = requestAnimationFrame(() => { refreshFrame = 0; if (!stopped) ScrollTrigger.refresh(true); });
   };
   const warm = new IntersectionObserver(entries => {
     if (!entries.some(entry => entry.isIntersecting)) return;
@@ -183,6 +184,7 @@ function createPassiveEditorial(root: HTMLElement): () => void {
           .to(closingTracks, { yPercent: 0, duration: .6, stagger: .08, ease: 'power3.out' }, 7.45)
           .set(closing, { pointerEvents: 'auto' }, 7.9)
           .to(inners[1], { yPercent: 1.5, duration: 1.05, ease: 'none' }, 8.15);
+        labelPassiveCheckpoints(timeline, principleAnimation.state, photos[0]);
         trigger = ScrollTrigger.create({
           id: 'eden-passive-editorial', trigger: root, pin: stage, start: 'top top',
           end: () => `+=${scrollDistance}`,

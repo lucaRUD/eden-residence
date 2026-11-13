@@ -161,7 +161,7 @@ export function createEdenJourney(root: HTMLElement) {
 
   const refresh = () => {
     if (disposed || frame) return;
-    frame = requestAnimationFrame(() => { frame = 0; if (!disposed) ScrollTrigger.refresh(); });
+    frame = requestAnimationFrame(() => { frame = 0; if (!disposed) ScrollTrigger.refresh(true); });
   };
   const observer = new ResizeObserver(refresh);
   const dispose = () => {
