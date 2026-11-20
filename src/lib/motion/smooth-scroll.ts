@@ -2,14 +2,17 @@ import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createPassiveStepNavigation, type PassiveStepNavigation } from './passive-step-navigation';
+import { createHomeSlideNavigation } from './home-slide-navigation';
+import { homeSlidesMedia } from './home-slide-destinations';
 import 'lenis/dist/lenis.css';
 
 /** Shared opt-in window scrolling. No transformed page wrapper or second RAF. */
-export function createSmoothScroll(): () => void {
+export function createSmoothScroll(home?: HTMLElement): () => void {
   const controller = new AbortController();
   const { signal } = controller;
   const root = document.documentElement;
   const focusTargets = new Set<HTMLElement>();
+  const mobileSlides = home ? matchMedia(homeSlidesMedia) : undefined;
   let steps: PassiveStepNavigation | undefined;
   const lenis = new Lenis({
     duration: 1.40, lerp: 0, smoothWheel: true, syncTouch: false, autoRaf: false,
@@ -23,6 +26,12 @@ export function createSmoothScroll(): () => void {
   let ticking = false;
   let changingHash = false;
   const updateScroll = () => { steps?.onScroll(); ScrollTrigger.update(); };
+  const mountSteps = () => {
+    steps?.dispose();
+    steps = home && mobileSlides?.matches
+      ? createHomeSlideNavigation(home, lenis)
+      : createPassiveStepNavigation(lenis);
+  };
   const locked = () => ['hidden', 'clip'].includes(root.style.overflowY || root.style.overflow);
   const tick = (seconds: number) => lenis.raf(seconds * 1000);
   const interrupt = () => {
@@ -109,7 +118,8 @@ export function createSmoothScroll(): () => void {
     window.addEventListener('hashchange', restoreHistory, { signal });
     window.addEventListener('pagehide', () => { interrupt(); }, { signal });
     sync();
-    steps = createPassiveStepNavigation(lenis);
+    mobileSlides?.addEventListener('change', mountSteps, { signal });
+    mountSteps();
     return dispose;
   } catch (error) { dispose(); throw error; }
 }

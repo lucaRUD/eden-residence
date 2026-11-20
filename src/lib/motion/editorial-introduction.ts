@@ -220,6 +220,11 @@ export function createEditorialIntroduction(root: HTMLElement): () => void {
           .to(label, { opacity: 1, duration: .3 }, 6.2 + EDITORIAL_EXTENSION)
           // A matched still frame makes release into the original scene invisible.
           .to(label, { opacity: 1, duration: .2 }, 6.6 + EDITORIAL_EXTENSION);
+        // Readable compositions inside the existing entrance and copy plateaus.
+        timeline.addLabel('hero', 0)
+          .addLabel('editorial-statement', 2.28)
+          .addLabel('editorial-residence', 3.48)
+          .addLabel('editorial-comfort', 5.38);
         trigger = ScrollTrigger.create({
           id: 'eden-opening-story', trigger: story, pin: stage, start: 'top top',
           end: () => '+=' + distance(),

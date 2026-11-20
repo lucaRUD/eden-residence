@@ -1,7 +1,8 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createPassivePrinciples } from './passive-principles';
-import { labelPassiveCheckpoints } from './passive-checkpoints';
+import { createPassiveIndicatorPosition, labelPassiveCheckpoints } from './passive-checkpoints';
+import { homeSlidesMedia } from './home-slide-destinations';
 import { scrollPacing } from './scroll-pacing';
 
 interface Rect { x: number; y: number; width: number; height: number; radius: number }
@@ -37,7 +38,9 @@ function createPassiveEditorial(root: HTMLElement): () => void {
     principlesHeading, principles, ...principleLayers,
     ...photos, ...positions, ...inners, openingPhoto, openingImage, closing, ...closingTracks, action];
   const originalStyles = new Map(targets.map(element => [element, element.getAttribute('style')] as const));
+  const principleCleanups = new Set<() => void>();
   const restore = () => {
+    principleCleanups.forEach(dispose => dispose()); principleCleanups.clear();
     originalStyles.forEach((style, element) => {
       if (style === null) element.removeAttribute('style'); else element.setAttribute('style', style);
     });
@@ -72,7 +75,8 @@ function createPassiveEditorial(root: HTMLElement): () => void {
     if (mediaImages.some(image => image.complete && image.currentSrc && !image.naturalWidth)) { reading(); return dispose; }
     warm.observe(root);
     context.add(() => {
-      media.add({ compact: '(max-width: 47.999rem), (orientation: portrait)', motion: '(prefers-reduced-motion: no-preference)', all: '(min-width: 0px)' }, current => {
+      media.add({ compact: '(max-width: 47.999rem), (orientation: portrait)', mobileSlides: homeSlidesMedia,
+        motion: '(prefers-reduced-motion: no-preference)', all: '(min-width: 0px)' }, current => {
         if (!current.conditions?.motion) { restore(); return; }
         const compact = !!current.conditions.compact;
         const fluid = matchMedia('(max-width: 63.999rem), (orientation: portrait), (pointer: coarse)').matches;
@@ -80,7 +84,13 @@ function createPassiveEditorial(root: HTMLElement): () => void {
         let layout: Layout;
         let scrollDistance = 0;
         let cachedWidth = 0, stableHeight = 0;
-        const principleAnimation = createPassivePrinciples(principles);
+        const mobileSlides = !!current.conditions.mobileSlides;
+        const stepped = mobileSlides || new URLSearchParams(location.search).get('passiveStep') === '1';
+        const principleVisuals = stepped ? [principles.querySelector<HTMLElement>('[data-pp-illustration]')!,
+          principles.querySelector<HTMLElement>('.passive-editorial__progress')!] : [principles];
+        const principleCopy = principles.querySelector<HTMLOListElement>('ol')!;
+        const principleAnimation = createPassivePrinciples(principles, stepped, mobileSlides);
+        principleCleanups.add(principleAnimation.dispose);
         const measure = () => {
           const width = root.clientWidth;
           // Mobile browser chrome may change innerHeight. Only genuine width changes
@@ -137,7 +147,7 @@ function createPassiveEditorial(root: HTMLElement): () => void {
         timeline.set(eyebrow, { opacity: 1 }, 0)
           .set(opening, { opacity: 1, pointerEvents: 'auto' }, 0)
           .set(openingTracks, { x: index => index ? -18 : 18, y: 0, opacity: 1 }, 0)
-          .set([architectureHeading, principlesHeading, principles, closing], { opacity: 0, pointerEvents: 'none' }, 0)
+          .set([architectureHeading, principlesHeading, ...principleVisuals, closing], { opacity: 0, pointerEvents: 'none' }, 0)
           .set(architectureTracks, { x: () => layout.width }, 0)
           .set(closingTracks, { yPercent: 100 }, 0)
           .set(photos[0], { opacity: 0, clipPath: clip('peek') }, 0)
@@ -162,21 +172,21 @@ function createPassiveEditorial(root: HTMLElement): () => void {
           .fromTo(positions[0], position('peek', 0), { ...position('architecture', 0), duration: 1.4, immediateRender: false }, 1.05)
           .to(inners[0], { yPercent: -2.8, duration: 1.4, ease: 'none' }, 1.05)
           .to(opening, { opacity: 0, duration: .3 }, 2.1)
-          .to(architectureTracks, { x: () => -layout.width * .7, duration: .8, stagger: .05 }, 2.9)
+          .to(architectureTracks, { x: () => stepped ? compact ? 0 : layout.width * .48 : -layout.width * .7, duration: .8, stagger: .05 }, 2.9)
           .set(architectureHeading, { pointerEvents: 'none' }, 2.9)
-          .to(architectureHeading, { opacity: 0, duration: .4 }, 3.25)
-          .fromTo(photos[0], { clipPath: clip('architecture') }, { clipPath: clip('stamp'), duration: .85, immediateRender: false }, 2.95)
-          .fromTo(positions[0], position('architecture', 0), { ...position('stamp', 0), duration: .85, immediateRender: false }, 2.95)
+          .to(architectureHeading, { opacity: stepped ? 1 : 0, duration: .4 }, 3.25)
+          .fromTo(photos[0], { clipPath: clip('architecture') }, { clipPath: clip(stepped ? 'architecture' : 'stamp'), duration: .85, immediateRender: false }, 2.95)
+          .fromTo(positions[0], position('architecture', 0), { ...position(stepped ? 'architecture' : 'stamp', 0), duration: .85, immediateRender: false }, 2.95)
           .to(inners[0], { yPercent: 0, duration: .85, ease: 'none' }, 2.95)
           .to(principlesHeading, { opacity: 1, duration: .25 }, 3.1)
           .set(principlesHeading, { pointerEvents: 'auto' }, 3.1)
-          .to(principles, { opacity: 1, duration: .3 }, 3.35)
-          .to(photos[0], { opacity: 0, duration: .2 }, 3.8)
+          .to(principleVisuals, { opacity: 1, duration: .3 }, 3.35)
+          .to(photos[0], { opacity: 0, duration: stepped ? .45 : .2 }, stepped ? 2.9 : 3.8)
           .fromTo(principleAnimation.state, { progress: 0 }, { progress: 1, duration: 2.55, ease: 'none', onUpdate: principleAnimation.paint, immediateRender: false }, 3.7)
           .to(photos[1], { opacity: 1, duration: .25 }, 6.65)
           .fromTo(photos[1], { clipPath: clip('rise') }, { clipPath: clip('full'), duration: 1.4, immediateRender: false }, 6.7)
           .fromTo(positions[1], position('rise', 1), { ...position('full', 1), duration: 1.4, immediateRender: false }, 6.7)
-          .to([principlesHeading, principles, photos[0]], { opacity: 0, duration: .55 }, 6.85)
+          .to([principlesHeading, ...principleVisuals, photos[0]], { opacity: 0, duration: .55 }, 6.85)
           .set(principlesHeading, { pointerEvents: 'none' }, 6.85)
           .to(inners[1], { yPercent: -2, duration: 1.4, ease: 'none' }, 6.7)
           .to(eyebrow, { opacity: 0, duration: .35 }, 7.1)
@@ -184,13 +194,26 @@ function createPassiveEditorial(root: HTMLElement): () => void {
           .to(closingTracks, { yPercent: 0, duration: .6, stagger: .08, ease: 'power3.out' }, 7.45)
           .set(closing, { pointerEvents: 'auto' }, 7.9)
           .to(inners[1], { yPercent: 1.5, duration: 1.05, ease: 'none' }, 8.15);
-        labelPassiveCheckpoints(timeline, principleAnimation.state, photos[0]);
+        if (stepped) timeline.set([principles, principleCopy], { opacity: 1 }, 0)
+          .to(principleCopy, { opacity: 0, duration: .55 }, 6.85);
+        labelPassiveCheckpoints(timeline, principleAnimation.state, photos[0], positions[0], architectureTracks);
+        timeline.addLabel('passive-lead-in', .75).addLabel('passive-aerial', timeline.duration());
+        const indicatorPosition = mobileSlides ? createPassiveIndicatorPosition(timeline.labels) : undefined;
+        const paintIndicator = () => {
+          if (indicatorPosition) principleAnimation.paintIndicator(indicatorPosition(timeline.time()));
+        };
+        paintIndicator();
+        if (stepped) timeline.eventCallback('onUpdate', () => {
+          paintIndicator();
+          principleAnimation.rendered();
+        });
         trigger = ScrollTrigger.create({
           id: 'eden-passive-editorial', trigger: root, pin: stage, start: 'top top',
           end: () => `+=${scrollDistance}`,
           animation: timeline, scrub: true, pinSpacing: true, refreshPriority: 2,
           invalidateOnRefresh: true, onRefreshInit: measure,
-          onUpdate: principleAnimation.paint, onRefresh: principleAnimation.paint,
+          onUpdate: principleAnimation.paint,
+          onRefresh: () => { principleAnimation.paint(); paintIndicator(); },
         });
         refresh();
         return () => { restore(); trigger = undefined; refresh(); };

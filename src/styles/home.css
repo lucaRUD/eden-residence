@@ -13,6 +13,35 @@
 .home-page--cinematic :where([id]) { scroll-margin-top: 5.5rem; }
 .home-page--cinematic .story-title { opacity: var(--story-title-opacity, 1); translate: 0 var(--story-title-lift, 0px); }
 .home-page--cinematic .story-scroll { bottom: .5rem; }
+
+@media (max-width: 47.999rem) {
+  /* Keep the controlled compositions clear of the floating bar and cutouts. */
+  [data-home-slides] { --home-slide-top: max(5rem, calc(env(safe-area-inset-top) + 3.625rem)); }
+  [data-home-slides] .cinema-nav-shell { --nav-top: max(20px, env(safe-area-inset-top)); }
+  [data-home-slides] [data-ps-mode='cinematic'] .passive-editorial__architecture {
+    top: max(var(--home-slide-top), 17%);
+  }
+  [data-home-slides] [data-ps-mode='cinematic'] .passive-editorial__principles-heading {
+    top: max(var(--home-slide-top), 17%);
+  }
+}
+
+@media (max-width: 47.999rem) and (max-height: 40rem) {
+  [data-home-slides] [data-ps-mode='cinematic'] .passive-editorial__opening h2 {
+    font-size: clamp(1.5rem, min(9.5vw, 5svh), 2.5rem);
+  }
+  [data-home-slides] [data-ps-mode='cinematic'] .passive-editorial__intro {
+    margin-top: .55rem;
+    line-height: 1.5;
+  }
+  [data-home-slides] [data-ps-mode='cinematic'] .passive-editorial__principle-headline {
+    font-size: clamp(1.5rem, min(8.5vw, 5svh), 2.25rem);
+  }
+  [data-home-slides] [data-ps-mode='cinematic'] .passive-editorial__principle-description {
+    margin-top: .65rem;
+  }
+}
+
 .home-introduction {
   --section-heading: var(--color-brand-green); --section-ink: var(--color-brand-green);
   --context-muted: var(--color-green-muted); --context-accent: var(--color-brand-copper);

@@ -169,6 +169,12 @@ export function createMobileInteriorGallery(root: HTMLElement, scrollDistanceMul
     .to(copies[2], { opacity: 1, duration: .35 }, 8.3)
     .set(copies[2], { pointerEvents: 'auto' }, 8.3)
     .to(images[2], { yPercent: -48, duration: 1.7, ease: 'none' }, 7.5);
+  timeline.addLabel('interiors-intro', .2)
+    .addLabel('living-full', 1.9)
+    .addLabel('living-editorial', 3.8)
+    .addLabel('navy-bedroom', 5.55)
+    .addLabel('neutral-bedroom', 7.28)
+    .addLabel('interiors-exit', timeline.duration());
   trigger = ScrollTrigger.create({
     id: 'eden-interior-gallery', trigger: root, pin: stage, start: 'top top',
     end: () => '+=' + scrollDistance,

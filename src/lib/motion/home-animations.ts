@@ -110,7 +110,7 @@ export function createHomeAnimations(root: HTMLElement, seen: WeakSet<HTMLElemen
       });
       stopJourney = createEdenJourney(root);
       stopDepth = createScrollDepthImages(root);
-      stopSmoothScroll = createSmoothScroll();
+      stopSmoothScroll = createSmoothScroll(root);
     });
 
     root.addEventListener('focusin', (event) => {

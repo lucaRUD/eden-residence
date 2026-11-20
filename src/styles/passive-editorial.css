@@ -137,6 +137,23 @@
 @media (prefers-reduced-motion: reduce) {
   .passive-editorial__photo-position, .passive-editorial__photo-inner, .passive-editorial__opening-image { transform: none !important; will-change: auto !important; }
 }
+/* Flagged whole-copy mode: all five blocks share a grid cell, reserving the
+   longest translation's height while only the rendered scene is exposed. */
+.passive-editorial[data-ps-mode='cinematic'] [data-pp-text='whole'] { z-index: auto; }
+.passive-editorial[data-ps-mode='cinematic'] [data-pp-text='whole'] .passive-editorial__illustration,
+.passive-editorial[data-ps-mode='cinematic'] [data-pp-text='whole'] .passive-editorial__progress { z-index: 3; }
+.passive-editorial[data-ps-mode='cinematic'] [data-pp-text='whole'] ol {
+  z-index: 7;
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  inset: auto; top: 31%; left: 54%; right: var(--ps-gutter);
+}
+.passive-editorial[data-ps-mode='cinematic'] [data-pp-text='whole'] li {
+  position: relative; grid-area: 1 / 1; inset: auto;
+}
+.passive-editorial[data-ps-mode='cinematic'] [data-pp-text='whole'] .passive-editorial__principle-mask { overflow: visible; }
+@media (max-width: 47.999rem), (orientation: portrait) {
+  .passive-editorial[data-ps-mode='cinematic'] [data-pp-text='whole'] ol { top: 57%; left: var(--ps-gutter); }
+}
 @media (forced-colors: active) {
   .passive-editorial { background: Canvas; color: CanvasText; }
 }
